@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+	    <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.js"></script>
+	    <script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/kinetic.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			<!-- End nav -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum circuitsSequential1"></span>
+			</p>
+
+
+			<p>
+				<span>An R-S flip-flop can be constructed from two interconnected</span> <span class="Ital">nor</span> <span>gates. <span class="figNum channeltwo"></span> illustrates such an R-S flip-flop. As discussed in <span class="contentNum circuitsFundamentals4"></span>, a</span> <span class="Ital">nor</span> <span>is simply an</span> <span class="Ital">or</span> <span>gate followed by a</span> <span class="Ital">not</span> <span>gate. For clarity, <span class="figNum channeltwo"></span> shows the two</span> <span class="Ital">nor</span> <span>gates of the flip-flop as having been decomposed into their underlying</span> <span class="Ital">or</span> <span>and</span> <span class="Ital">not</span> <span>gates.</span>
+			</p>
+
+			<img src="images/channeltwo.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum channeltwo"></span> R-S Flip-flop
+			</p>
+
+			<img src="images/channelthree.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum channelthree"></span> An R-S flip-flop holding a “1”
+			</p>
+
+			<p>
+				R-S flip-flops have two inputs and two outputs. The inputs are usually labeled R for “Reset” and S for “Set”. The outputs are traditionally labeled Q and Q, or “not Q”. Q is the complement, or opposite, of Q, so if Q is “1” then Q should be “0”, and vice versa.
+			</p>
+
+			<p>
+				The Q output of the flip-flop determines its state. In other words, examining the Q output is the same as seeing what is stored in the bit. The state can be a binary “1” (Set) or a binary “0” (Reset). When a flip-flop like the R-S is in one of its states (Set or Reset), it will remain unchanged until an appropriate signal or pulse is applied to one of its input lines. The ability of a flip-flop to hold the Q output constant until a signal is given to change the value of Q is why flip-flops are considered basic memory devices.
+			</p>
+
+			<p>
+				We begin our detailed analysis of the R-S flip-flop assuming that Q is initially high (“1”), and both R and S are low (“0”), as shown in <span class="figNum channelthree"></span>. Since both of the inputs to the top <span class="Ital">or</span> <span>gate are low, its output is low, and the output of the top</span> <span class="Ital">not</span> <span>gate (the Q signal) is high. This high output is fed back into the input of the bottom</span> <span class="Ital">or</span> <span>gate making its output</span> <span>high and the output of the</span> <span class="Ital">not</span>gate (the Q signal) low. This is a stable circuit. While R and S remain low, Q will remain high and Q low. The bit is thus holding a “1”.
+			</p>
+
+			<p>
+				If we apply a “1” to the R (reset) input, in order to place a “0” into the bit, the following events occur. The output of the top <span class="Ital">nor</span> <span>gate (the Q signal) goes low, this is fed back to the input of the bottom</span> <span class="Ital">nor</span> <span>gate, which causes its output (the Q signal) to go high. This signal is fed back to the top</span> <span class="Ital">nor</span>gate, but since it already has another high input there is no change in the output – it remains low. This is a stable circuit, as shown in <span class="figNum rsflipflop"></span>. The flip-flop has been reset to “0”.
+			</p>
+
+			<img src="images/rsflipflop.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum rsflipflop"></span> An R-S flip-flop reset to “0”
+			</p>
+
+			<p>
+				If the reset signal is removed (set to low), the flip-flop remains in the reset, “0”, state since there is still a “1” input to the top <span class="Ital">nor</span> gate from the Q input. This is shown in <span class="figNum rsflipflopone"></span>. Note that this is exactly the behavior we desire. In order for the flip-flop to be useful, it must be able to “remember” that it has been reset to “0” even after the reset signal is removed.
+			</p>
+
+			<p>
+				<span>Now we apply a high signal to the S (set) input, in order to set the bit to “1”. This action causes the following events to occur. The output of the bottom</span> <span class="Ital">nor</span> <span>gate becomes 0 since one of its inputs is now high. This low signal is applied as an input to the top</span> <span class="Ital">nor</span> <span>gate, where the R input is also low. The output of the top</span> <span class="Ital">nor</span> <span>is forced high, and this high output is fed back into the bottom</span> <span class="Ital">nor</span> <span>gate, which does not change its state since its other input was already high. The flip-flop has been set to “1”, as can be seen in <span class="figNum rsflipflopreset"></span>.</span>
+			</p>
+
+			<img src="images/rsflipflopone.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum rsflipflopone"></span> An R-S flip-flop holding a “0”
+			</p>
+			
+			<img src="images/rsflipflopreset.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum rsflipflopreset"></span> An R-S flip-flop set to “1”
+			</p>
+
+			<p>
+				<span>Next, we remove the set signal. In other words, we put the S input back to low. This action does not change the output of the bottom</span> <span class="Ital">nor</span> <span>gate since its other input is already high and the circuit remains in the set state, as shown in <span class="figNum rsflipflopzero"></span>. Thus, once an R-S flip-flop receives a pulse, or “1”, down its set line, it will continue to hold that “1” until a reset signal (“1” down the reset line) is received. </span>
+			</p>
+
+			<p>
+				<span>Notice that state of the flip-flop shown in <span class="figNum rsflipflopzero"></span> is identical to its original state given in <span class="figNum channelthree"></span>. They both represent the flip-flop in its “1” state, with “0” on both input lines. Comparing <span class="figNum rsflipflopone"></span> and <span class="figNum rsflipflopzero"></span> illustrates another feature of flip-flops. That is that the value output by the circuit is</span> <span class="Ital">not</span> <span>solely dependent on its current inputs. When the R and S inputs are both low, “0”, the value output on the Q line depends on whether the most recent high, “1”, input was on the set line or the reset line. <span class="figNum rsflipflopone"></span> shows the circuit outputting a “0” on Q, because the most recent input</span> <span>operation was “reset”. <span class="figNum rsflipflopzero"></span> shows the circuit outputting a “1”, because the most recent input operation was “set”.</span>
+			</p>
+
+			<img src="images/rsflipflopzero.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum rsflipflopzero"></span> An R-S flip-flop holding a “1”
+			</p>
+			
+			<img src="images/rsflipflopsetone.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum rsflipflopsetone"></span> An R-S flip-flop in a stable but invalid state
+			</p>
+
+			<p>
+				There is one other possible configuration of inputs we have not yet considered. What happens if both the R and S inputs are set to high at the same time – corresponding to an attempt to simultaneously store both a “0” and a “1” into a single bit? &nbsp;This is pictured in <span class="figNum rsflipflopsetone"></span>. The outputs do remain constant, but the R-S flip-flop is not in a valid state because Q and Q have identical values, yet they are always supposed to be the opposite of one another.
+			</p>
+
+			<p>
+				We conclude this introduction to the R-S flip-flop with its truth table.
+			</p>
+
+			<img src="images/fig12-rsflipfloptable.png" alt="" class="ImageTall">
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum circuitsSequential1"></span>
+			</p>
+
+			<ol>
+				<li>
+					<p>
+						Having the R and S values both be “1” at the same time <span>creates an “undesirable” state for the R-S flip-flop. What combinational circuit would help us test whether the inputs to the R-S flip-flop are “desirable” or “undesirable”?</span>&nbsp;
+					</p>
+				</li>
+			</ol>
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "circuits";
+				var sectID = "circuitsSequential1";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage(sectID);				// get arrow paths
+
+					if (!localFlag) runGA();
+				});
+			</script>
+	</body>
+</html>

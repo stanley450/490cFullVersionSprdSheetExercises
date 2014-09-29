@@ -1,0 +1,111 @@
+/*syntax highlighting stuff*/
+.code{
+	color: #000000;
+}
+
+.keyword{
+	color: #0000FF;
+}
+
+.literal{
+	color: #A52A2A;
+}
+
+.comment{
+	color: #007500;
+}
+
+.datatype{
+	color: #940055;
+}
+
+.noHighlighting{
+	color: #000000;
+}
+
+.selected{
+	color: #FF0000;
+	font-weight: bold;
+}
+
+/*general table stuff*/
+.textArea{
+	/*min-height: 200px;
+	max-height: 300px;
+	width:98%;*/
+	height: 100%;
+	/*width: 100%;*/
+	border-style: ridge;
+	margin:auto auto;
+	font-family:monospace;
+	font-size: 100%;
+	overflow: auto;
+}
+
+.savePopup{
+	position: absolute;
+	right: 0;
+   	background-color: #DDDDDD;
+	display: none;
+	font-family: arial;
+}
+
+.codeTable{
+	overflow-y: hidden;
+	display: inline;
+	height: 100%;
+	width: 100%;
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+	float: left;
+}
+/*
+table {
+}*/
+td {
+	border:none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+	white-space: nowrap;
+}
+.codeContainer{
+	overflow: auto;
+	position: relative;
+}
+
+/*insert bar stuff*/
+.insertDiv {
+	width: 18px;
+	/*height: 400px;*/
+	float: left;
+	position: relative;
+	border-right: 1px solid black;
+	display: inline-block;
+}
+
+.offsetDiv {
+	width: 14px;
+	height: 11px;
+}
+
+.insertTable {
+	width: 14px;
+	/*font-size: 14px;*/
+	float: left;
+	border-color: black;
+}
+
+.insert{
+	/*font-size: 11px;*/
+}
+
+.divider {
+	/*height: 400px;*/
+	border: 1px solid grey;
+	/*position: absolute;*/
+	float: left;
+	/*left: 480px;*/
+}

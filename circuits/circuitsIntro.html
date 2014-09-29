@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	  <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	  <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			<!-- End nav -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum circuitsIntro"></span>
+			</p>
+			
+			<p>
+				In the previous chapter we saw how high-level programs can be translated into assembly language and from there be expressed in a machine language of 1’s and 0’s. We also looked at the physical characteristics of simple register-based machines, concentrating on how CPU registers and main memory storage locations could be manipulated by the various machine language instructions.
+			</p>
+
+			<p>
+				This chapter examines how computer hardware can be constructed. While the details necessary to build a complete computer – even one as simple as the Watson Virtual Machine – are beyond the scope of this book, this chapter illustrates how many of the basic components of a computer, such as the addition unit and comparison circuitry, can be constructed. Surprisingly, as we will see, digital computers are based on just three simple logic circuits, or “gates” as they are called. These gates: <span class="Ital">and</span>, <span class="Ital">or</span>, and <span class="Ital">not</span>, can be interconnected in various ways to form all of the major functional components of a computer.
+			</p>
+
+			<p>
+				<span class="contentNum circuitsFundamentals"></span> presents the fundamentals of digital logic. First, the idea of two-state devices is introduced using simple electrical circuits. The behavior of these circuits is then generalized to logic gates, which are, in turn, represented using Boolean expressions. The section concludes with a discussion of several simple circuits and their corresponding gate representations.
+			</p>
+
+			<p>
+				<span class="contentNum circuitsCombinatorial"></span> is concerned with the design of combinational circuits. Combinational circuits are constructed by interconnecting the logic gates of <span class="contentNum circuitsFundamentals"></span> in various ways.
+			</p>
+
+			<p>
+				<span class="contentNum circuitsSequential"></span> presents another class of circuits that are also constructed from the basic logic gates. This class, called the sequential circuits, differs from combinational circuits in that they support feedback. In other words, one or more of the outputs of a sequential circuit can be fed back to that circuit as input.
+			</p>
+
+			<p>
+				<span class="contentNum circuitsMicrocomputer"></span> illustrates how some of the basic components of a computer, such as main memory and portions of the Arithmetic / Logic Unit (ALU), can be implemented using the combinational and sequential circuits of <span class="contentNum circuitsCombinatorial"></span> and <span class="contentNum circuitsSequential"></span>.
+			</p>
+
+
+			<!-- End main content -->
+			
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "circuits";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("circuitsIntro");		// get arrow paths
+					chapObj = getCurrChapter("circuits");
+
+					if (!localFlag) runGA();
+				});	
+				
+			</script>
+	</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		 	<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/visibility.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyMachine3"></span>
+			</p>
+			
+			<p>
+				We now address the final piece of the puzzle concerning machine language programs by illustrating how the machine actually goes about executing a program. At the machine level, all a computer ever does is perform the following task, known as the instruction cycle, over and over.  
+			</p>
+			
+			<p>
+				The <span class="Ital">instruction cycle</span> consists of five steps:
+			</p>
+			
+			<ol>
+				<li>
+					Fetch the next instruction from memory.  To do so, load into the instruction register the bit pattern found at the address held in the program counter.
+				</li>
+				<br/>
+				<li>
+					Increment the program counter by one so that it points to the next instruction in the current sequence. 
+				</li>
+				<br/>
+				<li>
+					Decode the current instruction.  This involves correctly identifying the various parts of an instruction based on its op-code.
+				</li>
+				<br/>
+				<li>
+					Execute the instruction.  Operand values are routed to the appropriate arithmetic and logic hardware.  Results are computed and routed to their appropriate destinations.  Appropriate destinations include the general-purpose registers, special purpose registers such as the program counter (in the case of <span class="Subfigure">BRANCH</span> and <span class="Subfigure">JUMP</span>instructions) and main memory.
+				</li>
+				<br/>
+				<li>
+					Return to Step 1.
+				</li>
+			</ol>
+			
+			<p>
+				That’s all a computer ever does.
+			</p>
+			
+			<p>
+				To execute the program of <span class="figNum andornot"></span> a three (0000 0011<span class="Subscript">two</span>) must first be loaded into the Watson Virtual Machine program counter.  The reason for this is that the first executable instruction of the program is located at memory address three.
+			</p>
+			
+			<p>
+				As the program runs, the machine will faithfully execute the instruction cycle.  First, the instruction “0001 1101 0000 0001” will be loaded into the instruction register.  The program counter will then be incremented from three to four.  Next, the instruction is decoded to mean “load into register D the value stored at memory location one”.  The value at location one will then be loaded into register D.  Since location one was initialized to a two as part of the construction of the program’s data segment, that value will be copied into register D.  Having completed the execution of the current instruction, the machine will return to step one of the instruction cycle.
+			</p>
+			
+			<p>
+				At this point, the Watson Virtual Machine copies into the instruction register the statement held at memory location four.  The program counter is then incremented to five, so that it points to the next instruction in the current sequence.  The contents of the instruction register “0001 1110 0000 0010” are then decoded to mean “load into register E the value stored at memory location two”.  This instruction is then executed – placing the value three into register E.  Next, the machine returns to the first step in the instruction cycle.
+			</p>
+			
+			<p>
+				The instruction cycle repeats itself on statement after statement, until a <span class="Subfigure">HALT</span> instruction is executed (or the instruction cycle is interrupted by outside influences – such as someone hitting the reset button or tripping over the power cord).
+			</p>
+			
+			<p>
+				And so, that’s it.  We have arrived at the bare machine that lies underneath the many layers of software.  There is no magic.  No smoke and mirrors.  Just a simple – but very fast – machine running through the instruction cycle over and over, tens or hundreds of millions of times each second. 
+			</p>
+			
+			<p class="Section">
+				Exercises for <span class="contentNum assemblyMachine3"></span>
+			</p>
+			
+			<ol id="exerciseList">
+				<li>
+					Translate the program of <span class="figNum assemblydec"></span> from the assembly language level to the machine language level.
+				<br/>
+				</li>
+				<li>
+					Trace through the program of <span class="figNum assemblydec"></span> outlining the actions taken during each pass through the instruction cycle.  Be sure to clearly indicate any changes made to the values held in registers or main memory locations.
+				<br/>
+				</li>
+				<li>
+					Translate the program of <span class="figNum minorcode"></span> from the assembly language level to the machine language level.
+					<br/>
+				</li>
+				<li>
+					<div class="exercise solvable 11">
+						Given the following machine language program, reassemble it into a Watson assembly language program.  Note that the program is assumed to be stored at the top of memory, beginning in location zero, and the first executable statement occurs on the <span class="Ital">second</span> line of code.
+						<br/>
+						<br/>
+						<img src="images/ex11-5-num4.png" alt="" class="Image">
+					</div>
+					
+					<div class="exerciseDiv 11"></div>
+					
+				<br/>
+				</li>
+				<li>
+					Describe what the program of problem 4 does.  Do so using a single English sentence that even your grandmother could understand.
+				</li>
+			</ol>
+			
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+				var sectID = "assemblyMachine3";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage(sectID);		// get arrow paths
+					setupExerciseButtons(sectID);
+					if (!localFlag) runGA();
+				});	
+			</script>
+		
+	</body>
+</html>

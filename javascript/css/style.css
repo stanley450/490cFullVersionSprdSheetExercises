@@ -1,0 +1,220 @@
+body {
+   font-size: 87.5%;
+   font-family: Courier New, 'Lucida Sans Unicode';
+}
+
+#body {
+   margin:0 auto;
+   /*max-width: 720px;*/
+}
+
+#codeTitle {
+   padding-top: 0px;
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+
+.codeAndButtons{
+	/*overflow: hidden;*/
+}
+
+.programCode {
+   /*width: 35%;
+   height: 368px;*/
+   /*float: left;*/
+   /*overflow: auto;*/
+   /*clear: left;*/
+   /*border: 1px solid black;*/
+   margin-bottom: 5px;
+   /*the height for this element is set in controller.js to be the same as #buttons*/
+}
+
+#insertDiv {
+   width: 15px;
+   height: 368px;
+   float: left;
+}
+
+#offsetDiv {
+   width: auto;
+   /*height: 1.5%;*/
+   overflow: auto;
+}
+
+#insertTable {
+   width: 1px;
+   font-size: 14px;
+   float: left;
+   border-collapse: collapse;
+   padding: 0px;
+   margin: 0px;
+}
+
+button[type=button] {
+	width: 9em;
+	height: 2.2em;
+	-webkit-appearance: button;
+	-webkit-writing-mode: horizontal-tb;
+	align-items: flex-start;
+	background-color: rgb(221, 221, 221);
+	border-bottom-color: rgb(221, 221, 221);
+	border-bottom-style: outset;
+	border-bottom-width: 2px;
+	border-image-outset: 0px;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-left-color: rgb(221, 221, 221);
+	border-left-style: outset;
+	border-left-width: 2px;
+	border-right-color: rgb(221, 221, 221);
+	border-right-style: outset;
+	border-right-width: 2px;
+	border-top-color: rgb(221, 221, 221);
+	border-top-style: outset;
+	border-top-width: 2px;
+	box-sizing: border-box;
+	color: rgb(0, 0, 0);
+	cursor: default;
+	display: inline-block;
+	font-family: Arial;
+	letter-spacing: normal;
+	line-height: normal;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	padding-bottom: 1px;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-top: 1px;
+	text-align: center;
+	text-indent: 0px;
+	text-shadow: none;
+	text-transform: none;
+	word-spacing: 0px;
+	writing-mode: lr-tb;
+}
+
+#buttons {
+   margin-left: 5px;
+   margin-right: 5px;
+   padding-left: 0.2%;
+   width: auto;
+   height: auto;
+   float: right;
+   /*overflow: auto;*/
+   /*margin: 0 0;*/
+}
+
+#varTitle {
+   clear: left;
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+
+.outterDiv {
+   /*width: 35%;*/
+   clear: both;
+   margin-bottom: 15px;
+}
+
+#outTitle {
+   clear: left;
+   margin-bottom: 0px;
+}
+
+#outputBox {
+   /*width: auto;
+   height: 100px;*/
+   clear: left;
+}
+
+#runWalk {
+   padding-top: 10px;
+   /*width: 35%;*/
+   /*overflow: auto;*/
+   margin: 0 0; 
+}
+
+table {
+   border: none;
+   border-collapse:collapse;
+   padding: 0px;
+   margin: 0px;
+}
+
+td {
+   border:none;
+   border-collapse:collapse;
+   padding: 0px;
+   margin: 0px;
+}
+.innerTable {
+   /*overflow: scroll;*/
+   border: none;
+   border-collapse:collapse;
+   padding: 0px;
+   margin: 0px;
+}
+
+.varDiv {
+   margin-top: 5px;
+	overflow:auto;
+    /*width: auto;*/
+	height: 100px;
+    resize: none;
+	border: 1px solid black;
+}
+
+.varHeader{
+	font-weight: bold;
+}
+
+.normal {
+	border-spacing: 15px 1px;
+	border-collapse: separate;
+}
+
+/** For ipad and ipad mini **/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  {
+   /* STYLES GO HERE */
+   #programCode { width: 70%; height: 400px;}
+   #insertDiv {height: 400px; }
+   .outterDiv { width: 70%; }
+   #runWalk { width: 70%; }
+}
+
+/** iphone 2-4s/ smartphones **/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+   /* STYLES GO HERE */
+   #programCode { width: 70%; height: 400px;}
+   #insertDiv {height: 400px; }
+   .outterDiv { width: 70%; }
+   #runWalk { width: 70%; }
+}
+
+/** iphone 5 **/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+   /* STYLES GO HERE */
+   #programCode { width: 70%; height: 400px;}
+   #insertDiv {height: 400px; }
+   .outterDiv { width: 70%; }
+   #runWalk { width: 70%; }   
+}
+
+/** Samsung Galaxy S3 in portrait **/
+@media only screen and (-webkit-device-pixel-ratio: 2) {
+   /* YOUR STYLE GOES HERE */
+   #programCode { width: 70%; height: 400px; }
+   #insertDiv { height: 400px; }
+   .outterDiv { width: 70%; }
+   #runWalk { width: 70%; }
+}

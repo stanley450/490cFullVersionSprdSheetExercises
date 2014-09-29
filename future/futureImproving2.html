@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->			
+			<!-- CHAPTER 15:THE PAST, PRESENT, AND FUTURE OF COMPUTING -->
+
+			<p class="Section">
+				<span class="contentNum futureImproving2"></span>
+			</p>
+
+			<p>
+				<span class="Bolded">Optical computing</span>, also known as <span class="Bolded">photonic computing</span>, focuses on constructing computing systems that use light (i.e., photons) instead of electricity (i.e., electrons) to carry out data transport and logic operations.
+			</p>
+
+			<p>
+				Our present computing and communications infrastructure is a hybrid of electronic and photonic components. Most high-speed, long-distance data and voice traffic is conducted over fiber optic cables, which transmit their data as pulses of light. Many high-speed local area networks use fiber optics as well – for example to move data between buildings on a college campus. Data manipulation, as opposed to data transport however, happens in the electronic domain. Thus, data must be continuously translated between the optical and electronic domains as it is shuffled from network to network. Unfortunately, electronics operate at speeds that are orders of magnitude slower than optics.
+			</p>
+
+			<p>
+				An analogy of the state of today’s current data and communications networks that I find useful is to imagine the Interstate highway system which enables rapid and efficient vehicle transport between major cities – these Interstate highways are like the long distance fiber optic links in our networks. Now, imagine that instead of having freeway interchanges with their arching on and off ramps in major cities where Interstates meet, all our cities had only dirt paths for roads. If you were traveling across country by car travel time between cities wouldn’t be a big deal, but passing through intermediate cities on your way to your final destination would be excruciating slow and painful. These dirt paths inside the cities are like the routers and switches, electronic devices, used to move data from one fiber optic cable to another
+			</p>
+
+			<p>
+				There is a lot of work going on in academia and corporate research labs to construct the basic building blocks of optical computers, such as photonic transistors. Optical computing promises many advantages over electronic computing, such as much faster speeds, smaller devices, and less power consumption. However, the obstacles to fully realizing optical computing are formidable.
+			</p>
+
+			<p>
+				Though all optical computing is probably several decades away – if it ever proves practical at all – hybrid electronic / photonic devices are a near term likelihood. IBM and Intel (among others) are working on <span class="Bolded">silicon photonics</span>, a technology that integrates both electronic and optical components onto a single silicon chip which can be manufactured using existing semi-conductor fabrication techniques. The underlying concept is that the individual components of a computer system, (e.g., the CPU and main memory) could exchange data between themselves optically rather than electronically. While the ‘computing’ would still be conducted in the electronic domain, data transport functions within the computer would move to the optical domain. The result would be systems that operate much faster than conventional electronics while using less power. It is anticipated that these hybrid systems will initially be used for data transport between individual integrated circuit chips, migrating over time to moving data between different regions of the same chip. In December 2012, IBM announced the first commercially viable silicon photonic chip.<span class="Footnote" title="Footnote: "><a href="#ftn9" id="body_ftn9">[9]</a></span> Expect to see this technology roll out in the 2015 – 2020 timeframe, first in supercomputers and later in consumer devices.
+			</p>
+			
+			<!-- End main content -->
+			<hr />
+			<!-- Footnotes -->
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a href="#body_ftn9" id="ftn9">[9]</a>&nbsp;<a href="http://www-03.ibm.com/press/us/en/pressrelease/39641.wss">http://www-03.ibm.com/press/us/en/pressrelease/39641.wss</a>
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "future";
+
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("futureImproving2");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

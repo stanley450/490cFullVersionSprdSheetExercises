@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../lib/js/nav.js"></script>
+			<script type="text/javascript" src="../lib/js/master.js"></script> 
+			<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+			<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+			<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+    	<div class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum algorithmsSearching2"></span>
+			</p>
+	
+			<p>
+				<span class="Bolded">Binary search </span> is another approach to the search problem.  It is much more efficient than sequential search, but requires that the search list be presorted.  Essentially, <span class="Bolded">binary search</span> begins by jumping to the midpoint of the search list and comparing the item it finds there to the target item it is searching for.  Consider the result of this comparison.  Clearly, if the target item is the same as the middle item, then the algorithm has found the item it was looking for and can print the “Yes, found it.” message and halt.  Let’s say that the middle item is smaller than the target item.  Since the search list was presorted, if the target item occurs anywhere in the list, it must be after the midpoint.  Hence, the first half of the list – everything up to and including the middle item – can be safely discarded without an exhaustive examination of each of the items in that portion of the list.  If the middle item had been larger than the target, then the target could only occur in the first half of the list.  The second half of the list – the middle item and everything after it – could be dropped.
+			</p>
+
+			<p>
+				After performing this first step, the current list would be half the size of the original list.  But, what should be done next?  The answer is to repeat this process on the new list: select the middle item of the new list, compare it to the target item, and if it does not match discard half the items in that list.  This process may be repeated until either: (1) the target item is found, or (2) the list of remaining items is empty.  After the second step, if the target item is in the list but has not yet been found, its location will have been narrowed to a list that is ¼ the size of the original list.  After three steps the list is only 1/8 the original size.
+			</p>
+
+			<p>
+				The binary search algorithm is presented formally in <span class="figNum binarysearch"></span>.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">1.  If the list is empty (has no items) then</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">1.1  Print “No, did not find it”</span></li>
+					<li><span class="Subfigure">1.2  Halt (quit looking)</span></li>
+				</ul>
+				<li><span class="Subfigure">2.  Let the current item be the item in the middle of the list</span></li>
+				<li><span class="Subfigure">3.  If the current item is the same as the target item then</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">3.1  Print “Yes, found it”</span></li>
+					<li><span class="Subfigure">3.2  Halt (quit looking)</span></li>
+				</ul>
+				<li><span class="Subfigure">4.  If the current item is larger than the target item then </span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">repeat this entire procedure on the first half of the list</span></li>
+					<li><span class="Subfigure">-- the items up to, but not including, the middle item</span></li>
+				</ul>
+				<li><span class="Subfigure">5.  If the current item is smaller than the target item then </span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">repeat this entire procedure on the second half of the list</span></li>
+					<li><span class="Subfigure">-- the items following, but not including, the middle item</span></li>
+				</ul>
+			</ul>
+			<br/>
+			<p class="Figure">
+				<span class="figNum binarysearch"></span>  Binary search
+			</p>
+
+			<p>
+				Binary search depends on being able to quickly determine which item is in the middle of the list of remaining items.  If the number of items in the list is odd, then there is a well-defined middle item.  If the list is composed of an even number of items, then there is no item in the exact middle of the list.  In this case, the very next item following the midpoint (which falls between items) is chosen as the “middle” item.  The process of determining the position of the “middle” item in a list of <span class="Ital">N</span><span class="T2"> items can be expressed mathematically as:</span>
+			</p>
+			
+			<p class="Subfigure">
+				<span class="Ital">position of middle item</span>  =  &#x230a;<span class="Ital">N</span>/2&#x230b;+1
+			</p>
+
+			<p>
+				where &#x230a;&#x230b;, read “floor”, means that fractions should be dropped.  When <span class="Ital">N</span> = 7, position 4 would be designated as the “middle” position.
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure"><span class="Ital">position of middle item</span>  =  &#x230a;<span class="Ital">N</span>/2&#x230b;+1</span></li>
+				<ul class="Blockcenter">
+					<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  &#x230a;7/2&#x230b;+1</span></li>
+					<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  &#x230a;3.5&#x230b;+1</span></li>
+					<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  3 + 1  </span></li>
+					<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  4</span></li>
+				</ul>
+			</ul>
+
+			<p>
+				With an <span class="Ital">N</span> of 8, position 5 would be designated as the “middle” position.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure"><span class="Ital">position of middle item</span>  =  &#x230a;<span class="Ital">N</span>/2&#x230b;+1</span></li>
+				<ul class="Blockcenter">
+					<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  &#x230a;8/2&#x230b;+1</span></li>
+					<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  &#x230a;4.0&#x230b;+1</span></li>
+					<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  4 + 1  </span></li>
+					<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  5</span></li>
+				</ul>
+			</ul>
+
+			<p>
+				<span class="figNum binaryten"></span> illustrates two examples of binary search on a seven item list – one successful, the other unsuccessful.  Note that in either case, only three comparisons were required to determine whether the target item was in the original seven item list.  In fact, no more than three comparisons will ever be needed in a binary search of a seven item list.  A sequential search of a seven item list requires 3.5 comparisons, on average, for successful searches and 7 comparisons for unsuccessful searches.<span class="Footnote" title="Footnote: It is, of course, impossible to perform 3.5 comparison operations, or any other non whole number of comparisons. However, when computing an average, fractions are often produced."><a href="#ftn3" id="body_ftn3">[3]</a></span>
+			</p>
+
+			<p>
+				Of course, these numbers don’t tell the whole story.  Before a comparison between the target item and a list item can be performed, the list item must be selected.  In sequential search this amounted to simply selecting the next item in the list (adding one to the current position).  As we saw in the previous paragraph, the process of selecting the “middle” item for binary search is more complicated.  As one would expect, a computer will require more time to perform the “middle” item position calculation for binary search as compared to the next item position calculation for sequential search.  So, in reality, binary search might actually take longer than sequential search on a list of seven items.
+			</p>
+			
+			<img src="images/binary10.png" alt="Successful binary search for the value 10" class="Image">
+
+			<p class="Figure">
+				(a) Successful binary search for the value 10
+			</p>
+			
+			<img src="images/binary55.png" alt="Unsuccessful binary search for the value 55" class="Image">
+
+			<p class="Figure">
+				(b) Unsuccessful binary search for the value 55
+			</p>
+
+			<p class="Figure">
+				<span class="figNum binaryten"></span> Two examples of binary search
+			</p>
+			
+			<p>
+				The true advantage of binary search over sequential search can really only be seen on large problem sizes.  <span class="figNum binarycount"></span> shows that at most only 14 comparisons would be necessary to perform a binary search of a 10,000 item list.  This is a worst case result – at every point the target item is assumed not to match the current “middle” item.  Also, whenever the two “halves” of the list were not exactly the same size (remember, they can differ by one item), the larger portion was selected.  
+			</p>
+
+			<p>
+				So, how does binary search compare to sequential search?  As stated earlier, a sequential search of a 10,000 item list requires, on average 5,000 comparisons to find an item that is in the list, and 10,000 comparisons to determine that an item is not present in the list.  A binary search of 10,000 items requires at most 14 comparisons.  Thus, in terms of the number of comparisons, binary search is much more efficient than sequential search.  However, in order to use the binary search approach, the items must be presorted.
+			</p>
+
+			<p>
+				The actual amount of time required by any search algorithm depends on both the number of comparisons it performs and the amount of time needed to perform each comparison.  A comparison operation in binary search may take longer than a comparison operation in sequential search since the location of the middle item must be determined.  For the purpose of discussion, let’s say that the process of selecting the middle item in binary search takes 100 times as long as finding the next item in sequential search.  In reality, a binary search comparison does not take anywhere near that long, but in the following analysis – which will show binary search to be more efficient than sequential search – we want to err on the side of caution.  
+			</p>
+
+			<img src="images/binarycount.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum binarycount"></span>  Number of comparisons in a binary search of a 10,000 item list (worst case)
+			</p>
+
+			<p>
+				We are purposefully “handicapping” binary search, so that when our analysis is complete no one can claim that we “cooked the books” to make binary search look better than it really is by failing to take into account the overhead involved with finding the middle item.  These kinds of “conservative” assumptions are often made when analyzing the efficiency of a proposed algorithm.
+			</p>
+
+			<p>
+				Assuming binary search comparisons take 100 times as long as sequential search comparisons, a single comparison would require 1/10 of a second – if we used the same “antique” computer that was employed in our analysis of sequential search.  This is 100 times longer than the 1/1,000 second required for each comparison in sequential search.  Given that at most 14 binary search comparisons are required to search 10,000 items, the search will take no more than 1.4 seconds on this computer, compared to an average of 5 seconds for a successful sequential search and 10 seconds for an unsuccessful search.
+			</p>
+
+			<p>
+				When we consider larger lists, such as a search through 300 million social security records, the performance of binary search becomes even more impressive.  Earlier, we computed that sequential search would require about 42 hours to retrieve a social security record, given a valid social security number, and over 83 hours (3 &frac12; days) to determine that an input number was not valid – assuming one comparison every 1/1,000 of a second.  Binary search could perform the same search in under 3 seconds – assuming one comparison every 1/10 of a second.  This amazing result follows from the fact that each comparison eliminates one half of the items that remain to be searched.  Thus, even with the “handicap” of making comparisons take 100 times longer in binary searches than in sequential searches, the superiority of binary search on large lists is still readily apparent.
+			</p>
+			
+			<img src="images/seqvsbinary.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum seqvsbinary"></span>  A comparison of the predicted runtimes of sequential and binary search
+			</p>
+
+			<p>
+				The maximum number of comparisons required to perform a binary search of <span class="Ital">N</span> items can be expressed mathematically as:
+			</p>
+			
+			<p class="Subfigure">
+				<span class="Ital">Maximum number of binary search comparisons</span>  =  &#x2308;log<span class="Subscript">2</span>(<span class="Ital">N</span>+1)&#x2309;
+			</p>
+
+			<p>
+				where &#x2308;&#x2309;, read “ceiling”, means that fractions should be increased to the next highest whole number, and log<span class="Subscript">2</span>(<span class="Ital">N</span>+1) is the power that 2 must be raised to in order to equal (<span class="Ital">N</span>+1).  You should convince yourself that this formula is correct by working through the binary search algorithm on a number of small examples in order to establish how many comparisons are actually needed, and then check that number with the formula.  Note that the formula even works in the case of a list with zero items.
+			</p>
+
+			<p>
+				Using this equation, it is possible to predict that a binary search of a 1,000 item list will require, at most 10 comparisons.  This is because log<span class="Subscript">2</span>(1,001) is nine point something [2<span class="Superscript">10</span> = 1,024 making log<span class="Subscript">2</span>(1,024) = 10], and the ceiling function raises this result to the next highest whole number, 10.  Similarly, a list that is 40 items long will require, at most 6 comparisons, because log<span class="Subscript">2</span> (41) is five point something [2<span class="Superscript"> 5</span> = 32 and 2<span class="Superscript"> 6</span> = 64].
+			</p>
+
+			<p>
+				<span class="figNum seqvsbinary"></span> contains a graphical comparison of the runtimes of sequential search and binary search, given the assumptions concerning comparison times discussed above.  The runtime of sequential search appears as a straight line with a constant slope.  For this reason, sequential search is known as a linear algorithm.  Binary search appears as a curve with a slope that grows ever more shallow with increasing problem size, and is known as a logarithmic algorithm.  In general, logarithmic algorithms are preferred over linear algorithms, since they tend to run faster on large problems.
+			</p>
+
+			<p>
+				In spite of the fact that we assumed a comparison would require 100 times as long in binary search as in sequential search, the binary search algorithm is still clearly more efficient for searching large lists.  One way of understanding why this is true is to realize that the size of the list must double before binary search performs a single additional comparison.  For sequential search, adding one additional item to the input list will, in the worst case, require an additional comparison – and, on average, add 1/2 comparison for successful searches.  So, as problem size increases, the initial advantage that sequential search had due to its faster comparison time is quickly overcome by the smaller number of comparisons required by binary search.  
+			</p>
+
+			<p>
+				Under the assumptions of <span class="figNum seqvsbinary"></span>, binary search becomes faster than sequential search on lists that contain about 2,500 or more items.  Under different assumptions, the point at which binary search becomes faster than sequential search would shift.  For example, if we assumed that binary search comparisons were ten times slower than sequential search comparisons, binary search would become faster than sequential search on lists that contained more than 160 items.<span class="Footnote" title="Footnote: Assuming binary search comparisons are ten times slower than sequential search comparisons, while much more realistic than assuming they are 100 times slower, is still quite generous."><a href="#ftn4" id="body_ftn4">[4]</a></span>
+			</p>
+
+			<p>
+				Finally, it is important to note, once again, that binary searches can only be performed on lists that are already sorted.  Given an unsorted list, it is necessary to first sort the list before beginning the binary search procedure.  This observation leads us to our next topic of discussion: the sorting problem and algorithms for its solution.
+			</p>
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum algorithmsSearching2"></span>
+			</p>
+
+			<ol>
+				<li>
+					In a manner similar to <span class="figNum binaryten"></span>, illustrate the behavior of a binary search for the value 75 in the list:  25   30   35   40   45   50   55   60   65   70   75   80   85   90   95
+				</li>
+				<br/>
+				<li>
+					Show that the actual number of comparisons required by the binary search in the previous problem exactly matches the maximum number of comparisons predicted by the equation for binary search.
+				</li>
+				<br/>
+				<li>
+					Using the same list given in problem 1, supply a target value (a value to be searched for) that could be found by binary search using less than the maximum number of comparisons predicted for this list.  What is the exact number of comparisons needed to find the target you supplied?
+				</li>
+				<br/>
+				<li>
+					What is the maximum number of comparisons needed to perform a binary search of a 63 item list?  An 80 item list?
+				</li>
+				<br/>
+				<li>
+					What is the largest list that can be searched by the binary search method given 15 or fewer comparisons?
+				</li>
+				<br/>
+				<li>
+					Given the assumptions concerning the time to perform a comparison in sequential (1/1,000 second) and binary (1/10 second) search, which technique should be used to search a 1,000 item list?  A 2,000 item list?  A 10,000 item list?
+				</li>
+			</ol>
+			
+			<!-- Footnotes -->
+			<hr/>
+			
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a class="Footnote_20_Symbol" id="ftn3" href="#body_ftn3">[3]</a>&nbsp;It is, of course, impossible to perform 3.5 comparison operations, or any other non whole number of comparisons.  However, when computing an average, fractions are often produced.
+			</p>
+			
+			<p class="Footnote">
+				<a class="Footnote_20_Symbol" id="ftn4" href="#body_ftn4">[4]</a>&nbsp;Assuming binary search comparisons are ten times slower than sequential search comparisons, while much more realistic than assuming they are 100 times slower, is still quite generous.
+			</p>
+			
+			<!-- End main content -->
+			<div class="push"></div> <!-- pushes the footer static bottom -->
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the footer -->	
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;
+				var chapID="algorithms";											// do NOT change name of variable
+
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("algorithmsSearching2");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='DatabaseApp'>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <link href = "figure/css/database.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationUser2b6"></span>
+      </p>
+
+      <p>
+        The power of join really becomes apparent when it is used with the other two relational operators: select and project. For example, let’s say we want to produce a listing of the instructor contact information for every course offered in the spring of 2013. The listing should include for each course: the course name, section sequence number, instructor’s name, office location, and phone number.
+      </p>
+
+      <p>
+        Reviewing the three relations that make up our database: Faculty (<span class="figNum facultyrelation"></span>), Students (<span class="figNum studentrelation"></span>), and Courses (<span class="figNum coursesrelation"></span>); we see that instructor names, office locations, and phone numbers are stored in Faculty, while course names and sequence numbers are stored in Courses. In other words, the information we want is not stored in any single table of the database, but is instead spread among multiple tables. Upon further examination we might also note that the two relations, Faculty and Courses, share an attribute in common: faculty names. Because Faculty and Courses share a field in common, they may be joined. The relational expression to perform this operation is:
+      </p>
+
+      <p class="Subfigure">
+        Rel1 &#8592; Join Courses and Faculty over Fname
+      </p>
+
+      <p>
+        The relation produced by this expression, Rel1, will contain all of the attributes of both Courses and Faculty (with the exception that Fname will be listed only once). Hence, there would be 11 attributes in the resulting relation: Fname, Seq_no, Course, Quarter, Year, Credits, Dept, Office, Phone, SSN, and Salary. Due to the fact that the Fname field in each row of Courses will match up with one (and only one) Fname entry in the Faculty relation, Rel1 will contain exactly the same number of tuples as Courses, eleven.
+      </p>
+
+      <!-- <img src="images/rel4expressions.png" alt="A relation, Rel4, together with the expressions that generated it" class="Image"> -->
+
+      <div id='all1'></div>
+
+      <p class="Figure">
+        <span class="figNum rel4expressions"></span> A relation, Rel4, together with the expressions that generated it
+      </p>
+
+      <p>
+        Rel1 contains all of the information we are interested in, but it also contains a large number of rows and attributes we are not interested in – rows containing information about classes offered in quarters other than spring 2013, and attributes such as faculty social security numbers and salaries. Thus, we need to construct a relation that contains only the relevant data.
+      </p>
+
+      <p>
+        Reviewing the problem statement, we were asked to provide contact information on all classes offered during the spring of 2013. The following two select statements produce a relation with the relevant tuples.
+      </p>
+
+      <p class="Subfigure">
+        Rel2 &#8592; Select from Rel1 where Year = 2013
+      </p>
+
+      <p class="Subfigure">
+        Rel3 &#8592; Select from Rel2 where Quarter = “Spring”
+      </p>
+
+    <div class="Sect1" id="Section4"></div>
+
+      <p>
+        Rel3 is nearer the mark since it does not contain any extraneous rows. However, it still contains a number of attributes that were not requested, such as the aforementioned Faculty social security numbers and salaries. The following project statement produces the final relation:
+      </p>
+
+      <p class="Subfigure">
+        Rel4 &#8592; Project Course, Seq_no, Fname, Office, Phone from Rel3
+      </p>
+
+      <p>
+        This sequence of relational expressions is summarized, and the resulting relation shown, in <span class="figNum rel4expressions"></span>.
+      </p>
+
+      <p>
+        When we began our discussion of relational databases we posed a number of example queries of the type that could be asked against a university database. One of those questions was:
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            What are the names and student ID numbers of the students who took Dr. Carpenter’s offering of Math 241 in the spring of 2013?
+          </p>
+        </li>
+      </ul>
+
+      <!-- <img src="images/gradesrelation.png" alt="The “Grades” relation – part of a university database" class="Image"> -->
+      <div id='Grades'></div>
+
+      <p class="Figure">
+        <span class="figNum gradesrelation"></span> The “Grades” relation – part of a university database
+      </p>
+
+      <p>
+        If you attempt to answer this question using the Faculty, Students, and Courses tables, you will quickly discover that they do not contain the requested information. There is information on Dr. Carpenter and her Math 241 offering in the spring of 2013, but nowhere in the three tables are the courses actually taken by students specified.
+      </p>
+
+      <p>
+        The association between students and the courses they have taken is provided by the final relation of our university database, the Grades relation, which is shown in its entirety in <span class="figNum gradesrelation"></span>. This rather lengthy table contains three attributes: ID, Seq_no, and Grade; and has an entry for every course taken by every student. The ID attribute, which represents student ID numbers, is shared by both Grades and Students, and thus provides a link between those two tables. Likewise, a link is provided between Grades and Courses via the shared “Seq_no” field, which represents the sequence numbers of individual course offerings or sections.
+      </p>
+
+      <p>
+        Using the Grades relation it becomes possible to find the names and ID numbers of the students who took Dr. Carpenter’s spring 2013 offering of Math 241.
+      </p>
+
+      <p>
+        In general, when trying to answer a query involving information from a number of different tables (such as this one) it is important that you be fully aware of the types of information stored in each of the tables</span> <span class="Ital">and</span> aware of the fields that they share in common. The shared fields are critical, since they are used to “work your way” from table to table collecting the information you are interested in along the way.
+      </p>
+
+      <p>
+        For example, to discover the students who took a particular class, it is first necessary to obtain the sequence number of that class from the Courses relation. Once we have the course sequence number we can select the rows of the Grades relation that match that sequence number, giving us the ID numbers of the students who took the class. Using those student IDs, we can retrieve the names of the matching students from the Students relation.
+      </p>
+
+      <p>
+        This approach for determining the names and ID numbers of the students in Dr. Carpenter’s spring 2013 Math 241 course can be summarized in the following way:
+      </p>
+
+      <ol>
+        <li>
+          <p>
+            Determine the course sequence number of the indicated course.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Determine the Student ID numbers of the people taking that course.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Retrieve the student information on each of those students.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Project out the name and student ID fields from those student records.
+          </p>
+        </li>
+      </ol>
+
+      <p>
+        Step one can be accomplished via the following compound select statement:
+      </p>
+
+      <ul class="Blockcenter">
+        <li><span class="Subfigure">R1 &#8592; Select from Courses where Fname = “Carpenter J.”    and</span></li>
+        <li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Course = “Math 241” &nbsp; &nbsp; and</span></li>
+        <li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Quarter = “Spring”&nbsp; &nbsp; &nbsp; &nbsp;and</span></li>
+        <li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Year = 2013</span></li>
+      </ul>
+
+      <p>
+        We now have a relation that contains a single tuple – the one concerning Jenna Carpenter’s spring 2013 offering of Math 241.</span><span class="Footnote_20_Symbol"><span class="Footnote" title="Footnote: If Dr. Carpenter had taught multiple sections of Math 241 during the Spring 2013 quarter, multiple tuples would be listed in this relation – one for each section. However, the wording of the original question makes it unlikely that she was teaching multiple sections of that class that quarter."><a href="#ftn6" id="body_ftn6">[6]</a></span></span>
+      </p>
+
+      <p>
+        Although relation R1 consists of the one tuple from Courses that concerns the course of interest, all of the fields, save one, are not really needed. This is because the only piece of information we need from Courses is the sequence number of Dr. Carpenter’s course, which is “100010”. To keep the relations we are working with from becoming cluttered with unnecessary fields, let’s project out this single attribute.
+      </p>
+
+      <p class="Subfigure">
+        R2 &#8592; Project Seq_no from R1
+      </p>
+
+      <p>
+        Given the course sequence number, we can now construct a relation containing only the grade records of the students who took the course. This can be accomplished by the following relational query:
+      </p>
+
+      <p class="Subfigure">
+        R3 &#8592; Join Grades and R2 over Seq_no
+      </p>
+
+      <p>
+        The contents of relation R3 is shown in <span class="figNum relationr3"></span>. As you can see, R3 consists of all of the grade records for the course with sequence number “100010”. While we needed the course sequence number to produce this table, the only information contained in the table that is currently of interest to us is the student ID numbers. Hence, we can project out this column:
+      </p>
+
+      <p class="Subfigure">
+        R4 &#8592; Project ID from R3
+      </p>
+
+      <!-- <img src="images/relationr3.png" alt="Relation R3 – the student numbers and grades of all students who took Math 241 in the spring of 2013 under Dr. Carpente" class="Image"> -->
+
+      <div id='all2'></div>
+
+      <p class="Figure">
+        <span class="figNum relationr3"></span> Relation R3 – the student numbers and grades of all students
+        <br />
+        who took Math 241 in the spring of 2013 under Dr. Carpenter
+      </p>
+
+      <p>
+        We can now begin the third step outlined above: retrieving the student records for the individuals whose ID numbers appear in R4. Doing so will involve a join of R4 with the Students relation over ID.
+      </p>
+
+      <p class="Subfigure">
+        R5 &#8592; Join Students and R4 over ID
+      </p>
+
+      <p>
+        Relation R5 contains the records of those students who took Dr. Carpenter’s Math 241 course in the Spring of 2013. The final step in solving the problem involves projecting out only those fields we are interested in; namely Sname and ID.
+      </p>
+
+      <p class="Subfigure">
+        R6 &#8592; Project Sname, ID from R5
+      </p>
+
+      <p>
+        The final table resulting from this series of relational expressions is shown in <span class="figNum relationr6"></span>.
+      </p>
+
+      <p>
+        Although the rows of this table are shown sorted by both last name and student ID number, relational database theory treats relations are</span> <span class="Ital">unordered</span> sets of tuples, so the order of the rows in the displayed table is technically unpredictable. Most commercially available database applications, however, allow the user to easily sort the rows of a table into any order he or she desires.
+      </p>
+
+      <!-- <img src="images/relationr6.png" alt="Relation R6 – The names and ID numbers of all students who took Math 241 in the spring of 2013 under Dr. Carpenter" class="Image"> -->
+
+      <div id='all3'></div>
+
+      <p class="Figure">
+        <span class="figNum relationr6"></span> Relation R6 – The names and ID numbers of all students
+        <br />
+        who took Math 241 in the spring of 2013 under Dr. Carpenter
+      </p>
+
+      <p class="Exercise">
+        Exercises for <span class="contentNum informationUser2b6"></span>
+      </p>
+
+      <p>
+        Using the relations presented in Figures <span class="figNum facultyrelation"></span>, <span class="figNum studentrelation"></span>, <span class="figNum coursesrelation"></span>, and <span class="figNum gradesrelation">, develop</span> <span class="Ital">relational queries</span> to solve each of the following problems.
+      </p>
+
+      <ol>
+        <li>
+          <p>
+            Produce a listing of the grades given by Dr. O’Neal (“ONeal M. B.”) in all of his courses. The relation you produce should contain only the student names, their grades, the name of the course in which they made the grade, and the quarter and year of offering.
+          </p>
+          <div id='all_exercise1'></div>
+        </li>
+
+        <li>
+          <p>
+            Create a relation containing only the name, office location, and phone number of the instructor who taught the course with sequence number “100004”.
+          </p>
+          <div id='all_exercise2'></div>
+        </li>
+
+        <li>
+          <p>
+            Generate the fall 2012 course schedule for student number “55555510”. The schedule should consist of course names, sequence numbers, and instructors.
+          </p>
+          <div id='all_exercise3'></div>
+        </li>
+
+        <li>
+          <p>
+            Produce an academic transcript for “Walker J.”. The transcript should consist of the course name, quarter, year, and grade earned for every course taken by Mr. Walker.
+          </p>
+          <div id='all_exercise4'></div>
+        </li>
+
+        <li>
+          <p>
+            The Chair of the CS program is interested in how well his students are doing. Generate a table of student names, courses taken, and grades earned by every CS major in winter 2013.
+          </p>
+          <div id='all_exercise5'></div>
+        </li>
+
+        <li>
+          <p>
+            Produce a list of the names of students who earned one or more A’s in winter 2013.
+          </p>
+          <div id='all_exercise6'></div>
+        </li>
+
+        <li>
+          <p>
+            What is the SSN of the only professor who gave “Kleinpeter J.” a B in fall 2012?
+          </p>
+          <div id='all_exercise7'></div>
+        </li>
+      </ol>
+
+      <!-- Footnotes -->
+      <hr/>
+      <p class="Section">
+        Footnotes
+      </p>
+
+      <p class="Footnote">
+        <a href="#body_ftn6" id="ftn6">[6]</a> If Dr. Carpenter had taught multiple sections of Math 241 during the Spring 2013 quarter, multiple tuples would be listed in this relation – one for each section. However, the wording of the original question makes it unlikely that she was teaching multiple sections of that class that quarter.
+      </p>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+    <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";       // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationUser2b6");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  <script type='text/javascript' data-main='figure/js/2b6_config.built' src='lib/js/require.js'></script>
+  </body>
+</html>

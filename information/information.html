@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  </head>
+
+  <body id="bodyBackground">
+    <!-- Navbar -->
+    <div id="includedContentChapterTOC"></div>
+    <!-- End navbar -->
+      
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Chapter Index listing -->
+    <div id="ContentAreaSections" class="well bold-me"></div>
+    <!-- End Chapter Index listing -->
+
+
+      <!-- Main content -->
+      <!-- End Main content -->
+
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBarIndex"></div> <!-- populates the bottom footer --> 
+
+      <script>
+        var pageObj;
+        var chapObj;
+
+        $(document).ready(function() {
+          loadLocalTableOfContents("information");
+          populateNav();
+
+          pageObj = getArrowPathsByPage("information");
+          chapObj = getArrowPathsByChapter("information");
+          if (!localFlag) runGA();
+        });
+      </script>
+  </body>
+</html>

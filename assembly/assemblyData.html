@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+
+		<!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		
+			<!-- End nav -->
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyData"></span>
+			</p>
+			
+			<p>
+				The most basic unit of storage is the bit.  At any point in time, a bit can be in only one of two states: “0” or “1”.  Bits are generally implemented as two-state electronic devices (e.g., a current is flowing or not flowing, a voltage is high or low, a magnetic field is polarized in one direction or the opposite direction, etc.).  The symbol “0” is used to represent one of these states and the symbol “1” is used to represent the other.  It really doesn’t matter which symbol (the “0” or the “1”) represents which physical state (e.g., “high” or “low”).  All that is important is that the symbols be assigned consistently and that the two states be clearly distinguishable from each other.
+			</p>
+			
+			<p>
+				Sequences, or “patterns”, of bit values can be used to represent numbers (both positive and negative, integer and real), alphanumeric characters, images, sounds, and even program instructions. In fact, anything that can be stored in a computer must ultimately be stored as a pattern of bit values.  In this section we will look at how numbers, characters, and images can be represented at the machine level.  In section <span class="contentNum assemblyMachine"></span>we will turn our attention to the representation of program instructions.
+			</p>
+			
+			<p>
+				Before we examine the representation of these various kinds of data, it is important to understand the difference between a symbol and its referent.  A <span class="Ital">symbol</span> is the thing we use to represent an object.  The <span class="Ital">referent</span> is the actual thing or object the symbol represents.  This object can be either something abstract, like “happy”, or something concrete, like a particular person: “John Talton”.  
+			</p>
+			
+			<p>
+				To illustrate this idea, think about the number five.  This number, like all numbers, is an abstract concept.  You cannot point to “five” – although you can point to five books or five people, or five pennies.  The number five, this abstract concept, should not be confused with the symbol “5” which is often used to represent the number.  The symbol “5” is just a squiggly mark.  It is not the number five.
+			</p>
+			
+			<p>
+				It is also important to recognize the fact that many different symbols can be used to represent the same object.  For example, the number five can be represented by the Roman numeral “V”, the tally marks  “<del>||||</del>”, or the English word “five”.  
+			</p>
+			
+			<p>
+				Just as many different symbols can be used to represent one object or concept, a single symbol can have multiple meanings.  Think about the symbol “V”.  What does it mean?  Well, as we have just seen, it could be the Roman numeral for five, or it could be the letter of the English alphabet that follows “U”, or even the name of a cheesy 1980’s sci-fi series about lizard people trying to take over Earth.  
+			</p>
+			
+			<p>
+				Humans can generally infer the intended meaning of a symbol by noting the context in which the symbol appears.  When the context is unknown or unclear, the meaning of the symbol cannot be reliably determined.  This inability to determine the meaning of a symbol from the symbol itself applies to all symbols – even bit patterns.  Suppose someone gave you the following bit pattern and asked you what it meant.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">0100 0100 0111 0010 0111 0101 0110 0111</span></li>
+				<li><span class="Subfigure">0111 0011 0010 0000 0110 0001 0111 0010</span></li>
+				<li><span class="Subfigure">0110 0101 0010 0000 0110 0010 0110 0001</span></li>
+				<li><span class="Subfigure">0110 0100 0010 1110 0010 0000 0010 0000</span></li>
+				<li><span class="Subfigure">0100 1111 0100 1011 0011 1111 0010 0000</span></li>
+			</ul>
+			<br/>
+			<p>
+				Without knowing the “type” of data you are looking at, it is impossible to interpret what it means.  It might be a sequence of numbers, a sequence of characters, part of a bitmapped image of a picture, or one of many other types of objects.  There is no way to tell what the referent is just by looking at the data itself.  We must also know the type of data we are looking at and the representation scheme used to encode that data.
+			</p>
+			
+			<p>
+				Whatever the conceptual properties of an object, if it is to be represented within a computer, a way must be found to represent the object as a sequence of 0’s and 1’s.  In the remainder of this section a number of data types are presented together with descriptions of how objects of each type can be encoded as patterns of bit values.
+			</p>
+			
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();	
+					pageObj = getArrowPathsByPage("assemblyData");		// get arrow paths
+					if (!localFlag) runGA();
+				});	
+				
+			</script>		
+	</body>
+</html>

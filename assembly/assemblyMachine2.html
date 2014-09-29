@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+			<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyMachine2"></span>
+			</p>
+			
+			<p>
+				Now that we are familiar with the Watson Virtual Machine language instruction set, we can examine the process of translating programs from the assembly level to the machine level.
+			</p>
+			
+			<p>
+				There are eighteen commands in the Watson assembly language.  There are sixteen commands in the Watson Virtual Machine language.  Referring back <span class="figNum watsonassembly"></span> for an overview of the assembly language and <span class="figNum monovsbitmap"></span> for an overview of the machine language, we can see that with the exception of the <span class="Subfigure">.WORD</span> and <span class="Subfigure">.BLOCK</span> commands, every assembly language instruction maps to exactly one machine language instruction.  Thus the process of translation between these two levels is straightforward and can be automated.
+			</p>
+			
+			<p>
+				The programs that automatically translate assembly language programs to machine language are called “assemblers”.  Essentially, assemblers construct or “assemble” each of the machine language instructions of a program from the corresponding instruction in the assembly language version of the program.  <span class="figNum andornot"></span> illustrates the relationship between assembly language and machine language with an example program first shown in <span class="figNum assemblytotal"></span>.
+			</p>
+			
+			<img src="images/andornot.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum andornot"></span> Machine and assembly language versions of the same program
+			</p>
+			
+			<p>
+				The translation process from assembly language to machine language is described below for the Watson Virtual Machine.  While the process is simplified somewhat from what goes on in “real” systems, it should be sufficient to give you a feel for what happens when an assembly language program is translated to machine code and loaded into memory for execution.
+			</p>
+			
+			<p>
+				Beginning at some starting address (address zero in the Watson VM), reserve memory as specified by the <span class="Subfigure">.BLOCK</span> and <span class="Subfigure">.WORD</span> commands.  Perform the initializations required by the <span class="Subfigure">.WORD</span> commands.  Also note labels associated with each word, block, and command as they are encountered.  For example, <span class="Subfigure">TOTAL</span>, <span class="Subfigure">ABC</span>, and <span class="Subfigure">XYZ</span> are labels in the program of <span class="figNum andornot"></span>.  After processing each of the <span class="Subfigure">.WORD</span> and <span class="Subfigure">.BLOCK</span> commands the “data segment” of your machine language program will be complete.
+			</p>
+			
+			<p>
+				The executable instructions of a machine language program will immediately follow its data segment.  For each assembly language instruction, use the table of <span class="figNum monovsbitmap"></span> to produce a machine language equivalent.  Instruction names at the assembly level are mapped to op-codes at the machine level.  References to registers at the assembly level are mapped to 4-bit unsigned register numbers.  Labels at the assembly level are replaced with the address associated with that label at the machine level. And so forth.
+			</p>
+			
+			<p>
+				At the conclusion of this process, the machine language equivalent of the assembly language program will be held in the main memory of the Watson Virtual Machine.  In order to begin program execution, the program counter is loaded with the address of the first executable machine language instruction – the first instruction following the data segment.
+			</p>
+			
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyMachine2");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		 	<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/colmn_test.css" rel="stylesheet">	    
+		<!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div  class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+
+			<p class="Section">
+				<span class="contentNum intelligenceOverview"></span>
+			</p>			
+			<p>
+				The goal of artificial intelligence is to construct a general-purpose intelligence – a machine that can interact with a human, more or less, as an equal. What capabilities would a machine have to possess before it could be considered intelligent? Is it possible to construct such a machine? Could we even tell if such machines were truly intelligent?
+			</p>
+
+			<p>
+				We begin by describing the capabilities of a fictional intelligent computer, the HAL 9000, in order to examine the features commonly associated with the notion of intelligent machines. We then turn our attention to the question of whether constructing such an intelligent machine is even feasible. Next, the question of how we should go about measuring progress towards achieving artificial intelligence is discussed. The final portions of this section of the chapter focus on an overview of the history of artificial intelligence and some of its accomplishments to date.
+			</p>
+			<!-- End main content -->
+			
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "intelligence";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("intelligenceOverview");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>

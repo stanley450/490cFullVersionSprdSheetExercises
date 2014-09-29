@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../lib/js/nav.js"></script>
+			<script type="text/javascript" src="../lib/js/master.js"></script> 
+			<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+			<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+			<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+
+			<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+    		<div class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum algorithmsSorting2"></span>
+			</p>
+
+
+			<p>
+				Another approach to sorting is typified by the insertion sort.  Insertion sort is the procedure that most people use to arrange a hand of cards.  To begin to understand the algorithm, think of an unordered input list as two separate lists.  The first item of the input list is considered to be a sorted list one item long, with the rest of the input items (2 through <span class="Ital">N</span>) forming an unsorted list.  While this way of thinking about the input list may seem a bit odd at first, it really makes quite a bit of sense, since a list that is one item long certainly cannot be out of order and is thus sorted.  
+			</p>
+
+			<p>
+				<span class="Bolded">Insertion sort</span> removes the <span class="Ital">first</span> item from the unsorted list and marks it as the item to be inserted.  It then works its way from the <span class="Ital">back</span> to the <span class="Ital">front</span> of the sorted list, at each step comparing the item to be inserted with the current item.  As long as the current item is larger than the item to be inserted, the algorithm continues moving backward through the sorted list.  Eventually it will either reach the beginning of the list or encounter an item that is less than or equal to the item to be inserted.  When that happens the algorithm inserts the item at the current insertion point.
+			</p>
+
+			<img src="images/insertionex.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum insertionex"></span>  An example of insertion sort
+			</p>
+
+			<p>
+				The entire process of selecting the first item from the unsorted list and scanning backwards through the sorted list for the insertion point is then repeated.  Eventually, the unsorted list will be empty since all of the items will have been inserted into the sorted list.  When this occurs, the sort is complete.
+			</p>
+
+			<p>
+				The insertion sort procedure is illustrated on an eight item list in <span class="figNum insertionex"></span>.  Notice that this is exactly the same list that was used to illustrate the behavior of selection sort in <span class="figNum selectionex"></span>.  A careful examination of <span class="figNum insertionex"></span> will reveal that 19 comparison operations are required to sort these values using the insertion method.  This is approximately one half of the 36 comparisons needed by selection sort.
+			</p>
+
+			<p>
+				A more formal version of the insertion sort algorithm is presented in <span class="figNum insertionsort"></span>.  While this version of the algorithm may appear somewhat more complex than the English version presented above, it is really just a more detailed description of the same process.  Most of the action occurs in Step 3.  Step 3.1 selects the first item from the unsorted list and marks it as the item to be inserted.  Step 3.2 begins the scan for the insertion point at the end of the sorted list.  Step 3.3 moves backwards through the list comparing the item to be inserted with the present “current item”.  When either the beginning of the sorted list is reached (3.3.1) <span class="Ital">or</span> a current item less than the item to be inserted is encountered (3.3.2), the item is inserted.  Otherwise, the algorithm steps backwards to the preceding item in the sorted list  (3.3.3).
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">1.  Let the “sorted list” consist of one item – the first item in the input list</span></li>
+				<li><span class="Subfigure">2.  Let the “unsorted list” consist of all input items except the first one</span></li>
+				<li><span class="Subfigure">3.  Repeat the following steps until the unsorted list is empty</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">3.1  Let the “insert item” be the first item in the unsorted list</span></li>
+					<li><span class="Subfigure">3.2  Let the “current item” be the last item in the sorted list</span></li>
+					<li><span class="Subfigure">3.3  Repeat until the “insert item” has been inserted into the sorted list</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">3.3.1  If the beginning of the sorted list has been reached then</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Subfigure">3.3.1.1  Place the “insert item” at the beginning of the sorted list</span></li>
+							<li><span class="Subfigure">3.3.1.2  Note that the “insert item” has been inserted</span></li>
+						</ul>
+						<li><span class="Subfigure">3.3.2  If the “current item” is less than or equal to the “insert item” then</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Subfigure">3.3.2.1  Place the “insert item” immediately after the “current item”</span></li>
+							<li><span class="Subfigure">3.3.2.2  Note that the “insert item” has been inserted</span></li>
+						</ul>
+						<li><span class="Subfigure">3.3.3  If the “insert item” has not yet been inserted then</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Subfigure">3.3.3.1  If the “current Item” is not the first item in the sorted list</span></li>
+							<ul class="Subblockcenter">
+								<li><span class="Subfigure">then   Let the item immediately preceding the present</span></li>
+								<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current item” be the new “current item”</span></li>
+								<li><span class="Subfigure">else   Note that the beginning of the sorted list has been reached</span></li>
+							</ul>
+						</ul>
+					</ul>
+				</ul>
+				<li><span class="Subfigure">4.  Halt (The sorted list now contains all of the input items, in order.)</span></li>
+			</ul>
+			<br/>
+			<p class="Figure">
+				<span class="figNum insertionsort"></span>  Insertion sort
+			</p>
+
+			<p>
+				The number of comparisons required to sort <span class="Ital">N</span> items using the insertion method varies depending on the original order of the items.  <span class="figNum insertionrev"></span> illustrates this fact on a five item list.  Part (a) of <span class="figNum insertionrev"></span> shows that 10 comparisons are required to sort the five items when they are originally arranged in reverse sorted order.  Part (b) of <span class="figNum insertionrev"></span> shows that only four comparisons are required by the algorithm when the input list is already presorted.  This is different from the selection sort algorithm which always requires a fixed number of comparisons to sort <span class="Ital">N</span> items, regardless of their original order.
+			</p>
+
+			<img src="images/insertionrev.png" alt="" class="Image">
+
+			<p class="Figure">
+				(a)  Insertion sort of five items originally in reverse sorted order
+			</p>
+			
+			<img src="images/insertionpre.png" alt="" class="Image">
+
+			<p class="Figure">
+				(b)  Insertion sort of five presorted items
+			</p>
+
+			<p class="Figure">
+				<span class="figNum insertionrev"></span>  Effect of input item order on number of insertion sort comparisons
+			</p>
+
+			<p>
+				A general formula for determining the number of comparisons required by insertion sort to order an <span class="Ital">N</span> item list would be very useful.  However, as <span class="figNum insertionrev"></span> illustrates, the number of comparisons performed by insertion sort depends, in large part, on the original order of the items to be sorted.  So, no one formula, based on input size alone, can be developed to capture the required number of comparisons.  Instead, three general formulas are developed below: one for the worse possible performance of the algorithm on a problem of size <span class="Ital">N</span>, another for the best possible performance of the algorithm on a problem of size <span class="Ital">N</span>, and a third for the average, or expected, performance of the algorithm on a problem of size <span class="Ital">N</span>.
+			</p>
+
+			<p>
+				As was discussed during the analysis of the selection sort algorithm, the total number of comparisons required by a sort algorithm is the product of the number of “passes” through the list and the average number of comparisons performed per pass.  Examining <span class="figNum insertionex"></span> and <span class="figNum insertionrev"></span> reveals that insertion sort requires exactly <span class="Ital">N</span>&nbsp;-&nbsp;1 passes through the sorted list – for eight items seven passes were made, for five items four passes were made.  The reason that <span class="Ital">N</span>&nbsp;-&nbsp;1 passes will be needed for <span class="Ital">N</span> items is that the unsorted list starts out with <span class="Ital">N</span>&nbsp;-&nbsp;1 items and during each pass one item is removed from that list and placed in the sorted list.  Thus, after <span class="Ital">N</span>&nbsp;-&nbsp;1 passes the unsorted list will be empty and the sorted list will contain all <span class="Ital">N</span> of the original items.
+			</p>
+
+			<p>
+				Now that the number of passes through the sorted list is known, we can examine the amount of work required per pass.  This is the point at which the order of the inputs has an effect on the number of comparisons needed.  Let’s say the input items are presorted, as was the case in part (b) of <span class="figNum insertionrev"></span>.  In this case, the last item in the sorted list will <span class="Ital">always</span> be less than or equal to the first item in the unsorted list.  Since only one comparison during each pass through the sorted list will be needed to discover the insertion point, the total number of comparisons necessary for insertion sort in this case is <span class="Ital">N</span>&nbsp;-&nbsp;1.  Notice that this is the best possible case for insertion sort.  Insertion sort performs the minimum number of comparisons when it is given a list that is presorted.
+			</p>
+
+			<p>
+				<span class="figNum insertionrev"></span> part (a) represents the worst case for insertion sort.  When the items are in reverse sorted order, insertion sort will require its maximum number of comparisons.  In this case, the insertion point will always be at the beginning of the sorted list, forcing the algorithm during each pass to examine and compare every item in the sorted list to the item to be inserted.  The number of comparisons will be <span class="Ital">N</span>&nbsp;-&nbsp;1 times the average length of the sorted list.  You should convince yourself, using reasoning similar to that used for selection sort, that the average length of the sorted list will be 1/2<span class="Ital">N</span> items.  Hence, the total number of comparisons required by insertion sort in the worst case is (<span class="Ital">N</span>&nbsp;-&nbsp;1)&times;1/2<span class="Ital">N</span>  =  1/2(<span class="Ital">N</span><span class="Superscript">2</span>&nbsp;-&nbsp;<span class="Ital">N</span>).  This formula gives 10 comparisons for a 5 item list, as we would expect from <span class="figNum insertionrev"></span> part (a).
+			</p>
+
+			<p>
+				Derivation of a formula for the number of comparisons required by insertion sort in the average case is similar to the reasoning used for worst case.  As before, <span class="Ital">N</span>&nbsp;-&nbsp;1 passes through the sorted list are required.  The only difference between worst case and average case is the number of comparisons to be performed during each pass.  When dealing with arbitrary lists, sometimes the insertion point will appear at, or near, the end of the list – requiring one, or a few, comparisons.  At other times the insertion point will appear at, or near, the beginning of the sorted list – requiring a comparison between the item to be inserted and each, or most, items in the sorted list.  On average, the bad cases and good cases tend to “cancel” each other out, so that we end up examining 1/2 of the sorted list.  Since we established above that the average size of the sorted list is 1/2<span class="Ital">N</span>, the average number of comparisons required per pass is 1/2(1/2)<span class="Ital">N</span> = 1/4<span class="Ital">N</span>.  So, the total number of insertion sort comparisons is (<span class="Ital">N</span>&nbsp;-&nbsp;1)&times;1/4<span class="Ital">N</span>  =  1/4(<span class="Ital">N</span><span class="Superscript">2</span>&nbsp;-&nbsp;<span class="Ital">N</span>) in the average case.
+			</p>
+
+			<p>
+				To summarize, an insertion sort of <span class="Ital">N</span> items always requires exactly <span class="Ital">N</span>&nbsp;-&nbsp;1 passes through the sorted portion of the list.  What varies is the number of comparisons that must be performed per pass.  The <span class="Underlined">best case</span>, which requires only one comparison per pass, occurs when attempting to sort a list that is <span class="Ital">presorted</span>.  The <span class="Underlined">worst case</span> requires an average of 1/2 <span class="Ital">N</span> comparisons per pass and occurs when the list is presorted in <span class="Ital">reverse</span> order.  In the average case, during each pass only one half of the items in the sorted list will be examined before the insertion point is found, giving 1/4 <span class="Ital">N</span> comparisons per pass.
+			</p>
+
+			<p>
+				These ideas are expressed succinctly by the following three equations:
+			</p>
+			
+			<p class="Subfigure">
+				<span class="Ital">Minimum number of insertion sort comparisons</span>  =  <span class="Ital">N</span>&nbsp;-&nbsp;1
+			</p>
+			
+			<p class="Subfigure">
+				<span class="Ital">Maximum number of insertion sort comparisons</span>  =  1/2(<span class="Ital">N</span><span class="Superscript">2</span> - <span class="Ital">N</span>)
+			</p>
+
+			<p class="Subfigure">
+				<span class="Ital">Average number of insertion sort comparisons</span>  =  1/4(<span class="Ital">N</span><span class="Superscript">2</span> - <span class="Ital">N</span>)
+			</p>
+
+			<p>
+				When comparing insertion sort to other sorts, generally the average case formula is used, since this represents the expected performance of the algorithm.  Occasionally, knowledge of the worst case behavior of the algorithm is also important.  Understanding this behavior is useful when attempting to determine, or limit, the maximum amount of time a computing system will take to reach an answer, even in the worst case.  Such behavior is important in real time applications such as airplane flight control systems.
+			</p>
+
+			<p>
+				Before moving on to our final sort algorithm, let’s take a moment to compare the performance of insertion sort to selection sort.  Selection sort always requires exactly 1/2(<span class="Ital">N</span><span class="Superscript">2</span> + <span class="Ital">N</span>) comparisons to sort </span><span class="Ital">N </span>items.  In the worst case, insertion sort requires 1/2(<span class="Ital">N</span><span class="Superscript">2</span> - <span class="Ital">N</span>).  So, given any non-empty list, insertion sort will always perform fewer comparisons than selection sort.  In the expected case, insertion sort requires 1/4(<span class="Ital">N</span><span class="Superscript">2</span> - <span class="Ital">N</span>) comparisons, and thus should require about 1/2 the comparisons needed by selection sort.  This result is verified by the eight item list of <span class="figNum selectionex"></span> and <span class="figNum insertionex"></span>.
+			</p>
+
+
+			<img src="images/selectionvsinsertion.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum selectionvsinsertion"></span>  A comparison of the predicted runtimes of selection and insertion sort
+			</p>
+
+
+			<p>
+				The smaller number of comparisons needed by insertion sort means that it is generally a faster algorithm than selection sort, assuming a comparison takes the same amount of time in both algorithms (a reasonable assumption).  Given a computer capable of one million high-level comparison operations per second, insertion sort will be expected to process a 10,000 item list in about 25 seconds (24.9975).  Selection sort is expected to take 50.005 seconds on the same problem – or about twice as long.  The result for insertion sort was computed in the following way:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure"><span class="Ital">Avg # of comparisons for insertion sort of 10,000 items</span>  =  1/4(10,000<span class="Superscript">2</span> - 10,000)</span></li>
+				<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  1/4(100,000,000 - 10,000)</span></li>
+				<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  1/4(99,990,000)</span></li>
+				<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  24,997,500 comparisons</span></li>
+			</ul>
+			<br/>
+			<ul class="Blockcenter">
+				<li><span class="Subfigure"><span class="Ital">Estimated sorting time</span>   =  <span class="Ital">Number of comparisons</span> &times; <span class="Ital">Time per comparison operation</span></span></li>
+				<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  24,997,500 comparisons   &times;   1/1,000,000 sec. per comparison</span></li>
+				<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=  24.9975 seconds  &#x2248; 25 seconds</span></li>
+			</ul>
+			
+			<p>
+				<span class="figNum selectionvsinsertion"></span> contains a graphical comparison of the expected runtimes of both selection and insertion sort.  The horizontal axis represents increasing problem size, and the vertical axis represents the projected runtime, in seconds.  The graph indicates that while both algorithms are quadratic in nature, insertion sort runs, on average, in about half the time of selection sort when both are given lists of equal size.
+			</p>
+
+			<p>
+				As was pointed out earlier, these times are for illustrative purposes only.  Our analysis focuses on comparison operations, and these algorithms do other things.  The only way to get exact runtimes would be to actually code these algorithms as computer programs and run them on a real computer.  However, analyses such as these are usually good enough to allow us to make meaningful comparisons.  The above analysis clearly shows that insertion sort should be preferred over selection sort.
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum algorithmsSorting2"></span>
+			</p>
+
+			<ol>
+				<li>
+					The number of comparisons required by insertion sort to order N items depends on the original order of those items.  Illustrate this fact by showing all of the comparisons necessary to sort each of the following two lists of eight items:
+					
+					<ul class="Blockcenter">
+						<li><span class="Subfigure">(a)    10   20   30   40   50   60   70   80</span></li>
+						<li><span class="Subfigure">(b)    80   70   60   50   40   30   20   10</span></li>
+					</ul>
+				</li>
+				<br/>
+				<li>
+					How many comparisons are needed by insertion sort to sort an eight item list in the worst case?   In the best case?    In the average case?
+				</li>
+				<br/>
+				<li>
+					How many comparisons are needed by insertion sort to sort a 100 item list in the worst case?  In the best case?   In the average case?
+				</li>
+				<br/>
+				<li>
+					Assuming you had an antique computer that could perform one comparison every 1/1,000 of a second, an insertion sort of 10,000 items should take about 7 hours.  Show how this result can be computed from the formulas given in this section.
+				</li>
+				<br/>
+				<li>
+					Given a relatively modern computer capable of one million high-level operations per second, how long will insertion sort take, on average, to process a list of 1,000 items?  A list of 2,000 items?  3,000 items?
+				</li>
+			</ol>
+			
+			<!-- End main content -->
+			<div class="push"></div> <!-- pushes the footer static bottom -->
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the footer -->	
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID="algorithms";
+				
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("algorithmsSorting2");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

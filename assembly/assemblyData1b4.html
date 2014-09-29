@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyData1b4"></span>
+			</p>			
+			<p>
+				So far all of the numbers we have looked at have been unsigned and assumed to be positive.  In order to be able to handle negative numbers, we need a way to represent the sign of a number. We first examine two methods of historical interest and then explore two’s complement, the method in common use today.
+			</p>
+			
+			<p>
+				An early attempt to handle signed numbers was to add a special sign bit to the left of each number.  A zero in the sign bit was used for positive numbers and a one in the sign bit for negative numbers. The representations of positive five and negative five in <span class="Ital">signed magnitude</span> notation are shown below.  These representations assume that three bits are reserved for the magnitude of a number and one bit for its sign.
+			</p>
+			
+			<!--ill8
+			<table border="0" cellspacing="0" cellpadding="0" class="Table40">
+			<colgroup><col width="59"/><col width="55"/><col width="57"/><col width="57"/><col width="42"/><col width="83"/></colgroup><tr class="Table401"><td colspan="4" style="text-align:left;width:0.5347in; " class="Table40_A1"><h2 class="Heading_20_2"><a id="a__Signed_magnitude_binary"></a>Signed magnitude binary</h2></td><td style="text-align:left;width:0.375in; " class="Table40_E1"><p class="P11"> </p></td><td style="text-align:left;width:0.75in; " class="Table40_A1"><p>Decimal</p></td></tr><tr class="Table401"><td style="text-align:left;width:0.5347in; " class="Table40_A2"><p>Sign</p></td><td colspan="3" style="text-align:left;width:0.4993in; " class="Table40_A2"><h2 class="Heading_20_2"><a id="a__Magnitude"></a>Magnitude</h2></td><td style="text-align:left;width:0.375in; " class="Table40_E2"><p class="P11"> </p></td><td style="text-align:left;width:0.75in; " class="Table40_F2"><p class="P11"> </p></td></tr><tr class="Table403"><td style="text-align:left;width:0.5347in; " class="Table40_A3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.4993in; " class="Table40_A3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5174in; " class="Table40_A3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5174in; " class="Table40_A3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table40_E2"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table40_F3"><p>+5</p></td></tr><tr class="Table403"><td style="text-align:left;width:0.5347in; " class="Table40_A3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.4993in; " class="Table40_A3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5174in; " class="Table40_A3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5174in; " class="Table40_A3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table40_E2"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table40_F3"><p>-5</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-8.png" alt="" class="Image">
+			
+			<p>
+				Signed magnitude notation works, provided that the sign bit is treated separately from the magnitude of the number and guides how arithmetic operations are performed.  However, arithmetic in this notation is difficult and results in some anomalies, such as two representations for zero (+0 is 0000 and -0 is 1000).  
+			</p>
+			
+			<p>
+				Arithmetic becomes easier if we write a negative number as the complement of the corresponding positive number.  The complement of a binary number is formed by writing a “0” wherever there is a “1” in the original number and a “1” wherever there is a “0” in the original number.  As with signed magnitude notation, the leftmost bit still indicates the sign of the number – “0” for positive numbers and “1” for negative.  Complementing a binary number in this way to represent signed values is sometimes referred to as <span class="Ital">one’s complement</span> notation.  The one’s complement representation of positive five and negative five are presented below. 
+			</p>
+			
+			<!--ill9
+			<table border="0" cellspacing="0" cellpadding="0" class="Table41">
+			<colgroup><col width="57"/><col width="57"/><col width="57"/><col width="57"/><col width="42"/><col width="83"/></colgroup><tr class="Table411"><td colspan="4" style="text-align:left;width:0.516in; " class="Table41_A1"><h2 class="Heading_20_2"><a id="a__One’s_complement_binary"></a>One’s complement binary</h2></td><td style="text-align:left;width:0.375in; " class="Table41_E1"><p class="P11"> </p></td><td style="text-align:left;width:0.75in; " class="Table41_A1"><p>Decimal</p></td></tr><tr class="Table412"><td style="text-align:left;width:0.516in; " class="Table41_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5167in; " class="Table41_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.516in; " class="Table41_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5167in; " class="Table41_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table41_E2"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table41_F2"><p>+5</p></td></tr><tr class="Table412"><td style="text-align:left;width:0.516in; " class="Table41_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5167in; " class="Table41_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.516in; " class="Table41_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5167in; " class="Table41_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.375in; " class="Table41_E3"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table41_F2"><p>-5</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-9.png" alt="" class="Image">
+			
+			<p>
+				Although the arithmetic for one’s complement numbers is much easier than for signed magnitude, the anomaly of two representations for zero (0000 for +0 and 1111 for -0) still exists.
+			</p>
+			
+			<p>
+				Two’s complement is a variation of one’s complement.  To change the sign of a<span class="Ital"> two’s complement</span> binary number, perform the following three steps:
+			</p>
+			
+			<ol>
+				<li>
+					Write down the binary representation for the original number
+				</li>
+				
+				<li>
+					Complement all the bits (replace 1’s with 0’s and 0’s with 1’s)
+				</li>
+				
+				<li>
+					Add one to the result.
+				</li>
+			</ol>
+			
+			<p>
+				Here are positive five and negative five written in two’s complement notation.
+			</p>
+			
+			<!--ill10
+			<table border="0" cellspacing="0" cellpadding="0" class="Table42">
+			<colgroup><col width="56"/><col width="56"/><col width="56"/><col width="56"/><col width="42"/><col width="83"/></colgroup><tr class="Table421"><td colspan="4" style="text-align:left;width:0.5083in; " class="Table42_A1"><h2 class="Heading_20_2"><a id="a__Two’s_complement_binary"></a>Two’s complement binary</h2></td><td style="text-align:left;width:0.375in; " class="Table42_E1"><p class="P11"> </p></td><td style="text-align:left;width:0.75in; " class="Table42_A1"><p>Decimal</p></td></tr><tr class="Table422"><td style="text-align:left;width:0.5083in; " class="Table42_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5083in; " class="Table42_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5083in; " class="Table42_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.509in; " class="Table42_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table42_E2"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table42_F2"><p>+5</p></td></tr><tr class="Table422"><td style="text-align:left;width:0.5083in; " class="Table42_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5083in; " class="Table42_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5083in; " class="Table42_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.509in; " class="Table42_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table42_E3"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table42_F2"><p>-5</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-10.png" alt="" class="Image">
+			
+			<p>
+				While the idea of two’s complement notation may seem a little strange at first, it has does have a unique representation for zero (0000, given four bits) and straightforward arithmetic operations.  Notice that for positive numbers, all three representations (signed magnitude, one’s complement, and two’s complement) have the same pattern as unsigned numbers.  
+			</p>
+			
+			<p>
+				<span class="figNum nineteen"></span> presents the sixteen signed numbers that can be represented using two’s complement notation and four bits of storage.  Notice that the numbers range from negative eight to positive seven.  In two’s complement notation the range of numbers that can be represented given a fixed number of bits will always include one more negative value than positive value.  This is because the representation of zero includes a “0” in the leftmost bit position – thus taking up one of the “positive” slots. 
+			</p>
+			
+			<img src="images/fig11-21.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum nineteen"></span>  Four-bit, two’s complement signed numbers
+			</p>
+			
+			<p>
+				For <span class="Ital">n</span> bits of storage the range of numbers that can be represented in two’s complement notation extends from negative 2 <span class="Superscript">n -1</span> to positive 2 <span class="Superscript">n - 1</span> –1.  In <span class="figNum nineteen"></span> four bits of storage were used, so the range of numbers was from negative 2 <span class="Superscript">4-1</span> ( i.e., - 2 <span class="Superscript">3</span> =  -8 ) to positive 2 <span class="Superscript">4-1 </span>- 1 ( i.e.,  2 <span class="Superscript">3</span>- 1  = 8 –1 = 7 ).  Most modern PCs use a “word” size of thirty-two bits to represent integers.  Thus, they are capable of representing values in the range negative 2 <span class="Superscript">31</span> to positive 2 <span class="Superscript">31</span>-1, or -2,147,483,648 to 2,147,483,647.  Older computers used sixteen-bit words and were thus limited to representing integers in the range negative 2 <span class="Superscript">15</span> to positive 2<span class="Superscript"> 15</span> – 1, or -32,768 to 32,767.
+			</p>
+			
+			<p>
+				In order to understand why two’s complement is the preferred method for representing signed numbers at the machine level, we will look at a number of addition problems involving both positive and negative numbers.  As we will see, what makes two’s complement so great is that the sign of a number can essentially be ignored when performing addition since positive and negative numbers are treated in an identical manner.  An added bonus is that we get the subtraction operations for “free” once we have addition, since a problem such as X – Y can be recast as the two step process: (1) swap the sign of Y, then (2) add X and Y.
+			</p>
+			
+			<p>
+				We begin by examining the summation of numbers with opposite signs. First up is the sum of +2 and –3, which should add to –1.  The two’s complement binary representation of +2 is 0010, assuming four bits of storage.  The two’s complement representation of –3, also assuming four bits of storage, is 1101. (Remember, start with +3 in base two, 0011, complement the bits to get 1100, then add 1 to get 1101.)  Adding these two values together gives 1111, or -1. (The “1” in the leftmost column tells us the number is negative.  It’s magnitude can be determined by complementing each bit (giving 0000) and adding one (giving 0001). The addition of +2 and –3 is illustrated below.
+			</p>
+			
+			<!--ill11
+			<table border="0" cellspacing="0" cellpadding="0" class="Table44">
+			<colgroup><col width="56"/><col width="56"/><col width="56"/><col width="56"/><col width="42"/><col width="83"/></colgroup><tr class="Table441"><td colspan="4" style="text-align:left;width:0.5083in; " class="Table44_A1"><h2 class="Heading_20_2"><a id="a__Two’s_complement_binary"></a>Two’s complement binary</h2></td><td style="text-align:left;width:0.375in; " class="Table44_E1"><p class="P11"> </p></td><td style="text-align:left;width:0.75in; " class="Table44_E1"><p>Decimal</p></td></tr><tr class="Table442"><td style="text-align:left;width:0.5083in; " class="Table44_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5083in; " class="Table44_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5083in; " class="Table44_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.509in; " class="Table44_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.375in; " class="Table44_E2"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table44_F2"><p>+2</p></td></tr><tr class="Table442"><td style="text-align:left;width:0.5083in; " class="Table44_A3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5083in; " class="Table44_A3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5083in; " class="Table44_A3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.509in; " class="Table44_A3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table44_E3"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table44_F3"><p>-3</p></td></tr><tr class="Table442"><td style="text-align:left;width:0.5083in; " class="Table44_A4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5083in; " class="Table44_A4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5083in; " class="Table44_A4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.509in; " class="Table44_A4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table44_E4"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table44_F4"><p>-1</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-11.png" alt="" class="Image">
+			
+			<p>
+				Next, we look at the addition of –2 and +3.  The four-bit two’s complement binary representation of –2 is 1110.  The representation of +3 is 0011.  Adding these two values together gives +1 or 0001 in binary two’s complement, as is illustrated below.
+			</p>
+			
+			<!--ill12
+			<table border="0" cellspacing="0" cellpadding="0" class="Table45">
+			<colgroup><col width="57"/><col width="57"/><col width="57"/><col width="57"/><col width="57"/><col width="42"/><col width="83"/></colgroup><tr class="Table451"><td style="text-align:left;width:0.5146in; " class="Table45_A1"/><td colspan="4" style="text-align:left;width:0.5153in; " class="Table45_B1"><h2 class="Heading_20_2"><a id="a__Two’s_complement_binary"></a>Two’s complement binary</h2></td><td style="text-align:left;width:0.375in; " class="Table45_A1"/><td style="text-align:left;width:0.75in; " class="Table45_A1"><p>Decimal</p></td></tr><tr class="Table452"><td style="text-align:left;width:0.5146in; " class="Table45_A2"><p class="P44"> </p></td><td style="text-align:left;width:0.5153in; " class="Table45_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5146in; " class="Table45_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5153in; " class="Table45_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5174in; " class="Table45_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.375in; " class="Table45_F2"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table45_G2"><p>-2</p></td></tr><tr class="Table452"><td style="text-align:left;width:0.5146in; " class="Table45_A2"><p class="P44"> </p></td><td style="text-align:left;width:0.5153in; " class="Table45_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5146in; " class="Table45_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5153in; " class="Table45_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5174in; " class="Table45_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table45_F3"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table45_G3"><p>+3</p></td></tr><tr class="Table452"><td style="text-align:left;width:0.5146in; " class="Table45_A4"><p class="P45">1</p></td><td style="text-align:left;width:0.5153in; " class="Table45_B4"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5146in; " class="Table45_B4"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5153in; " class="Table45_B4"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5174in; " class="Table45_B4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table45_F4"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table45_G4"><p>+1</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-12.png" alt="" class="Image">
+			
+			<p>
+				Note that this particular addition of two four-bit numbers results in a carry to the fifth bit.  This carry is <span class="Ital">ignored</span>.  In order to reinforce the fact that this bit is discarded, it is shown in italics.
+			</p>
+			
+			<p>
+				We now turn our attention to addition problems involving numbers of like sign.  Here is an illustration of the addition of two positive numbers: +2 and +3.
+			</p>
+			
+			<!--ill13
+			<table border="0" cellspacing="0" cellpadding="0" class="Table46">
+			<colgroup><col width="56"/><col width="56"/><col width="56"/><col width="56"/><col width="42"/><col width="83"/></colgroup><tr class="Table461"><td colspan="4" style="text-align:left;width:0.5083in; " class="Table46_A1"><h2 class="Heading_20_2"><a id="a__Two’s_complement_binary"></a>Two’s complement binary</h2></td><td style="text-align:left;width:0.375in; " class="Table46_E1"><p class="P11"> </p></td><td style="text-align:left;width:0.75in; " class="Table46_E1"><p>Decimal</p></td></tr><tr class="Table462"><td style="text-align:left;width:0.5083in; " class="Table46_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5083in; " class="Table46_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5083in; " class="Table46_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.509in; " class="Table46_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.375in; " class="Table46_E2"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table46_F2"><p>+2</p></td></tr><tr class="Table462"><td style="text-align:left;width:0.5083in; " class="Table46_A3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5083in; " class="Table46_A3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5083in; " class="Table46_A3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.509in; " class="Table46_A3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table46_E3"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table46_F3"><p>+3</p></td></tr><tr class="Table462"><td style="text-align:left;width:0.5083in; " class="Table46_A4"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5083in; " class="Table46_A4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5083in; " class="Table46_A4"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.509in; " class="Table46_A4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table46_E4"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table46_F4"><p>+5</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-13.png" alt="" class="Image">
+			
+			<p>
+				To show that the system handles the addition of negative numbers properly, consider the problem: –2 plus –3 equals –5.
+			</p>
+			
+			<!--ill14
+			<table border="0" cellspacing="0" cellpadding="0" class="Table47">
+			<colgroup><col width="57"/><col width="57"/><col width="57"/><col width="57"/><col width="57"/><col width="42"/><col width="83"/></colgroup><tr class="Table471"><td style="text-align:left;width:0.5146in; " class="Table47_A1"/><td colspan="4" style="text-align:left;width:0.5153in; " class="Table47_B1"><h2 class="Heading_20_2"><a id="a__Two’s_complement_binary"></a>Two’s complement binary</h2></td><td style="text-align:left;width:0.375in; " class="Table47_A1"/><td style="text-align:left;width:0.75in; " class="Table47_A1"><p>Decimal</p></td></tr><tr class="Table472"><td style="text-align:left;width:0.5146in; " class="Table47_A2"><p class="P44"> </p></td><td style="text-align:left;width:0.5153in; " class="Table47_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5146in; " class="Table47_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5153in; " class="Table47_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5174in; " class="Table47_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.375in; " class="Table47_F2"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table47_G2"><p>-2</p></td></tr><tr class="Table472"><td style="text-align:left;width:0.5146in; " class="Table47_A2"><p class="P44"> </p></td><td style="text-align:left;width:0.5153in; " class="Table47_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5146in; " class="Table47_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5153in; " class="Table47_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5174in; " class="Table47_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table47_F3"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table47_G3"><p>-3</p></td></tr><tr class="Table472"><td style="text-align:left;width:0.5146in; " class="Table47_A4"><p class="P45">1</p></td><td style="text-align:left;width:0.5153in; " class="Table47_B4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5146in; " class="Table47_B4"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5153in; " class="Table47_B4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5174in; " class="Table47_B4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table47_F4"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table47_G4"><p>-5</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-14.png" alt="" class="Image">
+			
+			<p>
+				Notice that while we get a correct answer, this problem generated a carry bit that is discarded.
+			</p>
+			
+			<p>
+				One problem that can arise when representing numeric values via a fixed number of bits is the problem of overflow.  <span class="Ital">Overflow</span> occurs when the value that is to be stored is outside the range of permissible values (in other words the value is too large to fit in the available space). The only way around overflow is to add more bits to the representation, thus increasing the range of permissible values.   The best we can do absent this is to detect when overflow occurs. 
+			</p>
+			
+			<p>
+				Two’s complement notation makes it easy to spot when overflow occurs. Overflow occurs when two numbers of the same sign are added together and the result has the opposite sign.  Here are two examples.
+			</p>
+			
+			<!--ill15
+			<table border="0" cellspacing="0" cellpadding="0" class="Table48">
+			<colgroup><col width="57"/><col width="57"/><col width="57"/><col width="57"/><col width="57"/><col width="42"/><col width="83"/></colgroup><tr class="Table481"><td style="text-align:left;width:0.5146in; " class="Table48_A1"/><td colspan="4" style="text-align:left;width:0.5153in; " class="Table48_B1"><h2 class="Heading_20_2"><a id="a__Two’s_complement_binary"></a>Two’s complement binary</h2></td><td style="text-align:left;width:0.375in; " class="Table48_A1"/><td style="text-align:left;width:0.75in; " class="Table48_A1"><p>Decimal</p></td></tr><tr class="Table482"><td style="text-align:left;width:0.5146in; " class="Table48_A2"><p class="P44"> </p></td><td style="text-align:left;width:0.5153in; " class="Table48_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5146in; " class="Table48_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5153in; " class="Table48_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5174in; " class="Table48_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.375in; " class="Table48_F2"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table48_G2"><p>+4</p></td></tr><tr class="Table482"><td style="text-align:left;width:0.5146in; " class="Table48_A2"><p class="P44"> </p></td><td style="text-align:left;width:0.5153in; " class="Table48_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5146in; " class="Table48_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5153in; " class="Table48_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5174in; " class="Table48_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table48_F3"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table48_G3"><p>+5</p></td></tr><tr class="Table482"><td style="text-align:left;width:0.5146in; " class="Table48_A2"><p class="P46"> </p></td><td style="text-align:left;width:0.5153in; " class="Table48_B4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5146in; " class="Table48_B4"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5153in; " class="Table48_B4"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5174in; " class="Table48_B4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table48_F4"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table48_G4"><p>? –7 ?</p></td></tr></table>
+			
+			<table border="0" cellspacing="0" cellpadding="0" class="Table49">
+			<colgroup><col width="57"/><col width="57"/><col width="57"/><col width="57"/><col width="57"/><col width="42"/><col width="83"/></colgroup><tr class="Table491"><td style="text-align:left;width:0.5146in; " class="Table49_A1"/><td colspan="4" style="text-align:left;width:0.5153in; " class="Table49_B1"><h2 class="Heading_20_2"><a id="a__Two’s_complement_binary"></a>Two’s complement binary</h2></td><td style="text-align:left;width:0.375in; " class="Table49_A1"/><td style="text-align:left;width:0.75in; " class="Table49_A1"><p>Decimal</p></td></tr><tr class="Table492"><td style="text-align:left;width:0.5146in; " class="Table49_A2"><p class="P44"> </p></td><td style="text-align:left;width:0.5153in; " class="Table49_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5146in; " class="Table49_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5153in; " class="Table49_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5174in; " class="Table49_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.375in; " class="Table49_F2"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table49_G2"><p>-4</p></td></tr><tr class="Table492"><td style="text-align:left;width:0.5146in; " class="Table49_A2"><p class="P44"> </p></td><td style="text-align:left;width:0.5153in; " class="Table49_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5146in; " class="Table49_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5153in; " class="Table49_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5174in; " class="Table49_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table49_F3"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table49_G3"><p>-5</p></td></tr><tr class="Table492"><td style="text-align:left;width:0.5146in; " class="Table49_A4"><p class="P45">1</p></td><td style="text-align:left;width:0.5153in; " class="Table49_B4"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.5146in; " class="Table49_B4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5153in; " class="Table49_B4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.5174in; " class="Table49_B4"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.375in; " class="Table49_F4"><p class="P19"> </p></td><td style="text-align:left;width:0.75in; " class="Table49_G4"><p>? +7 ?</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-15.png" alt="" class="Image">
+			
+			<p>
+				Overflow in two’s complement can be spotted when the sign bits of both numbers being added are the same, yet the sign bit of the answer is different.  Note that overflow can only occur when adding numbers of like sign.  It can never occur when numbers of opposite signs are added. 
+			</p>
+			
+			<p>
+				When we detect overflow the answer is incorrect, as shown above by the question marks, and must be discarded.  There is no way to get the correct answer if the number of bits available does not allow us to express that answer.  There is no way to express +9 or -9, the correct results, using a four-bit two’s complement number, since both are outside the range of permissible values. 
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum assemblyData1b4"></span>
+			</p>
+			
+			<ol>
+				<li>
+					Add each of the following pairs of 8-bit two’s complement numbers.  Indicate which problems, if any, generate an overflow condition. 
+					
+					<img src="images/ex11-4-1-4-num1.png" alt="" class="Image">
+			<!--table of stuff
+			<table border="0" cellspacing="0" cellpadding="0" class="Table50">
+			<colgroup><col width="40"/><col width="115"/><col width="93"/><col width="104"/></colgroup><tr class="Table501"><td style="text-align:left;width:0.3625in; " class="Table50_A1"><p>a.  </p></td><td style="text-align:left;width:1.0375in; " class="Table50_A1"><p>1010 1010</p></td><td style="text-align:left;width:0.8375in; " class="Table50_A1"><p class="P12">d.  </p></td><td style="text-align:left;width:0.9375in; " class="Table50_A1"><p>0011 0000</p></td></tr><tr class="Table501"><td style="text-align:left;width:0.3625in; " class="Table50_A1"><p class="P19"> </p></td><td style="text-align:left;width:1.0375in; " class="Table50_B2"><p>0000 0010</p></td><td style="text-align:left;width:0.8375in; " class="Table50_A1"><p class="P13"> </p></td><td style="text-align:left;width:0.9375in; " class="Table50_B2"><p>0100 0000</p></td></tr><tr class="Table501"><td style="text-align:left;width:0.3625in; " class="Table50_A1"><p class="P19"> </p></td><td style="text-align:left;width:1.0375in; " class="Table50_B3"><p class="P19"> </p></td><td style="text-align:left;width:0.8375in; " class="Table50_A1"><p class="P13"> </p></td><td style="text-align:left;width:0.9375in; " class="Table50_B3"><p class="P19"> </p></td></tr><tr class="Table501"><td style="text-align:left;width:0.3625in; " class="Table50_A1"><p>b.  </p></td><td style="text-align:left;width:1.0375in; " class="Table50_A1"><p>1111 0000</p></td><td style="text-align:left;width:0.8375in; " class="Table50_A1"><p class="P12">e.  </p></td><td style="text-align:left;width:0.9375in; " class="Table50_A1"><p>0011 0000</p></td></tr><tr class="Table501"><td style="text-align:left;width:0.3625in; " class="Table50_A1"><p class="P19"> </p></td><td style="text-align:left;width:1.0375in; " class="Table50_B2"><p>1111 1100</p></td><td style="text-align:left;width:0.8375in; " class="Table50_A1"><p class="P13"> </p></td><td style="text-align:left;width:0.9375in; " class="Table50_B2"><p>0101 0000</p></td></tr><tr class="Table501"><td style="text-align:left;width:0.3625in; " class="Table50_A1"><p class="P19"> </p></td><td style="text-align:left;width:1.0375in; " class="Table50_B3"><p class="P19"> </p></td><td style="text-align:left;width:0.8375in; " class="Table50_A1"><p class="P13"> </p></td><td style="text-align:left;width:0.9375in; " class="Table50_B3"><p class="P19"> </p></td></tr><tr class="Table501"><td style="text-align:left;width:0.3625in; " class="Table50_A1"><p>c.  </p></td><td style="text-align:left;width:1.0375in; " class="Table50_A1"><p>1000 1111</p></td><td style="text-align:left;width:0.8375in; " class="Table50_A1"><p class="P12">f.  </p></td><td style="text-align:left;width:0.9375in; " class="Table50_A1"><p>1000 1111</p></td></tr><tr class="Table501"><td style="text-align:left;width:0.3625in; " class="Table50_A1"><p class="P19"> </p></td><td style="text-align:left;width:1.0375in; " class="Table50_B2"><p>1000 1111</p></td><td style="text-align:left;width:0.8375in; " class="Table50_A1"><p class="P13"> </p></td><td style="text-align:left;width:0.9375in; " class="Table50_B2"><p>0001 0000</p></td></tr></table>
+				-->
+				</li>
+				<br/>
+				<li>
+					Translate each of the above addition problems, along with its answer, from base two to base ten. 
+				</li>
+			</ol>
+			
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyData1b4");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>

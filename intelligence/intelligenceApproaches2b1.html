@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/colmn_test.css" rel="stylesheet">	    
+		<!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+				<!--Navbar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div  class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum intelligenceApproaches2b1"></span>
+			</p>
+
+			<p>
+				<span class="Bolded">Propositional logic</span>, is a two-valued logic in which every concept or idea that the system can reason about is represented as a variable that can be either <span class="Ital">true</span> or <span class="Ital">false</span>. For example:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">P = It is raining.</span></li>
+				<li><span class="Subfigure">Q = I am wet.</span></li>
+				<li><span class="Subfigure">R = I am outside.</span></li>
+			</ul>
+			<br/>
+			<p>
+				<span class="Subfigure">P</span>, <span class="Subfigure">Q</span>, and <span class="Subfigure">R</span> are propositional variables, each of which may be either true or false. Each propositional variable represents a statement about the “real” world, which may also be either true or false.
+			</p>
+
+			<p>
+				In the above example, I chose to use the symbols <span class="Subfigure">P</span>, <span class="Subfigure">Q</span>, and <span class="Subfigure">R</span> as the names of the propositional variables. The actual choice of variable names doesn’t really matter. I could just as easily have used <span class="Subfigure">A</span>, <span class="Subfigure">B</span>, and <span class="Subfigure">C</span>. However, to make it easy for humans to remember which propositional variable goes with which statement, meaningful names, such as <span class="Subfigure">raining</span>, <span class="Subfigure">wet</span>, and <span class="Subfigure">outside</span>, are often used. To the propositional logic system these names are no better, or worse, than <span class="Subfigure">P</span>, <span class="Subfigure">Q</span>, and <span class="Subfigure">R</span>.
+			</p>
+
+			<p>
+				Logical operators can be used to combine propositional variables together to form compound statements. As with the underlying propositions, these compound statements will be either true or false. Whether a compound statement is true, or whether it is false, will depend on the truth values of the individual propositions along with the precise definitions of the logical operators used.
+			</p>
+
+			<img src="images/logicandornot.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum logicandornot"></span> The propositional logic operators – <span class="Ital">and</span>, <span class="Ital">or</span>, <span class="Ital">not</span>
+			</p>
+			
+			<p>
+				The meaning of each propositional logic operator can be defined using a truth table. A <span class="Bolded">truth table</span> lists all possible input configurations for a logical operator along with the resulting output (true or false) associated with those inputs. The three most common logical operators are <span class="Ital">and</span>, <span class="Ital">or</span>, and <span class="Ital">not</span>. Each is written using a special symbol: <span class="Ital">and</span> is represented as “&and;”, <span class="Ital">or</span> is represented by the &nbsp;"v"&nbsp;character, and <span class="Ital">not</span> uses the tilde “~”. The truth tables that define these operators are presented in <span class="figNum logicandornot"></span>.
+			</p>
+
+			<p>
+				Each row of a truth table represents a possible set of circumstances, sometimes called a “world”. To the left of the vertical bar are the inputs to the operator. To the right of the vertical bar is the output value of the operator given those inputs. Hence, the first row of the <span class="Ital">and</span> table of <span class="figNum logicandornot"></span> can be read as “when <span class="Subfigure">P</span> is true and <span class="Subfigure">Q</span> is true, then the statement <span class="Subfigure">P</span> &and; <span class="Subfigure">Q</span> is true”. The third row of this table means “when <span class="Subfigure">P</span> is false and <span class="Subfigure">Q</span> is true, then the statement <span class="Subfigure">P</span> &and; <span class="Subfigure">Q</span> is false”.
+			</p>
+
+			<p>
+				One way to think of propositional logic is as a game that consists of manipulating symbols based on a set of rules. When humans first made up the game they could have chosen the rules to be anything they wanted. However, what makes the “propositional logic game” interesting and worth playing is that its rules were designed to reflect the reasoning behavior of Man. Because of the way the operators are defined, the conclusions reached in the game should match the human notion of what is reasonable.
+			</p>
+
+			<p>
+				Since it is critical that the logical operators be defined in a way that “makes sense” to a human, let’s take a few minutes to carefully examine the definitions of <span class="Ital">and</span>, <span class="Ital">or</span>, and <span class="Ital">not</span> to ensure that they reflect the meaning of their associated English words. The English sentence “It’s a warm and sunny day.” is considered to be a true statement only when both “warm day” and “sunny day” are true. If it is “not warm”, or “not sunny”, or both, the sentence is false. These four possibilities are accurately captured by the truth table for <span class="Ital">and</span>.
+			</p>
+
+			<p>
+				Likewise, the English sentence “Marcus would be happy being rich or famous.” would generally be considered true when either “Marcus would be happy being rich.” is true, or “Marcus would be happy being famous.” is true, or both are true. If Marcus would not really be happy being rich, nor would he really be happy being famous, then the original statement would be false. The truth table for <span class="Ital">or</span> captures this meaning.
+			</p>
+
+			<img src="images/logicimplies.png" alt="The propositional logic operator – implies" class="ImageTall">
+
+			<p class="Figure">
+				<span class="figNum logicimplies"></span> The propositional logic operator – <span class="Ital">implies</span>
+			</p>
+
+			<p>
+				Similarly, the English sentence “It is not cloudy.” is always true when the sentence “It is cloudy” is false and vice versa. The truth table for <span class="Ital">not</span> ( ~ ) captures the way humans use the word.
+			</p>
+
+			<p>
+				If the three logical operators of <span class="figNum logicandornot"></span> look familiar that is because their truth tables are identical to the <span class="Ital">and</span>, <span class="Ital">or</span>, and <span class="Ital">not</span> “logic gates” discussed in <span class="contentNum limits"></span>, Digital Circuit Design. In fact, logic gates are simply physical devices that implement logical operators.
+			</p>
+
+			<p>
+				In addition to <span class="Ital">and</span>, <span class="Ital">or</span>, and <span class="Ital">not</span>, propositional logic includes a number of other operators. One such operator is <span class="Ital">implies</span> which is written using the &rArr;&nbsp;symbol. Like all propositional logic statements, a statement written using the implication operator will be either true or false. The truth table definition of <span class="Ital">implies</span> is given in <span class="figNum logicimplies"></span>.
+			</p>
+
+			<p>
+				The purpose of the implication operator is to capture the concept of an “if” statement as used in human languages. The symbol to the left of the arrow, <span class="Subfigure">P</span> in this case, is called the <span class="Bolded">premise</span> of the implication. The symbol to the right of the arrow, <span class="Subfigure">Q</span> is this case, is called the <span class="Bolded">conclusion</span> of the implication.
+			</p>
+
+			<p>
+				Before we go any further, it is important to convince ourselves that the truth table definition of implication does indeed capture the concept of an “if” statement. We will do so using the following English language sentence:
+			</p>
+
+			<p class="Subfigure">
+				“If you are in the pool then you are wet.”
+			</p>
+
+			<p>
+				This statement can be rewritten in propositional logic as: <span class="Subfigure">P &rArr;&nbsp;Q</span> where the premise, <span class="Subfigure">P</span>, is “you are in the pool” and the conclusion, <span class="Subfigure">Q</span>, is “you are wet”.
+			</p>
+
+			<p>
+				When should this “if” statement be considered true? Well, clearly, the statement is true in the world where both <span class="Subfigure">P</span> and <span class="Subfigure">Q</span> are true (i.e., where “you are in the pool” is true and “you are wet” is also true.). This case is captured by line one of the truth table.
+			</p>
+
+			<p>
+				When is this “if” statement verifiably false? When you are in the pool yet still dry – as could happen, for example, in the world where the pool had been drained for cleaning. This situation is captured by line two of the truth table.
+			</p>
+
+			<p>
+				In order to understand the last two lines of the truth table, ask yourself this: What does the implication say about the conclusion, <span class="Subfigure">Q</span>, when the premise, <span class="Subfigure">P</span>, is false? In other words, what does the “if” statement say about whether or not you are wet when you are not in the pool? The answer is, of course, nothing at all – I might be dry when I’m not in the pool or I might be wet because I’m standing in the rain or taking a shower.
+			</p>
+
+			<p>
+				Thus, when you are not in the pool, either a true or a false value for wet is acceptable. Your being either wet or dry does not invalidate the “if” statement, so it is marked as true in either case. Though the “if” statement is considered true in the worlds where its premise, <span class="Subfigure">P</span>, is false, we say the statement is “vacuously true” in these cases, since the implication says nothing useful about its conclusion, <span class="Subfigure">Q</span>.
+			</p>
+
+			<p>
+				At the beginning of this section, formal logic was defined above as “a way to represent information using symbols, together with a collection of rules for manipulating those symbols to reach logically valid conclusions.” So far, we have concentrated on describing how concepts can be represented using propositions (symbols like <span class="Subfigure">P</span> and <span class="Subfigure">Q</span>) and how the relationships between those propositions can be expressed using logical operators (symbols like &and; &or; ~ &rArr;).
+			</p>
+
+			<p>
+				It is now time to begin looking at some of the rules for manipulating these symbols. We will examine two kinds of symbol manipulation rules: <span class="Ital">substitution</span> rules and <span class="Ital">inference</span> rules. The <span class="Bolded">substitution rules</span> allow us to replace one group of symbols with a logically equivalent group of symbols. These rules are often used to simplify an expression. The <span class="Bolded">inference rules</span> specify logically valid inferences that can be drawn from a collection of true statements. These rules allow us to determine the truth values of one or more propositions, given the truth values of other propositions.
+			</p>
+
+			<p>
+				The three most common and useful equivalences in propositional logic are:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">&nbsp;&nbsp;~ ~ P &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is equivalent to &nbsp;&nbsp;&nbsp; P</span></li>
+				<li><span class="Subfigure">&nbsp;&nbsp;P &rArr; Q &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is equivalent to &nbsp;~ P &or; Q</span></li>
+				<li><span class="Subfigure">~ ( P &and; Q ) &nbsp; is equivalent to &nbsp; ~ P &or; ~ Q</span></li>
+			</ul>
+			<br/>
+			<p>
+				We say these expressions are <span class="Ital">equivalent</span> because in all worlds where one is true, so is the other; and in all worlds where one is false, so is the other. Thus, they have identical truth tables, and since truth tables provide the definition of an expression’s meaning, these expressions mean the same thing – they are equivalent.
+			</p>
+
+			<p>
+				The first equivalence, <span class="Subfigure">~ ~ P</span> equivalent to <span class="Subfigure">P</span>, corresponds to the notion that “double negation” cancels. The expression <span class="Subfigure">~ ~ P</span> will always be true when <span class="Subfigure">P</span> is true, and will always be false whenever <span class="Subfigure">P</span> is false. Though we normally avoid double negation in English, we do occasionally say things like “I’m not unhappy.” where “unhappy” means “not happy”. Since, “not unhappy” or “not not happy” means “happy”, saying “I’m not unhappy.” is essentially equivalent to saying “I’m happy.”<span class="Footnote" title="Footnote: Of course, just because you said “I’m happy.” doesn’t mean you are telling the true. Like all propositions, the statement “I’m happy.” may itself be either true or false."><a href="#ftn11" id="body_ftn11">[11]</a></span>
+			</p>
+
+			<img src="images/notnotp.png" alt="" class="Image">
+			
+			<p class="Figure">
+				(a)  <span class="Bolded">P</span>  is equivalent to   <span class="Bolded">~ ~ P</span>
+			</p>
+
+			<img src="images/pimpliesq.png" alt="" class="Image">
+			
+			<p class="Figure">
+				(b)  <span class="Bolded">P &rArr; Q</span>  is equivalent to  <span class="Bolded">~P &or; Q</span>
+			</p>
+
+			<img src="images/notparenthesis.png" alt="" class="Image">
+			
+			<p class="Figure">
+				(c)	<span class="Bolded">~(P &and; Q)</span> is equivalent to <span class="Bolded">~P &or; ~Q</span>
+			</p>
+
+			<p class="Figure">
+				<span class="figNum notimplications"></span> Three useful propositional logic equivalences
+			</p>
+
+			<p>
+				<span class="figNum notimplications"></span> presents truth tables illustrating the validity of the three equivalences. Note that some of the tables have “extra” columns in addition to the input and output columns. These columns, which are shaded gray, are used to hold temporary results and make the construction of the final output column easier to follow. For example, to generate the truth table for <span class="Subfigure">~P</span> &or; <span class="Subfigure">~Q</span> I first negated <span class="Subfigure">P</span>, then I negated <span class="Subfigure">Q</span>, then I applied the <span class="Ital">or</span> operator to those results.
+			</p>
+
+			<p>
+				It is possible to substitute one equivalent expression for another without changing the meaning of what is being represented, since the “meaning” of a propositional expression is fully defined by its truth table. For example consider the following statement:
+			</p>
+
+			<p class="Subfigure">
+				“On sunny days weddings are held in the garden.”
+			</p>
+
+			<p>
+				This statement could be roughly approximated by the propositional expression:
+			</p>
+
+			<p class="Subfigure">
+				(1) <span class="Subfigure">sunny_day &rArr;&nbsp;garden_wedding</span>
+			</p>
+
+			<p>
+				From the equivalences given in <span class="figNum notimplications"></span>, we know that this expression could be replaced with the following:
+			</p>
+
+			<p class="Subfigure">
+				(2) <span class="Subfigure">~ sunny_day</span> &or; <span class="Subfigure">garden_wedding</span>
+			</p>
+
+			<p>
+				These two expressions, (1) and (2), are “logically equivalent”, but does the result of the substitution still make sense to a human? With some thought we can see that the answer to this question is “yes”. The new form of the statement, (2), would roughly translate back into English as:
+			</p>
+
+			<p class="Subfigure">
+				“Either it is not a sunny day or weddings will be held in the garden”.
+			</p>
+
+			<p>
+				Upon reflection, you should be able to see that statements (1) and (2) are expressing the same idea. When one is true, the other is true. When one is false, so is the other. If you have trouble seeing this, look back at the truth tables for <span class="Subfigure">P &rArr;&nbsp;Q</span> and <span class="Subfigure">~ P</span> &or; <span class="Subfigure">Q</span> in part (b) of <span class="figNum notimplications"></span> and think carefully about the circumstances represented by each row.
+			</p>
+
+			<p>
+				The final equivalence, presented in part (c) of <span class="figNum notimplications"></span>, make sense as well. Suppose I were to say to you:
+			</p>
+
+			<p class="Subfigure">
+				“Conan The Barbarian is not both smart and strong.”
+			</p>
+
+			<p>
+				That sentence conveys the same information as the statement:
+			</p>
+
+			<p class="Subfigure">
+				“Either Conan The Barbarian is not smart or Conan The Barbarian is not strong.”<span class="Footnote" title="Footnote: Or, even more loosely: “Conan The Barbarian is either dumb or weak.”"><a href="#ftn12" id="body_ftn12">[12]</a></span>
+			</p>
+
+			<p>
+				In other words, <span class="Subfigure">~</span> ( strong &and; <span class="Subfigure">smart</span> ) is equivalent to <span class="Subfigure">( ~ </span> strong &or; <span class="Subfigure">~</span> smart ).
+			</p>
+
+			<p>
+				Now that we have some idea about how one expression can be substituted for an equivalent expression, let’s turn our attention to the problem of identifying rules for “reasoning” in propositional logic. We will cover three simple, but very powerful, inference rules: <span class="Ital">modus ponens</span>, <span class="Ital">modus tollens</span>, and <span class="Ital">chaining of implication</span>.
+			</p>
+
+			<img src="images/ponenstruth.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum ponenstruth"></span> A truth table illustrating the derivation of <span class="Ital">Modus Ponens</span>
+			</p>
+
+			<p>
+				If I were to say the following two things to you:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">“If Josh is at home then he is playing Halo.”</span></li>
+				<li><span class="Subfigure">“Josh is at home.”</span></li>
+			</ul>
+			<br/>
+			<p>
+				<span class="Ital">Assuming</span> you believed these two statements to be true, that I am not lying to you or mistaken, you would probably immediately conclude that Josh is playing Halo. This conclusion is logically valid in all worlds in which both original statements are true.
+			</p>
+
+			<p>
+				If we assign the propositional variable <span class="Subfigure">P</span> to “Josh is at home”, and <span class="Subfigure">Q</span> to “Josh is playing Halo”, the statement “If Josh is at home then he is playing Halo” becomes <span class="Subfigure">P &rArr;&nbsp;Q</span>. Our reasoning process can then be captured by the inference rule known as <span class="Bolded">Modus Ponens</span>:
+			</p>
+
+			<p class="Subfigure">
+				((P &rArr; Q) &and; P) &rArr; Q
+			</p>
+
+			<p>
+				In other words, given “<span class="Subfigure">P</span> <span class="Ital">implies</span> <span class="Subfigure">Q</span>” and given “<span class="Subfigure">P</span>” we can conclude “<span class="Subfigure">Q</span>”.
+			</p>
+
+			<p>
+				The truth table definition of Modus Ponens is presented in <span class="figNum ponenstruth"></span>. Note that Modus Ponens is a <span class="Bolded">tautology</span> – a logical expression that is true in all worlds, regardless of the underlying truth values of <span class="Subfigure">P</span> and <span class="Subfigure">Q</span>.
+			</p>
+
+			<p>
+				Modus Ponens is a very important rule since it allows propositional logic systems to draw logically valid inferences. Because of its importance, let’s analyze the truth table of this rule very carefully. Columns one and two of the table represents the variables used in the expression, <span class="Subfigure">P</span> and <span class="Subfigure">Q</span>. All four combinations of <span class="Subfigure">P</span> and <span class="Subfigure">Q</span> are illustrated – representing the four possible worlds generated by this two variable system. The third column holds the truth values associated with the expression <span class="Subfigure">P</span> &rArr; <span class="Subfigure">Q</span>, which were copied from the definition of <span class="Ital">implies</span> given in <span class="figNum logicimplies"></span>. Since column three contains “intermediate results” it is shaded gray. Column four, <span class="Subfigure">((P &rArr;&nbsp;Q)</span> &and; <span class="Subfigure">P</span>), was generated by applying the <span class="Ital">and</span> operator defined in <span class="figNum logicandornot"></span> to the inputs in column three, <span class="Subfigure">P &rArr;&nbsp;Q</span>, and column one, <span class="Subfigure">P</span>. Since this column also contains “intermediate results” it is shaded gray. Finally, column five was generated by applying the definition of <span class="Ital">implies</span> to column four, <span class="Subfigure">((P &rArr;&nbsp;Q)</span> &and; <span class="Subfigure">P</span>), as the premise and column two, <span class="Subfigure">Q</span>, as the conclusion.
+			</p>
+
+			<p>
+				Line one of the truth table corresponds to the world in which the “if” statement, <span class="Subfigure">P &rArr;&nbsp;Q</span>, and its premise <span class="Subfigure">P</span> are both true. In that world, the conclusion <span class="Subfigure">Q</span> is also true. This first world is the one you usually think about. In our example, this world corresponds to the one where the statement “If Josh is at home he is playing Halo” is true and also the statement “Josh is at home” is true. In this world, “Josh is playing Halo” is also true.
+			</p>
+
+			<p>
+				Line two of the truth table represents the world in which the “if” statement is false. In our example, this world corresponds to the situation in which you know Josh to be at home but you also know he is not playing Halo, which means that the statement “If Josh is at home he is playing Halo” must be false.
+			</p>
+
+			<p>
+				Lines three and four represent the worlds in which <span class="Subfigure">P</span> is false. In our example, Josh is not at home. When Josh is not at home, we can conclude nothing about whether he is playing Halo – he may be (line 3) or he may not be (line 4).
+			</p>
+
+			<p>
+				Thus, even though the Modus Ponens inference rule is valid in all worlds, we can safely conclude that Q is in fact true in only one world – the world corresponding to line one of the truth table, where both the implication&nbsp;P&nbsp;&rArr;&nbsp;Qis true and its premise <span class="Subfigure">P</span> is also true.
+			</p>
+
+			<p>
+				Let’s now turn our attention to another inference rule, Modus Tollens. To begin, if I were to say to you:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">“If Josh is at home then he is playing Halo.”</span></li>
+				<li><span class="Subfigure">“Josh is not currently playing Halo.”</span></li>
+			</ul>
+			<br/>
+			<p>
+				You would most likely conclude that Josh is not home – assuming you had no reason to question the accuracy of what I was telling you. You make this deduction because the only way that the implication can be true while its conclusion is false, is for its premise to also be false. In other words, the only way “If Josh is at home then he is playing Halo” can be true at the same time that “Josh is playing Halo” is false is for “Josh is home” to also be false.
+			</p>
+
+			<p>
+				If the propositional variable <span class="Subfigure">P</span> is bound to “Josh <span class="Ital">is</span> at home” and the propositional variable <span class="Subfigure">Q</span> is bound to “Josh <span class="Ital">is</span> playing Halo”, the above line of can be formalized as the inference rule Modus Tollens. <span class="Bolded">Modus Tollens</span> can be expressed in propositional logic as
+			</p>
+
+			<p class="Subfigure">
+				((P &rArr; Q) &and; ~Q) &rArr; ~P
+			</p>
+
+			<p>
+				In other words, given “<span class="Subfigure">P</span> <span class="Ital">implies</span> <span class="Subfigure">Q</span>” and given “<span class="Subfigure">~Q</span>” we can conclude “<span class="Subfigure">~P</span>”.
+			</p>
+
+			<p>
+				The truth table definition of Modus Tollens is presented in <span class="figNum tollenstruth"></span>. As was the case with Modus Ponens, Modus Tollens is a tautology – it is true in all worlds.
+			</p>
+
+			<img src="images/tollenstruth.png" alt="A truth table illustrating the derivation of Modus Tollens" class="Image">
+
+			<p class="Figure">
+				<span class="figNum tollenstruth"></span> A truth table illustrating the derivation of</span> <span class="Ital">Modus Tollens</span>
+			</p>
+
+			<p>
+				The line of the truth table that corresponds to the argument given above is line 4 – Josh is not playing Halo (i.e., <span class="Subfigure">Q</span> is false), but the “if” statement, P&nbsp;&rArr;&nbsp;Q, is true, so Josh cannot now be at home (i.e., <span class="Subfigure">P</span> is false).
+			</p>
+
+			<p>
+				Line two of the table represents the world in which the “if” statement is known to be false. In our example, this can occur only when we know Josh to be at home, yet not playing Halo.
+			</p>
+
+			<p>
+				Lines one and three illuminate a careless mistake that humans often make. When the “if” statement,&nbsp;P&nbsp;&rArr;&nbsp;Q&nbsp;is true and <span class="Subfigure">Q</span> is also true then <span class="Subfigure">P</span> can be either true (line 1) or false (line 3). Humans often forget about the possibility of line 3 and simply assume that <span class="Subfigure">P</span> must be true.
+			</p>
+
+			<p>
+				Translating back to our English language example, we know that when Josh is at home he plays Halo (i.e., the “if” statement is true). We also know that Josh is currently playing Halo (i.e., <span class="Subfigure">Q</span> is true). Is Josh at home? Maybe, and then again maybe not. The “if” tells us that when Josh is at home he plays Halo, but it doesn’t say that home is the <span class="Ital">only</span> place he plays the game. Maybe Josh likes to play Halo over at his friend Chris’s place as well.
+			</p>
+
+			<p>
+				The final inference rule we will look at is <span class="Bolded">Chaining of Implication</span>, which allows one to conclude&nbsp;<span class="Bolded">P</span>&nbsp;&rArr;<span class="Subfigure">&nbsp;<span class="Bolded">R</span></span>&nbsp;when given&nbsp;<span class="Bolded">P</span>&nbsp;&rArr;&nbsp;<span class="Bolded">Q</span>&nbsp;and&nbsp;<span class="Bolded">Q</span>&nbsp;&rArr;&nbsp;<span class="Bolded">R</span>.&nbsp;For example, suppose you were told:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">If you are human then you are a mammal.</span></li>
+				<li><span class="Subfigure">If you are a mammal then you are an animal.</span></li>
+			</ul>
+			<br/>
+			<p>
+				Assuming you believed the statements to be true, you could conclude the following statement to be true:
+			</p>
+
+			<p class="Subfigure">
+				If you are human then you are an animal.
+			</p>
+
+			<p>
+				This method of inference can be translated into the following propositional logic statement:
+			</p>
+			
+			<p class="Subfigure">
+				((P &rArr; Q) &and; (Q &rArr; R)) &rArr; (P &rArr; R)
+			</p>
+
+			<p>
+				where <span class="Subfigure">P</span> is “you are human”, <span class="Subfigure">Q</span> is “you are a mammal”, and <span class="Subfigure">R</span> is “you are an animal”.
+			</p>
+
+			<img src="images/implicationchain.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum implicationchain"></span> A truth table illustrating the derivation of <span class="Ital">Chaining of Implication</span>
+			</p>
+
+			<p>
+				The truth table definition of Chaining of Inference is given in <span class="figNum implicationchain"></span>. Because there are three propositional variables to be considered in this expression, the table requires 2<span class="Superscript">3</span>, or 8, rows to enumerate all possible worlds. Due to the size of this truth table, I will simply note that the far right hand column is filled with T’s, indicating that Chaining of Implication is valid in all possible worlds (i.e., a tautology).
+			</p>
+
+			<p>
+				While Modus Ponens, Modus Tollens, and Chaining of Implication are valid rules in all possible worlds, they are usually used to reason about worlds in which we know, or assume, that a given group of statements are true and we want to determine whether there are any additional statements that must also be true given what we already know. For example, consider the following six statements, all of which we deem to be true.
+			</p>
+
+			<ol>
+				<li>If you go swimming you will get wet.</li>
+
+				<li>If it is raining and you are outside then you will get wet.</li>
+
+				<li>If it is warm and there is no rain then it is a pleasant day.</li>
+
+				<li>You are not wet.</li>
+
+				<li>You are outside.</li>
+
+				<li>It is a warm day.</li>
+			</ol>
+
+			<p>
+				These statements could be expressed in propositional logic in the following way
+			</p>
+			
+			<ol>
+				<li><span class="Subfigure">swimming  &rArr;  wet</span></li>
+				<li><span class="Subfigure">( rain  &and;  outside )  &rArr;  wet</span></li>
+				<li><span class="Subfigure">( warm  &and;  ~ rain  )  &rArr;  pleasant</span></li>
+				<li><span class="Subfigure">~ wet</span></li>
+				<li><span class="Subfigure">outside</span></li>
+				<li><span class="Subfigure">warm</span></li>
+			</ol>
+
+			<p>
+				Assuming these statements are true, can we determine whether any additional statements are also true? Sure. Applying Modus Tollens to statements (1) and (4) tells us that <span class="Subfigure">swimming is false</span> (i.e., <span class="Subfigure">~ swimming is true</span>).
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">( ( swimming</span>&nbsp;&rArr;<span class="Subfigure">wet </span>) &and; <span class="Subfigure">~ wet</span> ) &rArr; <span class="Subfigure">~ swimming</span>
+			</p>
+
+			<p>
+				It is also possible, although a little more difficult, to determine from these statements that it is not raining. Modus Tollens applied to lines (2) and (4) tells us <span class="Subfigure">~ ( rain &and; <span class="Subfigure">outside ) must be true.
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">( ( ( rain</span> &and; <span class="Subfigure">outside </span>) &rArr; <span class="Subfigure">wet</span> ) &and; <span class="Subfigure">~ wet</span> ) &rArr; <span class="Subfigure">~ ( rain</span> &and; <span class="Subfigure">outside </span>)
+			</p>
+
+			<p>
+				Since <span class="Subfigure">~ (P</span> &and; <span class="Subfigure">Q</span>) is equivalent to <span class="Subfigure">(~ P</span> &or; <span class="Subfigure">~ Q</span>), <span class="Subfigure">~ (rain</span> &and; <span class="Subfigure">outside</span>) must be equivalent to <span class="Subfigure">(~ rain</span> &or; <span class="Subfigure">~ outside</span>). In other words, we now know that due to the fact that you are not wet “either it is not raining or you are not outside” must be true. Since statement (5) tells us that you are, in fact, outside; it must be true that “it is not raining.” In propositional logic this relationship would be expressed as:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">( ( ~ rain</span> &or; <span class="Subfigure">~ outside</span> ) &and; <span class="Subfigure">outside</span> ) &rArr; <span class="Subfigure">~ rain</span>
+			</p>
+
+			<p>
+				Proof that this implication is valid is left as an exercise.
+			</p>
+
+			<p>
+				Since we now know <span class="Subfigure">~ rain</span> is true and statement (6) tells us <span class="Subfigure">warm</span> is true, the expression <span class="Subfigure">(warm</span> &and; <span class="Subfigure">~ rain</span>) must also be true by the definition of <span class="Ital">and</span>. Applying Modus Ponens to that fact and statement (3) <span class="Subfigure">( warm</span> &and; <span class="Subfigure">~ rain</span> ) &rArr; <span class="Subfigure">pleasant</span> tells us that <span class="Subfigure">pleasant</span> must be true. In other words, it’s a pleasant day.
+			</p>
+
+			<p>
+				To summarize, using a small number of inference and substitution rules, we were able to determine that the following three things must be true:
+			</p>
+
+			<ul class="Subblockcenter">
+				<li><span class="Subfigure">(7) ~ swimming</span></li>
+				<li><span class="Subfigure">(8) ~ rain</span></li>
+				<li><span class="Subfigure">(9) pleasant</span></li>
+			</ul>
+
+			<p>
+				These propositional logic statements correspond to the English sentences:
+			</p>
+
+			<ul class="Subblockcenter">
+				<li><span class="Subfigure">(7) You are not swimming.</span></li>
+				<li><span class="Subfigure">(8) It is not raining.</span></li>
+				<li><span class="Subfigure">(9) It is a pleasant day.</span></li>
+			</ul>
+
+			<p>
+				When you stop for a moment to contemplate this example, it is hard not to be impressed with the power of propositional logic. In a few short pages we were able to describe a system that can be used to encode the relationships between concepts like “rain”, “wet”, and “swimming”, and draw logically valid conclusions from those relationships. This is true in spite of the fact that the propositional logic system has no idea what the words “rain”, “wet”, and “swimming” actually mean. It has no knowledge of what water is, that some people can swim in water, what it feels like to be wet, or even that people need to drink water to live.
+			</p>
+
+			<p>
+				Propositional logic systems “understand” very few things. They “understand” that every propositional variable must be either “true” or “false”, but not both. They “understand” a small number of words: <span class="Ital">and</span>, <span class="Ital">or</span>, <span class="Ital">not</span>, <span class="Ital">implies</span> – words whose meanings were fully defined via truth tables. They “understand” that equivalent expressions, those with identical truth values in all worlds, may be freely substituted for one another. And they “understand” that inference rules, such as <span class="Ital">Modus Ponens</span>, <span class="Ital">Modus Tollens</span>, and <span class="Ital">Chaining of Implication</span> can be applied under certain circumstances to some propositions to deduce the truth values of other propositions.
+			</p>
+
+			<p>
+				The simplicity of propositional logic systems and their lack of knowledge about the subject areas they can be applied to, make the results they are capable of achieving all the more impressive.
+			</p>
+
+			<p>
+				As powerful as propositional logic systems are, they are but the simplest of an entire family of symbolic logic systems. Other systems such as <span class="Ital">first order predicate logic</span>, <span class="Ital">second order predicate logic</span>, <span class="Ital">model logic</span>, and others, overcome many of the weaknesses inherent in propositional logic and are even more powerful. However, they all boil down to symbol manipulation games – none require intuition, just the application of substitution and inference rules.
+			</p>
+
+			<p>
+				The mechanical nature of such systems is the reason why this author often refers to symbolic logic systems as accomplishing “reasoning without understanding”.
+			</p>
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum intelligenceApproaches2b1"></span>
+			</p>
+
+			<ol>
+				<li>
+					<p>In this section we showed that <span class="Subfigure">~ ( P</span> &and; <span class="Subfigure">Q</span> ) is equivalent to <span class="Subfigure">~P</span> &or; <span class="Subfigure">~Q</span>. Prove, using truth tables, that the following equivalence is also correct:</p>
+				</li>
+
+				<p class="Subfigure">
+					<span class="Subfigure">~ ( P</span> &or; <span class="Subfigure">Q</span> ) is equivalent to <span class="Subfigure">( ~ P</span> &and; <span class="Subfigure">~ Q</span> )
+				</p>
+
+				<p>
+					These two equivalences are together known as <span class="Bolded">DeMorgan’s Laws</span>.
+				</p>
+
+				<li>
+					<p>Show that <span class="Subfigure">( (~ P</span> &or; <span class="Subfigure">~ Q</span> ) &and; <span class="Subfigure">Q</span> ) &rArr; <span class="Subfigure">~ P</span> is true in all worlds (i.e., a tautology).</p>
+				</li>
+
+				<li>
+					<p>
+						Jesse proposed the following as a rule of logic: <span class="Subfigure">( ( P</span> &rArr; <span class="Subfigure">Q )</span> &and; <span class="Subfigure">Q</span> ) &rArr; <span class="Subfigure">P</span>
+						<br/>
+						Is Jesse’s rule always valid? If not, under what circumstances does it fail?
+					</p>
+				</li>
+
+
+				<li>
+					<p>Translate the following English statements into propositional logic expressions:</p>
+					
+					<ul class="Subblockcenter">
+						<li>4.1 He is short.</li>
+						<li>4.2 He is tall, dark, and handsome.</li>
+						<li>4.3 If you are tall then you are not short.</li>
+						<li>4.4 He wears his coat when it rains.</li>
+						<li>4.5 He races on Saturday nights.</li>
+						<li>4.6 If you have a runny nose, fever, and cough then you have a cold or the flu.</li>
+						<li>4.7 To know me is to love me.</li>
+					</ul>
+					<br/>
+				</li>
+	
+				<li>
+					<p>Given the following statements, which you are to assume true:</p>
+					
+					<ul class="Subblockcenter">
+						<li>If HAL is a computer then HAL is an electronic device.</li>
+						<li>If HAL is an electronic device then HAL is a machine.</li>
+						<li>HAL is a computer.</li>
+					</ul>
+					
+					<p>Use Chaining of Implication and Modus Ponens to show “HAL is a machine” is true.</p>
+				</li>
+
+				<li>
+					<p>Given the following statements, which you are to assume true:</p>
+					
+					<ul class="Subblockcenter">
+						<li>If you are an infant then you cannot read.</li>
+						<li>If you cannot read then you are not a college student.</li>
+						<li>You are a college student.</li>
+					</ul>	
+					
+					<p>Prove using propositional logic that you are not an infant.</p>
+				</li>
+
+				<br /><br /><br />
+
+				
+			</ol>
+			<!-- End main content -->
+			<hr />
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a href="#body_ftn11" id="ftn11">[11]</a>&nbsp; Of course, just because you said “I’m happy.” doesn’t mean you are telling the true. Like all propositions, the statement “I’m happy.” may itself be either true or false.
+			</p>
+			<p class="Footnote">
+				<a href="#body_ftn12" id="ftn12">[12]</a>&nbsp; Or, even more loosely: “Conan The Barbarian is either dumb or weak.”
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "intelligence";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("intelligenceApproaches2b1");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>		
+	</body>
+</html>
+

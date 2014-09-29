@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->			
+			<!-- CHAPTER 15:THE PAST, PRESENT, AND FUTURE OF COMPUTING -->
+
+			<p class="Section">
+				<span class="contentNum futureImproving5"></span>
+			</p>
+
+			<p>
+				The previous two sections looked at molecular-level computing and atomic-level information storage. The present section addresses the question of whether we can do even better. Are memory devices with storage densities greater than one bit per atom even fundamentally possible, let alone actually feasible? And what about computing power? Do the nanomechanical computers and/or DNA computers described in the previous sections represent the fundamental limits of computing density?
+			</p>
+
+			<p>
+				<span class="Bolded">Quantum computers</span> employ the laws of quantum physics (which reign in the subatomic world) to implement a form of massive parallelism. The computers we use today are based on classical physics – the physics of the “large” world around us. The fundamental unit of information in such systems is the bit, which, as we have learned, can be either “1” or “0”, “on” or “off” – but never both. In quantum computing the fundamental unit of information is the quantum bit or <span class="Bolded">qubit</span>. A qubit may be “1”, it may be “0”, or it may simultaneously be both “1” and “0”. This ability for quantum systems to be in multiple states at the same time is called “superposition of states” – and though it may seem very odd to us, in physics this principle is well established and has been experimentally verified numerous times and in many different ways.
+			</p>
+
+			<p>
+				Quantum computing, if it proves to be practical, will be in many ways quite different from ordinary classical computing. Entirely new approaches to algorithm development must be devised to take advantage of the unique capabilities of quantum computers. An early achievement occurred in 1994 when Peter Shor developed an algorithm for quickly factoring large numbers on a quantum computer. Since the security of modern data encryption systems depend heavily on the difficulty of solving such problems, the existence of a working quantum computer running Shor’s algorithm could have significant implications for cryptography.
+			</p>
+
+			<p>
+				While it is generally believed that quantum computers would be able to solve some problems far faster than they can be solved on traditional computers which employ classical physics, the exact range of problems that will prove amenable to a quantum approach and the speed increases that could be achieved are still open problems.
+			</p>
+
+			<p>
+				To date, no <span class="Ital">general purpose</span> quantum computer has been constructed, but progress is being made.
+			</p>
+
+			<p>
+				The most visible, and arguably the most controversial, quantum computing project is the work being done by D-Wave Systems. In May 2011, D-Wave Systems announced the D-Wave One, a 128 qubit computer, which it followed up in 2012 with the D-Wave Two, a 512 qubit computer. These computers are not general purpose; instead they are built to perform a process known as “quantum annealing” which can be used to solve certain kinds of optimization problems.
+			</p>
+
+			<p>
+				When first announced there was significant skepticism in the scientific community as to whether the D-Wave computers were, in fact, employing quantum effects. More recently the tide has turned and most scientists working in the field accept that the D-Wave systems are quantum in nature. There is still controversy over whether, or how quickly, D-Wave’s special purpose quantum computers will present a cost effective, practical alternative to classical computing for those problems that are suitable for solution using the quantum annealing approach.
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "future";
+
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("futureImproving5");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

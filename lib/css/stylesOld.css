@@ -1,0 +1,241 @@
+/* navigation bar */
+.navbar-default {
+    background-color: #4870B6;
+    border: none;
+}
+
+/* hover in nav bar, changes color when mobile screen is used */
+ul.nav a:hover { color: #000; }
+@media screen and (max-width: 640px) {.navbar-default .navbar-nav .open .dropdown-menu > li > a { color: #FFF;}}
+
+/* Navigation items */
+.navbar .nav > li > a { 
+  float: none;
+  padding: 20px 15px 15px;
+  color: #FFF;
+  font-family: "Eurostile", "Exo 2", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-shadow: none;
+}
+
+.dropdown-menu > li > a:hover{ background-color: #4870B6; }
+
+#main_header > h1{
+  text-align: left;
+  color: #4870B6;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#main_header {
+  text-align: left;
+  font-size: 24pt;
+  color: #4870B6;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  margin-bottom: 3%;
+}
+
+#main_header_img {
+  float: center;
+  max-width: 30%;
+}
+
+.page-wrapper {
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* the padding for the body or main content */
+body { padding-top: 10%; }
+@media screen and (max-width: 800px) { body { padding-top: 15%;}}
+@media screen and (max-width: 600px) { body { padding-top: 25%;}}
+@media screen and (max-width: 400px) { body { padding-top: 35%;}}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+#logo{
+  padding-left: 40%;
+}
+
+.navbar-right{
+  padding-right: 13%;
+} 
+@media screen and (max-width: 640px) { .navbar-right { padding-right: 0%;}}
+
+.small-img{ width: 10%; }
+.medium-img{ width: 50%; }
+.large-img{ width: 90%; }
+.pagination-centered{ text-align: center; }
+
+.thumbnail { border: 2px solid #4870B6; }
+
+.btn-launch:hover {
+    background-color: #5CB85C;
+    border-color: #99B7D3;
+    color: #FFF;
+}
+.btn-launch {
+    background-color: #C6D8E9;
+    border-color: #99B7D3;
+    color: #FFFFFF;
+}
+
+/* Bootraps glyphicons */ 
+.glyphicon {   
+  position: relative;  
+  top: 1px;
+  padding-right: 5px;  
+  display: inline-block;  
+  font-family: 'Glyphicons Halflings';  
+  -webkit-font-smoothing: antialiased;  
+  font-style: normal;  
+  font-weight: normal;  
+  line-height: 0;  
+
+}
+
+/* Font awesome icons, book and section listing */ 
+.fa-book, .fa-list-ul {  
+  padding-right: 5px; 
+  position: relative; 
+}
+
+.fa-plus { margin-left: -300%; }
+.fa-minus{ margin-right: -300%; }
+ @media screen and (max-width: 800px) { .fa-plus, .fa-minus { margin: 0;}} 
+
+#fontAs{
+  max-width: 50%;
+  padding: 0;
+}
+
+/* Banner down arrow, placement, no longer being used */
+#clickme{ 
+  padding-right: 90% !important;
+  padding-top: 0%;
+}
+
+/* Don't mind me... */
+#content {
+    margin: 20px;
+}
+
+/* Collasping and expanding buttons on section_toc.html, no longer being used */
+#expand, #collapse { margin-bottom: 3%; }
+
+/* Styles for collapsing sections/section */
+#years, #months, #posts{ cursor:pointer;}
+#years, .bold-me {font-weight: bold;} #months {font-weight: medium;}
+.archive_year { cursor: pointer; list-style: none; padding-left: 1%; font-size: 99%; }
+.archive_month { list-style-type: disc; cursor: pointer; padding-left: 3%; font-size: 96%;}
+.archive_posts { list-style-type: circle; padding-left: 5%; font-size: 93%;}
+
+/* Next and prev Chapter buttons, no longer bein used */
+.btn-blue {
+  color: #fff;
+  background-color: #4870B6;
+  border-color: #5482D4;
+  vertical-align: middle;
+}
+
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue:active,
+.btn-blue.active,
+.open .dropdown-toggle.btn-blue {
+  color: #fff;
+  background-color: #3C5D96;
+  border-color: #5482D4;
+}
+
+/* below css makes the navbar static at the top */
+.navbar {
+    position: absolute !important;
+    top: 0px;
+    right:0px;
+    width: 100%;
+    border-radius: 0;
+    z-index: 1000 !important;
+}
+
+/* Previous and Next arrow styling 
+
+}*/
+/*@media screen and (max-width: 800px) { #nextArrowStyle { max-width: 75%;}}
+@media screen and (max-width: 600px) { #nextArrowStyle { max-width: 50%;}}
+@media screen and (max-width: 400px) { #nextArrowStyle { max-width: 25%;}}
+*/
+
+.prevArrowStyleTop{
+  /*position: absolute; 
+  z-index: 200; 
+  left: 1px; 
+  right: auto; 
+  width: 20px; 
+  top: 12%;*/
+  position:fixed;z-index:200;left:1px; right: auto; width:20px;top:45%;
+      display:block;margin:0 0.5em;
+
+}
+
+.nextArrowStyleTop{
+  /*position: fixed; 
+  z-index:200; 
+  left: auto; 
+  right: 1px; 
+  top: 90%;
+  display: block; 
+  margin: 0 0.5em;*/
+        position:fixed;z-index:200; left: auto; right:1px; top:45%;
+      display:block;margin:0 0.5em;
+
+
+}
+
+.prevArrowStyle1{
+  /*position: absolute; 
+  z-index: 200; 
+  left: 1px; 
+  right: auto; 
+  width: 20px; 
+  top: 12%;*/
+  position:fixed;z-index:200;left:1px; right: auto; width:20px;top:45%;
+      display:block;margin:0 0.5em;
+
+}
+
+.nextArrowStyle1{
+  /*position: fixed; 
+  z-index:200; 
+  left: auto; 
+  right: 1px; 
+  top: 90%;
+  display: block; 
+  margin: 0 0.5em;*/
+        position:fixed;z-index:200; left: auto; right:1px; top:45%;
+      display:block;margin:0 0.5em;
+}
+
+.prevChapArrowStyle{
+
+    position: absolute;
+    left: 12%;
+    bottom: absolute;
+    z-index: 200;
+    max-width: 40px;
+
+}
+
+.nextChapArrowStyle{
+
+    position: absolute;
+    right: 12%;
+    bottom: absolute;
+    z-index: 200;
+    max-width: 40px;
+}
+
+
+

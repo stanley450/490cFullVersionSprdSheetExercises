@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+
+	    <!-- CSS files -->
+		<link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui-1.10.4.custom.css">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		
+	    <!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.js"></script>
+		<script type="text/javascript" src="js/kinetic.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script src="../lib/js/WatsonDialogs.js"></script>
+		<link href = "../lib/css/Dialogs.css" rel = "stylesheet">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>			
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			<!-- End nav -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum circuitsFundamentals3"></span>
+			</p>
+
+
+			<p>
+				<span>The arithmetic that is used to reason about two-state systems was first developed by George Boole in 1854. </span> <span class="Bolded">Boolean algebra</span> <span>is a mathematics based on three fundamental operators:</span> <span class="Ital">and</span> <span>,</span> <span class="Ital">or</span> <span>, and</span> <span class="Ital">not</span> <span>; and the variables on which they operate. Boolean variables are binary, having only two valid states “1” (representing “true”) and “0” (representing “false”). </span>
+			</p>
+
+			<p>
+				<span>The operator</span> <span class="Ital">and</span> <span>is written as a dot “</span> <span>&#9679;</span> <span>”,</span> <span class="Ital">or</span> <span>is written as a plus “+”, and</span> <span class="Ital">not</span> <span>is written as a horizontal bar drawn over the expression being negated. The behavior of these three Boolean operators is identical to the behavior of the corresponding logic gates. Thus, the expression “A</span> <span>&#9679;</span> <span>B”, meaning “A and B”, will be “1” (true) when the variables A and B are both “1” (true). The expression “A + B”, meaning “A or B”, will be true when either or both variables are true. Not A, written “ A ”, will be “0” when A is “1” and “1” when A is “0”.</span>
+			</p>
+
+			<p>
+				The relationship between the Boolean operators and the fundamental logic gates is illustrated in <span class="figNum booleanbasic"></span>. In the illustration, the Boolean variables A and B correspond to the inputs to the circuit and the variable Z corresponds to the output.
+			</p>
+
+			<p>
+				Consider the following circuit and its corresponding Boolean expression.
+			</p>
+			<div id="topDiv-a" class="Centered"></div>
+			<div id="container-a" class="Centered">
+			</div>
+			<p class="Figure">
+				<span class="Bolded">Z &nbsp;= &nbsp;( A + B ) &#9679; C</span>
+			</p>
+
+			<p>
+				<span>We can be sure that the circuit and the expression are functionally equivalent by examining how the Boolean expression could be derived from the circuit. Since inputs A and B are fed into an</span> <span class="Ital">or</span> <span>gate in the circuit, the variables A and B are combined via the corresponding “+” operator in the Boolean expression. The output of the</span> <span class="Ital">or</span> <span>is fed into an</span> <span class="Ital">and</span> <span>gate (along with input C) in the circuit. Thus, the result of the expression “(A + B)” is combined with variable C using the “</span> <span>&#9679;</span> <span>” operator in the Boolean expression.</span>
+			</p>
+			
+			<div id="topDiv-andNTT" class="Centered"></div>
+			<div id="container-andNTT" class="Centered"></div>
+			<p class="Figure">
+				<span class="Bolded">Z &nbsp;= &nbsp;A &#9679; B</span>
+			</p>
+			
+			
+			<div id="topDiv-orNTT" class="Centered"></div>
+			<div id="container-orNTT" class="Centered"></div>
+			<p class="Figure">
+				<span class="Bolded">Z &nbsp;= &nbsp; A + B</span>
+			</p>
+			
+			<div id="topDiv-notNTT" class="Centered"></div>
+			<div id="container-notNTT" class="Centered"></div>
+			<p class="Figure">
+				<span class="Bolded">Z &nbsp;= &nbsp; &not; A</span>
+			</p>
+			<p class="Figure">
+				<span class="figNum booleanbasic"></span> Boolean expressions for the three fundamental logic gates
+			</p>
+
+			<p>
+				<span>As in ordinary algebra, Boolean algebra uses parentheses to indicate which operands go with which operators. The Boolean expression “A + (B</span> <span>&#9679;</span> <span>C)” represents a completely different circuit from “(A + B)</span> <span>&#9679;</span> <span>C”. In the first, B and C are fed into an</span> <span class="Ital">and</span> <span>gate, with the result being sent (along with A) into an</span> <span class="Ital">or</span> <span>gate. In the second, A and B are fed into an</span> <span class="Ital">or</span> <span>gate, with the result being combined with C via an</span> <span class="Ital">and</span> <span>gate.</span>
+			</p>
+
+			<p>
+				As you may be beginning to suspect, there is a direct correspondence between Boolean expressions and logic circuits. Every logic circuit that can ever be constructed will have a corresponding Boolean expression, and every valid Boolean expression that can ever be written maps to an equivalent logic circuit. The process of converting between the two representations is quite mechanical – simply use the substitutions of <span class="figNum booleanbasic"></span>, being sure to parenthesize Boolean expressions in a manner that preserves which operators go with which operands.
+			</p>
+
+			<p>
+				Boolean algebra provides computer scientists and engineers with a powerful tool for concisely representing circuits and reasoning about their behavior. While the details are beyond the scope of this book, Boolean algebra allows us to do things like prove that two different circuits compute the same function or find simpler (and thus less expensive) ways of implementing the functionality of a circuit.
+			</p>
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum circuitsFundamentals3"></span>
+			</p>
+
+			<ol>
+				<li>
+					<p>
+						Write the Boolean expression corresponding to the following circuit.
+						
+						<img src="images/fig12s2p3-ex1.png" alt="" class="ImageTall">
+					</p>
+				</li>
+				
+				<li>
+					<p>
+						Write the Boolean expression corresponding to the following circuit.
+						
+						<img src="images/fig12s2p3-ex2.png" alt="" class="ImageTall">
+					</p>
+				</li>
+				
+			</ol>
+			<!-- Sandbox -->
+			<p class="Section" id="Scratch"></p>
+			<div id="sandbox1"></div>
+			<div id="truthTableDiv1" class="ui-widget-content" style="position: relative; visibility: hidden"></div>
+			<!-- End main content -->
+
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			
+			<!-- Figure js -->
+			<script src="js/visibility.js"></script>
+			<script type="text/javascript" src="js/global.js"></script>
+			<script src="js/WatsonDataStore.js"></script>
+			<script src="js/Serializer.js"></script>
+			<script src="js/Controller.js"></script>
+			<script src="js/AndGate.js"></script>
+			<script src="js/AndGate3.js"></script>
+			<script src="js/AndGate4.js"></script>
+			<script src="js/NandGate.js"></script>
+			
+			<script src="js/OrGate.js"></script>
+			<script src="js/OrGate3.js"></script>
+			<script src="js/OrGate4.js"></script>
+			<script src="js/NorGate.js"></script>
+			
+			<script src="js/NotGate.js"></script>
+			<script src="js/Connector.js"></script>
+			<script src="js/InputNode.js"></script>
+			<script src="js/OutputNode.js"></script>
+			<script src="js/PopupMenu.js"></script>
+			<script src="js/Figures.js"></script>
+			<script src="js/TruthTable.js"></script>
+			<script src="js/Setup.js"></script>
+			<script src="js/DigitalLogicFigure.js"></script>
+		
+		<script>
+			var pageObj;				// holds previous and next arrows
+			var chapID = "circuits";
+			var sectID = "circuitsFundamentals3";
+			
+			$(document).ready(function() {
+				populateNav();											// populate page with nav bar, nav arrows
+				pageObj = getArrowPathsByPage(sectID);					// get prev and next paths for nav arrows
+				populateSpans();										// populate figure and content spans
+			
+				var figureandNTT = new DigitalLogicFigure("container-andNTT", "andNTT", false, false, "booleanbasic");
+				var figureorNTT = new DigitalLogicFigure("container-orNTT", "orNTT", false, false, "booleanbasic");
+				var figurenotNTT = new DigitalLogicFigure("container-notNTT", "notNTT", false, false, "booleanbasic");
+				var figurea = new DigitalLogicFigure("container-a", "a", false, false, "switchequivalent");
+				
+				if (!localFlag) runGA();
+			});
+		</script>
+	</body>
+</html>

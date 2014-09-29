@@ -1,0 +1,45 @@
+<div ng-controller='DatabaseController'>
+  <!-- Main Container - covers entire page -->
+  <br>
+  <div>
+    <div id='statement_div'>
+
+      <div id='statement' class='input-group'>
+        <span class='input-group-btn'>
+          <button id='explore' class='btn btn-lg btn-success' ng-click='explore()' ng-bind='explore_text'></button>
+        </span>
+        <div id='editor_panel' class='panel panel-default form-control' ng-click='next()'>
+          <div id='history' class='panel-body'>
+            <div ng-repeat='item in history'>
+              <span ng-class='{processed: !item.processed, active: (item.stmt.text == active)}'  ng-bind='item.stmt.text'></span>
+              <span class='pull-right glyphicon glyphicon-arrow-left' ng-class='{hidden: !(item.stmt.text == active)}'></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      <!-- Relation View -->
+      <div id='relation'>
+        <table class='table table-striped table-condensed'>
+          <thead>
+            <th ng-repeat='item in relation.head'>
+              <span ng-bind='item'></span>
+            </th>
+          </thead>
+          <tbody>
+          <!-- the trouble is this two-dimensional loop. what i think is happening is that each time an item is processed, -->
+          <!-- it does the whole 'update-everything-else' cycle, and bogs everything down. It ought to be both possible and -->
+          <!-- faster to generate the whole table in straight javascript. My only concern is that it replaces a very succinct -->
+          <!-- process with a rather gross one. -->
+          <tr ng-repeat='row in relation.rows'>
+            <td ng-repeat='item in row'>
+              <span ng-bind='item'></span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div> <!-- End Relation View -->
+    </div> <!-- End Relationship Editor View -->
+  </div> <!-- End Main Container -->
+</div>

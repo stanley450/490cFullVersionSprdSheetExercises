@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../lib/js/nav.js"></script>
+			<script type="text/javascript" src="../lib/js/master.js"></script> 
+			<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+			<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+			<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->			
+			<p class="Section">
+				<span class="contentNum graphicsLanguage1"></span>
+			</p>
+
+			
+			<p>
+				WGL recognizes seven different types of objects.  These <span class="Bolded">data types</span> are: distance, point, line, circle, polygon, counter, and color.  Some of these data types, such as color and counter, can only be used in very limited ways, while others, such as distance, can be more extensively manipulated.
+			</p>
+			
+			<p>
+				Every object, regardless of its type, must take the form of either a constant or a variable.  A <span class="Bolded">constant</span> is a value of a particular type that does not change over time.  An example of a distance constant is <span class="Ital">3</span>.  An example of a constant of type color is <span class="Ital">blue</span>.  We say that these are constants since their “meaning” or “value” never changes:  3 is always 3 and blue is always blue.  Values for any of the seven WGL data types can be represented using appropriate constants.  As we shall see below, fixed rules exist that specify the precise form of each type of constant.
+			</p>
+			
+			<p>
+				A <span class="Bolded">color</span> constant is simply the name of a common color.  Examples are <span class="Ital">green</span>, <span class="Ital">red</span>, <span class="Ital">blue</span>, and <span class="Ital">white</span>.  <span class="Ital">Bad</span> and <span class="Ital">good</span>, as you would expect, are <span class="Underlined">not</span> valid colors.  What about something like <span class="Ital">teal</span>?  The answer is no, since teal is not considered “common” enough to be included in WGL.  In general, you will not have to worry about borderline cases like these; since the way colors are specified in WGL is to select them from a palette of available colors.  If the color is listed, then it is available.  If it is not listed, it is not available.
+			</p>
+			
+			<p>
+				<span class="Bolded">Distance</span> and <span class="Bolded">counter</span> constants take the form of non-negative integers.  An integer is a whole number without a fraction.  Non-negative integers are just numbers, like <span class="Ital">5</span>, <span class="Ital">15</span>, and <span class="Ital">99</span>.  Each of these would be a valid distance or counter constant.  Distance and counter constants are composed of the digits 0 through 9.  They may not contain commas, decimal points, or any other special characters.  Hence, <span class="Ital">12.50</span> and <span class="Ital">1,250</span> are not valid distances or counters.  Constants of these types must also be <span class="Underlined">non-negative</span>, so <span class="Ital">-25</span> would not be valid either.  Both counters and distances have a limited range of acceptable values.  Distances can vary from 0 to 999, inclusive; while counters are limited to the range 1 - 99, inclusive. A counter value of zero is not allowed.
+			</p>
+			
+			<p>
+				In addition to constants, most programming languages allow the programmer to define variables.  A <span class="Bolded">variable</span> is a named object that can store a value of a particular type.  Unlike constants whose values are always fixed, the value of a variable can change.  At any particular point in time a variable will hold some specific value, but the programmer has the ability to change the value stored in that variable.  Every variable has an associated type that describes the kinds of values that it can hold.  WGL allows the programmer to define variables of type: distance, point, line, polygon, and circle.  Variables of type color and counter are not allowed.  These objects can exist only as constants in WGL.
+			</p>
+			
+			<p>
+				A variable of type <span class="Bolded">distance</span> can hold a single integer value in the range 0 to 999, inclusive.  Distance variables are always named beginning with the letter “<span class="Ital">d</span>” followed by one or more digits (e.g., <span class="Ital">d1</span> or <span class="Ital">d5</span>). So, if <span class="Ital">d1</span> were declared to be a variable of type distance, it could hold a value such as <span class="Ital">100</span>.  As you might expect, a distance variable is usually used to indicate how far away something is.
+			</p>
+			
+			<p>
+				An object of type <span class="Bolded">point</span> specifies a location using two distances: a horizontal, X, distance and a vertical, Y, distance.  These distances are measured from the opposite axis: the X distance from the Y axis and the Y distance from the X axis.  Constants of type point are expressed as these two distances, first X, then Y, separated by a comma and enclosed in parentheses.  In other words, point constants take the form of <span class="Ital">(X, Y)</span> where <span class="Ital">X</span> and <span class="Ital">Y</span> are distance constants.  For example, <span class="Ital">(100,150)</span> and <span class="Ital">(50,50)</span> are point constants.
+			</p>
+			
+			<p>
+				In addition to constants, the location of a point may also be specified by an expression.  An <span class="Bolded">expression</span> in WGL is a collection of constants and/or variables, together with appropriate parentheses, that evaluate to a value of a particular type, such as point, line, circle, or polygon.  Hence, if <span class="Ital">d1</span>held a value of <span class="Ital">100</span> and <span class="Ital">d2</span> a value of <span class="Ital">200</span> then the expressions <span class="Ital">(d1, d2)</span>, <span class="Ital">(100, d2)</span>, and <span class="Ital">(d1, 200)</span> each would specify a point at <span class="Ital">(100,200)</span>.  
+			</p>
+			
+			<p>
+				Variables of type point are always named beginning with the letter “<span class="Ital">p</span>” followed by one or more digits (e.g., <span class="Ital">p1</span> or <span class="Ital">p3</span>).  If <span class="Ital">p1</span> were declared to be a point variable, it could hold any valid point value.  Note, however, that it could not hold a distance such as <span class="Ital">25</span>, since <span class="Ital">25</span> is not a valid point.
+			</p>
+			
+			<p>
+				An object of type <span class="Bolded">line</span> specifies a straight line segment between two points.  Line constants are composed of two points, separated by a comma and enclosed in parentheses.  In other words, they take the form of <span class="Ital">( START, END )</span> where  <span class="Ital">START </span> and  <span class="Ital">END</span>  are points.  For example, <span class="Ital">( (100, 100), (200, 200) )</span> is a valid line constant that specifies a line segment starting at <span class="Ital">(100, 100)</span> and ending at <span class="Ital">(200, 200)</span>.  The first point is always the starting point and the second point is always the ending point of the line segment.  Lines may be expressed using either constants or expressions, such as: <span class="Ital">(p1, p2) </span> where <span class="Ital">p1</span> and <span class="Ital">p2</span> are points, or <span class="Ital">( (d1, d2), (d3, d4) )</span>  where <span class="Ital">d1</span>, <span class="Ital">d2</span>, <span class="Ital">d3</span>, and <span class="Ital">d4</span> are all of type distance.  Variables of type line are always named beginning with the letter “<span class="Ital">l</span>” followed by one or more digits (e.g., <span class="Ital">l1</span> or <span class="Ital">l5</span>).  Remember that a variable of type line can hold any valid line but cannot hold anything else, such as an individual point or distance.
+			</p>
+			
+			<p>
+				An object of type <span class="Bolded">circle</span> specifies a circle using a center point and radius.  A value of type circle is composed of a point and a distance, separated by a comma and enclosed in parentheses.  It takes the form of <span class="Ital">(CENTER, RADIUS)</span> where <span class="Ital">CENTER</span> is the center point of the circle and <span class="Ital">RADIUS</span> is the circle’s radius.  For example, if <span class="Ital">c1</span> were a variable of type circle, it could be defined by an expression such as <span class="Ital">(p1, d1)</span> where <span class="Ital">p1</span> is a point and <span class="Ital">d1</span> is a distance, or <span class="Ital">( (d1, d2), d3)</span> where <span class="Ital">d1</span>, <span class="Ital">d2</span>, and <span class="Ital">d3</span> are all distance variables, or even the circle constant <span class="Ital">( (100, 100), 50)</span>.  Variables of type circle are always named beginning with the letter “<span class="Ital">c</span>” followed by one or more digits.
+			</p>
+			
+			<p>
+				The final object type recognized by WGL is the polygon.  As was described in <span class="contentNum graphicsFundamentals"></span>, a <span class="Bolded">polygon</span> is a closed, multi-sided figure.  Polygons are expressed in WGL as a list of points separated by commas and enclosed in parentheses.  WGL connects these points together with line segments to form a closed figure.  A line will be drawn from the first point in the list to the second point, another line from the second point to the third, and so on.  In order to ensure that the figure is closed, the last point in the polygon list must be identical to the first point in the list.
+			</p>
+			
+			<p>
+				For example, if <span class="Ital">g1</span> were a polygon, a triangle in this case, it could be expressed as the following list of points: <span class="Ital">( p1, p2, p3, p1)</span>.  In this example, lines would be implicitly defined from <span class="Ital">p1</span> to <span class="Ital">p2</span><span class="T2">; from </span><span class="Ital">p2</span> to <span class="Ital">p3</span><span class="T2">; and from </span><span class="Ital">p3</span> back to <span class="Ital">p1</span>.  We can also express this polygon using only distance variables, such as:  <span class="Ital">( ( d1, d2), (d3, d4), (d5, d6), (d1, d2) )</span> or even distance constants, such as:  <span class="Ital">( (100, 100), (200, 100), (150, 150), (100, 100) )</span>.  Variables of type polygon are always named beginning with the letter “<span class="Ital">g</span>”, since we are already using “<span class="Ital">p</span>” for points, followed by one or more digits.  Hence, <span class="Ital">g1</span>, <span class="Ital">g3</span>, and <span class="Ital">g5</span> are all valid polygon names.
+			</p>
+			<!-- End main content -->
+			<div class="push"></div> <!-- pushes the footer static bottom -->
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the footer -->	
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID="graphics";	
+				
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("graphicsLanguage1");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>			
+	</body>
+</html>

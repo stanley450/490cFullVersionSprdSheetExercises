@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+      <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div id="includedContentForPage"></div>
+    <!-- End Navbar -->
+    
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+  <!-- End Navbar -->
+
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationIntro"></span>
+      </p>
+
+      <p>
+        This chapter examines one of the most important uses of computers: the storage and retrieval of information. While the general organization of this book is “top-down,” working from end-user applications, down through the various levels of software, towards the physical hardware of the computer, the topic of information storage and retrieval will be approached in the opposite direction – from the physical hardware level to the end-user level.
+      </p>
+
+      <p>
+        Our discussion of information storage and retrieval focuses on four distinct “views” of the process, or “levels” at which it takes place: the hardware level, the file organization level, the programmer level, and the end-user level. These four views are illustrated in <span class="figNum infostorage"></span>.
+      </p>
+
+      <p>
+        <span class="contentNum informationHardware"></span> examines information storage and retrieval from the point of view of what happens at the hardware level. The discussion focuses on disk drives, which are the most popular form of mass storage device.
+      </p>
+
+      <p>
+        <span class="contentNum informationOrganization"></span> introduces the file concept and explores three different alternatives for storing files on disk. These alternative storage techniques are known as: contiguous, linked, and indexed storage.
+      </p>
+
+      <p>
+        <span class="contentNum informationProgrammer"></span> looks at information storage and retrieval from the point of view of the application programmer. While details of the software development process, including programming, are deferred until later in the text, this section will give you a feel for how programmers manipulate data files.
+      </p>
+
+      <p>
+        Finally, <span class="contentNum informationUser"></span> examines how data appears to the end-user. The two most common end-user views of data are discussed: the view of the file system provided by the operating system, and the view of data provided by relational database systems. This second view will be explored in depth, due to the importance of relational database systems as end-user applications.
+      </p>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+      <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";        // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationIntro");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  </body>
+</html>

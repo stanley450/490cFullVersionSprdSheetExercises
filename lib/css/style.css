@@ -1,0 +1,245 @@
+body {
+    background-color: white;
+    color: black;
+    font-family: monospace;
+    line-height: 1;
+    text-align: left;
+}
+
+.body {
+    margin: 0 auto;
+    width: 100%;
+}
+
+button[type=button] {
+    width: 40%;
+    height: 2.6em;
+}
+
+.popupButton {
+	width: 3em;
+	height: 1em;
+}
+
+.leftcontent {
+    width: 96%;
+    float: left;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-top: 1%;
+    padding-right: 5px;
+}
+
+.leftcontent h4 {
+    padding: 0%;
+    margin: 0%;
+}
+
+.txtarea {
+    width: 98.5%;
+	height: 100%;
+	overflow: auto;
+}
+
+div {
+	width:98%;
+	margin:auto auto;
+	font-family:monospace;
+	overflow: auto;
+}
+
+.toprightcontent {
+    width: 98%;
+    float: left;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-top: 0.5%;
+    /* padding-left: 5.5px; */
+}
+
+.toprightcontent h4 {
+    padding: 0%;
+    margin: 0%;
+}
+
+.righttxtarea {
+    width: 98%;
+	/* height: 100%; */
+    resize: none;
+}
+
+.rightbuttons {
+	width:50%;
+	height:100%;
+	padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+}
+
+.bottomrightcontent {
+    width: 98%;
+    float: left;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-top: 0.5%;
+    /* padding-left: 5.5px; */
+}
+
+.bottomrighttxtarea {
+	overflow:auto;
+    width: 98%;
+	height: 100px;
+    resize: none;
+	border: 1px solid black;
+}
+
+.bottomrightcontent h4 {
+    padding: 0%;
+    margin: 0%;
+}
+
+.codeTable {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.codeTd {
+	border:none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+	white-space: nowrap;
+}
+.codeTableTd {
+	white-space: nowrap;
+	margin: 0px;
+}
+.innerTable5 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable6 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable7 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable10 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable12 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable13 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable14 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable16 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable18 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable19 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable21 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable22 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable23 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable24 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable27 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable28 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable29 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable30 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable32 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.innerTable38 {
+	border: none;
+	border-collapse:collapse;
+	padding: 0px;
+	margin: 0px;
+}
+.normal {
+	border-spacing: 15px 1px;
+	border-collapse: separate;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app='DatabaseApp'>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta http-equiv='Cache-Control' content='no-cache'>
+<meta http-equiv='Access-Control-Allow-Origin' content='*'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Database Lab</title>
+<link rel='stylesheet' href='../lib/css/bootstrap.css'>
+<link rel='stylesheet' href='css/database.css'>
+</head>
+<body>
+<div class='container' data-ng-controller='DatabaseController'>
+  <h3 data-ng-if='question != undefined' ng-bind='question'></h3>
+  <br>
+  <div id='row_div' class='row'>
+
+    <!-- next to the list, two things, one on top of the other -->
+    <div class='col-lg-9 col-md-9 col-sm-8'>
+      <!-- the statement editor/history view box, and the action/accept/cancel buttons -->
+      <div id='inner_row' class='row'>
+
+        <!-- the editor and history -->
+        <!-- <div id='statement_div' class='col-lg-10 col-md-10'> -->
+        <div id='statement_div' class='col-lg-12 col-md-12'>
+          <div id='editor_panel' class='panel panel-default'>
+            <div id='history' class='panel-body'>
+              <div data-ng-repeat='item in history'>
+                <span data-ng-bind='item.relation.statement'></span>
+                <span class='mybutton pull-right text-danger glyphicon glyphicon-remove-sign' data-ng-click='item.remove()'></span>
+              </div>
+            </div>
+            <div id='action' data-ng-include='action.page' class='panel-footer'></div>
+          </div>
+        </div>
+
+        <!-- the buttons -->
+        <!-- <div id='editor_button_group' class='col-lg-2 col-md-2 btn-group-vertical'> -->
+        <span id='editor_button_group' class='col-lg-12 col-md-12 btn-group btn-group-justified'>
+          <span class='btn-group'>
+            <span type='button' class='btn btn-primary dropdown-toggle text-center'>
+              <span data-ng-bind='action.type'></span > <span class='caret'></span >
+            </span >
+            <ul class='dropdown-menu'>
+              <li><a data-ng-click='action = Select()'>Select</a></li>
+              <li><a data-ng-click='action = Project()'>Project</a></li>
+              <li><a data-ng-click='action = Join()'>Join</a></li>
+            </ul>
+          </span >
+          <span class='btn-group'>
+            <span type='button' class='btn btn-success text-center' data-ng-click='action.accept()'>Accept</span >
+          </span > <span class='btn-group' data-ng-if='exploring'>
+            <span type='button' class='btn btn-warning text-center' data-ng-click='export_statements()'>Return</span >
+          </span > <span class='btn-group'>
+            <span type='button' class='btn btn-danger text-center' data-ng-click='action = Default()'>Cancel</span >
+          </span >
+        </span>
+
+      </div>
+      <!-- <hr> -->
+
+      <!-- the "currently active relation" view -->
+      <div id='relation'>
+        <table class='table table-striped table-condensed'>
+          <tr>
+            <th data-ng-repeat='item in relation.head'>
+              <span data-ng-bind="item"></span>
+            </th>
+          </tr>
+          <tbody>
+          <tr data-ng-repeat='row in relation.rows'>
+            <td data-ng-repeat='item in row'>
+              <span data-ng-bind="item"></span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- the clickable list of relations -->
+    <div id='list_group_div' class='col-lg-3 col-md-3 col-sm-4'>
+      <div class='list-group list-group-sm'>
+        <!-- '$parent' required because the ng-repeat creates a new inner scope -->
+        <span>
+          <span class='btn btn-default list-group-item list-group-btn' data-ng-repeat='rel in relations' data-ng-model='$parent.relation' data-btn-radio='rel' data-ng-bind="rel.name"></span>
+        </span>
+      </div>
+    </div>
+
+  </div> <!-- End Statement Editor View -->
+</div> <!-- End Main Container -->
+<!-- <script type='text/javascript' data-main='js/main' src='../lib/js/require.js'></script> -->
+<script type='text/javascript' data-main='js/main.built' src='../lib/js/require.js'></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="js/master.js"></script>
+	  	<script type="text/javascript" src="js/TOCGenerator.js"></script>
+			<script type="text/javascript" src="js/Numbering.js"></script>
+			<script type="text/javascript" src="js/Miscellaneous.js"></script>
+			<!--<meta name="viewport" content="width=device-width; initial-scale=1.0">-->
+
+		 	<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "css/bootstrap.css" rel = "stylesheet">
+	    <link href = "css/styles.css" rel = "stylesheet">
+	    <link href = "css/generalmedia.css" rel = "stylesheet">
+	   
+
+
+	</head>
+	<body>
+		<!--Floating nav -->
+		      <!-- Previous -->
+		      <!--
+		      <style>
+		        div.floating-previous
+		        {position:fixed;z-index:200;left:1px; right: auto; width:20px;top:45%;}
+		        div.floating-previous a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+		      </style>
+		      <div class="floating-previous">
+		        <a href="index.html">
+		          <img id="larrow" style="border:0;" src="Images/left-arrow-blue.png" alt="Previous page" width="40">
+		        </a>
+		      </div>
+		
+		      <!-- Next -->
+		      <style>
+		        div.floating-next
+		        {position:fixed;z-index:200; left: auto; right:1px; top:45%;}
+		        div.floating-next a, div.floating-menu h3 {display:block;margin:0 0.5em;}
+		      </style>
+		      <div class="floating-next">
+		        <a href="ch01.html">
+		          <img id="rarrow" style="border:0;" src="Images/right-arrow-blue.png" alt="Next page" width="40">
+		        </a>
+		      </div>
+		<!-- End floating nav -->
+			
+		<div class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<div class="container">
+				<div class="row">
+						<div class="col-md-6 col-sm-6 col-xs-4">
+							<span id="main_header"> Sections </span>
+						</div>	
+						<div class="col-md-5 col-sm-8 col-xs-12 pull-right">	
+							<div class="btn-group">
+								<button id="expand" class="btn btn-sm btn-info" type="button">Expand All</button>
+							  <button id="collapse" class="btn btn-sm btn-warning" type="button">Collapse All</button>
+							</div>
+						</div>	
+					</div> 
+				</div>
+
+			
+
+			<!-- Navbar division -->
+			<div id="includedContent"></div>
+			<script type="text/javascript" src="js/nav.js"></script> <!-- Dynamic Navbar --> 
+
+   		<div id="ContentAreaSections" class="well bold-me"></div>
+
+   		<!-- The following scripts produces the dynamic section table of contnets, 
+   							from the master.js JSON file -->
+
+
+   		<!-- Functionality for the collapsing and expanding buttons -->
+			 <script>
+				$(document).ready(function() {
+
+						loadGlobalTableOfContents(); // loads the Section Table of Contents
+
+						$('.years > archive_month').click(function() {
+							$(this).parent().find('li').slideDown();
+						});
+
+						$('#collapse').click(function() {
+							$('.archive_year > li').parent().find('ul').slideUp();
+						});
+
+						$('#expand').click(function() {
+							$('.archive_year > li').parent().find('ul').slideDown();
+							});
+					});
+
+			</script>
+
+
+
+			
+			<!-- End main content -->
+
+			<hr />
+			<p class="Emphasized">
+				<a href="#tippytop">Return to top</a>
+			</p>
+			<nav>
+				<p>
+					--
+				</p>
+				<p>
+					<a href="index.html">Home</a>
+				</p>
+				<p>
+					<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top"> Contact</a>
+				</p>
+			</nav>
+
+			<div>
+
+			</div>
+			<!--
+			<footer>
+				<p>
+					&copy; Copyright  by Burt
+				</p>
+			</footer>
+			-->
+		</div> <!-- END page-wrapper -->
+	</body>
+</html>

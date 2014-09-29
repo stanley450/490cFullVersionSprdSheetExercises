@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+	    
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum structuresData2"></span>
+			</p>
+
+			<p>
+				In America, a waiting line, such as the kind you encounter at a bank or supermarket, is simply referred to as a “line”.  In Britain, a waiting line is called a “queue” (pronounced like the letter “Q”).  <span class="figNum realqueue"></span> illustrates a real-world queue that you might encounter at a local movie theater.  John is buying a ticket to see the next Star Wars movie.  Ben, Tre’ and Ryan are waiting in line to buy their tickets.  The three of them are thus considered to be waiting in the queue.  Since John is in the process of buying his ticket, he is not considered to be part of the queue – he is not “waiting”.  Ben is at the front, or head, of the queue.  He will be the next person to be served.  Ryan is at the back, or end, of the line.  He must wait for everyone ahead of him to be served before he gets to buy his ticket.
+			</p>
+
+			<p>
+				Queues are known as First-In, First-Out (FIFO) structures.  Assuming no one “breaks” in line, the first person to enter the queue will be the first person leave the queue (and thus be the first one served).  Queues are extremely useful, both in the real-world and in computing, because they enable us to control access to scarce resources, such as Star Wars tickets in the current example.
+			</p>
+
+			<p>
+				The queue data structure models the behavior of real-world queues. It supports two primary operations: “enqueue” and “dequeue”.  The <span class="Bolded">enqueue</span> operator is used to add a new item to the back of the queue.  This operator is analogous to a person getting in line.  The <span class="Bolded">dequeue</span> operator is used to remove an item from the front of the queue.  This operation is analogous to having the person at the head of the line step forward to be served.</span>
+			</p>
+
+			<p>
+				More formally, a <span class="Bolded">queue</span> is a list in which all insertions take place at one end, the <span class="Bolded">back</span> of the queue, and all deletions take place at the opposite end, the <span class="Bolded">front</span> or head of the queue.  The basic queue data structure does not allow the insertion or deletion of items from the middle of the list.  Thus, it does not support concepts like people “breaking” in line or giving up and leaving because the line to too long.
+			</p>
+
+			<img src="images/queueops.png" alt="" class="ImageTall">
+			
+			<p class="Figure">
+				<span class="figNum queueops"></span>  Operations on a Queue
+			</p>
+
+			<p>
+				<span class="figNum queueops"></span> presents a sequence of operations applied to an initially empty queue, and illustrates the resulting queue configurations.  In order to help you clearly distinguish between the behavior of stacks verses queue, <span class="figNum queueops"></span> uses the same data presented in <span class="figNum stackops"></span> along with the same pattern of operations applied to the structure.  Notice that even though the order of operations is the same in both of these figures, the contents of the two structures is quite different.
+			</p>
+			
+			<div class="push"></div>
+			<!-- End main content -->
+			</div> 
+			
+			<div class="blueFooterBar"></div>
+			
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "structures";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("structuresData2");
+					if (!localFlag) runGA();
+				});	
+			</script>
+	</body>
+</html>

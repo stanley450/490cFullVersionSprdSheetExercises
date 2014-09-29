@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+		<link href = "../lib/css/styles.css" rel = "stylesheet">
+		<link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../lib/js/nav.js"></script>
+			<script type="text/javascript" src="../lib/js/master.js"></script> 
+			<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+			<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+			<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="description" content="">
+		<meta name="author" content="Burt">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0"> 
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+			
+    	<div class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum algorithmsSearching"></span>
+			</p>
+
+			<p>
+				Search is one of the most common tasks performed by computers.  When you check out at the supermarket and the cashier runs your items over the scanner, what actually happens is that a unique number (the UPC or Universal Product Code) is read by the scanner.  The store’s computer system then searches its records to determine what item matches that code number.  The item’s price and description is retrieved and the scanner beeps to let the cashier know the item was recognized.  If no item with that UPC number is found, the cashier either rescans the item or keys in a price by hand.  When you go to your university’s registrar’s office for a copy of your transcript, a clerk will key your student number into the computer system.  That system will then search for the student record matching that number and then return that record if found.  Every time you use a credit card a similar search operation must take place to retrieve your account record.  In fact, searching is an integral part of most any business or information transaction.  Few such transactions would be possible without efficient search algorithms.
+			</p>
+
+			<p>
+				At its most basic we can describe the <span class="Bolded">search</span> problem in the following way:  Given a list of items together with a target item to be searched for, return “yes” if the item occurs in the list and “no” otherwise.  Of course, as illustrated in the above examples, we frequently extend this definition to include searching for a record based on some key.  A <span class="Bolded">record</span> is a collection of related information.  For example, a student record would be all of the information that pertains to a particular student, such as the student’s name, address, student number, and transcript.  A <span class="Bolded">key</span> is a unique identifier that can be used to identify a record.  A student number is an example of a key that is commonly used for identifying student records.  In the extended version of search, the inputs are a target key and list of records.  If a record containing the target key exists in the list, then extended search returns that entire record, rather than just a “yes” message indicating that such a record exists.  If no such record can be found, a “no” message will be returned.
+			</p>
+
+			<p>
+				Regardless of whether we are considering the extended search or the basic search, the main problem is to determine whether a given value is present in a list of values.  There are two primary approaches to this problem.  One is called sequential search and the other is called binary search.  As will become apparent shortly, sequential search is the simpler, but less efficient, of the two.
+			</p>
+			
+			<!-- End main content -->
+			<div class="push"></div> <!-- pushes the footer static bottom -->
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the footer -->	
+			
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID="algorithms";
+				
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("algorithmsSearching");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+			<div>
+
+			</div>
+		</div>
+	</body>
+</html>

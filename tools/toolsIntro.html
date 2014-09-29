@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	  <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	   <!-- CSS files -->
+		<link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End Navbar -->
+			
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum toolsIntro"></span>
+			</p>
+	
+			<p>
+				This chapter examines how ordinary people, or “end-users”, use computers to enhance communication and solve problems.  The focus of the chapter is on productivity or work related applications, rather than on recreational uses such as game playing.  
+			</p>
+
+			<p>
+				<span class="contentNum toolsRoles"></span> provides some background by briefly describing how computers have changed the way we work, and how those changes have not always been in the directions predicted.  <span class="contentNum toolsCommunication"></span> follows with overviews of a number of common end-user communication applications.  <span class="contentNum toolsSpreadsheets"></span> focuses on a single application, the spreadsheet, and examines how this general-purpose modeling tool can be used to help solve a variety of common problems.
+			</p>
+			
+		<div class="push"></div> <!-- pushes the footer static bottom -->	
+				
+	</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+		<!-- Arrow navigation scripts -->
+		<script>
+			var pageObj;											// do NOT change name of variable
+			var chapID = "tools";							// stores current chapter for Section button in navbar
+
+			$(document).ready(function() {
+			populateNav();										// populate nav content
+			populateSpans();									// populate figure/content spans
+			pageObj = getArrowPathsByPage("toolsIntro");		// get arrow paths
+			if (!localFlag) runGA();
+			});	
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->			
+			<!-- CHAPTER 15:THE PAST, PRESENT, AND FUTURE OF COMPUTING -->
+
+			<p class="Section">
+				<span class="contentNum futurePredictions2b2"></span>
+			</p>
+
+			<p>
+				<span class="Bolded">Ubiquitous computing</span> refers to the situation where highly-networked computing devices are embedded throughout our environment – in our homes, cars, classrooms, offices, and even our clothes. The trend towards ubiquitous computing, which has been going on for some time, will continue over the next 10 to 15 years.
+			</p>
+
+			<p>
+				Basic computer chips are already embedded throughout our environment – in our cars and household appliances (e.g., washing machines, dishwashers, and thermostats). These devices are beginning to incorporate wireless connectivity so that they can report their condition and be programmed remotely. More advanced systems reside in our consumer electronics (e.g., cable and satellite TV boxes, game machines, and televisions); and Internet connectivity is already standard in many of these devices.
+			</p>
+
+			<p>
+				Already most of us carry a smart phone wherever we go and are connected to the Internet 24-7. As of late 2013 we appear to be on the cusp of wearable technology taking off – Google Glass is in beta with an initial general release scheduled for 2014. There are strong rumors that Apple is looking at an iWatch concept. To be useful, these devices will need network access, but in the near term the power requirements for wi-fi will be out of reach. Thus, within the next three to five years smart phones will take on another important role – they will become the hub and Internet gateway for your personal network of devices. The devices themselves will communicate with your smart phone (over BlueTooth or something similar) and the smart phone will, in turn, provide the desired Internet access.
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "future";
+
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("futurePredictions2b2");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

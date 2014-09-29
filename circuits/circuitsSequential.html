@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+	    <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.js"></script>
+	    <script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/kinetic.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			<!-- End nav -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum circuitsSequential"></span>
+			</p>
+
+
+			<p>
+				All of the circuits discussed up to this point have been combinational circuits whose outputs depended solely on their inputs. Such circuits do not incorporate feedback and have no “memory” of their previous state. In order to construct a general-purpose computer, circuits capable of &nbsp;“remembering” instructions, data, and the results of computations are needed.
+			</p>
+
+			<p>
+				It is possible to design circuits that exhibit “memory” by incorporating feedback – in the sense that the outputs of a circuit can be made to depend not only on the circuit’s current inputs, but also on its past outputs as well. Such circuits are termed “sequential circuits”, since their output may be viewed as a function of a sequence of past inputs. Basically, sequential circuits have memory because one or more of their outputs are “fed back” to serve as input. So, the sequential circuit’s next output will, in a sense, be a function of its present inputs and its previous outputs.
+			</p>
+
+			<p>
+				We will limit our study of sequential circuits to one, very important, type of circuit: the flip-flop. The term “flip-flop” is a generic term applied to devices having two stable states. The primary function of a flip-flop is to store a binary digit, “0” or “1”. Therefore a flip-flop can be used to implement the most basic unit of memory, the bit. A flip-flop is implemented as a set of logic gates that make use of feedback to remain in one of two stable states, thereby “remembering” a binary digit. There are many different types of flip-flops: R-S, D, T, and J-K. We will look at only one type, the R-S flip-flop.
+			</p>
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "circuits";
+				var sectID = "circuitsSequential";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage(sectID);				// get arrow paths
+
+					if (!localFlag) runGA();
+				});					
+			</script>
+	</body>
+</html>

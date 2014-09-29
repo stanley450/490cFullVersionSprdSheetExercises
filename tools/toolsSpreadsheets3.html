@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	  <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	  <!-- CSS files -->
+		<link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<!-- Java Script files -->
+		<link rel="stylesheet" href="css/jquery.handsontable.full.css">
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+		<script src="js/jquery.handsontable.full.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End Navbar -->
+		
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum toolsSpreadsheets3"></span>
+			</p>
+		
+			<p>
+				A feature that adds to the flexibility of spreadsheets is their ability to move or copy the contents of cells from one location in a table to another.  This feature is best explained by reference to an example.
+			</p>
+		
+			<p>
+				<span class="figNum spreadmovements"></span>(c) reproduces the spreadsheet for converting temperatures from Celsius to Fahrenheit that was first introduced in <span class="figNum ctofspreadsheet"></span>.  Part (a) of the figure shows the actual contents of the cells, while part (b) shows the values that would be displayed.  Notice that the only cells that are being used in this table are B2, B3, C2, and C3.  When referring to a rectangular collection of cells, called a <span class="Bolded">block</span> of cells, normally only the upper left hand cell and the lower right hand cell are listed.  So, in this case, the cells of interest are in the block B2-C3.  Parts (c) and (d) of <span class="figNum cellpremove"></span> show the cell contents and displayed values that would result from “moving” block B2-C3 to block A1-B2.
+			</p>
+		
+			<p>
+				Comparing part (b) of the figure to part (d), we can see that the “move” operation does exactly what we would expect it to do.  It moves the spreadsheet for temperature conversions to a different portion of the table.  However, a careful comparison of parts (a) and (c) will reveal that “move” involves more than at first meets the eye.  When the formula  = (9/5) * B2 + 32 stored in cell B3 was moved to cell A2, it was modified to read = (9/5) * A1 + 32.  While this change might at first seem perplexing, it is necessary in order to allow the temperature conversion spreadsheet to work properly at its new location in the table.  If the formula had not been modified, it would be in error after the move, since cell B2 no longer holds the temperature to be converted.
+			</p>
+		
+			<div id="container91" style="margin-bottom:-20px; width:310px" class="container-fluid"></div>
+			
+		    <p class="Figure">
+				(a)  Cell contents before move
+			</p>	
+				
+			<div id="container92" style="margin-bottom:-20px; width:254px" class="container-fluid"></div>
+				
+		    <p class="Figure">
+				(b) Displayed values before move
+			</p>
+		
+			<div id="container93" style="margin-bottom:-20px; width:310px" class="container-fluid"></div>
+			
+		    <p class="Figure">
+				(c) Cell contents after move
+			</p>
+			
+			<div id="container94" style="margin-bottom:-20px; width:254px" class="container-fluid"></div>
+			
+		    <p class="Figure">
+				(d) Displayed values after move
+			</p>
+		
+			<p class="Figure">
+				<span class="figNum spreadmovements"></span>  An overview of the effect of the “move” operation
+			</p>
+		
+			<img src="images/relativecellreference.png" alt="" class="Image">
+		
+			<p class="Figure">
+				<span class="figNum relativecellreference"></span>  An illustration of relative cell referencing
+			</p>
+		
+			<p>
+				When performing a move or copy operation, numbers and text strings are copied to their new location without change.  However, when moving or copying a formula, a technique known as relative cell referencing is usually used.  <span class="Bolded">Relative cell referencing</span> treats the references to cells in a formula as being relative to the current location of that formula.  For example, if a formula located in cell A2 makes reference to cell A1, that reference is interpreted to mean the cell immediately above the current cell.  It is this relative location that is preserved in a move or copy operation.  If the formula were moved to location B3 then the cell reference would be changed to B2, so that after the move the formula still refers to the cell immediately above it.
+			</p>
+		
+			<p>
+				This concept of relative cell referencing is further illustrated in <span class="figNum relativecellreference"></span>, which shows how a formula that is located in cell B3 would be modified if copied to C7.  In its original location, the formula appears as = <span class="Subfigure">A1 + C2</span>.  Since cell A1 is located two cells up and one cell to the left of cell B3, when the formula is moved or copied to C7 this reference is changed to B5.  Note that B5 is exactly two cells up and one cell to the left of C7.  Likewise, the reference to cell C2 in the original formula, which is one cell up and one cell to the right of B3, will be changed to D6 when the formula is moved to C7 since D6 is one cell up and one cell to the right of C7.
+			</p>
+		
+			<p>
+				As we have seen, relative referencing gives us the flexibility to freely move a spreadsheet to any location in the table.  Most of the time, relative cell referencing is what we want.  However, there are occasions when it is useful to be able to “lock” a cell reference in a formula to a particular location.  This is called absolute cell referencing.  In <span class="Bolded">absolute cell referencing</span>, even if the formula is moved, the referenced cell will not change.
+			</p>
+		
+			<p>
+				Absolute cell referencing comes in most handy when there are one or more values that will be referenced in many different formulas.  For example, say you were constructing a financial spreadsheet that dealt with employee salaries.  It is likely that the current federal, state, and local income tax rates would be used in many calculations throughout the entire spreadsheet.  Placing these rates in fixed cells and having all formulas that use these rates refer absolutely to those cells would be a very good idea.  This is because tax rates inevitably change over time.  When a tax rate increases, the only change that will have to be made to the spreadsheet will be to insert the new rate in the appropriate cell.
+			</p>
+		
+			<img src="images/absolutecellreference.png" alt="" class="Image">
+		
+			<p class="Figure">
+				<span class="figNum absolutecellreference"></span>  An illustration of absolute verses relative cell referencing
+			</p>
+		
+			<p>
+				If you had instead chosen to treat the tax rates as constants and embed them directly in the underlying formulas, then whenever a rate changed you would have to find and change every formula in the spreadsheet that used that rate.  
+			</p>
+		
+			<p>
+				Constructing formulas that refer to the tax rates using relative cell referencing would be better than using constants, but still not as good as absolute referencing.  The reason for this is that many formulas are likely to use the tax rate information.  If you used relative referencing, then you would not have the flexibility to move the formulas around in the table.  Every time you tried to move a formula that referred to a tax rate, relative referencing would corrupt your formula.
+			</p>
+		
+			<p>
+				One common way of indicating that cell references are to be absolute is to place a dollar sign symbol in front of both the column and row designators.  For example, if we wanted the reference to cell A1 to be absolute instead of relative, we would write $A$1.  <span class="figNum absolutecellreference"></span> illustrates the effect of moving a formula that contains both absolute and relative references.  The original formula, located in cell B3, contains an absolute reference to cell A1 and a relative reference to cell C2.  After a move to cell C7, the absolute reference to cell A1 remains unchanged, while the relative reference is modified to point to D6.
+			</p>
+		
+			<p>
+				One final point about cell referencing.  As you know, a cell reference consists of two parts: the column reference and the row reference.  It is possible to refer to one of these absolutely and the other relatively.  For example, $A1 “locks” the column reference but allows the row reference to remain relative.  C$2 works in the opposite manner, allowing the column reference to be relative while forcing the row to remain fixed.  
+			</p>
+		
+			<p>
+				<span class="figNum mixedcellreference"></span> illustrates the effect of “mixed” cell references.  As in the previous two figures, the formula originally located in cell B3, refers to cell A1 and C2, and is moved to cell C7.  The reference to A1 is $A1, which locks the column to “A”, but allows the row reference to remain relative.  Since row 1 is two rows above row 3, when the formula is moved to row 7 the referenced cell will be on row 5 (two rows above row 7).  Hence the complete reference will be $A5.  The reference C$2 is handled in a similar manner, except the row is locked to 2, while the column is relative (one column to the right of the current cell).
+			</p>
+		
+			<img src="images/mixedcellreference.png" alt="" class="Image">
+		
+			<p class="Figure">
+				<span class="figNum mixedcellreference"></span>  An illustration of “mixed” cell referencing
+			</p>
+		
+			<p>
+				In the preceding discussion, the terms “move” and “copy” were used somewhat interchangeably.  This is because both operations handle cell contents in the same way.  The only difference between the two is that “move” erases the contents of the source cells after performing a copy operation.  Hence, after a “copy” there will be two instances of cell contents: the original (source) contents, and the copied (destination) contents.  After a “move” there will be only one instance of the cell contents, in the destination location.
+			</p>
+		
+			<p class="Exercise">
+				Exercises for <span class="contentNum toolsSpreadsheets3"></span>
+			</p>
+		
+			<ol>
+				<li>
+					Given the following formula located in cell C5, show the modified formula that would result from a move to cell E9. 
+			
+					<p class="Subfigure">
+						= 2 * B6 – F8
+					</p>
+				</li>
+				<li>
+					Given the following formula located in cell A1, show the modified formula that would result from a move to cell D2.
+				</p>
+			
+					<p class="Subfigure">
+						= ( C1 + C2 + C3 ) / D9
+					</p>
+				</li>
+				<li>
+					Given the following formula located in cell D5, show the modified formula that would result from a move to cell F7.
+				</p>
+			
+					<p class="Subfigure">
+						= $B$5 + $C$5
+					</p>
+				</li>
+				<li>
+					Given the following formula located in cell D5, show the modified formula that would result from a move to cell F7. 
+				</p>
+			
+					<p class="Subfigure">
+						= $B5 + C$5
+					</p>
+				</li>
+				<li>
+					Given the following formula located in cell D5, show the modified formula that would result from a move to cell F7.
+				</p>
+			
+					<p class="Subfigure">
+						= B$5 + $C5
+					</p>
+				</li>
+			</ol>
+			
+			<div class="push"></div> <!-- pushes the footer static bottom -->	
+				
+	</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+		<script>
+			var pageObj;											// do NOT change name of variable
+			var chapID = "tools";							// stores current chapter for Section button in navbar
+
+			$(document).ready(function() {
+			populateNav();										// populate nav content
+			populateSpans();									// populate figure/content spans
+			pageObj = getArrowPathsByPage("toolsSpreadsheets3");		// get arrow paths
+			if (!localFlag) runGA();
+			});	
+
+		</script>			
+	</body>
+	<script src="js/addElements.js"></script>
+	<script src="js/jquery.mobile.custom.min.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="js/table.js"></script>
+	<script src="js/cellFunctions.js"></script>
+	<script src="js/functionParse.js"></script>
+	<script src="js/setup.js"></script>
+	<script>Setup(91)</script>
+	<script>Setup(92)</script>
+	<script>Setup(93)</script>
+	<script>Setup(94)</script>
+</html>

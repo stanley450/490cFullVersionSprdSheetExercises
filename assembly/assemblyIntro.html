@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+
+		<!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			
+					
+		  <!-- End floating nav -->
+			<!-- End nav -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyIntro"></span>
+			</p>
+			
+			<p>
+				This chapter examines programming at its lowest levels.  Since “low-level” programming is inextricably tied to the capabilities and features of the machines being programmed, this chapter includes details on the organization of computers at the machine level.
+			</p>
+			
+			<p>
+				<span class="contentNum assemblyRegisters"></span> presents a brief overview of the principle features of register-based machines, using the Watson Virtual Machine as a model.  We will try to avoid getting bogged down in too many details in this section, preferring instead to move quickly to <span class="contentNum assemblyProgramming"></span>, which provides an introduction to assembly language programming.  The assembly level is the lowest level of code that humans normally interact with.  
+			</p>
+			
+			<p>
+				<span class="contentNum assemblyData"></span> contains a rather detailed presentation of how various types of data, such as numbers, characters, and images, can be represented at the machine level.  This section also examines how basic numeric operations, such as addition and multiplication, can be performed.
+			</p>
+			
+			<p>
+				<span class="contentNum assemblyMachine"></span> fills in some of the details concerning the architecture of register-based machines, outlined in <span class="contentNum assemblyRegisters"></span>.  The Watson Virtual Machine is used as a guide to explore the translation of programs from the assembly level to the machine level.  Machine level is the lowest level of software.  At this level, programs and data are represented as strings of 1’s and 0’s.  Finally, the concept of the instruction cycle and details of how machine language programs are actually executed are described.
+			</p>
+			
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyIntro");		// get arrow paths
+					if (!localFlag) runGA();
+				});	
+				
+			</script>
+	</body>
+</html>

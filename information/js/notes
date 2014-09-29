@@ -1,0 +1,137 @@
+Notes
+=====
+
+For Mike:
+---------
+- can create new things?
+- ease of modification
+  - either a tool for mike, or not
+  - separation of data and logic
+
+### TODO
+- i think the relationship name needs to be in the statement.
+  - would be simple enough to add a "name" field in each action
+  - just pass it to the accept bit, tada
+- need a fixed-width font for the statements (maybe?)
+- need to add quotes around text entries
+  - do we also need them around tables? we'll check into that.
+- want to look into performance issues, but that will come last.
+- the whole 'get smaller with the screen' thing
+- modularization
+  - separating data and logic
+  - being able to do multiple labs w/o copying everything
+
+---
+
+- i'm betting we can take the 'remove' function out of the hist object array
+  and put a single one in the $scope. we'd just need some way to get that index
+  into it.
+
+2013-11-11
+----------
+- final notes
+- there's a nice walkthrough version now.
+  - need to work on ease of modification
+  - that separation of data and logic thing again.
+- *`project` needs to be changed*
+  - the output order doesn't depend on the order of the statement
+
+#### List of tools:
+- git
+- angular.js
+- twitter bootstrap
+- node.js
+
+- require.js
+- less css
+- bower
+
+---
+
+- considering doing a loading screen
+- figure and editor pull from the same code
+  - we accomplish this by pointing both indexes to a common main, which pull in
+    differing DatabaseApp.
+  - so how do we pull off different figures?
+  - the only difference (fairly certain) is the statements.
+    - (feel like we worked pretty hard for that to be so)
+  - feel like we're going to have different (mostly identical) mains (rename
+    config) for each index
+
+---
+
+# **PROBLEM**
+- so my figures were all each in their own directory. it meant that WAIT THAT
+  MIGHT WORK okay
+- all teh figures were their own directories
+- therefore, pointing at a config was easy: it was always the same place
+- we can't point to the same relative pathname now, because we're all in the
+  same directory
+- ergo, they would all point to the same file
+- however, doesn't matter, because none of the base html files are the same
+  now anyways
+- we just point each base file to its own `main.js`, which sets up everything...
+- okay, we need to defrag real quick. what does the whole thing look like?
+
+---
+
+- we have `lib/`, `common/`, `js/` ... we don't need common anymore.
+- we have `lib/`, `js/`, `css/`, and our slew of html siblings
+- in `js/`, we have a set of mirroring `config.js` (adapted from `main.js` and
+  multiple `statements.js`)
+- each base html will have a number of magic divs, and a script-link to it's
+  mirroring config
+- the config will
+  - set up the datastructures (`statements`, `div_ids`, and `fig_ids`)
+  - read in each fragment html section...
+  - we need to uniqely identify each `fragment` pulled in
+  - jquery: when ajaxing in the piece, html manipulation and stick on an id?
+  - pop the statements into placepull in the `DatabaseApp`
+  - (which will be converted to accept parameters?).
+- *We don't know what having multiple figures on the same page will look like*
+
+### Putting multiple figures on the same page
+- (will be using magic divs)
+- what comes to mind is using multiple controllers.
+- got it:
+  - when loading in items, tack on top-level attribute `ng-init` -> `init(div_id)`
+  - set up some service that has all the data in it as a mapping
+  - each controller instance looks up its div and grabs that statement list
+
+---
+
+### working on getting the figure -> editor and editor -> figure exporting working
+
+- going from figure to editor
+  - in figure, we grab our statement datastruct and store it in sessionStorage
+    - using JSON.stringify and JSON.parse
+  - in editor, for each statement
+    - create new action objects, populate them, and run them
+- going from editor to figure
+  - in editor, when populating history for each relation created, we create a
+    `summary` object that represents a statement
+  - simply collect these `summary` objects, and store them in sessionStorage
+- in figure -> editor we store the page and figure, so that we can navigate
+  back from the editor
+
+---
+
+### autosave design stuffs
+- we need some way to manually clear it.
+- half-baked attempts at guessing what the user wants are the devil
+- when is it useful / when do we need it?
+
+> **need to clear on deletion**
+> done
+
+---
+
+- show figure relations by default
+- be able to show tables w/o statement (student relation figure, etc.)
+- go ahead and do exercises
+
+---
+
+### 2014-05-05
+- working on refining the way we pull in data, base on a combination of whether
+  or not we are a figure and/or importing.

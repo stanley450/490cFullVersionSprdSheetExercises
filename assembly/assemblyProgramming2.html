@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link rel='stylesheet' href='../lib/css/bootstrap-3.css'>
+		<link rel='stylesheet' href='../lib/css/jquery-ui-custom.css'>
+		<link rel='stylesheet' href='../lib/css/editor.css'>
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<link rel='stylesheet' href='../lib/css/Dialogs.css'>
+		<link rel="stylesheet" href="../lib/css/jquery-ui-1.10.4.custom.css">
+		<link rel='stylesheet' href='css/assembly.css'>	
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link rel='stylesheet' href='css/assembly.css'>	
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+		<script type="text/javascript" src="../lib/js/visibility.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/angular.js"></script>
+	    <script type="text/javascript" src="../lib/js/jQuery.js"></script>
+	    <script type="text/javascript" src="../lib/js/less.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-ui.js"></script>
+<!--
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+-->
+	    <script type="text/javascript" src="../lib/js/ui-bootstrap-0.10.0.js"></script>
+	    <script type="text/javascript" src="../lib/js/tabs.js"></script>
+	    <script type="text/javascript" src="../lib/js/ui-bootstrap.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/editor.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDialogs.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
+		<script type="text/javascript" src="js/figuresV2.js"></script>
+		<script type="text/javascript" src="js/inserts.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyProgramming2"></span>
+			</p>
+			
+			<p>
+				This part of <span class="contentNum assemblyProgramming"></span> explores how the instructions presented above can be used to construct simple assembly language programs.  The programs we describe here will be limited to declaring and initializing variables, simple assignment, and sequence.  Later parts of this section examine more advanced concepts, such as how selection and repetition can be implemented in assembly language
+			</p>
+			
+			<p>
+				<span class="figNum assemblytotal"></span> contains a complete assembly language program that implements the high-level language assignment statement:
+			</p>
+			
+			<p class="Subfigure">
+				total = abc + xyz;
+			</p>
+			
+			<p>
+				This statement is written in the Watson JavaScript language, which was introduced in <span class="contentNum javascript"></span>, as are all other high-level language statements used in this chapter.  As you will recall from your study of JavaScript, this statement adds the current value of the variable <span class="Subfigure">abc</span> to the current value of the variable <span class="Subfigure">xyz</span> and places the result into the variable <span class="Subfigure">total</span>.  Of course, <span class="Subfigure">abc</span> and <span class="Subfigure">xyz</span> must contain valid data when this statement is executed in order for a meaningful result to be assigned to <span class="Subfigure">total</span>.  Let’s assume for the purposes of this example that <span class="Subfigure">abc</span> contains the value 2 and <span class="Subfigure">xyz</span> the value 3.  After this statement executes the value of <span class="Subfigure">total</span> should be 5.
+			</p>
+			<!--
+			<img src="Images/AssemblyIMGS/fig11-3.png" alt="" class="Image">
+			-->
+			<!-- Begin interactive 11.3 -->
+			<div id='fig113Div'></div>
+			<!-- End interactive 11.3 -->			
+			<p class="Figure">
+				<span class="figNum assemblytotal"></span>  Assembly language version of the statement:  <span class="Subfigure">total = abc + xyz;</span>
+			</p>
+			
+			<p>
+				How can the actions of this high-level assignment statement be implemented using low-level assembly language instructions?
+			</p>
+			
+			<p>
+				The first thing that must be addressed is how variables such as <span class="Subfigure">total</span>, <span class="Subfigure">abc</span>, and <span class="Subfigure">xyz</span> can be set up and initialized.  As you know, variables are simply “named locations in memory that hold a value of a particular type.”  The Watson Assembly Language supports only one type of data, integers.<span class="Footnote" title="Footnote: Represented as two’s complement binary numbers. See Section 11.4.1 for details."><a href="#ftn1" id="body_ftn1">[1]</a></span> Hence all that need concern us here is the fact that a variable is a named location in memory.
+			</p>
+			
+			<p>
+				Watson Assembly Language contains two separate statements for “reserving” and naming memory locations.  These statements are: <span class="Subfigure">.BLOCK</span> and <span class="Subfigure">.WORD</span>.  They have the following general forms:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure"><span class="Ital">label</span>        .BLOCK <span class="Ital">size</span></span></li>
+				
+				<li><span class="Subfigure"><span class="Ital">label</span>        .WORD  <span class="Ital">initial value</span></span></li>
+			</ul>
+			
+			<p>
+				The first statement, <span class="Subfigure">.BLOCK</span>, reserves a block of memory some number of words long and gives that block a label or name by which it may be referred.  A “word” is the amount of space normally needed to store an integer value.  So, for example, the statement:
+			</p>
+			
+			<p class="Subfigure">
+				TOTAL  .BLOCK  1
+			</p>
+			
+			<p>
+				reserves a block of memory one word long and gives it the name “total”.  The effect of this statement is essentially to declare a variable named “total”.  Hence, it is roughly equivalent to the Watson JavaScript statement:
+			</p>
+			
+			<p class="Subfigure">
+				var total; // Numeric
+			</p>
+			
+			<p>
+				with the exception that the variable “total” can only hold whole numbers (not fractions) since Watson Assembly Language supports integers as its only “data type”.
+			</p>
+			
+			<p>
+				While the <span class="Subfigure">.BLOCK</span> statement declares a variable, it does <span class="Ital">not</span> initial it.  To both declare and initialize a variable, the Watson Assembly Language includes a <span class="Subfigure">.WORD</span> statement.  The <span class="Subfigure">.WORD</span> statement always reserves exactly one word of memory for a variable but it also allows the programmer to specify an initial value for that variable.  For example, the statements:
+			</p>
+			
+			<p class="Subfigure">
+				ABC  .WORD  2
+			</p>
+			
+			<p class="Subfigure">
+				XYZ  .WORD  3
+			</p>
+			
+			<p>
+				not only reserve one word of memory for each of the variables <span class="Subfigure">ABC</span> and <span class="Subfigure">XYZ</span>, but also initialize <span class="Subfigure">ABC</span> to the integer value 2 and <span class="Subfigure">XYZ</span> to the integer value 3.  These statements have essentially the same effect as the Watson JavaScript statements:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">var abc; // Numeric</span></li>
+				<li><span class="Subfigure">var xyz; // Numeric</span></li>
+				<br/>
+				<li><span class="Subfigure">abc = 2;</span></li>
+				<li><span class="Subfigure">xyz = 3;</span></li>
+			</ul>
+			
+			<p>
+				in that both groups of statements declare the variables and initialize them.  There are, however, subtle differences in the ways these two groups of statements accomplish their goals.  The high-level statements first declare the variables and then, in separate statements, initialize those variables.  The assembly language statements declare and initialize the variable in a single “step”.  Since Watson JavaScript does not support declaring and initializing variables in a single instruction, there is no “direct” translation of <span class="Subfigure">.WORD</span> to Watson JavaScript.  Regardless, these four Watson JavaScript statements do accomplish the same tasks that the two <span class="Subfigure">.WORD</span> assembly statements do.<span class="Footnote" class="Superscript" title="Footnote: It should be noted that true JavaScript, as well as many other common programming languages, like Java and C++, do support the ability to declare and initialize variables in a single statement."><a href="#ftn2" id="body_ftn2">[2]</a></span>
+			</p>
+			
+			<p>
+				Now that we have seen how variables can be declared and initialized in assembly language, we can return to the problem at hand, which is trying to figure out how the assignment statement:  <span class="Subfigure">total = abc + xyz;</span>  can be translated into assembly language.
+			</p>
+			
+			<p>
+				Like most assembly languages, Watson Assembly Language has very limited support for directly manipulating the values stored in the computer’s main memory.  Operations involving main memory are essentially limited to copying information back and forth between CPU registers and memory locations.  The operation of copying a value from a memory location to a CPU register is known as “loading” a register.  Copying the contents of a CPU register into a memory location is known as “storing” a register.
+			</p>
+			
+			<p>
+				As discussed in <span class="contentNum assemblyRegisters"></span>, all mathematical and logical operations supported by the Watson Virtual Machine must be performed on registers, not memory locations.  This means that variables (named locations in memory) cannot be directly manipulated in Watson Assembly Language.  Instead, in order to use the contents of a variable, the value of that variable must first be copied into a register.  The register may then be used as a “stand in” for the actual variable in mathematical and logical operations.  If the contents of the register that represents the variable changes in any way, then the contents of that register must be copied back to the variable’s main memory location.  
+			</p>
+			
+			<p>
+				So, in order to add <span class="Subfigure">ABC</span> and <span class="Subfigure">XYZ</span> together, each must first be loaded into a register.  The general form of the <span class="Subfigure">LOAD</span> statement is:
+			</p>
+			
+			<p class="Subfigure">
+				LOAD                <span class="Ital">destination register</span>, <span class="Ital">source variable label</span>
+			</p>
+			
+			<p>
+				The Watson Virtual Machine supports sixteen general-purpose registers labeled 0-9 and A-F.  As long as we ensure that <span class="Subfigure">ABC</span> and <span class="Subfigure">XYZ</span> are placed into <span class="Ital">different</span> registers, it does not matter which registers we choose. (If we tried to place both values into the same register, the first value would be destroyed when the second was loaded.)  The following two assembly language instructions copy the values held in the memory locations labeled <span class="Subfigure">ABC</span> and <span class="Subfigure">XYZ</span> into registers D and E, respectively.
+			</p>
+			
+			<p class="Subfigure">
+				LOAD REGD, ABC
+			</p>
+			
+			<p class="Subfigure">
+				LOAD REGE, XYZ
+			</h2>
+			
+			<p>
+				The first statement may be read as “load into register D the value of variable <span class="Subfigure">ABC</span>”.  The second one reads similarly.  After these statements execute, register D will contain the value 2 and register E will contain the value 3, since <span class="Subfigure">ABC</span> was initialized to 2 in its <span class="Subfigure">.WORD</span> declaration and <span class="Subfigure">XYZ</span> was initialized to 3 in its <span class="Subfigure">.WORD</span> declaration.
+			</p>
+			
+			<p>
+				We are now ready to add the two values together. The form of the <span class="Subfigure">ADD</span> statement is:
+			</p>
+			
+			<p class="Subfigure">
+				ADD   <span class="Ital">result register</span>,<span class="Ital"> first operand register</span>,<span class="Ital">  second operand register</span>
+			</p>
+			
+			<p>
+				Any of the sixteen general-purpose registers in the Watson Virtual Machine could serve as the result register, including register D or E.  Assuming we choose register F to hold the result, the <span class="Subfigure">ADD</span> statement would have the following form:
+			</p>
+			
+			<p class="Subfigure">
+				ADD  REGF, REGD, REGE
+			</p>
+			
+			<p>
+				When this statement is encountered register D will contain a 2 and register E will contain a 3, so the value 5 will be placed into register F.
+			</p>
+			
+			<p>
+				Many people find the form of the <span class="Subfigure">ADD</span> statement initially confusing due to the fact that the result register is listed first.  Their confusion often clears up when they realize that the registers are in exactly the same order that they would appear if the <span class="Subfigure">ADD</span> statement were written in a more “high-level” syntax like:
+			</p>
+			
+			<p class="Subfigure">
+				<span class="Ital">result register</span> = <span class="Ital">first operand register</span> + <span class="Ital">second operand register </span>;
+			</p>
+			
+			<p>
+				or in the current example:
+			</p>
+			
+			<p class="Subfigure">
+				REGF = REGD + REGE ;
+			</p>
+			
+			<p>
+				At this point, the value of variables <span class="Subfigure">ABC</span> and <span class="Subfigure">XYZ</span> have been successfully added; their sum placed into register F.  All that remains is for this sum to be stored into the variable <span class="Subfigure">TOTAL</span>.  The general form of the <span class="Subfigure">STORE</span> statement is:
+			</p>
+			
+			<p class="Subfigure">
+				STORE          <span class="Ital">source register</span>, <span class="Ital">destination variable label</span>
+			</p>
+			
+			<p>
+				In order to store the contents of register F into the memory location associated with the variable <span class="Subfigure">TOTAL</span>, a statement of the following form will be required:
+			</p>
+			
+			<p class="Subfigure">
+				STORE  REGF, TOTAL
+			</p>
+			
+			<p>
+				Finally, the <span class="Subfigure">HALT</span> statement, which signals the logical end of the program, must be included in the program.  Execution of the program ceases whenever the Watson Virtual Machine encounters a HALT statement.
+			</p>
+			
+			<p>
+				To briefly recap, the Watson Assembly Language program of <span class="figNum assemblytotal"></span> implements the assignment statement<span class="Subfigure"> total = abc + xyz; </span>by loading the value of <span class="Subfigure">ABC</span> into register D and the value of <span class="Subfigure">XYZ</span> into register E.  The contents of both of these registers are added together with the sum placed into register F.  The contents of register F are then stored into variable <span class="Subfigure">TOTAL</span> and the program halts.  This process of copying values from the main memory locations that represent variables into CPU registers, manipulation of those values by “register-based” instructions, and then copying of results back to main memory is typical of most assembly language programs.
+			</p>
+			
+			<p>
+				Another assembly language program is presented in <span class="figNum assemblydec"></span>.  This program is similar to the program of <span class="figNum assemblytotal"></span> in that it too implements a single high-level assignment statement.  In this case the statement is:  <span class="Subfigure">x = x - 1;</span>
+			</p>
+			
+			<p>
+				The assembly language program begins by declaring the variable <span class="Subfigure">X</span> and initializing it to 15, in preparation for implementing the actions of the assignment statement.  The second line of the program loads the value currently held in <span class="Subfigure">X</span>, 15, into register A.  The third line of the program loads the value 1 into register B via the “load immediate” statement:
+			</p>
+			
+			<p class="Subfigure">
+				LOADIMM REGB, 1
+			</p>
+			
+			<p>
+				The general form of the load immediate statement is: 
+			</p>
+			
+			<p class="Subfigure">
+				LOADIMM        <span class="Ital">destination register</span>, <span class="Ital">value</span>
+			</p>
+			<!--
+			<img src="Images/AssemblyIMGS/fig11-4.png" alt="" class="Image">
+			-->
+			<div id='fig114Div'></div>			
+			<p class="Figure">
+				<span class="figNum assemblydec"></span> Assembly language version of the statement:  <span class="Subfigure">x = x - 1;</span>
+			</p>
+			
+			<p>
+				While the standard version of the <span class="Subfigure">LOAD</span> statement contains the <span class="Ital">label</span> of the memory location where the value to be loaded is held, the <span class="Subfigure">LOADIMM</span> statement includes the <span class="Ital">value</span> to be loaded directly in the statement – the value to be loaded appears in the statement “immediately” following the destination register.  Load immediate statements are quite useful, but the values they can contain are generally limited to a rather narrow range.  For example, the Watson Assembly Language limits load immediate values to the range –128 to +127.
+			</p>
+			
+			<p>
+				The fourth line of the program 
+			</p>
+			
+			<p class="Subfigure">
+				SUBTRACT REG0, REGA, REGB
+			</p>
+			
+			<p>
+				subtracts the value held in register B from the value held in register A and places the difference in register 0.  Since register A contains 15 (the current value of <span class="Subfigure">X</span>) and register B contains 1, the value 14 will be placed into register 0 when this statement executes.  
+			</p>
+			
+			<p>
+				The general form of the subtract statement is:
+			</p>
+			
+			<p class="Subfigure">
+				SUBTRACT   <span class="Ital">result register</span>, <span class="Ital">first operand register</span>, <span class="Ital">second operand register</span>
+			</p>
+			
+			<p>
+				As with the <span class="Subfigure">ADD</span> statement, the registers of <span class="Subfigure">SUBTRACT</span> appear in the same order they would if the statement were written in a more “high-level” form such as:
+			</p>
+			
+			<p class="Subfigure">
+				<span class="Ital">result register</span> = <span class="Ital">first operand register</span> - <span class="Ital">second operand register </span>;
+			</p>
+			
+			<p>
+				Keeping this “high-level” form of the <span class="Subfigure">SUBTRACT</span> statement in mind should help you to remember the correct order of the registers.
+			</p>
+			
+			<p>
+				The fifth line of the program of <span class="figNum assemblydec"></span> copies the contents of register 0 into the main memory location associated with the variable <span class="Subfigure">X</span>.  This line has the effect of updating the value of the <span class="Subfigure">X</span> to be one minus its previous value, thus completing the actions of the high-level assignment statement.  Finally, line six of the program issues the <span class="Subfigure">HALT</span> command causing execution to terminate.
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum assemblyProgramming2"></span>
+			</p>
+			
+			<ol id="exerciseList">
+				<li>
+					<div class="exercise solvable 1">
+						Write an assembly language program to implement the high-level assignment statement:
+						
+						<p class="Subfigure">diff = xyz – abc;</p>
+					</div>
+
+					<div class="exerciseDiv 1"></div>
+				</li>
+				<li>
+					<div class="exercise solvable 2">
+						Write an assembly language program to implement the high-level assignment statement:
+						
+						<p class="Subfigure">num = num + 4;</p>
+					</div>
+					
+					<div class="exerciseDiv 2"></div>
+				</li>
+				<li>
+					<div class="exercise solvable 3">
+						Write an assembly language program to implement the high-level assignment statement:
+					
+						<p class="Subfigure">A = ( B + C ) -  D;</p>
+					</div>
+					<div class="exerciseDiv 3"></div>
+				</li>
+				<li>
+					<p class="exercise solvable 4">
+					Write an assembly language program to implement the high-level assignment statement:
+					</p>
+					
+					<p class="Subfigure">A = 2 * ( B + C );</p>
+					
+					<div class="exerciseDiv 4"></div>
+				</li>
+			</ol>
+
+			
+			<!-- End main content -->
+			<hr/>
+			<!-- Footnotes -->
+			<p class="Section">
+				Footnotes
+			</p>
+		
+			<p class="Footnote"><span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn1" href="#body_ftn1">[1]</a></span> Represented as two’s complement binary numbers.  See <span class="contentNum assemblyData1"></span> for details.</p>
+			
+			<p class="Footnote"><span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn2" href="#body_ftn2">[2]</a></span> It should be noted that true JavaScript, as well as many other common programming languages, like Java and C++, do support the ability to declare and initialize variables in a single statement.</p>
+			<!-- Footnotes End -->
+			<p class="Emphasized">
+				<a href="#tippytop">Return to top</a>
+			</p>
+			
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			<script type='text/javascript' src='../lib/js/angular.js'></script>
+			<script type='text/javascript' src='../lib/js/jQuery.js'></script>
+			<script type='text/javascript' src='../lib/js/less.js'></script>
+			<script type='text/javascript' src='../lib/js/ui-bootstrap-0.10.0.js'></script>
+			<script type='text/javascript' src='../lib/js/tabs.js'></script>
+			<script type='text/javascript' src='../lib/js/ui-bootstrap.js'></script>   	
+			<script type='text/javascript' src='../js/assemblyui.js'></script>	
+			<script type='text/javascript' src='../js/inputs.js'></script>
+			<script src='js/figures.js'></script>
+			
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+				var sectID = "assemblyProgramming2";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyProgramming2");		// get arrow paths
+					setupExerciseButtons(sectID);
+					if (!localFlag) runGA();
+				});	
+
+				var fig113 = new Figure(113, true);
+				var fig114 = new Figure(114, true);
+				angular.bootstrap(document.getElementById("fig113"), ['assembly113']);
+				angular.bootstrap(document.getElementById("fig114"), ['assembly114']);
+
+		</script>
+	</body>
+</html>

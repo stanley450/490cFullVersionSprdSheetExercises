@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='DatabaseApp'>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <link href = "figure/css/database.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationUser2b1"></span>
+      </p>
+
+      <p>
+        All modern database programs are based on the</span> <span class="Bolded">relational database model</span>, which organizes logically related data into tables. These tables, which are known as</span> <span class="Bolded">relations</span>, are subdivided into rows and columns. Each column, or</span> <span class="Bolded">attribute</span>, of a relation keeps up with a particular kind of data. Each row, or</span> <span class="Bolded">tuple</span>, of a relation holds all of the data about a particular entity or event.
+      </p>
+
+      <p>
+        <span class="figNum facultyrelation"></span> contains the “Faculty” relation from a hypothetical university database. This relation (table) has six attributes (columns): “Fname” which stands for the faculty member’s name, “Dept” the department in which the faculty member serves, “Office” the building code and room number where the faculty member’s office is located, “Phone” the faculty member’s phone number, “SSN” the faculty member’s social security number, and “Salary” the faculty member’s nine-month academic-year salary. In addition to these six attributes, the “Faculty” relation contains seven tuples (rows).
+      </p>
+
+      <p>
+        Each attribute of <span class="figNum facultyrelation"></span> holds a particular type of information, like phone numbers or salaries. Each tuple contains all of the different kinds of information known about a particular individual.
+      </p>
+
+      <p>
+        <span class="figNum studentrelation"></span> presents another relation from our university database. This relation is the “Students” relation, which keeps up with all of the various kinds of information maintained about students. The “Students” relation consists of eight attributes: “Sname”, “Age”, “Major”, “ID”, “Sex”, “Address”, “City”, and “State”; and twenty tuples, one for each student attending this (quite small) university.
+      </p>
+
+      <!-- <img src="images/studentrelation.png" alt="the “Students” relation – part of a university database" class="Image"> -->
+
+      <div id='Students'></div>
+
+      <p class="Figure">
+        <span class="figNum studentrelation"></span> the “Students” relation – part of a university database
+      </p>
+
+      <p>
+        By now you may have noticed the similarities between files with their records and fields, and relations with their tuples and attributes. In fact, the tuples of a relation are quite similar to the records of a file, and attributes are analogous fields. However, you should not assume that every relation in a database will actually be stored as a separate file on a disk drive. In fact, you don’t even need to worry about files and records when using a relational database, since the application will handle all of those details for you. Instead, try to think in terms of tables (relations) with their rows (tuples) and columns (attributes).
+      </p>
+
+      <p>
+        Now that we have some idea of how data is organized in the relational model, the obvious question is: “How can relational databases be used to answer questions about the data contained in the relations?”.
+      </p>
+
+      <p>
+        The relational model provides three query operators:
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            Select
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Project
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Join
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        A <span class="Bolded">query</span> may be thought of as a question posed to the database. Query operators act on existing relations and always produce new relations as output.
+      </p>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+    <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";       // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationUser2b1");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  <script type='text/javascript' data-main='figure/js/2b1_config.built' src='lib/js/require.js'></script>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+			
+	   <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../lib/js/nav.js"></script>
+			<script type="text/javascript" src="../lib/js/master.js"></script> 
+			<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+			<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+			<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+		<meta name="description" content="">
+		<meta name="author" content="Burt">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+    	<div class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			
+			<p class="Section">
+				<span class="contentNum algorithmsSearching1"></span>
+			</p>
+
+			<p>
+				<span class="Bolded">Sequential search</span> works in the following way: starting at the first item in the list, compare each item in the list to the item you are looking for.  As soon as you find the item, print “Yes, found it” and then quit.  If you reach the end of the list without having found the item, you should print “No, did not find it” and then quit.  The algorithm for sequential search is expressed more formally in <span class="figNum seqsearch"></span>.  Note that step three of the algorithm is reached only in the event that the entire list was searched and the target item not discovered.
+			</p>
+
+			<p>
+				<span class="figNum seqsearch20"></span> illustrates the behavior of the sequential search algorithm given the eight item list (50,10,30,80,70,20,60,40) and a target value of 20.  When looking for the value 20, only the first six items of this particular list need to be examined.  This is because the target value occurs in the sixth position of the list.  If, on the other hand, the target value was 50 and the list remained unchanged, this algorithm would have to examine only one item – the first item in the list.  Given the same list and a target value of 90, the algorithm would be forced to examine all eight items to determine that this target does not occur anywhere in the list.
+			</p>
+
+			<p>
+				In the previous paragraph, we looked at the behavior of sequential search on a specific list of eight numbers given several different target values.  A general description of the algorithm’s efficiency, in terms of the number of items to be searched, would be much more useful.  Such a description would allow us to predict the average number of comparisons required to find an arbitrary key given only the size of the list instead of the actual values.  In other words, the question we would like answered is “What is the behavior of this algorithm, in general, given an arbitrary target and list of <span class="Ital">N</span> items?”
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">1.  Let the current list item be the first item in the list.</span></li>
+				<li><span class="Subfigure">2.  Repeat the following steps until (a) you have reached the end of the list</span></li>
+				<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or  (b) are explicitly told to halt.</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">2.1.  If the current item is the same as the target item then</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">2.1.1  Print  “Yes, found it.”</span></li>
+						<li><span class="Subfigure">2.1.2  Halt (quit looking)</span></li>
+					</ul>
+					<li><span class="Subfigure">2.2  Let the current item be the next item in the list</span></li>
+				</ul>
+				<li><span class="Subfigure">3.  Print  “No, did not find it.”</span></li>
+				<li><span class="Subfigure">4.  Halt</span></li>
+			</ul>
+			<br/>
+			<p class="Figure">
+				<span class="figNum seqsearch"></span>  Sequential search
+			</p>
+
+			<img src="images/seqsearch20.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum seqsearch20"></span>  Sequential search for the value 20
+			</p>
+
+			<p>
+				To begin with, if the target item is not in the list, it will be necessary to look through the entire list to verify this fact.  So, for <span class="Ital">N</span> = 8 items, a search that ends in failure will require <span class="Ital">N</span>, or 8, comparisons.  Let’s say we were executing sequential search on an antique computer that requires 1/1,000 of a second to perform a comparison.<span class="Footnote" title=""><a href="#ftn2" id="body_ftn2">[2]</a></span>  In that case, an unsuccessful search of 10,000 items would require 10 seconds.
+			</p>
+
+			<p>
+				Now, what if the item is in the list?  How many comparisons would be required to find the item?  Well, as the above example with eight items showed, it varies.  Sometimes the target item will be right at the beginning of the list, so only one comparison is needed to find it.  At other times, the target item will be the very last item in the list, and every item must be examined – so for a 10,000 item list, all 10,000 items would be examined.  
+			</p>
+
+			<p>
+				If you performed lots of searches, and determined the “mean” or “average” number of comparisons required to find a target item that you know to be in the list, you would find that, on average, you had to scan about half the list.  This should not be surprising, since the “good” cases, where the target is at the front of the list, and the “bad” cases, where the target is at the end of the list, tend to cancel each other out over multiple searches.  Thus, on average, <span class="Ital">successful</span> sequential searches of an <span class="Ital">N</span> item list require &frac12; <span class="Ital">N</span> comparisons.
+			</p>
+
+			<p>
+				So, given a list of 10,000 items, on average 5,000 comparisons are required to find an item that <span class="Ital">is</span> in the list.  If the algorithm were implemented on a computer that could process one comparison in 1/1,000 of a second, 5 seconds would be required, on average, for the search operation to complete.  This assumes that the target item is in the list.  Remember that it will take exactly 10,000 comparisons (or 10 seconds) to verify that a given number is not in the list.  Also remember that the actual amount of time required by any particular search of this list will vary on our antique computer from 1/10,000 second all the way up to 10 seconds, since there is no way to predict where (or even whether) the target item will be found in the list.
+			</p>
+
+			<p>
+				While an average search time of 5 seconds for 10,000 items may seem pretty impressive for an antique computer, consider that using the same assumption of 1,000 comparisons per second, it would take about 42 hours, on average, to retrieve a social security record, given a valid social security number; and 83 hours (3 &frac12; days!) to determine that an input number was not valid.  This is because there are about 300 million people in the United States, most of whom have a social security number.  On average, it would be necessary to look through 1/2 of these (about 150 million records).  This would take 150,000 seconds, almost 42 hours.  Clearly, there must be better search algorithms.
+			</p>
+
+			<p>
+				To summarize, a sequential search of an <span class="Ital">N</span> item list requires <span class="Ital">N</span> comparisons to determine that a number is <span class="Ital">not</span> in the list.  If the number <span class="Ital">is</span> in the list, sequential search can, on average, verify this fact using only &frac12; <span class="Ital">N</span> comparisons.  Regardless of this fact, the most precise statement that can be made about any particular sequential search of <span class="Ital">N</span> items is that it will require somewhere between 1 and <span class="Ital">N</span> comparisons.  These ideas can be expressed succinctly by the following three equations:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Ital">Minimum number of sequential search comparisons</span>   =  1
+			</p>
+
+			<p class="Subfigure">
+				<span class="Ital">Maximum number of sequential search comparisons</span>  =  <span class="Ital">N</span>
+			</p>
+
+			<p class="Subfigure">
+				<span class="Ital">Average number of sequential search comparisons for successful searches</span>   =   &frac12; <span class="Ital">N</span>
+			</p>
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum algorithmsSearching1"></span>
+			</p>
+
+			<ol>
+				<li>
+					Given a 1,000 item input list, what is the <span class="Ital">maximum</span> number of comparisons that could be required by the sequential search algorithm?  Describe the <span class="Underlined">two</span> situations that would cause this behavior to occur.
+				</li>
+				<br/>
+				<li>
+					Given a 1,000 item input list, what is the <span class="Ital">minimum</span> number of comparisons that could be required by the sequential search algorithm?  Describe the situation that would cause this behavior to occur.
+				</li>
+				<br/>
+				<li>
+					On average, a successful sequential search of 1,000 items will require how many comparisons?
+				</li>
+				<br/>
+				<li>
+					Given an antique computer that could perform only 1,000 comparisons per second, how many seconds would be required to perform a sequential search of a 1,000 item list in the best, worst, and average cases?
+				</li>
+				<br/>
+				<li>
+					Given the same computer as in question 4, how many seconds would be required to search a 2,000 item list using the sequential search algorithm in the best, worst, and average cases?
+				</li>
+			</ol>
+			
+			<!-- Footnotes -->
+			<hr/>
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a class="Footnote_20_Symbol" id="ftn2" href="#body_ftn2">[2]</a>&nbsp;The value of 1,000 comparisons per second was chosen for illustrative purposes only.  Modern computers are orders of magnitude faster.  In <span class="contentNum algorithmsSorting"></span> we will switch to a computer with a somewhat more realistic processing speed.
+			</p>
+			
+			<!-- End main content -->
+			<div class="push"></div> <!-- pushes the footer static bottom -->
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the footer -->	
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID="algorithms";
+				
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("algorithmsSearching1");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

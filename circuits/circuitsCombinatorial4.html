@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+
+	    <!-- CSS files -->
+		<link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui-1.10.4.custom.css">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		
+	    <!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.js"></script>
+		<script type="text/javascript" src="js/kinetic.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<link href = "../lib/css/Dialogs.css" rel = "stylesheet">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			<!-- End nav -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum circuitsCombinatorial4"></span>
+			</p>			
+			<p>
+				<span>A decoder is a type of circuit that takes in a number (in unsigned binary form) and generates a “1” (high) on the output line that corresponds to the input number. All other output lines are set to “0” (low). For example, given an input of 00</span><span class="Subscript">two</span> <span>, a “1” would be generated on output line zero. Likewise, given 01</span><span class="Subscript">two</span> <span>as input, a “1” would be placed on output line one. Decoders, as we will see in <span class="contentNum circuitsMicrocomputer"></span>, form an integral part of memory and register addressing circuitry.</span>
+			</p>
+
+			<p>
+				<span>Every decoder with</span> <span class="Ital">n</span> <span>input lines will have exactly 2</span><span class="Superscript">n</span> <span>output lines. So, a two-to-four decoder will have two input lines and four output lines, while a three-to-eight decoder will have three input lines and eight output lines. Both the input and output lines of decoders are numbered, with the</span> <span class="Ital">n</span> <span>inputs ranging from 0 to</span> <span class="Ital">n</span> <span>-1, and the 2</span><span class="Superscript">n</span> <span>outputs ranging from 0 to 2</span><span class="Superscript">n</span> <span>-1. </span>
+			</p>
+
+			<p>
+				Here is the truth table for a three-to-eight decoder.
+			</p>
+
+			<!-- <h1>INSERT TRUTH TABLE</h1> -->
+			<img class="Image" src="images/fig12-a_ver2.png" alt="3-to-8 Decoder Truth Table">
+			
+			<br/>
+
+			<p>
+				<span>The inputs are labeled A</span><span class="Subscript">0</span> <span>to A</span><span class="Subscript">2</span> <span>and represent the bits of a three-bit unsigned binary number. The outputs are labeled D</span><span class="Subscript">0</span> <span>through D</span><span class="Subscript">7</span> <span>. As the table shows, an input number (such as 110</span><span class="Subscript">two</span> <span>= six) results in the corresponding data line (D</span><span class="Subscript">6</span> <span>in this case) being set to “1”, with all other lines held at “0”.</span>
+			</p>
+
+			<p>
+				<span><span class="figNum threetoeightdec"></span> illustrates an implementation of a three-to-eight decoder. The circuit diagram uses eight three-input</span> <span class="Ital">and</span> <span>gates – one for each data line, together with a total of three</span> <span class="Ital">not</span> <span>gates. If you don’t happen to have access to three-input type</span> <span class="Ital">and</span> <span>gates, remember that they can easily be constructed from two standard two-input</span> <span class="Ital">and</span> <span>gates.</span>
+			</p>
+
+			<p>
+				<span>Carefully tracing the lines in the circuit diagram, we see that all three of the inputs to the D</span><span class="Subscript">0</span> <span class="Ital">and</span> <span>gate are negated. Thus, when inputs A</span><span class="Subscript">2</span> <span>, A</span><span class="Subscript">1</span> <span>, and A</span><span class="Subscript">0</span> <span>each have a value of “0”, D</span><span class="Subscript">0</span> <span>’s three-input</span> <span class="Ital">and</span> <span>gate receives three “1’s” (</span> <span class="Ital">not</span> <span>A</span><span class="Subscript">2</span> <span>,</span> <span class="Ital">not</span> <span>A</span><span class="Subscript">1</span> <span>, and</span> <span class="Ital">not</span> <span>A</span><span class="Subscript">0</span> <span>) and generates a “1”. The result is that a “1” (high) is placed on output line zero when the number 000</span><span class="Subscript">two</span> <span>is given as input to the circuit. </span>
+			</p>
+			
+			
+			<div id="topDiv-16" class="Centered"></div>
+			<div id="container-16" class="Centered"></div>
+			
+			<p class="Figure">
+				<span class="figNum threetoeightdec"></span> An implementation of a three-to-eight decoder
+			</p>
+
+			<p>
+				<span>Moving on to the</span> <span class="Ital">and</span> <span>gate for D</span><span class="Subscript">1</span> <span>, we note that two of the three inputs (A</span><span class="Subscript">2</span> <span>and A</span><span class="Subscript">1</span> <span>) are negated, but the third input A</span><span class="Subscript">0</span> <span>is not. Thus, when inputs A</span><span class="Subscript">2</span> <span>and A</span><span class="Subscript">1</span> <span>are “0”, but A</span><span class="Subscript">0</span> <span>is “1” (corresponding to the input number 001</span><span class="Subscript">two</span> <span>or one) the</span> <span class="Ital">and</span> <span>gate will receive three “1’s” and generate a “1” on line D</span><span class="Subscript">1</span> <span>. Skipping ahead to the final case, we see that the three-input</span> <span class="Ital">and</span> <span>gate for D</span><span class="Subscript">7</span> <span>receives all of its inputs directly from A</span><span class="Subscript">2</span> <span>, A</span><span class="Subscript">1</span> <span>, and A</span><span class="Subscript">0</span> <span>without negation. Thus, when A</span><span class="Subscript">2</span> <span>, A</span><span class="Subscript">1</span> <span>, and A</span><span class="Subscript">0</span> <span>each contain “1”(corresponding to the number 111</span><span class="Subscript">two</span> <span>or seven) the gate will generate a “1” on data line D</span><span class="Subscript">7</span> <span>. The other cases are handled in a similar manner.</span>
+			</p>
+
+			<p>
+				The three-to-eight decoder of <span class="figNum threetoeightdec"></span> may be encapsulated using a “black box” such as:
+			</p>
+
+			<!-- <h1>INSERT BLACK BOX</h1> -->
+			<img class="ImageTall" src="images/fig12-b.png" alt="3-to-8 Decoder Black Box">
+			<p>
+				In general, since an <span class="Ital">n</span> input decoder will always have 2 <span class="Ital">n</span> outputs, its “black box” can be expressed in the following manner:
+			</p>
+
+			<!-- <h1>INSERT BLACK BOX</h1> -->
+			<img class="Image" src="images/fig12-c.png" alt="4-to-2 Decoder Black Box">
+			<p>
+				The symbol <img src="images/fig12-h.png" alt="Symbol">, along with a number or variable, is frequently used as a shorthand in circuit design to represent the indicated number of lines without actually drawing them. Since modern computers are based on 32-bit words, this compact representation is very important.
+			</p>
+
+			<p>
+				<span>It is natural to wonder at this point if there is a circuit that does the exact opposite of a decoder. In other words, is there a circuit with 2</span><span class="Superscript">n</span> <span>input lines, only one of which can be high at any point in time, that produces as output the</span> <span class="Ital">n</span> <span>bit binary number corresponding to the raised input line? &nbsp;The answer is “yes”. Such a circuit is called an “encoder”.</span>
+			</p>
+
+			<p>
+				A four-to-two encoder is defined by the following truth table.
+			</p>
+
+			<!-- <h1>INSERT TRUTH TABLE</h1> -->
+			<img class="ImageTall" src="images/fig12-d.png" alt="4-to-2 Decoder Truth Table">
+			<p>
+				Note that twelve of the sixteen rows of the truth table are “grayed out”. These rows represent input configurations that are disallowed because either no input line is high, or multiple input lines are high. Thus, in these cases, there is no single high input line for the circuit to return the corresponding binary number of.
+			</p>
+
+			<p>
+				<span>How are we to deal with these “undefined” configurations when constructing the corresponding circuit? &nbsp;One way is to simply ignore the disallowed input configurations. This approach will work fine as long as we can be</span> <span class="Ital">sure</span> <span>that the illegal states can never occur.</span>
+			</p>
+			
+			<div id="topDiv-17" class="Centered"></div>
+			<div id="container-17" class="Centered"></div>
+			<p class="Figure">
+				<span class="figNum threetoeightenc"></span> An implementation of an eight-to-three encoder
+			</p>
+
+			<p>
+				<span><span class="figNum threetoeightenc"></span> presents an implementation of an eight-to-three encoder that assumes disallowed states will never be encountered. The circuit works fine as long as we respect this limitation. For example, placing a “1” on line D</span><span class="Subscript">6</span> <span>, while holding all other lines low, causes the number 110</span><span class="Subscript">two</span> <span>, or six, to be generated. An invalid configuration of inputs generates an erroneous output. For example, setting both D</span><span class="Subscript">1</span> <span>and D</span><span class="Subscript">2</span> <span>to“1” causes the circuit to output 011</span><span class="Subscript">two</span> <span>, or three. </span>
+			</p>
+
+			<p>
+				<span>One “odd” feature of this circuit is that input line D</span><span class="Subscript">0</span> <span>is not connected to anything – it is, in a sense, ignored. Although this may seem strange at first, it is precisely what we want the circuit to do. Setting line D</span><span class="Subscript">0</span> <span>to “1” (and all other input lines to “0”) is supposed to cause all of the output lines to be set to “0”, so as to represent the number 000</span><span class="Subscript">two</span> <span>, or zero.</span>
+			</p>
+
+			<p>
+				<span>The truth table for the eight-to-three encoder would be similar to the one shown above for the four-to-two encoder. However, in the case of the eight-to-three encoder, the full truth table would consist of 256 rows, since it has eight input lines and thus 2</span><span class="Superscript">8</span> <span>, or 256, possible input configurations. All but eight of these input configurations would be disallowed. In order for the circuit’s truth table to fit on a page, only the “allowed” rows are presented below.</span>
+			</p>
+
+			<!-- <h1>INSERT ALLOWED ROWS</h1> -->
+			<img class="Image" src="images/fig12-e.png" alt="Only Allowed Rows">
+
+			<p>
+				As you can see, this truth table is the exact inverse of the table for the three-to-eight decoder that was presented earlier.
+			</p>
+
+			<p>
+				The eight-to-three encoder can be encapsulated into a “black box” similar to the following:
+			</p>
+
+			<!-- <h1>INSERT BLACK BOX</h1> -->
+			<img class="ImageTall" src="images/fig12-f.png" alt="8-to-3 Encoder Black Box">
+			<p>
+				<span>In general, a 2</span><span class="Superscript">n</span> <span>to</span> <span class="Ital">n</span> <span>encoder can be drawn as:</span>
+			</p>
+			<!-- <h1>INSERT CONVERTER</h1> -->
+			<img class="Image" src="images/fig12-g.png" alt="2n-to-n Encoder Black Box">
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum circuitsCombinatorial4"></span>
+			</p>
+
+			<ol id="exerciseList">
+				<li>
+					<p class="exercise solvable 16">
+						Draw a complete implementation of a two-to-four decoder using only gates, connectors, and wires.&nbsp;
+					</p>
+					
+					<div class="exerciseDiv 16"></div>
+				</li>
+
+				<li>
+					<p class="exercise solvable 17">
+						Draw a complete implementation of a four-to-two encoder using only gates, connectors, and wires. You may assume disallowed input configurations will never occur.&nbsp;
+					</p>
+					
+					<div class="exerciseDiv 17"></div>
+				</li>
+			</ol>
+			
+			<!-- Sandbox -->
+			<p class="Section" id="Scratch"></p>
+			<div id="sandbox1"></div>
+			<div id="truthTableDiv1" class="ui-widget-content" style="position: relative; visibility: hidden"></div>
+			<!-- End main content -->
+
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			<!-- Figure js -->
+			<script src="js/visibility.js"></script>
+			<script type="text/javascript" src="js/global.js"></script>
+			<script src="../lib/js/WatsonDataStore.js"></script>
+			<script src="../lib/js/WatsonDialogs.js"></script>
+			<script src="js/Serializer.js"></script>
+			<script src="js/Controller.js"></script>
+			<script src="js/AndGate.js"></script>
+			<script src="js/AndGate3.js"></script>
+			<script src="js/AndGate4.js"></script>
+			<script src="js/NandGate.js"></script>
+			
+			<script src="js/OrGate.js"></script>
+			<script src="js/OrGate3.js"></script>
+			<script src="js/OrGate4.js"></script>
+			<script src="js/NorGate.js"></script>
+			
+			<script src="js/NotGate.js"></script>
+			<script src="js/Connector.js"></script>
+			<script src="js/InputNode.js"></script>
+			<script src="js/OutputNode.js"></script>
+			<script src="js/PopupMenu.js"></script>
+			<script src="js/Figures.js"></script>
+			<script src="js/TruthTable.js"></script>
+			<script src="js/Setup.js"></script>
+			<script src="js/DigitalLogicFigure.js"></script>
+			
+		<script>
+			var pageObj;											// do NOT change name of variable
+			var chapID = "circuits";
+			var sectID = "circuitsCombinatorial4";
+			
+			$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage(sectID);				// get arrow paths
+				
+				var figure16 = new DigitalLogicFigure("container-16", "16", true, false, "threetoeightdec");
+				var figure17 = new DigitalLogicFigure("container-17", "17", true, false, "threetoeightenc");
+				
+				setupExerciseButtons(sectID);
+				
+				if (!localFlag) runGA();
+			});	
+			
+		</script>
+	</body>
+</html>

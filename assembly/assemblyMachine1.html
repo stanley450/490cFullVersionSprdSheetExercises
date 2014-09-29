@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+			<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	   	<link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyMachine1"></span>
+			</p>
+			
+			<p>
+				The general format of Watson VM language instructions is given in <span class="figNum asciichars"></span>.  The leftmost four bits of the sixteen-bit instruction (bits 13-16) contain the operation code.  Each instruction recognized by the machine has a unique operation code, or op-code.  Since Watson VM op-codes are four bits long, the Watson VM language can consist of at most sixteen different instructions.  In fact, the Watson Virtual Machine language contains exactly sixteen instructions.
+			</p>
+			
+			<img src="images/asciichars.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum asciichars"></span> The format of a Watson Virtual Machine instruction
+			</p>
+			
+			<img src="images/monovsbitmap.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum monovsbitmap"></span> The Watson Virtual Machine instruction set
+			</p>
+			
+			<p>
+				Following the four-bit op-code, the final twelve bits of each instruction specify the operands (data) on which the operation is to take place.  How these bits are interpreted depends on the particular op-code specified in bits 13-16.  However, bits 9-12 generally specify a register number, while bits 1-8 specify either an 8-bit address, an 8-bit value, or two additional registers (one in bits 5-8 and the other in bits 1-4).
+			</p>
+			
+			<p>
+				<span class="figNum monovsbitmap"></span> illustrates the sixteen instructions that make up the Watson machine language.  The op-code, assembly language equivalent, and a description of behavior is presented for each instruction.  The general behavior of many of these instructions should already be familiar to you, since each machine language statement has a corresponding Watson assembly language statement and most of these were discussed in <span class="contentNum assemblyProgramming"></span>.  We’ll now fill in some of the low-level details that were omitted earlier.
+			</p>
+			
+			<p>
+				The op-code for the <span class="Subfigure">LOADIMM</span> statement is “0000”.  This op-code is followed by a four-bit register designation and an eight-bit two’s complement value.  <span class="Subfigure">LOADIMM</span> loads the specified register with the specified value.  Thus, the machine language statement:
+			</p>
+			
+			<p class="Subfigure">
+				0000 1010 0100 0001
+			</p>
+			
+			<p>
+				means load register A (1010<span class="Subscript">two</span>) with the value 0100 0001<span class="Subscript">two</span> ( 41<span class="Subscript">sixteen</span> or 65<span class="Subscript">ten </span>).
+			</p>
+			
+			<p>
+				Since there are only eight bits available in the <span class="Subfigure">LOADIMM</span> statement with which to specify a value, the range of possible values is limited to -2<span class="Superscript">7</span> to 2<span class="Superscript">7</span> –1 ( -128<span class="Subscript"> ten</span> to +127 <span class="Subscript">ten </span>).  However, the register in which the value is to be stored is sixteen bits long, so it is important that the machine load the specified value into the low-order bits of the register.  Furthermore, if the value is negative, the high-order eight bits must be set to 1’s.  Assuming a positive value, the high-order bits of the register are set to 0’s.  Thus, loading “0100 0001” into register A sets the register to “0000 0000 0100 0001”.  Loading -65<span class="Subscript">ten</span> (1011 1111<span class="Subscript">two</span>) into register A would set it to “1111 1111 1011 1111”.
+			</p>
+			
+			<p>
+				The formats of the <span class="Subfigure">LOAD</span> and <span class="Subfigure">STORE</span> statements are very similar: an op-code, followed by a register, followed by an 8-bit address.  The op-code for <span class="Subfigure">LOAD</span> is “0001” so the machine language statement 
+			</p>
+			
+			<p class="Subfigure">
+				0001 1011 0000 0001
+			</p>
+			
+			<p>
+				is interpreted to mean copy into register B (1011<span class="Subscript">two</span>) the value held at memory address one (0000 0001<span class="Subscript">two</span>).<span class="Footnote" title="Footnote: Memory address 0000 0001two is the second location in memory. The first location is labeled memory address 0000 0000two."><a href="#ftn7" id="body_ftn7">[7]</a></span>  The op-code for <span class="Subfigure">STORE</span> is “0010”, so 
+			</p>
+			
+			<p class="Subfigure">
+				0010 1100 0000 0000
+			</p>
+			
+			<p>
+				copies the current value of register C (1100<span class="Subscript">two</span>) into memory location zero (0000 0000<span class="Subscript">two</span>).
+			</p>
+			
+			<p>
+				<span class="Subfigure">LOADIND</span> and <span class="Subfigure">STOREIND</span><span class="T3"> also have similar formats.  Following the op-code (in bits 13-16) are two register numbers (one in bits 9-12 and one in bits 5-8).  Bits 1-4 are unused in these statements and are ignored by the machine.  Thus, they can take on any value.  For consistency, however, these last four bits are normally set to “0000”.  </span>
+			</p>
+			
+			<p>
+				The op-code for <span class="Subfigure">LOADIND</span> is “0011”.  So,
+			</p>
+			
+			<p class="Subfigure">
+				0011 1101 1110 0000
+			</p>
+			
+			<p>
+				specifies that the value located at the address held in register E (1110<span class="Subscript">two</span>) should be placed into register D (1101<span class="Subscript">two</span>).  If register E contained  “0000 0000 0000 0010”, the value stored at memory location two would be loaded into register D.
+			</p>
+			
+			<p>
+				Because addresses are only eight bits in length while registers are sixteen bits, the high-order eight bits of the register contents are ignored when determining the address it represents.  Hence, if register E held the bit pattern “1111 1111 0000 0010”, the address would still be interpreted as location two.  Of course, for clarity, it is best to insure that these high-order bits are set to 0’s.
+			</p>
+			
+			<p>
+				The op-code for <span class="Subfigure">STOREIND</span> is “0100”, so the bit pattern
+			</p>
+			
+			<p class="Subfigure">
+				0100 1101 1110 0000
+			</p>
+			
+			<p>
+				is interpreted as a command to store the contents of register D (1101<span class="Subscript">two</span>) into the address indicated by register E (1110<span class="Subscript">two</span>).  As with <span class="Subfigure">LOADIND</span>, the last four bits of the <span class="Subfigure">STOREIND</span> instruction are ignored.  The high-order eight bits of the contents of the second register, E in this case, are ignored as well.  So, if register D held the value ten and register E held the value one hundred, this statement would place a ten (0000 0000 0000 1010<span class="Subscript">two</span>) into memory location one hundred (0110 0100<span class="Subscript">two</span>).
+			</p>
+			
+			<p>
+				The next two statements listed in <span class="figNum monovsbitmap"></span> are the arithmetic instructions <span class="Subfigure">ADD</span> and <span class="Subfigure">SUBTRACT</span>.  Both of these statements have a similar form: an op-code followed by three registers.  The first register (indicated by bits 9-12) will hold the result of the arithmetic operation.  The second and third registers (bits 5-8 and 1-4) provide the inputs.  Input values are assumed to be in two’s complement binary notation; outputs are generated in this notation as well.
+			</p>
+			
+			<p>
+				The op-code for addition is “0101” and for subtraction is “0110”.  Hence, the statement
+			</p>
+			
+			<p class="Subfigure">
+				0101 0101 0110 0111
+			</p>
+			
+			<p>
+				will add the contents of register 6 (0110<span class="Subscript">two</span>) and register 7 (0111<span class="Subscript">two</span>) and place the result into register 5 (0101<span class="Subscript">two</span>).  Similarly, the statement
+			</p>
+			
+			<p class="Subfigure">
+				0110 0000 0001 0010
+			</p>
+			
+			<p>
+				will subtract the contents of register 2 (0010<span class="Subscript">two</span>) from register 1 (0001<span class="Subscript">two</span>) and place the result into register 0 (0000<span class="Subscript">two</span>).
+			</p>
+			
+			<p>
+				The next three Watson machine language instructions implement the logical operations “and”, “or”, and “not”.  Because these statements operate on the bit-level, their function was not discussed in <span class="contentNum assemblyProgramming"></span>.  Basically, the “and” operation produces a “1” (meaning “true”) when both its first <span class="Ital">and</span> second input are “1” – otherwise (when either or both inputs are “0”) it produces a “0”.  The “or” operation produces a “1” (“true”) when either its first <span class="Ital">or</span> second input is “1” – otherwise (when both inputs are “0”) it produces a “0’.  The “not” operation simply inverts, or complements, its input bit.  Given a “1” it produces “0”.  Given a “0” it produces “1”.  The behavior of each of these three operators is summarized in <span class="figNum watsonvmformat"></span>.
+			</p>
+			
+			<img src="images/watsonvmformat.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum watsonvmformat"></span>  The logical operators “and”, “or”, and “not”
+			</p>
+			
+			<p>
+				The op-codes for the <span class="Subfigure">AND</span>, <span class="Subfigure">OR</span>, and <span class="Subfigure">NOT</span> instructions are “0111”, “1000”, and “1001”, respectively.  The formats for <span class="Subfigure">AND</span> and <span class="Subfigure">OR</span> are similar to the formats for the arithmetic instructions: a result register and two input registers follow the op-code.  Hence, the instruction
+			</p>
+			
+			<p class="Subfigure">
+				0111 1010 1011 1100
+			</p>
+			
+			<p>
+				is interpreted to mean: “apply the ‘and’ operator to the contents of registers B (1011<span class="Subscript">two</span>) and C (1100<span class="Subscript">two</span>) with the result being stored in register A(1010<span class="Subscript">two</span>).”  Similarly, 
+			</p>
+			
+			<p class="Subfigure">
+				1000 0000 0001 0010
+			</p>
+			
+			<p>
+				means “apply the ‘or’ operator to the contents of registers 1 (0001<span class="Subscript">two</span>) and 2 (0010<span class="Subscript">two</span>) with the result being stored in register 0 (0000<span class="Subscript">two</span>).”
+			</p>
+			
+			<p>
+				Both <span class="Subfigure">AND</span> and <span class="Subfigure">OR</span> apply their respective logical operators in a “bitwise” manner.  In other words, the bit values in position <span class="Ital">x</span> of the two inputs are “anded” or “ored” to generate the corresponding bit value in position <span class="Ital">x</span> of the output.  Given the <span class="Subfigure">OR</span> instruction above, together with the following values in registers 1 and 2, the result in register 0 would be computed as shown.
+			</p>
+			
+			<!--ill21
+			<table border="0" cellspacing="0" cellpadding="0" class="Table64">
+			<colgroup><col width="42"/><col width="60"/><col width="18"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="28"/><col width="29"/></colgroup><tr class="Table641"><td style="text-align:left;width:0.3819in; " class="Table64_A1"><p class="P11"> </p></td><td style="text-align:left;width:0.5438in; " class="Table64_A1"><p>Reg 1</p></td><td style="text-align:left;width:0.166in; " class="Table64_A1"><p class="P44"> </p></td><td style="text-align:left;width:0.2486in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2576in; " class="Table64_S1"><p class="Subfigure">0</p></td></tr><tr class="Table641"><td style="text-align:left;width:0.3819in; " class="Table64_A1"><p>OR</p></td><td style="text-align:left;width:0.5438in; " class="Table64_B2"><p>Reg 2</p></td><td style="text-align:left;width:0.166in; " class="Table64_A1"><p class="P44"> </p></td><td style="text-align:left;width:0.2486in; " class="Table64_D2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2576in; " class="Table64_S2"><p class="Subfigure">1</p></td></tr><tr class="Table641"><td style="text-align:left;width:0.3819in; " class="Table64_A1"><p class="P11"> </p></td><td style="text-align:left;width:0.5438in; " class="Table64_B3"><p>Reg 0</p></td><td style="text-align:left;width:0.166in; " class="Table64_A1"><p class="P44"> </p></td><td style="text-align:left;width:0.2486in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2507in; " class="Table64_D1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2576in; " class="Table64_S1"><p class="Subfigure">1</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-21.png" alt="" class="Image">
+			
+			<p>
+				To convince yourself that this answer is correct, simply look up the output specified by the “or” table for the given inputs, on a column-by-column basis.  For example, the rightmost column of registers 1 and 2 specify a “0” and a “1” which produce a “1” according to the “or” table.  Hence, a “1” is placed in the rightmost column of register 0.  The other columns are processed similarly.
+			</p>
+			
+			<p>
+				The <span class="Subfigure">NOT</span> instruction is even simpler than <span class="Subfigure">AND</span> and <span class="Subfigure">OR</span>.  After the op-code, two registers are specified: a result register in bits 9-12 and an input register in bits 5-8.  Bits 1-4 are unused by this instruction.  The <span class="Subfigure">NOT</span> instruction
+			</p>
+			
+			<p class="Subfigure">
+				1001 1111 1010 0000
+			</p>
+			
+			<p>
+				stores into register F (1111<span class="Subscript">two</span>) the complement of the value held in register A (1010<span class="Subscript">two</span>).  If register A contained the bit pattern “0000 0000 0000 0000” this instruction would place “1111 1111 1111 1111” into register F.  Note that <span class="Subfigure">NOT</span> simply applies the “not” table of <span class="figNum watsonvmformat"></span> in a bitwise manner to the contents of the input register to determine the pattern to be stored in the output register.
+			</p>
+			
+			<p>
+				Now that we understand what the logical operators do, it is important to spend a moment showing how they can be used to solve problems.  Here are two examples.
+			</p>
+			
+			<p>
+				Changing the sign of a two’s complement number involves complementing the bits of the number and then adding one. Since the <span class="Subfigure">NOT</span> instruction implements the complement operation, it makes sign conversion very easy.
+			</p>
+			
+			<p>
+				Upper and lower letters of the alphabet differ by exactly one bit in their ASCII representations.  For example, an upper case “A” is “0100 0001” while a lower case “a” is “0110 0001”.  Any lower case character can be changed to upper case by simply setting bit six to “0”.  Conversely, any upper case character can be converted to lower case by setting bit to “1”.
+			</p>
+			
+			<p>
+				The <span class="Subfigure">AND</span> and <span class="Subfigure">OR</span> instructions can be used to change the case of ASCII characters. By “anding” an ASCII character code with the bit pattern “1101 1111”, a lower case character can be converted to its corresponding upper case character.  For example: 
+			</p>
+			
+			<!--ill22
+			<table border="0" cellspacing="0" cellpadding="0" class="Table65">
+			<colgroup><col width="70"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="65"/></colgroup><tr class="Table651"><td style="text-align:left;width:0.6326in; " class="Table65_A1"><p class="P38"> </p></td><td style="text-align:left;width:0.2903in; " class="Table65_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table65_B1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table65_B1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table65_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table65_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table65_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table65_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table65_B1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table65_J1"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table65_K1"><p class="Subfigure">a</p></td></tr><tr class="Table651"><td style="text-align:left;width:0.6326in; " class="Table65_A1"><p>AND</p></td><td style="text-align:left;width:0.2903in; " class="Table65_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table65_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table65_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table65_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table65_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table65_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table65_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table65_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table65_J2"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table65_A1"><p class="P44"> </p></td></tr><tr class="Table651"><td style="text-align:left;width:0.6326in; " class="Table65_A1"><p class="P19"> </p></td><td style="text-align:left;width:0.2903in; " class="Table65_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table65_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table65_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table65_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table65_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table65_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table65_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table65_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table65_J3"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table65_K1"><p class="Subfigure">A</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-22.png" alt="" class="Image">
+			
+			<p>
+				Note that this procedure does not modify characters that are already in upper case, as can be seen in the following example.
+			</p>
+			
+			<!--ill23
+			<table border="0" cellspacing="0" cellpadding="0" class="Table66">
+			<colgroup><col width="70"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="65"/></colgroup><tr class="Table661"><td style="text-align:left;width:0.6326in; " class="Table66_A1"><p class="P38"> </p></td><td style="text-align:left;width:0.2903in; " class="Table66_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table66_B1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table66_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table66_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table66_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table66_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table66_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table66_B1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table66_J1"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table66_K1"><p class="Subfigure">A</p></td></tr><tr class="Table661"><td style="text-align:left;width:0.6326in; " class="Table66_A1"><p>AND</p></td><td style="text-align:left;width:0.2903in; " class="Table66_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table66_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table66_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table66_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table66_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table66_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table66_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table66_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table66_J2"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table66_A1"><p class="P44"> </p></td></tr><tr class="Table661"><td style="text-align:left;width:0.6326in; " class="Table66_A1"><p class="P19"> </p></td><td style="text-align:left;width:0.2903in; " class="Table66_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table66_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table66_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table66_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table66_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table66_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table66_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table66_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table66_J3"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table66_K1"><p class="Subfigure">A</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-23.png" alt="" class="Image">
+			
+			<p>
+				To change a character from upper case to lower case, its ASCII code can be “ored” with the bit pattern “0010 0000”.  To illustrate:
+			</p>
+			
+			<!--ill24
+			<table border="0" cellspacing="0" cellpadding="0" class="Table67">
+			<colgroup><col width="70"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="65"/></colgroup><tr class="Table671"><td style="text-align:left;width:0.6326in; " class="Table67_A1"><p class="P38"> </p></td><td style="text-align:left;width:0.2903in; " class="Table67_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table67_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table67_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table67_J1"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table67_K1"><p class="Subfigure">A</p></td></tr><tr class="Table671"><td style="text-align:left;width:0.6326in; " class="Table67_A1"><p>OR</p></td><td style="text-align:left;width:0.2903in; " class="Table67_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table67_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table67_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table67_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_J2"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table67_A1"><p class="P44"> </p></td></tr><tr class="Table671"><td style="text-align:left;width:0.6326in; " class="Table67_A1"><p class="P19"> </p></td><td style="text-align:left;width:0.2903in; " class="Table67_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table67_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table67_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table67_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table67_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table67_J3"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table67_K1"><p class="Subfigure">a</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-24.png" alt="" class="Image">
+			
+			<p>
+				If the character is already in lower case, this operation will have no effect on the character.
+			</p>
+			
+			<!--ill25
+			<table border="0" cellspacing="0" cellpadding="0" class="Table68">
+			<colgroup><col width="70"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="32"/><col width="65"/></colgroup><tr class="Table681"><td style="text-align:left;width:0.6326in; " class="Table68_A1"><p class="P38"> </p></td><td style="text-align:left;width:0.2903in; " class="Table68_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table68_B1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table68_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table68_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table68_J1"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table68_K1"><p class="Subfigure">a</p></td></tr><tr class="Table681"><td style="text-align:left;width:0.6326in; " class="Table68_A1"><p>OR</p></td><td style="text-align:left;width:0.2903in; " class="Table68_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table68_B2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table68_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table68_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_J2"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table68_A1"><p class="P44"> </p></td></tr><tr class="Table681"><td style="text-align:left;width:0.6326in; " class="Table68_A1"><p class="P19"> </p></td><td style="text-align:left;width:0.2903in; " class="Table68_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2903in; " class="Table68_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table68_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2903in; " class="Table68_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B3"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.291in; " class="Table68_B3"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.291in; " class="Table68_J3"><p class="P44"> </p></td><td style="text-align:left;width:0.5833in; " class="Table68_K1"><p class="Subfigure">a</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-25.png" alt="" class="Image">
+			
+			<p>
+				Returning to our tour of the Watson Virtual Machine instruction set, the next two instructions implement the “shift” operators.  Like the logic operators, the shift instructions were not covered at the assembly level in <span class="contentNum assemblyProgramming"></span>.
+			</p>
+			
+			<p>
+				The <span class="Subfigure">ASL</span>, or “arithmetic shift left”, command uses op-code 1010.  The <span class="Subfigure">ASR</span>, or “arithmetic shift right”, command uses op-code 1011.  The purpose of these commands is to move, or shift, the bit values of a register some number of positions either to the left or to the right.  These shifts are called “arithmetic” shifts because they are designed to respect the sign of the number being shifted, when it is interpreted using two’s complement binary notation.  The format of both shift commands is an op-code in bits 13-16, a destination register number in bits 9-12, a source register number in bits 5-8, and a four-bit unsigned number in bits 1-4.  This number specifies how many positions the bits of the source register are to be shifted in order to produce the value to be stored in the destination register.
+			</p>
+			
+			<p>
+				Assume a value of four is stored in register F.  This value would be represented as the two’s complement number “0000 0000 0000 0100”.  Shifting this number one position to the left and storing the result in register 0, via the statement:
+			</p>
+			
+			<p class="Subfigure">
+				1010 0000 1111 0001
+			</p>
+			
+			<p>
+				will cause register 0 to take on the value “0000 0000 0000 1000” or eight.  Shifting the contents of register 0 over one additional position to the left and storing that result in register 1, would cause “0000 0000 0001 0000” or sixteen to be stored into register 1.  In fact, for each position that a bit pattern is shifted to the left, the number it represents is doubled.  So, shifting a pattern three positions to the left multiples the number by eight  (2 &#215;2 &#215;2).
+			</p>
+			
+			<p>
+				Shifting a value to the right has the opposite effect.  The number represented by the bit pattern is divided by two for each position to the left it is shifted.  Assuming that register F contains the pattern “0000 0000 0000 0100” or four, the statement:
+			</p>
+			
+			<p class="Subfigure">
+				1011 0000 1111 0001
+			</p>
+			
+			<p>
+				places the bit pattern “0000 0000 0000 0010” or two into register 0.
+			</p>
+			
+			<p>
+				For negative numbers the same principle applies: shifting left by one position doubles the number, shifting right one position halves it.  In order for these semantics to be implemented properly, arithmetic shifts must respect the sign bit.  When shifting right, if the sign bit is “1” as in “1000” (-8) then 1’s must be added on the left, giving “1100” (-4) when shifted right once, and “1110” (-2) when shifted left twice.   If the sign bit is “0” then 0’s must be added on the left when shifting right.
+			</p>
+			
+			<p>
+				The last four instructions in the Watson Virtual Machine language are concerned with determining which instruction will be executed next.  These commands and their op-codes are:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">COMPARE       1100</span></li>
+				<li><span class="Subfigure">BRANCH        1101</span></li>
+				<li><span class="Subfigure">JUMP          1110</span></li>
+				<li><span class="Subfigure">HALT          1111</span></li>
+			</ul>
+			<br/>
+			<p>
+				The <span class="Subfigure">HALT</span> command has no operands.  It consists solely of the op-code “1111” in bits 13-16.  The other 12 bits of the instruction are ignored – but usually set to zero for clarity.  When executed, <span class="Subfigure">HALT</span> causes the program to terminate.
+			</p>
+			
+			<p>
+				The <span class="Subfigure">JUMP</span>> command consists of the op-code “1110” in the standard location, bits 13-16, and an 8-bit address in bits 1-8.  Bits 9-12 are unused, but normally set to zero.  The <span class="Subfigure">JUMP</span> instruction causes program control to be transferred to the instruction stored at the indicated memory address.  For example, the instruction
+			</p>
+			
+			<p class="Subfigure">
+				1110 0000 0010 0000
+			</p>
+			
+			<p>
+				will cause the statement stored at memory location 32 (0010 0000<span class="Subscript">two</span>) to be executed next.  The <span class="Subfigure">JUMP</span> accomplishes this feat by loading the 8-bit address contained in the instruction into the program counter.  Recall that the program counter is a special-purpose register that always contains the address of the next instruction to be executed.  The Watson VM consults this register to determine which instruction should be fetched from memory and placed into the instruction register.
+			</p>
+			
+			<p>
+				The final two instructions, <span class="Subfigure">COMPARE</span> and <span class="Subfigure">BRANCH</span> usually, but not always, appear together in machine (and assembly) language programs.  The purpose of the <span class="Subfigure">COMPARE</span> instruction, as its name implies, is to compare the values of two numbers that are written in two’s complement notation.  The statement consists of the op-code “1100” in bits 13-16, followed by two input registers in bits 5-8 and 1-4.  Bits 9-12 are unused. The statement
+			</p>
+			
+			<p class="Subfigure">
+				1100 0000 1110 1111
+			</p>
+			
+			<p>
+				compares the contents of the registers E and F, setting the machine’s status bits accordingly.
+			</p>
+			
+			<p>
+				The <span class="Subfigure">COMPARE</span> statement works by subtracting the contents of the register specified in bits 1-4 from the contents of the register specified in bits 5-8.  The result of this subtraction, surprisingly, is discarded; which explains why bits 9-12 of the instruction are unused – there is no need to specify a “destination register” in which to store the result.  Although it may seem odd to perform a subtraction and then discard the “answer”, <span class="Subfigure">COMPARE</span> accomplishes its goal of setting the status bits.
+			</p>
+			
+			<p>
+				The arithmetic instructions, <span class="Subfigure">ADD</span> and <span class="Subfigure">SUBTRACT,</span> also set the machine’s status bits.  So, instead of comparing the contents of two registers via <span class="Subfigure">COMPARE</span>, the same effect could be achieved by directly using <span class="Subfigure">SUBTRACT</span> and placing its result into an unused register whose value would be subsequently ignored.  Using <span class="Subfigure">COMPARE</span>, however, is better since the intention of the programmer, to compare two values, is much clearer.
+			</p>
+			
+			<p>
+				The <span class="Subfigure">BRANCH</span> statement examines the contents of the status bit registers and, if the specified condition is true, loads the program counter with the 8-bit address of the next instruction to be executed.  The format of this statement is: the op-code “1101” in bits 13-16,  a 4-bit condition code in bits 9-12, and an 8-bit address in bits 1-8.
+			</p>
+			
+			<p>
+				There are ten different condition codes that are recognized by the <span class="Subfigure">BRANCH</span> statement. These are presented in <span class="figNum watsonvmset"></span>.  The first six conditions (<span class="Subfigure">EQ</span>, <span class="Subfigure">NE</span>, <span class="Subfigure">LT</span>, <span class="Subfigure">LE</span>, <span class="Subfigure">GT</span>, <span class="Subfigure">GE</span>) were discussed in <span class="contentNum assemblyProgramming"></span>.  The final four conditions (<span class="Subfigure">CARY</span>, <span class="Subfigure">NEG</span>, <span class="Subfigure">ZERO</span>, <span class="Subfigure">OVER</span>) were not discussed because they are not used as frequently and an understanding of their function requires some knowledge of data representation at the machine level.  Even though these four conditions were not mentioned in the assembly-level discussion of the <span class="Subfigure">BRANCH</span> instruction, statements such as:
+			</p>
+			
+			<p class="Subfigure">
+				BRANCH OVER, ERROR
+			</p>
+			
+			<p>are perfectly legal.  (This particular statement branches to the instruction labeled “error” in the event an overflow occurred.)</p>
+			
+			<img src="images/watsonvmset.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum watsonvmset"></span>  The <span class="Subfigure">BRANCH</span> statement condition codes
+			</p>
+			
+			<p>
+				Looking at the table of <span class="figNum watsonvmset"></span>, we see that <span class="Subfigure">CARY</span> (code 0110) checks to see whether the last arithmetic (or compare) statement produced a carry – thus causing the “carry” status bit to be set to “1”.  <span class="Subfigure">NEG</span> (code 0111), <span class="Subfigure">ZERO</span> (code 1000), and <span class="Subfigure">OVER</span> (code 1001), each work in a similar manner.  <span class="Subfigure">NEG</span> checks to see whether the “Negative” status bit has been set to “1” – indicating that the last number produced by an arithmetic (or compare) statement had a “1” in its sign bit.  <span class="Subfigure">ZERO</span> checks to see whether the “Zero” status bit is set to “1”  – indicating that the result of the last arithmetic (or compare) statement was zero. <span class="Subfigure">OVER</span> determines whether an overflow occurred by determining whether the “Overflow” status bit is set to “1”.
+			</p>
+			
+			<p>
+				The condition code EQ (0000) is used to determine whether the results of a <span class="Subfigure">COMPARE</span> indicate that two numbers are equal.  Since <span class="Subfigure">COMPARE</span> is just a subtract, the inputs are equal if subtracting the second number from the first yields zero.  Thus, <span class="Subfigure">EQ</span> checks to see whether the “Zero” status bit is set to “1”.  This means that both <span class="Subfigure">EQ</span> (code 0000) and <span class="Subfigure">ZERO</span> (code 1000) do exactly the same thing – check the “Zero” status bit to see if it is “1”.  While only one code is strictly necessary, having two ways of referring to this operation can lead to programs that are easier for humans to understand.
+			</p>
+			
+			<p>
+				<span class="Subfigure">NE</span>, which stands for “not equal” and has a condition code of 0001, checks for the opposite condition as equal.  Hence, it checks to determine whether the “Zero” bit has been reset to “0” – indicating that the last result produced by an arithmetic statement (or compare) was not zero.  This makes sense, since the result of a subtraction or comparison will not be zero if the numbers are not equal.
+			</p>
+			
+			<p>
+				<span class="Subfigure">LT</span> works by determining whether the result of the last <span class="Subfigure">COMPARE</span> (or arithmetic operation) was negative.  This is accomplished by checking whether the “Negative” bit has been set to one.  If the first of two numbers is smaller than the second, the result of a comparison or subtraction will be negative.  Note that as was the case with <span class="Subfigure">EQ</span> and <span class="Subfigure">ZERO</span>, the codes for <span class="Subfigure">LT</span> and <span class="Subfigure">NEG</span> do the same thing.
+			</p>
+			
+			<p>
+				The opposite of <span class="Subfigure">LT</span> (less than) is <span class="Subfigure">GE</span> (greater than or equal to).  The code 0101 is used to represent <span class="Subfigure">GE</span>.  This condition is true when the “Negative” status bit contains a “0”, meaning “false”.  The reason for this is that the first of two numbers must be greater than or equal to the second if the result of a subtraction or comparison operation is not negative.
+			</p>
+			
+			<p>
+				The final two conditions, <span class="Subfigure">LE</span> (code 0011) and <span class="Subfigure">GT</span> (code 0100), each involve a test of two separate status bits.  <span class="Subfigure">LE</span> is true when either the “Negative” bit <span class="Ital">or</span> the “Zero” bit is set to “1” or both are “1”.  <span class="Subfigure">GT</span> is true when both the “Negative” bit  <span class="Ital">and</span> the “Zero” bit are reset to “0”.
+			</p>
+			
+			
+			<!-- End main content -->
+			<hr />
+			<!-- Footnotes -->
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote"><span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn7" href="#body_ftn7">[7]</a></span> Memory address 0000 0001<span class="Subscript">two</span> is the second location in memory.  The first location is labeled memory address 0000 0000<span class="Subscript">two</span>.</p>
+			
+			<!-- Footnotes End -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+				
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyMachine1");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>

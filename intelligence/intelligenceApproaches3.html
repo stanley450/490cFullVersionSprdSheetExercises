@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		 <!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/grid.css" rel="stylesheet">	    
+		<!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+			<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div  class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum intelligenceApproaches3"></span>
+			</p>
+
+
+			<p>
+				As was discussed in <span class="contentNum intelligenceOverview"></span> many of the recent advances in AI, such as progress in speech recognition and automatic translation, have been due to both big data and the resurgence of interest in machine learning techniques – systems that learn from examples instead of being explicitly programmed for every eventuality.
+			</p>
+
+			<p>
+				In this section we examine one particular approach to machine learning – a simple neural network model called the <span class="Ital">perceptron</span> – and explore some of its features and limitations. Perceptrons are one of the oldest neural network models and the first to gain widespread popularity in the 1960’s. While perceptrons are no longer used in practice today, this relatively simple, biologically inspired computing model provides a good starting point for getting your head around the notion of machine learning systems.
+			</p>
+
+			<p>
+				Human brains are composed of trillions of individual nerve cells, called <span class="Bolded">neurons</span>. The major components of biological neurons are illustrated in <span class="figNum braincell"></span>. Like all cells, neurons have a <span class="Ital">nucleus</span> that keeps the neuron alive and functioning. In addition, neurons have a large number of branched protrusions, called <span class="Bolded">dendrites</span>, that receive chemical signals from other neurons. Neurons also have long thin fiber-like appendages, called <span class="Bolded">axons</span>, down which they send electro-chemical signals. At the end of a neuron’s axon are branch-like structures that come in contact with the dendrites of other neurons. In response to the signals it receives from other neurons, a neuron may fire – sending an electro-chemical pulse down its axon in order to transmit signals to other neurons.
+			</p>
+
+			<p>
+				Neurons are not in direct physical contact with one another. Instead, there are tiny gaps, called <span class="Bolded">synapses</span>, between the dendrites of one neuron and the axons of others. The signals that pass between neurons must cross these synaptic gaps. This is accomplished by the signaling neuron releasing <span class="Ital">neurotransmitter</span> chemicals into the synapse. A synapse may be either excitatory or inhibitory. Signals arriving at <span class="Bolded">excitatory synapses</span> increase the likelihood that the receiving neuron will fire. Signals arriving at <span class="Bolded">inhibitory synapses</span> decrease the likelihood of the neuron firing.
+			</p>
+
+			<img src="images/braincell.png" alt="Illustration of a brain cell (neuron)" class="Image">
+
+			<p class="Figure">
+				<span class="figNum braincell"></span>&nbsp;Illustration of a brain cell (neuron)
+			</p>
+
+			<img src="images/ninputperceptron.png" alt="An N-input perceptron" class="Image">
+
+			<p class="Figure">
+				<span class="figNum ninputperceptron"></span>&nbsp;An N-input perceptron
+			</p>
+
+			<p>
+				An interesting feature of biological neurons is that they appear to be work in an “all or nothing” fashion – they either “fire” or they don’t. In other words, neurons do not appear to fire at different strengths – they appear to be either “on” or “off”.
+			</p>
+
+			<p>
+				A <span class="Bolded">perceptron</span> is a simple processing element that models some of the features of individual neurons. <span class="figNum ninputperceptron"></span> depicts an N-input perceptron. The output of a perceptron is either “0” or “1”. The use of a binary output in the perceptron model reflects the fact that biological neurons appear to either “fire” or “not fire”. The inputs to a perceptron, on the other hand, can be arbitrary real numbers – positive, zero, or negative, with fractions allowed. In <span class="figNum ninputperceptron"></span>, these inputs are indicated by X<span class="Subscript">1</span> through X<span class="Subscript">n</span>.
+			</p>
+
+			<p>
+				In order to model the fact that biological neurons possess both excitatory and inhibitory synapses, and the fact that these characteristics appear to vary in strength from synapse to synapse, every input received by the perceptron is multiplied by a “weight”. As is the case with the inputs themselves, weights are real numbers. They may be positive, zero, or negative, and fractions are allowed.
+			</p>
+
+			<p>
+				Once the inputs have been “weighted”, they are sent to a summation unit that adds them together. In <span class="figNum ninputperceptron"></span>, the box labeled &#931; represents this summation unit. The sum of the weighted inputs is then sent to a threshold comparator, the rightmost box in <span class="figNum ninputperceptron"></span>. Every perceptron will have an internal threshold value that controls how sensitive it is to its inputs. If the weighted sum of a perceptron’s inputs is greater than its internal threshold value, then the perceptron will fire (generate a “1”), otherwise the perceptron will not fire (it generates a “0”).
+			</p>
+
+			<img src="images/fixedperceptron.png" alt="An N-input perceptron with a fixed threshold" class="Image">
+
+			<p class="Figure">
+				<span class="figNum fixedperceptron"></span> An N-input perceptron with a fixed threshold
+			</p>
+
+			<p>
+				Because each input is multiplied by a weight, large positive weights increase the affect of a positive input, while smaller positive weights decrease the affect of an input. A weight of zero causes a perceptron to ignore an input. Negative weights, when applied to positive input values, decrease the likelihood of a perceptron firing. In general, when considering positive inputs, positive weights model excitatory synapses – the larger the weight the greater the excitatory effect. Negative weights model inhibitory synapses.
+			</p>
+
+			<p>
+				As a perceptron learns, it adjusts the values of its weights and its internal threshold. In fact, the only way a perceptron can “learn” is to adjust its weights and threshold – those are the only things the perceptron can be said to “know”.
+			</p>
+
+			<p>
+				The standard model of a perceptron can be modified slightly, as illustrated in <span class="figNum fixedperceptron"></span>, in order to use a fixed-value threshold comparator. The most common fixed value to compare against is zero. If the weighted sum of the inputs is greater than zero the perceptron fires, otherwise it does not. In order to use a zero value threshold comparator, the “real” threshold will be negated and treated as a weight (W<span class="Subscript">0</span>) attached to an input port ( X<span class="Subscript">0</span>) fixed at “1”. This modification of the model is simply a computational convenience – it allows us to treat the threshold just like any other weight, but it doesn’t change what the perceptron is capable of learning.
+			</p>
+
+			<p>
+				In order to understand the way this modification works, think of a standard perceptron, based on the diagram of <span class="figNum ninputperceptron"></span>, that has a threshold of five. This perceptron would fire if:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">( X</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">3</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">3</span></span> <span class="Subfigure">) + . . . + ( X</span><span class="Subscript"><span class="Subfigure">n</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">n</span></span> <span class="Subfigure">) &gt; 5</span>
+			</p>
+
+			<p>This statement will be true under exactly the same circumstances that</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">( 1 × -5) + ( X</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">3</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">3</span></span> <span class="Subfigure">) + . . . + ( X</span><span class="Subscript"><span class="Subfigure">n</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">n</span></span> <span class="Subfigure">) &gt; 0</span>
+			</p>
+
+			<p>
+				is true. In other words, if <span class="Subfigure">SUM &gt; 5</span> is true, then <span class="Subfigure">(SUM – 5) &gt; 0</span> will be true also (e.g., since <span class="Subfigure">6 &gt; 5</span> is true, so is <span class="Subfigure">(6-5) &gt; 0</span>).
+			</p>
+
+			<p>
+				Thus, in general, a perceptron will fire when:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">( 1 × W</span><span class="Subscript"><span class="Subfigure">0</span></span><span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">3</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">3</span></span> <span class="Subfigure">) + . . . + ( X</span><span class="Subscript"><span class="Subfigure">n</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">n</span></span> <span class="Subfigure">) &gt; 0</span>
+			</p>
+
+			<p>
+				where <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= - threshold</span>.
+			</p>
+
+			<p>
+				Now that we understand what perceptrons are and how they work, it is time to turn our attention to how they can be taught. In order to keep the discussion from becoming overly complex, we will concentrate on teaching a single two-input perceptron to distinguish the difference between two types of objects. Meaningful perceptron-based systems include many perceptrons (not just one) each of which has many inputs (not just two). However, the principles underlying how such systems learn are the same as those described here.
+			</p>
+
+			<p>
+				In order for a perceptron to learn, it must be trained. Training involves presenting the perceptron with a group of inputs known as a “training set”. At the beginning of the training process the perceptron makes “random” guesses as to whether or not it should fire when presented with a particular input. Whenever the perceptron guesses wrong its weights, including the threshold <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0</span></span>, will be adjusted by the <span class="Ital">perceptron learning rule</span>. After being adjusted, the training set will be presented to the perceptron again. If the perceptron generates any incorrect results, the learning rule will be applied again. This process will continue until the perceptron correctly classifies all members of the training set.
+			</p>
+
+			<p>
+				<span class="figNum ninputperceptron"></span> illustrates portions of the perceptron learning process. Part (a) of the figure presents the examples that the perceptron will be trained on. The training examples are plotted on a two-dimensional four-by-four grid. The horizontal axis corresponds to the <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">1</span></span> input of the perceptron and the vertical axis corresponds to the <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">2</span></span> input. Thus, in this example, inputs are expected to vary in the range 1 – 4. In such a simple system, there are only 16 possible inputs (1,1), (1,2), (1,3), (1,4), (2,1), (2,2)… etc. Our goal is to teach the perceptron to fire on the two elements located at positions (3,1) and (3,2), and avoid firing on the other training elements. Note that when I say “the element at position (3,1), I mean the element where input <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 3</span> and input <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 1</span>.
+			</p>
+			
+			<div class="section group">
+				<div class="col span_1_of_2">
+					<img src="images/itemsclassified.png" alt="The items to be classified" class="Image">
+			
+					<p class="Figure">
+						(a) The items to be classified
+					</p>
+				</div>
+				<div class="col span_1_of_2">
+					<img src="images/trainingpassone.png" alt="One false positive, two false negatives" class="Image">
+			
+					<p class="Figure">
+						(b) Training Pass #1
+						<br/>One false positive, two false negatives
+					</p>
+				</div>
+			</div>
+			
+			<div class="section group">
+				<div class="col span_1_of_2">
+					<img src="images/trainingpasstwo.png" alt="One false positive" class="Image">
+
+					<p class="Figure">
+						(c) Training Pass #2
+						<br/>One false positive
+					</p>
+				</div>
+				<div class="col span_1_of_2">
+					<img src="images/trainingpasssix.png" alt="All items correctly classified" class="Image">
+
+					<p class="Figure">
+						(d) Training Pass #6
+						<br/>All items correctly classified
+					</p>
+				</div>
+			</div>
+			
+			<!-- non-grid images
+			<img src="images/itemsclassified.png" alt="The items to be classified" class="Image">
+			
+			<p class="Figure">
+				(a) The items to be classified
+			</p>
+			
+			<img src="images/trainingpassone.png" alt="One false positive, two false negatives" class="Image">
+			
+			<p class="Figure">
+				(b) Training Pass #1
+				<br/>One false positive, two false negatives
+			</p>
+			
+			<img src="images/trainingpasstwo.png" alt="One false positive" class="Image">
+
+			<p class="Figure">
+				(c) Training Pass #2
+				<br/>One false positive
+			</p>
+			
+			<img src="images/trainingpasssix.png" alt="All items correctly classified" class="Image">
+
+			<p class="Figure">
+				(d) Training Pass #6
+				<br/>All items correctly classified
+			</p>
+			-->
+			
+			<p class="Figure">
+				<span class="figNum trainingpasses"></span> A two-input perceptron learning to recognize a linearly separable problem
+			</p>
+
+			<p>
+				Before a perceptron is fully trained, it can produce two kinds of incorrect outputs: false positives and false negatives. A false positive occurs when the perceptron fires when it should not have. False negatives occur when the perceptron does not fire when it should have. The perceptrron learning rule distinguishes between these two types of errors.
+			</p>
+
+			<p>
+				<span class="figNum trainingpasses"></span>, Part (b) shows the initial classification efforts of the perceptron when the weights are set to <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= -3.0</span>, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 0.0</span>, and <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 1.0</span>. According to the figure, training elements (3,1) and (3,2) produce false negatives, and element (2,4) generates a false positive. The other elements happened to be classified correctly.
+			</p>
+
+			<p>
+				How did this perceptron decide which examples to fire on and which not to fire on?
+			</p>
+
+			<p>
+				As we showed above, an N-input perceptron fires when:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">( 1 × W</span><span class="Subscript"><span class="Subfigure">0</span></span><span class="Subfigure">) + ( X</span></span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">3</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">3</span></span> <span class="Subfigure">) + . . . + ( X</span><span class="Subscript"><span class="Subfigure">n</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">n</span></span> <span class="Subfigure">) &gt; 0</span>
+			</p>
+
+			<p>
+				For a two-input perceptron, this simplifies to:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">( 1 × W</span><span class="Subscript"><span class="Subfigure">0</span></span><span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">× W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">) &gt; 0</span>
+			</p>
+
+			<p>
+				Using the current weight set, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= -3.0</span>, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 0.0</span>, and <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 1.0</span>, our perceptron will fire when:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">( 1 × -3.0) + ( X</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">× 0.0</span> <span class="Subfigure">) + ( X</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">× 1.0 ) &gt; 0</span>
+			</p>
+
+			<p>
+				Thus, (3,1) doesn’t fire because:
+			</p>
+
+			<ul class="Subfigure">
+				<p>( 1 × -3.0 ) + ( 3 × 0.0 ) + ( 1 × 1.0 )</p>
+				<p>-3.0 &nbsp;&nbsp; + &nbsp;&nbsp; 0.0 &nbsp;&nbsp; + &nbsp;&nbsp; 1.0</p>
+				<p>-2.0</p>
+			</ul>
+
+			<p>
+				is not greater than zero.
+			</p>
+
+			<p>
+				Likewise, (3,2) doesn’t fire because:
+			</p>
+
+			<ul class="Subfigure">
+				<p>( 1 × -3.0) + ( 3 × 0.0 ) + ( 2 × 1.0 )</p>
+				<p>-3.0 &nbsp;&nbsp; + &nbsp;&nbsp; 0.0 &nbsp;&nbsp; + &nbsp;&nbsp; 2.0</p>
+				<p>-1.0</p>
+			</ul>
+
+			<p>
+				is not greater than zero.
+			</p>
+
+			<p>
+				Training element (2,4), on the other hand, does cause the perceptron to fire because:
+			</p>
+
+			<ul class="Subfigure">
+				<p>( 1 × -3.0) + ( 2 × 0.0 ) + ( 4 × 1.0 )</p>
+				<p>-3.0 &nbsp;&nbsp; + &nbsp;&nbsp; 0.0 &nbsp;&nbsp; + &nbsp;&nbsp; 4.0</p>
+				<p>+1.0</p>
+			</ul>
+
+			<p>
+				is greater than zero.
+			</p>
+
+			<p>
+				Given these false negatives and false positives we can use the perceptron learning rule to modify the weight set.
+			</p>
+
+			<p>
+				The two-input perceptron learning rule can be expressed in the following way:
+			</p>
+
+			<ul class="Subblockcenter">
+				<li>
+					<p>(a) Find all of the false negative training examples (cases where the perceptron should have fired, but did not)</p>
+					
+					<ul class="Subblockcenter">
+						<p>
+							(a.1) Add up all of the <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">0</span></span> values of the false negatives, call this sum <span class="Subfigure">FNX</span><span class="Subscript"><span class="Subfigure">0</span></span>
+						</p>
+
+						<p>
+							(a.2) Add up all of the <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">1</span></span> values of the false negatives, call this sum <span class="Subfigure">FNX</span><span class="Subscript"><span class="Subfigure">1</span></span>
+						</p>
+
+						<p>
+							(a.3) Add up all of the <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">2</span></span> values of the false negatives, call this sum <span class="Subfigure">FNX</span><span class="Subscript"><span class="Subfigure">2</span></span>
+						</p>
+					</ul>
+				</li>
+
+				<li>
+					<p>(b) Find all of the false positive training examples (cases where the perceptron should not have fired, but did)</p>
+					
+					<ul class="Subblockcenter">
+						<p>
+							(b.1) Add up all of the <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">0</span></span> values of the false positives, call this sum <span class="Subfigure">FPX</span><span class="Subscript"><span class="Subfigure">0</span></span>
+						</p>
+
+						<p>
+							(b.2) Add up all of the <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">1</span></span> values of the false positives, call this sum <span class="Subfigure">FPX</span><span class="Subscript"><span class="Subfigure">1</span></span>
+						</p>
+
+						<p>
+							(b.3) Add up all of the <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">2</span></span> values of the false positives, call this sum <span class="Subfigure">FPX</span><span class="Subscript"><span class="Subfigure">2</span></span>
+						</p>
+					</ul>
+				</li>
+
+				<li>
+					<p>(c) Compute the <span class="Ital">learning gradient</span> in the following way</p>
+					
+					<ul class="Subblockcenter">
+						<p>
+							(c.1) <span class="Subfigure">gradient</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= FNX</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">– FPX</span><span class="Subscript"><span class="Subfigure">0</span></span>
+						</p>
+
+						<p>
+							(c.2) <span class="Subfigure">gradient</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= FNX</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">– FPX</span><span class="Subscript"><span class="Subfigure">1</span></span>
+						</p>
+
+						<p>
+							(c.3) <span class="Subfigure">gradient</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= FNX</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">– FPX</span><span class="Subscript"><span class="Subfigure">2</span></span>
+						</p>
+					</ul>
+				</li>
+
+				<li>
+					<p>(d) Multiply the learning gradient by the <span class="Ital">learning rate</span>. The learning rate is a constant that will affect how quickly the system learns, but not the final answer obtained. We will use 0.22 as our learning rate.</p>
+					
+					<ul class="Subblockcenter">
+						<p>
+							(d.1) <span class="Subfigure">delta</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= 0.22 x gradient</span><span class="Subscript"><span class="Subfigure">0</span></span>
+						</p>
+
+						<p>
+							(d.2) <span class="Subfigure">delta</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 0.22 x gradient</span><span class="Subscript"><span class="Subfigure">1</span></span>
+						</p>
+
+						<p>
+							(d.3) <span class="Subfigure">delta</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 0.22 x gradient</span><span class="Subscript"><span class="Subfigure">2</span></span>
+						</p>
+					</ul>
+				</li>
+
+				<li>
+					<p>(e) Compute the revised (new) perceptron weights by adding the deltas to the current (old) weights.</p>
+					
+					<ul class="Subblockcenter">
+						<p>
+							(e.1) <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0 (new)</span></span> <span class="Subfigure">= W</span><span class="Subscript"><span class="Subfigure">0(old)</span></span> <span class="Subfigure">+ delta</span><span class="Subscript"><span class="Subfigure">0</span></span>
+						</p>
+
+						<p>
+							(e.2) <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">1 (new)</span></span> <span class="Subfigure">= W</span><span class="Subscript"><span class="Subfigure">1(old)</span></span> <span class="Subfigure">+ delta</span><span class="Subscript"><span class="Subfigure">1</span></span>
+						</p>
+
+						<p>
+							(e.3) <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">2 (new)</span></span> <span class="Subfigure">= W</span><span class="Subscript"><span class="Subfigure">2(old)</span></span> <span class="Subfigure">+ delta</span><span class="Subscript"><span class="Subfigure">2</span></span>
+						</p>
+					</ul>
+				</li>
+			</ul>
+
+			<p>
+				An amazing characteristic of the perceptron learning rule, proven by Rosenblatt in the early 1960’s, is that if it is theoretically possible for a perceptron to learn the training set you have presented it with, this algorithm will converge on that solution. In other words, if you run your training examples on the perceptron, modify the weights according to the learning rule, and then repeat the process over and over, eventually all examples will be properly classified. If the training set is “perceptron learnable”, the learning process is guaranteed to eventually halt.
+			</p>
+
+			<p>
+				Another remarkable feature of the perceptron learning rule is that it works no matter what values are chosen for the initial weights. Lucky guesses for the initial weights might get you to the solution faster than unlucky guesses, but either way the learning rule will “converge” on the solution (if there is one) in the end – regardless of how good or bad the initial guesses were.
+			</p>
+
+			<p>
+				Now, let’s apply this learning rule to the situation illustrated in <span class="figNum trainingpasses"></span> (b) to generate a new weight set. Again, (3,1) and (3,2) are false negatives and (2,4) is a false positive. The current perceptron weights are <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= -3.0</span>, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 0.0</span>, and <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 1.0</span> .
+			</p>
+
+			<p>
+				Step (a): Sum the components of all the inputs leading to false negatives:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">FNX</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= 1 + 1 = 2</span></li>
+				<li><span class="Subfigure">FNX</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 3 + 3 = 6</span></li>
+				<li><span class="Subfigure">FNX</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 1 + 2 = 3</span></li>
+			</ul>
+			<br/>
+			<p>
+				Step (b): Sum the components of all the inputs leading to false positives:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">FPX</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= 1</span></li>
+				<li><span class="Subfigure">FPX</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 2</span></li>
+				<li><span class="Subfigure">FPX</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 4</span></li>
+			</ul>
+			<br/>
+			<p>
+				Step (c): Compute the <span class="Ital">learning gradient</span>.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">gradient</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= FNX</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">– FPX</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= 2 – 1 = 1</span></li>
+				<li><span class="Subfigure">gradient</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= FNX</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">– FPX</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 6 – 2 = 4</span></li>
+				<li><span class="Subfigure">gradient</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= FNX</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">– FPX</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 3 – 4 = -1</span></li>
+			</ul>
+			<br/>
+			<p>
+				Step (d): Compute the changes to the weight set. Use a learning rate of 0.22.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">delta</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= 0.22 x gradient</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= 0.22 x 1 = 0.22</span></li>
+				<li><span class="Subfigure">delta</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 0.22 x gradient</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 0.22 x 4 = 0.88</span></li>
+				<li><span class="Subfigure">delta</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 0.22 x gradient</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 0.22 x -1 = -0.22</span></li>
+			</ul>
+			<br/>
+			<p>
+				Step (e): Compute the revised perceptron weights.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0(new)</span></span> <span class="Subfigure">= W</span><span class="Subscript"><span class="Subfigure">0(old)</span></span> <span class="Subfigure">+ delta</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= -3.0 + 0.22 = -2.78</span></li>
+				<li><span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">1(new)</span></span> <span class="Subfigure">= W</span><span class="Subscript"><span class="Subfigure">1(old)</span></span> <span class="Subfigure">+ delta</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 0.0 + 0.88 = 0.88</span></li>
+				<li><span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">2(new)</span></span> <span class="Subfigure">= W</span><span class="Subscript"><span class="Subfigure">2(old)</span></span> <span class="Subfigure">+ delta</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 1.0 + -0.22 = 0.78</span></li>
+			</ul>
+			<br/>
+			<p>
+				Thus, after one pass through the training set, the perceptron weights have been changed from <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= -3.0</span>, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 0.0</span>, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 1.0</span> to <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= -2.78</span>, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 0.88</span>, and <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 0.78</span> . <span class="figNum trainingpasses"></span>(c) illustrates the state of the perceptron at this point. The perceptron fires on training examples (2,4), (3,1) and (3,2); and does not fire on any of the other examples. All training examples save false positive (2,4) are classified correctly.
+			</p>
+
+			<p>
+				At this point, the perceptron learning rule would be applied again and the weights updated. After six repetitions of the training process, all training examples would be correctly classified. This situation is illustrated in <span class="figNum trainingpasses"></span>(d).
+			</p>
+
+			<p>
+				Ok, that was a lot of math. Let’s stop and take a breath for a moment.
+			</p>
+
+			<p>
+				Before we conclude this section on perceptrons, I’d like to address two related subjects: what it means for a problem to be “perceptron learnable”, and how previously trained perceptrons respond when presented with inputs they have not seen before.
+			</p>
+
+			<p>
+				The point was made earlier that by using the perceptron learning rule we can teach a perceptron anything it can theoretically learn – anything that is “perceptron learnable”. What does that mean?
+			</p>
+
+			<p>
+				Well, for a two-input problem, such as the one illustrated in <span class="figNum trainingpasses"></span>, the problem must be linearly separable. <span class="Bolded">Linearly separable</span> means that if you plot the elements of the training set on a two-dimensional grid, you must be able to separate the two output groups by a single straight line. Our example was learnable because it was linearly separable. In fact, if you look back at Parts (b), (c), and (d) of <span class="figNum trainingpasses"></span> you can see the line, or <span class="Ital">decision surface</span>, that separates the two output categories. The decision surface has a positive side (above) and a negative side (below). Any input lying above the decision surface will cause the perceptron to fire. Any input lying on or below the decision surface will cause the perceptron to fail to fire. Thus, the orientation of a perceptron’s decision surface completely describes the knowledge possessed by that perceptron.
+			</p>
+
+			<p>
+				This restriction on what perceptrons can learn can be extended to perceptrons with more than two inputs. For a three-input perceptron, whose inputs can be plotted in a three-dimensional space, the two output categories must be separable by a 2-d plane. In general, for an N-input perceptron the two output categories must be separable by an N-1 dimensional hyper-plane.
+			</p>
+
+			<p>
+				An understanding of decision surfaces lets us accurately predict how a trained perceptron will react when presented with a “new” input that it has never seen before. If that input is above its decision surface, the perceptron will fire, otherwise it will not. Referring back to <span class="figNum trainingpasses"></span>(d) we can say with assurance that presenting item (4,2) to the perceptron will cause it to fire. Similarly, we can know that item (2,3) will not cause the perceptron to fire.
+			</p>
+
+			<p>
+				Understanding a perceptron’s reaction to items outside the training set is very important. Perceptrons, and other neural network based approaches to artificial intelligence are generally only useful when they can, in some sense, generalize what they have learned.
+			</p>
+
+			<p>
+				For example, say we wanted to teach a neural network based system to be able to distinguish between men and women from photographs of their faces. We would digitize a large number of male and female photographs, and then train the net on those photos. What we would expect at the end of the process is that the network has learned to distinguish between male and female facial features. We would be extremely disappointed if the only males and the only females the system could reliably classify were those it had been shown in the training set.
+			</p>
+
+			<p class="Section">
+				Exercises for <span class="contentNum intelligenceApproaches3"></span>
+			</p>
+
+			<ol>
+				<li>
+					<p>Will a two-input perceptron fire on <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 3</span>, <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 5</span>, when <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= -20</span>, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 10</span>, and <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= -1</span> ? Show the mathematics behind your answer.</p>
+				</li>
+
+				<li>
+					<p>Will a two-input perceptron fire on <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 2</span>, <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 5</span>, when <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= -20</span>, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 10</span>, and <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= -1</span> ? Show the mathematics behind your answer.</p>
+				</li>
+
+				<li>
+					<p>Will a three-input perceptron fire on <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 2</span>, <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= -2</span>, <span class="Subfigure">X</span><span class="Subscript"><span class="Subfigure">3</span></span> <span class="Subfigure">= -2</span> when its weights are <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= 10</span>, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= -5</span>, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 5</span>, and <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">3</span></span> <span class="Subfigure">= -10</span> ? Show the mathematics behind your answer.</p>
+				</li>
+
+				<li>
+					<p>Apply the perceptron learning rule to the problem illustrated in <span class="figNum trainingpasses"></span>(c) in order to generate a new weight set. Assume the current weights are: <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">0</span></span> <span class="Subfigure">= -2.78</span>, <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">1</span></span> <span class="Subfigure">= 0.88</span>, and <span class="Subfigure">W</span><span class="Subscript"><span class="Subfigure">2</span></span> <span class="Subfigure">= 0.78</span> . All training examples are classified correctly except for a false positive on item (2,4). The learning rate is 0.22 .</p>
+				</li>
+			</ol>
+			<!-- End main content -->
+			
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "intelligence";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("intelligenceApproaches3");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>	
+	</body>
+</html>
+

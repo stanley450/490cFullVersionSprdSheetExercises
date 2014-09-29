@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+		<link href = "../lib/css/styles.css" rel = "stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+		<!-- Java Script files -->
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/kinetic.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			<!-- End nav -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum circuitsMicrocomputer2"></span>
+			</p>
+
+			<p>
+				<span class="figNum clockrsflipflop"></span> presents a circuit that implements a very simple arithmetic / logic unit. This ALU is capable of only two operations: “add” and “ and”. Thus, instead of the 4-bit op-code used by the Watson VM, this ALU uses a single-bit op-code. The circuit has been designed in such a way that “0” will be the op-code for “add” and “1” for “and”. In order to keep the circuit simple, the operands accepted by this ALU are only two bits wide.
+			</p>
+
+			<img src="images/clockrsflipflop.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum clockrsflipflop"></span> A two-bit wide ALU capable of performing “add” and “and”
+			</p>
+
+			<p>
+				Here are some statements that could be executed by this ALU, along with the results produced, and translations of each operation into English.
+			</p>
+
+			<img src="images/fig12-englishalu.png" alt="" class="Image">
+			
+			<p>
+				<span>The ALU contains an “addition unit” consisting of a two-bit full adder, to perform the “add” instruction; and an “ ‘and’ unit” composed of two</span> <span class="Ital">and</span> <span>gates, to perform the “and” instruction. The outputs of both of these “sub-circuits” are routed into a two-bit wide 2-input multiplexer. This multiplexer, which is constructed from two single-bit wide 2-input multiplexers, labeled MUX</span><span class="Subscript">low</span> <span>and MUX</span><span class="Subscript">high</span> <span>, passes either the result of the “add” or the result of the “and” onto the output lines. The “answer” that shows up as output depends on the value of the op-code bit. If the op-code is “0”, the results of “add” are forwarded. If the op-code is “1”, the results of “and” are forwarded.</span>
+			</p>
+
+			<p>
+				An interesting thing to note about this particular ALU is that regardless of which op-code is sent to it, both the “add” and “and” operations are performed. The op-code simply determines which result is output.
+			</p>
+			
+			<hr/>
+			<p class="Section">Footnotes</p>
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote" href="#body_ftn4" id="ftn4">[4]</a></span> <span>&nbsp;</span>Though at 0.5 K bytes it is pathetically small by today’s standards. In fact, about a million times smaller than the 500 Meg machine I am writing this book on.
+			</p>
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "circuits";
+				var sectID = "circuitsMicrocomputer2";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage(sectID);				// get arrow paths
+
+					if (!localFlag) runGA();
+				});	
+			</script>
+	</body>
+</html>

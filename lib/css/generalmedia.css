@@ -1,0 +1,211 @@
+/* Defines link (anchor) behavior */
+a:link {
+	color: #002F8B;
+	text-decoration: none
+}
+a:visited {
+	color: #000058;
+	text-decoration: none
+}
+a:active {
+	color: #000058;
+	text-decoration: underline
+}
+/* End link behavior */
+
+/* Tommy is Gitmaster */
+
+/* Applies font choices to everything */
+* {
+	/* font-family: Verdana, Geneva, sans-serif */;
+}
+/*End font choices */
+
+/* div id styling */
+#wrapper {
+	width: 540px;
+	margin: 0 auto;
+	border: solid 0px #002F8B;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+#header {
+	background-color: #002F8B;
+	color: white;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+#nav {
+	background-color: #002F8B;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+#headnav {
+		background-color: #002F8B;
+		text-align: center;
+		font-family: Verdana, Geneva, sans-serif;
+}
+#chapnav {
+		background-color: #002F8B;
+		text-align: center;
+		font-family: Verdana, Geneva, sans-serif;
+}
+
+#vid {
+	width:70%;
+	/*margin: 0 auto;*/
+	text-align: center;
+	
+}
+
+#main {
+}
+
+#personalnotes {
+	font-size: 10%;
+}
+
+#container1 {
+	width:70%
+}
+
+
+/* Body element styling by class */
+.Section { /* Section and subsection headers use this */
+	font-weight: bold;
+}
+.Exercise { /* The Exercises header uses this */
+	font-weight: bold;
+}
+.Figure { /*Used on "Figure 1.1: xyz" portion under each figure */
+	text-align: center;
+	font-size:80%
+}
+.Subfigure { /* Typically used for code segments */
+	text-align: center;
+	font-family:monospace;
+	font-size:110%
+}
+.Lite {
+	color:grey;
+}
+.Blockcenter { /* Provides a way to center a block of text while retaining internal text alignment */
+	display:table;
+	list-style:none;
+	margin:0 auto;
+	
+}
+.Subblockcenter { /* Within the Blockcenter class for further indentations */
+	list-style:none;
+}
+.Image { /* Centers images, specifically square or wider*/
+	margin: 0 auto;
+	display: block;
+	width:70%;
+}
+.ImageTall { /* Same as above but to retain some uniformity in size, imags with a larger height than width use this */
+	margin: 0 auto;
+	display: block;
+	width:40%;
+}
+.video { /* Centers video */
+	/*width:70%;*/
+	/*margin: 0 auto;*/
+	text-align:center;
+
+}
+.sdfootnotesym { /*Autodefined footnote name, same as below */
+	font-size: 80%;
+	vertical-align: top;
+}
+.Footnote { /* Used with footnotes */
+	font-size: 80%;
+	vertical-align:super;
+}
+.Emphasized { /* Bold, italic, and center for super emphasis */
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+}
+.Bolded { /* Used with plain bolding cases */
+	font-weight: bold;
+}
+.Italicized { /* For use with font-differentiated subfigures */
+	font-family:monospace;
+	font-style:italic;
+	font-size:110%;
+}
+.Ital { /* For use with other italic needs */
+	font-style:italic;
+}
+.Underlined { /* Underlines inner text */
+	text-decoration:underline;
+}
+.Superscript { /* Manual superscript so we can manipulate and scale size */
+	font-size:60%;
+	vertical-align:super;
+}
+.Subscript { /* Same as above but sub */
+	font-size:60%;
+	vertical-align:sub;
+}
+.Center { /* Centers with limited width */
+	width:70%;
+	display:block;
+	position:relative;
+	margin: auto auto;
+}
+.Centered { /* Full center */
+	margin: 0 auto;
+	text-align: center;
+}
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+.col-md-2,
+.col-lg-2 {
+  position:static;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+    
+/* td { padding-left: 10px; padding-right: 10px } For Digital Logic*/
+/* End body element styling by class */
+
+/* @media definitions for various devices and resolutions */
+@media screen and (max-width: 360px) {
+	#wrapper{ width:90%; /*font-size:50%*/}
+	/*#header{font-size:80%}
+	#headnav{ font-size:60%}
+	#chapnav{font-size:60%}*/
+}
+@media screen and (max-width: 480px) and (min-width:361px) {
+	#wrapper{ width:90%; /*font-size:70%*/}
+	/*#header{font-size:90%}
+	#headnav{ font-size:70%}
+	#chapnav{font-size:70%}*/
+}
+@media screen and (max-width: 720px) and (min-width:481px) {
+	#wrapper{ width:90%; /*font-size:80%*/}
+	/*#header{}
+	#headnav{font-size:80%}
+	#chapnav{font-size:80%}*/
+}
+@media screen and (min-width:721px) and (max-width:900px){
+	#wrapper{ width:700px; /*font-size:90%*/}
+	/*#header{ font-size:110%}
+	#headnav{font-size:90%}
+	#chapnav{font-size:90%}*/
+}
+@media screen and (min-width:901px){
+	#wrapper{ width:880px}
+	/*#header{font-size:120%}
+	#headnav{}
+	#chapnav{}*/
+}
+/* End @media definitions for various devices and resolutions */

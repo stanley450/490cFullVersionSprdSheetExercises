@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationProgrammer2"></span>
+      </p>
+
+      <p>
+        In order to illustrate how the six file access commands presented above can be used to solve a simple information retrieval problem, a small program is developed in this section. This program determines the names of all students majoring in computer science by accessing a file of student records organized in the manner presented in <span class="figNum studentfields"></span>
+      </p>
+
+      <p>
+        The program will work in the following way. First, the file containing student records will be opened. Second, a file, which will eventually contain the names of all CS majors, is created. Next, the program will begin to read records one at a time from the student file, stopping when the end of that file is encountered. As each student record is read, its “major” field will be tested to determine whether it is equal to “CS”. If so, the “name” field of the current student record will be written to the CS majors’ name file. Once all of the records in the student file have been examined, both the student file and the CS Majors’ name file will be closed.
+      </p>
+
+      <p>
+        The program’s intended behavior can be expressed by the following “pseudo code”.
+      </p>
+
+      <p>
+      <ul class="Blockcenter">
+        <li><span class="Subfigure">Open the student records file</span></li>
+        <li><span class="Subfigure">Create a new file to hold the names of all CS majors</span></li>
+        <li><span class="Subfigure">While we haven't reached the end of the student records file</span></li>
+        <ul class="Subblockcenter">
+          <li><span class="Subfigure">Read the next student record from the student records file</span></li>
+          <li><span class="Subfigure">If the current student’s major is “CS” then</span></li>
+          <ul class="Subblockcenter">
+            <li><span class="Subfigure">Write that student’s name in the names file</span></li>
+          </ul>
+        </ul>
+        <li><span class="Subfigure">After examining all of the student records, close both files</span></li>
+      </ul>
+      </p>
+
+      <p>
+        <span class="figNum csmajorlist"></span> contains the actual program command sequence. Note that the program opens the input file in read_only mode since the original “Students” file will not be modified in any way. The output file is created in read_write mode, since the program will modify it. The</span> While</span> loop and</span> If</span> statements are discussed in Part III of this text, but their intent should be clear from the above English and pseudo code descriptions.
+      </p>
+
+      <ul class="Blockcenter">
+        <li><span class="Subfigure">Open (InFile, “C:\UniversityData\Students”, read_only);</span></li>
+        <li><span class="Subfigure">Create (OutFile, “C:\NamesOfAllCSMajors”, read_write);</span></li>
+        <li><span class="Subfigure">While Not (End_of_file (InFile))</span></li>
+        <li><span class="Subfigure">{</span></li>
+        <ul class="Subblockcenter">
+          <li><span class="Subfigure">Read (InFile, StudentRecord);</span></li>
+          <li><span class="Subfigure">If (StudentRecord.Major == “CS”)</span></li>
+          <ul class="Subblockcenter">
+            <li><span class="Subfigure">Write (OutFile, StudentRecord.Name );</span></li>
+          </ul>
+        </ul>
+        <li><span class="Subfigure">}</span></li>
+        <li><span class="Subfigure">Close (OutFile);</span></li>
+        <li><span class="Subfigure">Close (InFile);</span></li>
+      </ul>
+
+      <p class="Figure">
+        <span class="figNum csmajorlist"></span> A portion of a program to generate a list of the names of all CS majors
+      </p>
+
+      <p>
+        Before the widespread adoption of relational databases, computer programs, such as the one above, had to be written and debugged in order to answer almost any question about the data maintained by an organization. While this was often more expedient than trying to answer the question by going through the data by hand, it was, nevertheless, far from an optimal solution. <span class="contentNum informationUser2"></span> examines relational databases, the end-user application that has overcome many of the problems associated with the storage and retrieval of large quantities of data.
+      </p>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+    <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";        // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationProgrammer2");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  </body>
+</html>

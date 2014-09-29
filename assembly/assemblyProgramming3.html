@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link rel='stylesheet' href='../lib/css/bootstrap-3.css'>
+		<link rel='stylesheet' href='../lib/css/jquery-ui-custom.css'>
+		<link rel='stylesheet' href='../lib/css/editor.css'>
+		<link rel='stylesheet' href='../lib/css/Dialogs.css'>
+		<link rel="stylesheet" href="../lib/css/jquery-ui-1.10.4.custom.css">
+		<link rel='stylesheet' href='css/assembly.css'>	
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link rel='stylesheet' href='css/assembly.css'>	
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<script type="text/javascript" src="../lib/js/visibility.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/angular.js"></script>
+	    <script type="text/javascript" src="../lib/js/jQuery.js"></script>
+	    <script type="text/javascript" src="../lib/js/less.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-ui.js"></script>
+<!--
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+-->
+	    <script type="text/javascript" src="../lib/js/ui-bootstrap-0.10.0.js"></script>
+	    <script type="text/javascript" src="../lib/js/tabs.js"></script>
+	    <script type="text/javascript" src="../lib/js/ui-bootstrap.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/editor.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDialogs.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
+		<script type="text/javascript" src="js/figuresV2.js"></script>
+		<script type="text/javascript" src="js/inserts.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyProgramming3"></span>
+			</p>
+			
+			<p>
+				Now that we have a basic understanding of variables, assignment, and sequence in assembly language programs, we turn our attention to the issue of implementing the high-level selection, or “if”, construct.  <span class="figNum minorcode"></span> contains an assembly language program that determines whether an individual is a minor or not based on his or her age.  In this example, the value “1” is used to mean “true” and the value “0” false.  
+			</p>
+			
+			<p>
+				The high-level code segment begins by assigning a “0” to “minor”, indicating that the individual is initially assumed to be an adult.  The value held in the “age” variable is then compared to 18 and if “age” is less than 18, “minor” is set to “1” indicating the individual is now known to be a minor.  Otherwise, “minor” is left unchanged; it retains its initial value of 0 meaning the individual is not a minor. 
+			</p>
+			
+			<p>
+				The assembly language program that implements this high-level code segment introduces two new instructions: <span class="Subfigure">COMPARE</span> and <span class="Subfigure">BRANCH</span>.   These two statements can be used together to implement the semantics of high-level “if” constructs.  The program also illustrates that any statement in an assembly language program may have a label associated with it, not just <span class="Subfigure">.BLOCK</span> and .<span class="Subfigure">WORD</span> statements.
+			</p>
+			
+			<p class="Centered">
+				High-level Watson JavaScript code:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">minor = 0;</span></li>
+				<li><span class="Subfigure">if (age &lt; 18)</span></li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">minor = 1;</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
+			<br />
+			<p class="Centered">
+				Equivalent Assembly Language code:
+			</p>
+			<br />
+			
+			<!--
+			<p><span class="Subfigure">AGE        .WORD     2                        </span>;  declare and initialize “age” to 2.  Our subject is 2 years old.</p>
+			
+			<p><span class="Subfigure">MINOR .BLOCK    1                        </span>;  declare “minor”.</p>
+			
+			<p class="P73"><span class="Subfigure">LOADIMM   REG0, 0            </span>;  load the constant value 0 into register 0.</p>
+			
+			<p class="P73"><span class="Subfigure">STORE     REG0, MINOR        </span>;  store a zero into “minor” – i.e., minor is assumed “false”.</p>
+			
+			<p><span class="Subfigure">IF        LOAD      REGA, AGE           </span>;  load the value of variable “age” into register A.</p>
+			
+			<p class="P73"><span class="Subfigure">LOADIMM   REGB, 18        </span>;  load the constant value 18 into register B.</p>
+			
+			<p class="P73"><span class="Subfigure">COMPARE   REGA, REGB        </span>;  compare registers A &amp; B – i.e., the value of “age” to 18.</p>
+			
+			<p class="P73"><span class="Subfigure">BRANCH    LT, THEN          </span>;  IF “age” is less than 18 branch to “then”.</p>
+			
+			<p class="P73"><span class="Subfigure">JUMP            ENDIF                </span>; otherwise jump to the end of the if block – “endif”</p>
+			
+			<p><span class="Subfigure">THEN        LOADIMM   REG1, 1                </span>; THEN: load the constant value 1 into register 1.</p>
+			
+			<p class="P73"><span class="Subfigure">STORE     REG1, MINOR        </span>;              store a one into “minor” – i.e., minor is “true”.</p>
+			
+			<p><span class="Subfigure">ENDIF        HALT                                </span>;  halt execution of this assembly language program.</p>
+			-->
+			<div id='fig115Div'></div>
+			<p class="Figure">
+				<span class="figNum minorcode"></span> High-level and assembly code to determine whether a person is a minor.
+			</p>
+			
+			<p>
+				Let’s now walk through the actions of this assembly language program.  First, the variables <span class="Subfigure">AGE</span> and <span class="Subfigure">MINOR</span> are declared.  Since <span class="Subfigure">AGE</span> must be initialized to some valid value, I arbitrarily decided to set it to 2 via the <span class="Subfigure">.WORD</span> command.  (In other words, I am assuming the person currently being “processed” is two years old.)  <span class="Subfigure">MINOR</span> is declared via <span class="Subfigure">.BLOCK</span> since its value will be set within the code.
+			</p>
+			
+			<p>
+				Once the variables have been declared and age initialized, the high-level statement that sets <span class="Subfigure">MINOR</span> to zero can be implemented.  This task can be accomplished by loading a zero into a register (via <span class="Subfigure">LOADIMM</span>) and then storing (via <span class="Subfigure">STORE</span>) that register’s value into the main memory location labeled <span class="Subfigure">MINOR</span>. 
+			</p>
+			
+			<p>
+				At this point you might be wondering why I didn’t simply declare <span class="Subfigure">MINOR</span> to be zero via:
+			</p>
+			
+			<p class="Subfigure">
+				MINOR   .WORD  0
+			</p>
+			
+			<p>
+				While it is certainly true that the <span class="Subfigure">.WORD</span> statement initializes the value of <span class="Subfigure">MINOR</span> to zero, the statement does not quite reflect the exact meaning of the high-level language code. The high-level code does not declare <span class="Subfigure">MINOR</span> and initialize it as part of the declaration process (as the <span class="Subfigure">.WORD</span> statement does).  Instead, the high-level code places a value of zero into the variable “minor” via an explicit assignment statement.
+			</p>
+			
+			<p>
+				In general, <span class="Subfigure">.WORD</span> statements should not be used to implement the actions of assignment statements.  The <span class="Subfigure">.WORD</span> statement is a way of declaring a variable in assembly language and giving it an initial value at the same time.  Often, I use these initial values in the example programs to represent input values – such as an age of two in the current example.
+			</p>
+			
+			<p>
+				Now that <span class="Subfigure">MINOR</span> has been given its default value of 0, or “false”, we can turn our attention to the “if-then” construct.  The “if-then” construct consists of two distinct parts: the “if” condition test and the “then” actions (to be executed only if the condition is true).  This high-level construct can be built from <span class="Subfigure">COMPARE</span>, <span class="Subfigure">BRANCH</span> and <span class="Subfigure">JUMP</span> statements – together with two strategically placed instruction labels.  Under this scheme, the <span class="Subfigure">COMPARE</span> and <span class="Subfigure">BRANCH</span> instructions will be used to implement the condition test and to transfer control directly to the “then” actions if the condition is true.  The <span class="Subfigure">JUMP</span> will be used to skip over the “then” actions if the condition is false. 
+			</p>
+			
+			<p>
+				The general form of the <span class="Subfigure">COMPARE</span> statement is:
+			</p>
+			
+			<p class="Subfigure">
+				COMPARE        <span class="Ital">first operand register</span>, <span class="Ital">second operand register</span>
+			</p>
+			
+			<p>
+				The statement examines the values held in the two registers to determine the relationship that exists between them. Valid relationships include:
+			</p>
+			
+			<ol>
+				<li>first value is equal to the second value  (EQ)</li>
+				<li>first value is not equal to the second value (NE)</li>
+				<li>first value is less than the second value (LT)</li>
+				<li>first value is less than or equal to second value (LE)</li>
+				<li>first value is greater than the second value (GT)</li>
+				<li>first value is greater than or equal to second value (GE)</li>
+			</ol>
+			
+			<p>
+				A <span class="Subfigure">BRANCH</span> instruction usually appears immediately following a <span class="Subfigure">COMPARE</span>.  The <span class="Subfigure">BRANCH</span> instruction is a low-level command that allows the Watson Virtual Machine to execute different parts of a program depending on the results of a test condition.  The general form of the <span class="Subfigure">BRANCH</span> instruction is:
+			</p>
+			
+			<p class="Subfigure">
+				BRANCH  <span class="Ital">test condition</span>, <span class="Ital">target label</span>
+			</p>
+			
+			<p>
+				where <span class="Ital">test condition</span> is usually one of the six conditions resulting from a <span class="Subfigure">COMPARE</span>: 
+			</p>
+			
+			<p class="Subfigure">
+				EQ,  NE,  LT,  LE,  GT,  GE
+			</p>
+			
+			<p>
+				and <span class="Ital">target label</span> is a label associated with a “target” instruction.  
+			</p>
+			
+			<p>
+				<span class="Subfigure">BRANCH</span> works in the following way.  If the <span class="Ital">test condition</span> is true then program control will branch to the target instruction and execution will continue from that point on.  If the test condition is false, the current sequence of instructions will not be interrupted – execution will continue with the statement immediate following the <span class="Subfigure">BRANCH</span>. 
+			</p>
+			
+			<p>
+				The general form of the <span class="Subfigure">JUMP</span> instruction is:
+			</p>
+			
+			<p class="Subfigure">
+				JUMP         <span class="Ital">target label</span>
+			</p>
+			
+			<p>
+				Both the <span class="Subfigure">JUMP</span> and <span class="Subfigure">BRANCH</span> statements are similar in that they are both used to break out of the normal sequential flow of control from one statement to the next.  The difference is that <span class="Subfigure">BRANCH</span> is a “conditional” statement.  It only transfers control to its target statement if its test condition is true.  <span class="Subfigure">JUMP</span>, on the other hand, is an “unconditional” statement.  It always transfers control its target statement.
+			</p>
+			
+			<p>
+				It is interesting to note that since <span class="Subfigure">JUMP</span> unconditionally transfers control to its target statement, in order for the statement that physically follows the <span class="Subfigure">JUMP</span> to ever be executed, it must contain a label that is the target of some other <span class="Subfigure">JUMP</span> or <span class="Subfigure">BRANCH</span> instruction.  Otherwise, the program will have no way of referencing that instruction.
+			</p>
+			
+			<p>
+				In the example of <span class="figNum minorcounter"></span> , the variable <span class="Subfigure">AGE</span> is to be compared to the value 18.  In order to do so, the values must first be loaded into registers.  This is accomplished by loading <span class="Subfigure">AGE</span> into register A and issuing a load immediate of 18 into register B.  The actual statements to accomplish this task are:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">IF &nbsp; LOAD      REGA, AGE </span></li>
+				<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp; LOADIMM   REGB, 18</span></li>
+			</ul>
+			
+			<p>
+				Notice that the <span class="Subfigure">LOAD</span> statement has been labeled <span class="Subfigure">IF</span>, since it marks the beginning of the assembly language code for implementing the high-level “if” statement.  While this label isn’t strictly necessary in order to implement an “if” construct, it does make the assembly code somewhat easier to read.
+			</p>
+			
+			<p>
+				Once these values have been copied into the registers, they can be compared via:
+			</p>
+			
+			<p class="Subfigure">
+				COMPARE  REGA, REGB
+			</p>
+			
+			<p>
+				If the value held in register A (age) is <span class="Ital">less than</span> the value held in register B (18), the “then” instructions should be executed which will set <span class="Subfigure">MINOR</span> to 1, as the person is a minor.  The following assembly language instruction causes control to be transferred to the statement labeled <span class="Subfigure">THEN</span>.
+			</p>
+			
+			<p class="Subfigure">
+				BRANCH    LT,   THEN
+			</p>
+			
+			<p>
+				If the condition test is not true, the <span class="Subfigure">BRANCH</span> statement will have no effect and control will be transferred to the statement immediately following it.  Thus, in the event that age is not less than 18 (i.e., it is greater than or equal to 18) the statement
+			</p>
+			
+			<p class="Subfigure">
+				JUMP    ENDIF
+			</p>
+			
+			<p>
+				will be executed.  This statement will have the effect of “jumping” over the statements comprising the “then” block.
+			</p>
+			
+			<p>
+				Assuming the condition test was true, the “then” actions of the “if” construct are executed.  These actions place the value 1 into the variable <span class="Subfigure">MINOR</span>.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">THEN &nbsp; LOADIMM   REG1, 1</span></li>
+				<li><span class="Subfigure">&nbsp;&nbsp; &nbsp; &nbsp; STORE     REG1, MINOR</span></li>
+			</ul>
+			
+			<p>
+				The “then” code loads a 1 into register 1 via a load immediate statement, and then copies that value into the memory location associated with the variable <span class="Subfigure">MINOR</span> via the <span class="Subfigure">STORE</span> statement.  The result is that a 1 is placed into <span class="Subfigure">MINOR</span>.  Note that the load immediate statement sports a <span class="Subfigure">THEN</span> label.  This label is necessary for the program to execute properly since it is the target of the <span class="Subfigure">BRANCH</span> instruction.
+			</p>
+			
+			<p>
+				The final statement of this program serves as the target of the <span class="Subfigure">JUMP</span> instruction and is labeled <span class="Subfigure">ENDIF</span>.
+			</p>
+			
+			<p class="Subfigure">
+				ENDIF   HALT
+			</p>
+			
+			<p>
+				This statement will always execute when the program is run, regardless of whether the condition was true or false.
+			</p>
+			<!-- Image Figure
+			<img src="Images/AssemblyIMGS/fig11-6.png" alt="" class="Image">
+			<!-- Text Figure
+			<h4 class="Blockcenter">
+				High-level Watson JavaScript code:
+			</h4>
+			<br/>
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">if (age &lt; 18)</span></li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">minors = minors + 1;</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+				<li><span class="Subfigure">else</span></li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">adults = adults + 1;</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
+			<br/>
+			<h4 class="Blockcenter">
+				Equivalent assembly language code:
+			</h4>
+			
+			<p><span class="Subfigure">MINORS &nbsp; .WORD     0                    </span>; declare and initialize the number of “minors” to 0.</p>
+			
+			<p><span class="Subfigure">ADULTS &nbsp; .WORD     0                    </span>; declare and initialize the number of “adults to 0.</p>
+			
+			<p><span class="Subfigure">AGE &nbsp;&nbsp;&nbsp;&nbsp; .WORD     21                   </span>; declare and initialize the “age” of the person to 21.</p>
+			
+			<p><span class="Subfigure">IF        LOAD     REGA, AGE            </span>; load the value of variable “age” into register A.</p>
+			
+			<p><span class="Subfigure">          LOADIMM  REGB, 18             </span>; load the constant value 18 into register B.</p>
+			
+			<p><span class="Subfigure">          COMPARE  REGA, REGB           </span>; compare registers A &amp; B – i.e., the value of “age” to 18</p>
+			
+			<p><span class="Subfigure">          BRANCH   LT,   THEN           </span>; IF “age” is less than 18 branch to “then”.</p>
+			
+			<p><span class="Subfigure">          JUMP     ELSE                 </span>; otherwise jump to “else”.</p>
+			
+			<p><span class="Subfigure">THEN     LOAD     REG0, MINORS         </span>; THEN: load the number of minors into register 0.</p>
+			
+			<p><span class="Subfigure">          LOADIMM  REG1, 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>;  load the constant value 1 into register 1.</p>
+			
+			<p><span class="Subfigure">          ADD      REG0, REG0, REG1 &nbsp;&nbsp; </span>; add contents of register 1 to register 0.</p>
+			
+			<p><span class="Subfigure">          STORE    REG0, MINORS         </span>; update number of minors from register 0.</p>
+			
+			<p><span class="Subfigure">          JUMP     ENDIF               </span>; go to the statement labeled “endif”.</p>
+			
+			<p><span class="Subfigure">ELSE &nbsp;&nbsp;&nbsp; LOAD     REG0, ADULTS         </span>; ELSE: load the number of adults into register 0. </p>
+			
+			<p><span class="Subfigure">          LOADIMM  REG1, 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>; load the constant value  1 into register 1</p>
+			
+			<p><span class="Subfigure">          ADD      REG0, REG0, REG1 &nbsp;&nbsp; </span>; add contents of register 1 to register 0.</p>
+			
+			<p><span class="Subfigure">          STORE    REG0, ADULTS        </span>; update number of adults from register 0.</p>
+			
+			<p><span class="Subfigure">ENDIF &nbsp;&nbsp; HALT                          </span>;  halt execution of this assembly language program.</p>
+			-->
+			<div id='fig116Div'></div>
+			<p class="Figure">
+				<span class="figNum minorcounter"></span> High-level and assembly code to increment minor and adult counters.
+			</p>
+			
+			<p>
+				<span class="figNum minorcounter"></span> presents a program that extends the ideas of <span class="figNum minorcode"></span> from the “if-then” construct to the more general “if-then-else” construct.  
+			</p>
+			
+			<p>
+				The purpose of the program of <span class="figNum minorcounter"></span> is to illustrate how a high-level “if-then-else” structure can be implemented as a series of assembly language instructions.  The actual high-level “if” construct adds one to either the number of “adults” or the number of “minors” – depending on whether the value of “age” is less than 18 or not.  This high-level construct is not really a complete program, in the sense that it would need to be placed in a repetition structure (loop) in order to “process” more than one person.
+			</p>
+			
+			<ul class="Blockcenter">
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">if (<span class="Ital">variable</span><span class="Subscript">1   </span><span class="Ital">condition  variable</span><span class="Subscript">2</span>)</span></li>
+					<li><span class="Subfigure">{</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure"><span class="Ital">then_statements</span></span></li>
+					</ul>
+					<li><span class="Subfigure">}</span></li>
+					<br/>
+					<li><span class="Subfigure">LOAD    <span class="Ital">reg</span><span class="Subscript">x </span>,<span class="Ital">variable</span><span class="Subscript">1</span></span></li>
+					<li><span class="Subfigure">LOAD    <span class="Ital">reg</span><span class="Subscript">y </span>,<span class="Ital">variable</span><span class="Subscript">2</span></span></li>
+					<li><span class="Subfigure">COMPARE <span class="Ital">reg</span><span class="Subscript">x </span>,<span class="Ital"> reg</span><span class="Subscript">y</span></span></li>
+					<li><span class="Subfigure">BRANCH  <span class="Ital">condition</span>,<span class="Ital"> label</span><span class="Subscript">1</span></span></li>
+					<li><span class="Subfigure">JUMP    <span class="Ital">label</span><span class="Subscript">2</span></span></li>
+				</ul>
+				<li><span class="Subfigure"><span class="Ital">label</span><span class="Subscript">1</span><span class="Ital">    assembly language version of then_statements</span></span></li>
+				<li><span class="Subfigure"><span class="Ital">label</span><span class="Subscript">2</span><span class="Ital">    assembly language statements following “if-then”</span></span></li>
+			</ul>
+			
+			<p class="Figure">
+				(a)  Template for constructing assembly language version of “if-then”
+			</p>
+			
+			<ul class="Blockcenter">
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">if (<span class="Ital">variable</span><span class="Subscript">1   </span><span class="Ital">condition  variable</span><span class="Subscript">2</span>)</span></li>
+					<li><span class="Subfigure">{</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure"><span class="Ital">then_statements</span></span></li>
+					</ul>
+					<li><span class="Subfigure">}</span></li>
+					<li><span class="Subfigure">else</span></li>
+					<li><span class="Subfigure">{</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">else_statements</span></li>
+					</ul>
+					<li><span class="Subfigure">}</span></li>
+					<br/>
+					<li><span class="Subfigure">LOAD    <span class="Ital">reg</span><span class="Subscript">x </span>,<span class="Ital">variable</span><span class="Subscript">1</span></span></li>
+					<li><span class="Subfigure">LOAD    <span class="Ital">reg</span><span class="Subscript">y </span>,<span class="Ital">variable</span><span class="Subscript">2</span></span></li>
+					<li><span class="Subfigure">COMPARE <span class="Ital">reg</span><span class="Subscript">x </span>,<span class="Ital"> reg</span><span class="Subscript">y</span></span></li>
+					<li><span class="Subfigure">BRANCH  <span class="Ital">condition</span>,<span class="Ital"> label</span><span class="Subscript">1</span></span></li>
+					<li><span class="Subfigure">JUMP    <span class="Ital">label</span><span class="Subscript">2</span></span></li>
+				</ul>
+				<li><span class="Subfigure"><span class="Ital">label</span><span class="Subscript">1</span><span class="Ital">    assembly language version of then_statements</span></span></li>
+				<li><span class="Subfigure"><span class="Ital">              </span>JUMP    <span class="Ital">label</span><span class="Subscript">3</span></span></li>
+				<li><span class="Subfigure"><span class="Ital">label</span><span class="Subscript">2</span><span class="Ital">    assembly language version of else_statements</span></span></li>
+				<li><span class="Subfigure"><span class="Ital">label</span><span class="Subscript">3</span><span class="Ital">    assembly language statements following “if-then-else”</span></span></li>
+			</ul>
+				
+			<p class="Figure">
+				(b)  Template for constructing assembly language version of “if-then-else”
+			</p>
+			
+			<p class="Figure">
+				<span class="figNum selectiontemplate"></span>  General templates for implementing selection constructs in assembly 
+			</p>
+			
+			<p>
+				<span class="figNum selectiontemplate"></span> summarizes the process of translating high-level “if-then” and “if-then-else” constructs to assembly language.  Part (a) of the figure contains a template for generating an assembly version of an “if-then” construct.  Part (b) presents a template for generating an assembly version of an “if-then-else” construct.  
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum assemblyProgramming3"></span>
+			</p>
+			
+			<ol id="exerciseList">
+				<li>
+					<div class="exercise solvable 5">
+						Write an assembly language program to implement the high-level selection construct: 
+						<ul class="Blockcenter">
+							<li><span class="Subfigure">minor = 1;</span></li>
+							<li><span class="Subfigure">if (age &gt; 17)</span></li>
+							<li><span class="Subfigure">{</span></li>
+								<ul class="Subblockcenter">
+									<li><span class="Subfigure">minor = 0;</span></li>
+								</ul>
+							<li><span class="Subfigure">}</span></li>
+						</ul>
+					</div>
+					<div class="exerciseDiv 5"></div>
+				</li>
+				<li>
+					<div class="exercise solvable 6">
+						Write an assembly language program to implement the high-level selection construct: 
+						
+						<ul class="Blockcenter">
+							<li><span class="Subfigure">if (A &gt; B)</span></li>
+							<li><span class="Subfigure">{</span></li>
+								<ul class="Subblockcenter">
+									<li><span class="Subfigure">max = A;</span></li>
+								</ul>
+							<li><span class="Subfigure">}</span></li>
+							<li><span class="Subfigure">else</span></li>
+							<li><span class="Subfigure">{</span></li>
+								<ul class="Subblockcenter">
+									<li><span class="Subfigure">max = B;</span></li>
+								</ul>
+							<li><span class="Subfigure">}</span></li>
+						</ul>
+					</div>
+					<div class="exerciseDiv 6"></div>
+				</li>
+			</ol>
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			
+			<!-- Arrow navigation scripts -->
+		<script>
+			var pageObj;											// do NOT change name of variable
+			var chapID = "assembly";
+			var sectID = "assemblyProgramming3";
+
+			$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("assemblyProgramming3");		// get arrow paths
+				setupExerciseButtons(sectID);
+				if (!localFlag) runGA();
+			});	
+
+			var fig115 = new Figure(115, true);
+			var fig116 = new Figure(116, true);
+			angular.bootstrap(document.getElementById("fig115"), ['assembly115']);
+			angular.bootstrap(document.getElementById("fig116"), ['assembly116']);
+
+		</script>
+	</body>
+</html>

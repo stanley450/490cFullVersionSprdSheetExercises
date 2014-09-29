@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationOrganization2"></span>  
+      </p>
+
+      <p>
+        Linked storage overcomes the disadvantage of contiguous storage by doing away with the need to place logically adjacent file blocks in physically adjacent sectors. To accomplish this,</span> <span class="Bolded">Linked</span> storage places two things in each sector: (1) a block of records, and (2) the track and sector number of the sector containing the “next” block of records. Thus a sector not only contains records to be read, but also information on where the next block of records may be found. Because the location of the next sector is stored in the current sector, there is no need for the sectors of a file to be physically located next to each other. Hence, the contents of a file may be spread across many tracks and sectors
+      </p>
+
+      <p>
+        The process of reading a linked file involves accessing the file’s first sector by moving the access arm to the proper track and then waiting for the appropriate sector to rotate under the read/write head. That sector is then retrieved yielding a block of records and the track and sector location of the next block. If the next sector is on a different track, the access arm will position the read write head over that track. Regardless of whether or not switching tracks is necessary; the drive unit must wait for the correct sector to rotate beneath the head. The second sector is then read and this process repeats itself until the entire file has been accessed. The last sector of a linked file will have a special tag in its next field indicating that the end of file has been reached.
+      </p>
+
+      <p>
+        <span class="figNum linkedfiles"></span> illustrates a collection of six files stored via the linked method. Each file is composed of one or more sectors, where each sector contains a block of one or more records together with the address of the next sector. For example, file Alpha requires two sectors. The first sector, sector two of track C, holds a block of 12 records and the address of the sector storing the next block of the file. The second sector, sector two of track A, holds 8 records. The area that would normally point to the next sector of the file contains the “end of file” indicator.
+      </p>
+
+      <p>
+        Notice that the number of records stored per sector varies from file to file. The reason for this is that the sizes of records differ from one file to another while the sector size is fixed for a particular disk drive. If it seems odd that record sizes vary, remember that record size is determined by the amount of data the file’s creator decided to store per item. An employee record is unlikely to be the same size as a student record, which is probably not the same size as a credit card record.
+      </p>
+
+      <img src="images/linkedfilespt1.png" alt="A collection of linked files stored on a disk" class="Image">
+      <img src="images/linkedfilespt2.png" alt="A collection of linked files stored on a disk" class="Image">
+
+      <p class="Figure">
+        <span class="figNum linkedfiles"></span> A collection of linked files stored on a disk
+      </p>
+
+      <p>
+        As stated above, the primary advantage of the linked file representation is that it uses space efficiently. Linked storage allows us to make use of all of the sectors of a drive. It would be quite easy to add a three, five, or even 10 sector file to the disk of <span class="figNum linkedfiles"></span> – without the need to perform a costly defragmentation operation. Of course, it is true that there is some overhead associated with devoting a portion of each sector to storing the address of the “next” sector, but this overhead is very small. In fact, for the simple three track, eight sector disk we are using in our illustration, a single byte (character) per sector would be more than sufficient.</span><span class="Footnote_20_Symbol"><span class="Footnote" title="Footnote: A byte is eight bits. Two of these bits could be used to indicate which track: 00 for A, 01 for B, and 10 for C. Four bits could be used to represent the sector number as a standard binary number. Binary numbers are discussed in detail in Chapter 11."><a href="#ftn1" id="body_ftn1">[1]</a></span></span>
+      </p>
+
+      <p>
+        The major disadvantage of linked storage is that the time to retrieve a file can be significantly greater than what is required under contiguous storage. The reason is that seek time (to move the access arm) and rotational latency (to wait for the sector to rotate over to the read/write head) may be experienced for each sector of the file, rather than for just the first sector – as was the case with contiguous storage.
+      </p>
+
+      <p>
+        While defragging a disk, in order to make space to store a file, is not necessary under linked storage, the defragmentation operation can still be performed occasionally to speed up file retrieval time. This is because in addition to grouping all of the free sectors of a disk together, defragging linked files involves placing the individual sectors of the files into contiguous locations and updating their “next sector” pointers. After defragging a disk, each of the sectors of a file will point to the very next physical sector.</span><span class="Footnote_20_Symbol"><span class="Footnote" title="Footnote: Except, of course, for the very last sector of each file which will still contain an “end of file” indicator."><a href="#ftn2" id="body_ftn2">[2]</a></span></span> In this case, retrieval of a linked file can take place just a quickly as retrieval of a contiguous file. Of course, as files are added, modified, and deleted, the disk will slowly become fragmented again – resulting in increasing file retrieval times – until another defrag operation is performed.</span>
+      </p>
+
+      <p>
+        <span class="figNum linkedfraggedfiles"></span> shows the contents of a collection of linked files after defragging. This figure is very similar to <span class="figNum defraggedfiles"></span>, which illustrated defragging contiguous files. A careful inspection of the two figures will show that after defragging the files are “contiguous” in both cases, yet they are not located in exactly the same sectors. The figures were drawn this way in order to illustrate that there is nothing special about which sectors contain the files. Any sectors will do, as long as they are physically adjacent to one another.
+      </p>
+
+      <p>
+        Before leaving the topic of linked files, one additional question needs to be addressed: how is the</span> <span class="Ital">first</span> sector of each file determined? As we have seen, once the disk drive begins reading a linked file, the current sector will always contain the location of the next sector of the file. But this leaves open the question of how the initial sector is located in the first place. Somehow the system must know where each file begins. Furthermore, this is true regardless of whether the file is linked or contiguous.
+      </p>
+
+      <img src="images/linkedfraggedfilespt1.png" alt="A collection of linked files after defragging" class="Image">
+      <img src="images/linkedfraggedfilespt2.png" alt="A collection of linked files after defragging" class="Image">
+
+      <p class="Figure">
+        <span class="figNum linkedfraggedfiles"></span> A collection of linked files after defragging
+      </p>
+
+      <img src="images/roottable.png" alt="A Root Directory Table for the files of Figure 3.8" class="Image">
+
+      <p class="Figure">
+        <span class="figNum roottable"></span> A Root Directory Table for the files of
+        <span><span class="figNum linkedfraggedfiles"></span></span><!-- Since a Figure 3.8 without the colon needs to be here. So I nested it inside another span -->
+      </p>
+
+      <p>
+        This problem is usually resolved by having a special location on the disk (such as Track A, Sector 1) set aside to hold a Root Directory. The</span> <span class="Bolded">Root Directory</span> is a table that records the name and initial sector of every file that resides on a disk. This table is often loaded into the computer’s memory (RAM) when the machine is booted or the disk is first accessed. Given this table, it is a simple matter to retrieve any file since its initial track and sector are known. <span class="figNum roottable"></span> presents a root directory table that could be used for the disk of <span class="figNum linkedfraggedfiles"></span>.</span><span class="Footnote_20_Symbol"><span class="Footnote" title="Footnote: Note that in reality the root directory is just one part of an overall file system, such as FAT32 or NTFS, that serves to organize the disk in order to enable file access and manage space that has not yet been allocated."><a href="#ftn3" id="body_ftn3">[3]</a></span></span> </span>
+      </p>
+
+      <p>
+        As an interesting side note, you may have heard that sometimes files can be recovered even after they have been “deleted” from a disk. The reason for this is that when an operating system erases a file, it deletes the file’s entry from the root directory and marks as “free” the sectors that had been devoted to storing the file. This is done in order to save time. It is much easier (and hence faster) to simply change one entry in a table, rather than overwriting the contents of every block of a file with “blanks”, or some other character. Data recovery programs scan through the entire disk a sector at a time retrieving the data stored in sectors that have been marked “free”. In order to truly delete sensitive data, a disk drive should be reformatted and overwritten with new data.
+      </p>
+
+      <!-- Footnotes -->
+      <hr/>
+      <p class="Section">
+        Footnotes
+      </p>
+
+      <p class="Footnote">
+        <a href="#body_ftn1" id="ftn1">[1]</a> A byte is eight bits. Two of these bits could be used to indicate which track: 00 for A, 01 for B, and 10 for C. Four bits could be used to represent the sector number as a standard binary number. Binary numbers are discussed in detail in <span class="contentNum assembly"></span>.
+      </p>
+
+      <p class="Footnote">
+        <a href="#body_ftn2" id="ftn2">[2]</a> Except, of course, for the very last sector of each file which will still contain an “end of file” indicator.
+      </p>
+
+      <p class="Footnote">
+        <a href="#body_ftn3" id="ftn3">[3]</a> Note that in reality the root directory is just one part of an overall file system, such as FAT32 or NTFS, that serves to organize the disk in order to enable file access and manage space that has not yet been allocated.
+      </p>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+    <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";        // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationOrganization2");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  </body>
+</html>

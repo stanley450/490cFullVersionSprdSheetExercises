@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui-1.10.4.custom.css">
+	    <link href="../lib/css/ch08.css" rel = "stylesheet">
+	    <link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel = "stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/grid.css" rel = "stylesheet">
+	    <!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/visibility.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum javascriptFunctions"></span>
+			</p>
+			
+			<p>
+				This section is concerned with creating and using function subprograms. A <span class="Bolded">subprogram</span> is a program within a program. Very few “real” programs are written as one long piece of code. Instead, traditional imperative programs generally consist of large numbers of relatively simple subprograms that work together to accomplish some complex task. While it is theoretically possible to write large programs without the use of subprograms, as a practical matter any significant program must be decomposed into manageable pieces if humans are to write and maintain it.
+			</p>
+
+			<p>
+				Subprograms make the construction of “software libraries” possible. A <span class="Bolded">software library</span> is a collection of subprograms, or “routines” as they are sometimes called, for solving common problems that have been written, tested, and debugged. Most programming languages come with extensive libraries for performing mathematical and text string operations and for building graphical user interfaces. These languages allow programmers to “include” library routines into their code. Using subprograms from the library speeds up the software development process and results in a more reliable finished product.
+			</p>
+
+			<p>
+				When a subprogram is invoked, or called, from within a program, the “calling” program pauses temporarily so that the “called” subprogram can carry out its actions. Eventually, the called subprogram will complete its task and control will once again return to the “caller”. When this occurs, the calling program “wakes up” and resumes its execution from the point it was at when the call took place.
+			</p>
+
+			<p>
+				Subprograms can call other subprograms (including copies of themselves as we will see in <span class="contentNum javascriptRecursion"></span>). These subprograms can, in turn, call other subprograms. This “chain” of subprogram invocations can extend to an arbitrary depth as long as the “bottom” of the chain is eventually reached. It is necessary that infinite calling sequences be avoided, since each subprogram in the “chain” of subprogram invocations must eventually complete its task and return control to the program that called it.
+			</p>
+
+			<p>
+				<span class="figNum subprogram"></span> illustrates the process of subprogram invocation and return. In the particular situation presented in the figure, a main program calls a subprogram named X. When this subprogram is called, execution of the main program is suspended and X begins to run. At some point during the execution of X, subprogram Y is called. When this occurs, X is temporarily suspended and control passes to Y. Likewise, during the execution of Y, subprogram Z is called. As a result, the execution of Y is suspended and Z begins to run. Subprogram Z is at the “bottom” of the calling chain, since it doesn’t call any other subprograms.  It will run to completion.
+			</p>
+
+			<p>
+				When Z completes, control will return to subprogram Y. Subprogram Y will continue execution from the point at which it was suspended. At the completion of Y, control will return to subprogram X, again, at the point where it was suspended. Finally, when X completes, control will return to the main program, which can now run to completion.
+			</p>
+
+			<img src="images/subprogram.png" alt="Subprogram invocation and return" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum subprogram"></span> &nbsp; Subprogram invocation and return
+			</p>
+
+			<p>
+				In addition to the mechanisms for subprogram call and return, programs and their subprograms must have ways of passing data between one another. For example, a subprogram designed to compute <span class="Italicized">x</span><span class="Superscript">y</span> &nbsp; (<span class="Italicized">x</span> raised to the</span> <span class="Italicized">y</span> power) must have a way to receive the values of</span> <span class="Italicized">x</span> and</span> <span class="Italicized">y</span> from the calling program and also must be able to return the computed result to the caller. In general, a subprogram may be passed any number of input values (zero or more) from its calling program during the subprogram invocation process. A subprogram can pass values back to its calling program during the subprogram return process.
+			</p>
+
+			<p>
+				Watson JavaScript supports only one type of subprogram, known a function. The general format of a Watson JavaScript function definition is:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">function</span> <span class="Italicized">name</span><span class="Subfigure">(</span><span class="Italicized">input variables <span class="Subfigure">) // returns</span> <span class="Italicized">type</li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Italicized">declarations</span></li>
+					<li><span class="Italicized">statements</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
+			
+			<br/>
+
+			<p>
+				Function definitions begin with the key word “function” followed by the name of the function that is being defined. A comma separated list of input variables and their types, text or numeric, appear after the function name, enclosed in parentheses. These variables allow the function to receive input from the calling program.
+			</p>
+
+			<p>
+				In addition to receiving inputs from the calling program, functions may (or may not) return a result value. The type of this result: numeric, text, or “nothing”; is specified at the end of the first line of the function declaration. If the value returned by the function is a number, the “</span><span class="Subfigure">Numeric</span>” type will be specified. If the value returned by the function is a text string, the “</span><span class="Subfigure">Text</span>” type will be specified. If the function does not return a result, the keyword “</span><span class="Subfigure">nothing</span>” will be used to indicate that fact.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li style="color:grey;"><span class="Subfigure">&lt;html&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;script type="text/javascript"&gt;</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">function banner(message /*Text*/) // returns nothing</span></li>
+					<li><span class="Subfigure">{</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">document.writeln(“ ”);</span></li>
+						<li><span class="Subfigure">document.write(“* * * * ”);</span></li>
+						<li><span class="Subfigure">document.write(message);</span></li>
+						<li><span class="Subfigure">document.writeln(“* * * * ”);</span></li>
+						<li><span class="Subfigure">document.writeln(“ ”);</span></li>
+					</ul>
+					<li><span class="Subfigure">}</span></li>
+					<br/>
+					<li><span class="Subfigure">banner(“Hello World!”);</span></li>
+				</ul>
+				<li style="color:grey;"><span class="Subfigure">&lt;/script&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/html&gt;</span></li>
+			</ul>
+
+			<p class="Figure">
+				<span class="figNum definedfunction"></span> &nbsp; A program containing a programmer-defined function
+			</p>
+
+			<p>
+				Following the first line of the function declaration, the body of the function, enclosed in brackets, is presented. Since functions are subprograms, their bodies contain both variable declarations and statements.
+			</p>
+
+			<p>
+				It is important to note at this point that a function declaration <span class="Italicized">defines</span> a function. These declarations define the attributes of a function: its name, its input variables and their types, the type of the function’s return result, the variables declared by the function and the statements that describe the actions to be taken by the function when executed. What a function definition does not do is actually execute, or run, the function. In order for a function subprogram to do anything it must be called.
+			</p>
+
+			<p>
+				Functions are called by referring to them by name in a calling program and supplying any required input values. The general format of a Watson JavaScript function call is:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Italicized">functionName</span>(<span class="Italicized">inputs</span>);
+			</p>
+
+			<p>
+				<span class="figNum definedfunction"></span> presents a program that prints a simple banner of the form:
+			</p>
+
+			<p class="Subfigure">
+				* * * * Hello World! * * * *
+			</p>
+
+			<p>
+				The program accomplishes its task by defining and then using a function subprogram named <span class="Subfigure">banner</span> that accepts a text string named <span class="Subfigure">message</span> and then prints that <span class="Subfigure">message</span> surrounded by asterisks. The <span class="Subfigure">banner</span> function does not return a value to the calling program, as its mission in life is to display a banner on the computer screen – not compute some value to be used by the calling program.
+			</p>
+
+			<p>
+				Subprogram definitions in Watson JavaScript are located in the declarations section of the main program, immediately above the program statements. To help the definition of <span class="Subfigure">banner</span> stand out from the rest of the program, it is shaded in gray in <span class="figNum definedfunction"></span>.
+			</p>
+
+			<p>
+				In the program of <span class="figNum definedfunction"></span>, <span class="Subfigure">banner</span> will receive a single input value from the calling program. This value is a text string that will be accessed through the variable <span class="Subfigure">message</span>. The statements of the <span class="Subfigure">banner</span> function will cause a simple banner to be displayed by: writing a blank line, then four asterisks, then the contents of the <span class="Subfigure">message</span> string, then four more asterisks, and finally another blank line. Note that the content of the banner’s <span class="Subfigure">message</span> is not fixed. Whatever text string is passed to this subprogram will be printed between the asterisks.
+			</p>
+
+			<p>
+				Now that we have discussed the definition of the <span class="Subfigure">banner</span> procedure, let’s turn our attention back to the main program. The statements that define the actions to be taken by the main program occur immediate after the function declaration. These actions consist of a single statement that calls the <span class="Subfigure">banner</span> function and passes it the string “Hello World!”.
+			</p>
+
+			<p>
+				Some people are initially put off by the fact that the main program, which is executed first, is physically located after the subprogram declarations. A moment of reflection should convince you that this really isn’t so odd, since it is reasonable to insist that subprograms be fully defined before they can be used (called).
+			</p>
+
+			<p>
+				Thus, execution of the program begins with the statement:
+			</p>
+
+			<p class="Subfigure">
+				banner(“Hello World”);
+			</p>
+
+			<p>
+				This statement is an instance of a function invocation statement where the</span> <span class="Italicized">functionName</span> is <span class="Subfigure">banner</span> and the <span class="Italicized">inputs</span> consist of the single text string “Hello World!”. In general the inputs to a function, or <span class="Italicized">arguments</span> as they are often called, consist of a comma-separated list of zero or more expressions. These expressions can be constants, variables, or general expressions involving mathematical operators. When the function invocation statement is executed, the value of each argument is computed and passed to the subprogram being called. Thus, in the present example, the string “Hello World!” is passed to the <span class="Subfigure">banner</span> subprogram, where it is mapped to the text variable <span class="Subfigure">message</span>.
+			</p>
+
+			<p>
+				The number and type of arguments in a function invocation statement must exactly match the number and type of variables in the first line of the function declaration. If more than one value is passed to the function, the first argument is mapped to the first variable, the second argument to the second variable, and so forth.
+			</p>
+			<!-- Manual fig 8.27
+			<p class="Subfigure">
+				var a; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				var b; // Numeric
+			</p>
+
+			<p class="P49">
+				function power (x /*Numeric*/, y /*Numeric*/) // Returns Numeric
+			</p>
+
+			<p class="Subfigure">
+				{
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>var i; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>var z; // Numeric
+			</p>
+
+			<p class="P104">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>z = 1;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>for (i = 1; i &le; y; i++)
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>{
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span>z = z * x;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>}
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>return(z);
+			</p>
+
+			<p class="Subfigure">
+				}
+			</p>
+
+			<p class="P46">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				a = parseFloat(prompt( “Enter a value.”, 0));
+			</p>
+
+			<p class="Subfigure">
+				b = power(a,3);
+			</p>
+
+			<p class="Subfigure">
+				document.write(a);
+			</p>
+
+			<p class="Subfigure">
+				document.write(“ raised to the third power is ”);
+			</p>
+
+			<p class="Subfigure">
+				document.write(b);&nbsp;
+			</p>
+			-->
+			<div id="JSFigure-27" class="divness"></div>
+
+			<p class="Figure">
+				<span class="figNum thirdpower"></span> &nbsp; A program to raise an integer value to the third power
+			</p>
+
+
+			<p>
+				<span class="figNum thirdpower"></span> contains a program for raising a number to the third power. The program declares three things: an integer variable named “</span><span class="Subfigure">a</span>”, an integer variable named “</span><span class="Subfigure">b</span>”, and a function named <span class="Subfigure">power</span>. The <span class="Subfigure">power</span> function is a general purpose subprogram for raising</span> <span class="Italicized">x</span> to the</span> <span class="Italicized">y</span> power (</span><span class="Italicized">x</span><span class="Superscript">y</span> ) given values for both</span> <span class="Italicized">x</span> and</span> <span class="Italicized">y</span>. Unlike the <span class="Subfigure">banner</span> function, which did not need to return a value to the calling program, this subprogram must have the ability to report its results back to whomever called it.
+			</p>
+
+
+			<p>
+				The main program of <span class="figNum thirdpower"></span> begins by prompting the user to enter a value. The user’s input is then read into the numeric variable “<span class="Subfigure">a</span>”. The next statement:
+			</p>
+
+			<p class="Subfigure">
+				b = power(a,3);
+			</p>
+
+			<p>
+				<span class="Subfigure">a</span>” to the third power and store the result in “<span class="Subfigure">b</span>”. It does so by embedding a call to the <span class="Subfigure">power</span> function in the right hand side expression of an assignment statement. The last three statements of the main program report this result to the user.
+			</p>
+
+			<p>
+				Turing our attention to the definition of <span class="Subfigure">power</span>, we can see that the first argument passed to this subprogram will be mapped to a variable named <span class="Subfigure">x</span> and the second argument will be mapped to <span class="Subfigure">y</span>. The result returned by this program is defined to be numeric.
+			</p>
+
+			<p>
+				The input variable list associated with a subprogram is often called its “parameter list”, with the individual variables called “parameters”. When called, the first argument in the argument list of the function call statement, “</span><span class="Subfigure">a</span>” in this case, is mapped to the first parameter in the function’s parameter list, “<span class="Subfigure">x</span>” in this case. The next argument, 3 in this case, is mapped to the next parameter in the parameter list, “<span class="Subfigure">y</span>” in this case. As mentioned earlier, the number of arguments, and their types, must exactly match the number and types of the variables in the function’s parameter list.
+			</p>
+
+			<p>
+				The <span class="Subfigure">power</span> subprogram of <span class="figNum thirdpower"></span> declares two numeric variables for use within the body of the function. These variables, named “</span><span class="Subfigure">i</span>” and “z”, are known as a “local variables” since they exist only within the <span class="Subfigure">power</span> function. The main program doesn’t know about “</span><span class="Subfigure">i</span>” or “z”. It only knows about <span class="Subfigure">a</span>, <span class="Subfigure">b</span>, and a function named <span class="Subfigure">power</span>. Thus, the main program cannot directly access or in any way modify “</span><span class="Subfigure">i</span>” or “z”. This concept, known as “information hiding” is very important when writing sizable programs.
+			</p>
+
+			<p>
+				Imagine a large program being written by a hundred programmers. Without local variables, every programmer would have to know the name of every variable used by every other programmer. This shared knowledge would be necessary in order to keep two or more people from accidentally using the same variable name for different purposes at the same time.
+			</p>
+
+			<p>
+				In order to see the problem more clearly, imagine that I think <span class="Subfigure">timer</span> is my variable so I put a 0 in it. However, you think <span class="Subfigure">timer</span> is your variable and you put a 10 in it. Later, my code increments <span class="Subfigure">timer</span> by 1. At this point I think there should be a 1 in <span class="Subfigure">timer</span>, you think there should be a 10 in <span class="Subfigure">timer</span>, but we are both wrong since <span class="Subfigure">timer</span> now holds 11. </span>Any code that either of us writes that depends on the value of <span class="Subfigure">timer</span> will now be flawed and not produce the results we expect.
+			</p>
+
+			<p>
+				Using subprograms and local variables avoids these kinds of situations. If a program can be divided into 100 pieces and the “interfaces” between those parts defined, then one hundred programmers could work on the program at the same time– each concentrating on his or her own subprogram. Any local variables declared in one subprogram would be completely separate from all other subprograms. Hence, you and I could both declare a variable named <span class="Subfigure">timer</span> locally in our respective subprograms. Since these would be local variables, the system would treat them as completely separate entities. Furthermore, the code I write in my subprogram will only be able to “see” my <span class="Subfigure">timer</span>, while the code you write in your subprogram will only be able to see your <span class="Subfigure">timer</span>. Any modification I make to my <span class="Subfigure">timer</span> cannot directly affect your <span class="Subfigure">timer</span>, and vice versa.
+			</p>
+
+			<p>
+				Returning our attention to the definition of the <span class="Subfigure">power</span> function, we note that the algorithm it uses to compute <span class="Italicized">z = x</span><span class="Superscript">y</span> works by first setting <span class="Subfigure">z</span> to 1 and then repeatedly multiplying the value of <span class="Subfigure">x</span> times the current value of <span class="Subfigure">z</span> over and over, a total of <span class="Subfigure">y</span> times. This makes sense because <span class="Italicized">x</span><span class="Superscript">y</span> is simply <span class="Italicized">x</span> &times; <span class="Italicized">x</span> &times; <span class="Italicized">x</span> . . .  &times; <span class="Italicized">x</span> &nbsp; where there are</span> <span class="Italicized">y</span> total</span> <span class="Italicized">x</span>’s.
+			</p>
+
+			<p>
+				This algorithm is implemented in the following way. The first executable statement of <span class="Subfigure">power</span> sets <span class="Subfigure">z</span> to 1. The next line begins a “for” loop that executes a total of <span class="Ital">y</span> times as the variable <span class="Subfigure">i</span> counts from one to <span class="Subfigure">y</span>. Within the loop is a single statement that multiplies <span class="Subfigure">z</span> by <span class="Subfigure">x</span>. When the loop begins <span class="Subfigure">z</span> equals 1. After the first pass through the loop <span class="Subfigure">z</span> equals <span class="Subfigure">x</span> (or <span class="Ital">x</span><span class="Superscript">1</span> ), after the second pass through the loop <span class="Subfigure">z</span> equals <span class="Subfigure">x</span> times <span class="Subfigure">x</span> (or <span class="Ital">x</span><span class="Superscript">2</span> ), after the third pass <span class="Subfigure">x</span> times <span class="Subfigure">x</span> times <span class="Subfigure">x</span> (or <span class="Ital">x</span><span class="Superscript">3</span> ). Finally, after the <span class="Ital">y</span><span class="Superscript">th</span> pass <span class="Subfigure">z</span> will equal <span class="Ital">x</span><span class="T54">y</span>.
+			</p>
+
+			<p>
+				The final statement in the power function is
+			</p>
+
+			<p class="Subfigure">
+				return(z);
+			</p>
+			
+			<p>
+				Return statements are used to transfer a value from a function back to the calling program – in this case, the value of <span class="Subfigure">z</span>. The general form of the <span class="Subfigure">Return</span> statement is:
+			</p>
+
+			<p class="Subfigure">
+				return(<span class="Italicized">expression</span>);
+			</p>
+
+			<p>
+				The purpose of the “return” statement is to terminate execution of the current function and return the value of the</span> <span class="Italicized">expression</span> to the calling program. The</span> <span class="Italicized">expression</span> listed in the <span class="Subfigure">Return</span> statement can be a constant, variable, or general expression. The only restriction is that the type of value produced by the expression must match the</span> <span class="Italicized">type</span> specified after the keyword <span class="Subfigure">returns</span> on the first line of the function definition.
+			</p>
+
+			<p>
+				Although “return” statements can occur anywhere within a function, they usually appear as the very last statement. Not all functions have “return” statements. Specifically, functions that return nothing to their calling program, such as the <span class="Subfigure">banner</span> function of <span class="figNum definedfunction"></span>, generally do not include “return”
+			</p>
+
+			<p>
+				When the “return” is executed, three things happen: the function ceases execution, the return value is passed back to the calling program, and the calling program “wakes up” at the point at which the function was called. Thus, when the “return” statement of <span class="figNum thirdpower"></span> is executed, control returns to the main program and the value of <span class="Subfigure">a</span><span class="Superscript">3</span> is assigned to “<span class="Subfigure">b</span>”.
+			</p>
+
+			<p>
+				<span class="figNum computevalue"></span> presents another example of a program that incorporates the <span class="Subfigure">power</span> function of <span class="figNum thirdpower"></span>. The main program of <span class="figNum computevalue"></span> computes the value of the third degree polynomial:</span> <span class="Italicized">A X</span><span class="Superscript">3</span><span class="Italicized">+ B X</span><span class="Superscript">2</span><span class="Italicized">+ C X + D</span> &nbsp; where</span> <span class="Italicized">A</span>,</span> <span class="Italicized">B</span>,</span> <span class="Italicized">C</span>,</span> <span class="Italicized">D</span>, and</span> <span class="Italicized">X</span> are numeric values entered by the user.
+			</p>
+
+			<p>
+				The program begins by declaring six numeric variables: <span class="Subfigure">a</span>, <span class="Subfigure">b</span>, <span class="Subfigure">c</span>, <span class="Subfigure">d</span>, <span class="Subfigure">x</span>, and <span class="Subfigure">y</span>; and one function, <span class="Subfigure">power</span>. After declaring the variables and the function, “prompt” statements are used to read in values for <span class="Subfigure">x</span>, <span class="Subfigure">a</span>, <span class="Subfigure">b</span>, <span class="Subfigure">c</span>, and <span class="Subfigure">d</span>. The following statement is then executed:
+			</p>
+			<!-- Manual fig 8.28
+
+			<p class="Subfigure">
+				&nbsp;
+			</p>
+
+			<p class="P39">
+				y = a * power(x,3) + b * power(x,2) + c * x + d;
+			</p>
+
+			<p class="Subfigure">
+				var a; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				var b; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				var c; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				var d; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				var x; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				var y; // Numeric
+			</p>
+
+			<p class="P49">
+				function power (x /*Numeric*/, y /*Numeric*/) // Returns Numeric
+			</p>
+
+			<p class="Subfigure">
+				{
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>var i; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>var z; // Numeric
+			</p>
+
+			<p class="P104">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>z = 1;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>for (i = 1; i &le; y; i++)
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>{
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span>z = z * x;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>}
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>return(z);
+			</p>
+
+			<p class="Subfigure">
+				}
+			</p>
+
+			<p class="P46">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				x = parseFloat(prompt( “Enter a value for X.”, 0));
+			</p>
+
+			<p class="Subfigure">
+				a = parseFloat(prompt( “Enter a value for A.”, 0));
+			</p>
+
+			<p class="Subfigure">
+				b = parseFloat(prompt( “Enter a value for B.”, 0));
+			</p>
+
+			<p class="Subfigure">
+				c = parseFloat(prompt( “Enter a value for C.”, 0));
+			</p>
+
+			<p class="Subfigure">
+				d = parseFloat(prompt( “Enter a value for D.”, 0));
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				y = a * power(x,3) + b * power(x,2) + c * x + d;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				document.write(“A*X**3 + B*X**2 + C*X + D = ”);
+			</p>
+
+			<p class="Subfigure">
+				document.writeln(y);
+			</p>
+			-->
+			<div id="JSFigure-28" class="divness"></div>
+
+			<p class="Figure">
+				<span class="figNum computevalue"></span> &nbsp; A program to compute the value of &nbsp; <span class="Subfigure">A X</span><span class="Superscript">3</span><span class="Subfigure">+ B X</span><span class="Superscript">2</span><span class="Subfigure">+ C X + D</span>
+			</p>
+
+			<p>
+				This assignment statement incorporates two separate calls to the <span class="Subfigure">power</span> function. The first call to <span class="Subfigure">power</span> computes</span> <span class="Subfigure">x</span><span class="Superscript">3</span>, while the second call computes</span> <span class="Subfigure">x</span><span class="Superscript">2</span>. The manner in which <span class="Subfigure">power</span> is called illustrates an important point. Multiple function calls can be embedded within a single statement. The reason for this is that function calls are</span> <span class="Italicized">expressions</span>, rather than complete statements. As such, they can be embedded within mathematical (and text) expressions, and can thus appear wherever an expression is allowed – such as on the right hand side of assignment statements, and in “write” and “writeln” statements.
+			</p>
+
+			<p>
+				When a function subprogram is called, the evaluation of the current statement in the calling program is temporarily interrupted. When the function returns, its value is substituted into the current expression at the point of the call, and execution of the interrupted statement resumes. Hence, if <span class="Subfigure">x</span> were 3, <span class="Subfigure">power(x,3)</span> would evaluate to 27 and <span class="Subfigure">power(x,2)</span> would evaluate to 9. Assuming <span class="Subfigure">a</span> was 10, <span class="Subfigure">b</span> was 20, <span class="Subfigure">c</span> was 30, and <span class="Subfigure">d</span> was 40, the above expression would be evaluated in the following way:
+			</p>
+
+			<img src="images/fig8-pre29.png" alt="" class="Image">
+			
+			<p>
+				So the value assigned to the variable <span class="Subfigure">y</span> under these assumptions is 580.
+			</p>
+
+			<p>
+				As should be apparent from this example, function subprograms are quite convenient for implementing mathematical functions.
+			</p>
+
+			<p>
+				One other point should be made about the program of <span class="figNum computevalue"></span>. The program illustrates the concept of local variable names. Note that both the main program and the <span class="Subfigure">power</span> function have variables named <span class="Subfigure">x</span> and <span class="Subfigure">y</span>.  Watson JavaScript will not confuse the variables in the main program with those of the subprogram.
+			</p>
+
+			<p>
+				In the main program, <span class="Subfigure">x</span> is used to capture the user’s input and <span class="Subfigure">y</span> is used to hold the result of the computation. In the function, <span class="Subfigure">x</span> is the base of the power and <span class="Subfigure">y</span> is the exponent. It just so happens that due to the way the program is written the <span class="Subfigure">x</span> from the main program and the <span class="Subfigure">x</span> from the subprogram will always have identical values. The <span class="Subfigure">y</span> from the main</span> program and the <span class="Subfigure">y</span> from the subprogram, on the other hand, are used for completely different purposes and are unlikely to hold identical values.
+			</p>
+
+
+			<p>
+				Let’s conclude this section by revisiting the <span class="Subfigure">beer</span> program of <span class="figNum beeriterative"></span>. <span class="figNum beersubprogram"></span> presents a revised version of this program, incorporating a function called <span class="Subfigure">singsong</span>. The main program now asks the user for the number of bottles, and stores the response in <span class="Subfigure">count</span>. </span><span class="Subfigure">singsong</span> is then called and the value of <span class="Subfigure">count</span> is passed to the input parameter, <span class="Subfigure">beers</span>.
+			</p>
+
+			<p>
+				<span class="Subfigure">singsong</span> contains a “while” loop that prints the lyrics to each verse of the song. During each verse, one of the <span class="Subfigure">beers</span> is consumed. The loop terminates when the number of <span class="Subfigure">beers</span> is no longer greater than zero.
+			</p>
+
+			<p>
+				The input/output behavior of this program is identical to the program of <span class="figNum beeriterative"></span> with the sole exception that “Later…” is printed at the end of the song. In fact, if it were not for this minor difference, a user would have no way of knowing which version of the program he or she was executing.
+			</p>
+			<!-- Manual fig 8.29
+			<p class="Subfigure">
+				&nbsp; </span>var count; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span>function singsong (beers /*Numeric*/) // Returns nothing
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span>{
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span> while (beers &gt; 0)
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span> {
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  document.write(beers);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  document.writeln(“ bottles of beer on the wall,”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span>document.write(beers);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  document.writeln(“ bottles of beer.”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  document.writeln(“Take one down. Pass it around.”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  beers = beers – 1;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; &nbsp;  &nbsp;  document.write(beers);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  document.writeln(“ bottles of beer on the wall.”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  document.writeln(“ ”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; }
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span>}
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span>count = parseFloat(prompt(“How many bottles?”,0));
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span>singsong(count);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span>document.writeln(“Later...”);
+			</p>
+			-->
+			
+			<div id="JSFigure-29" class="divness"></div>
+
+
+			<p class="Figure">
+				<span class="figNum beersubprogram"></span> Beer – the iterative subprogram version
+			</p>
+			
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum javascriptFunctions"></span>
+			</p>
+
+			<ol id="exerciseList">
+				<li>
+					Describe in a single English statement what the following function does.
+
+					<ul class="Blockcenter">
+						<li><span class="Subfigure">function mystery (n /*Numeric*/) // Returns Numeric</span></li>
+						<li><span class="Subfigure">{</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Subfigure">var something; // Numeric</span></li>
+							<li><span class="Subfigure">var hmmm; // Numeric</span></li>
+							<br/>
+							<li><span class="Subfigure">something = 1;</span></li>
+							<li><span class="Subfigure">for (hmmm = 1; hmmm &le; n; hmmm++)</span></li>
+							<li><span class="Subfigure">{</span></li>
+							<ul class="Subblockcenter">
+								<li><span class="Subfigure">something = something * 2;</span></li>
+							</ul>
+							<li><span class="Subfigure">}</span></li>
+							<li><span class="Subfigure">return(something);</span></li>
+						</ul>
+						<li><span class="Subfigure">}</span></li>
+					</ul>
+					
+					<br/>
+					</li>
+				<li>
+					<p class="exercise solvable 12">
+						Rewrite the program of <span class="figNum beersubprogram"></span> so that the function returns a string. The new <span class="Subfigure">singsong</span> function should test <span class="Subfigure">beers</span> to see if it is greater than zero. If so, it should print the lyrics and then return the text string “Later…”. If not, it should return the text string “Sorry…”. Have your main program print out this return value. Hence, if a user enters zero or a negative number in answer to the question “How many bottles?” the response presented will be “Sorry…”. If the user enters a positive number greater than zero, the lyrics of the song will be printed followed by “Later…”.
+					</p>
+					
+					<div class="exerciseDiv 12"></div>
+				</li>
+			</ol>
+
+			<div class="push"></div>
+			<!-- End main content -->
+			</div> 
+			
+			<div class="blueFooterBar"></div>
+			
+			<script src="js/acorn.js"></script>
+			<script src="js/interpreter.js"></script>
+			<script src="js/WatsonDataStore.js"></script>
+			<script src="js/WatsonEditor.js"></script>
+			<script type="text/javascript" src="js/engine.js"></script>
+			<script src="js/JSFigures.js"></script>
+			<script src="js/WatsonDialogs.js"></script>
+			<link rel="stylesheet" type="text/css" href="css/editor.css">
+			<link rel="stylesheet" type="text/css" href="../lib/css/Dialogs.css">
+			
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "javascript";
+				var sectID = "javascriptFunctions";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("javascriptFunctions");		// get arrow paths
+					setupExerciseButtons(sectID);
+					if (!localFlag) runGA();
+				});	
+				
+			var figure27 = new Figure(27, "thirdpower");
+			var figure28 = new Figure(28, "computevalue");
+			var figure29 = new Figure(29, "beersubprogram");
+			
+	</script>
+	</body>
+</html>

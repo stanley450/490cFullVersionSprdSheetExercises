@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+	    <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.js"></script>
+	    <script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/kinetic.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			<!-- End nav -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum circuitsSequential2"></span>
+			</p>
+
+
+			<p>
+				<span>A</span> <span class="Bolded">clock</span> <span>is a device that generates a signal that periodically cycles between a high state, “1”, and a low state, “0”. Clocks ensure that the operations performed by a computer proceed in an orderly manner. They do so by enabling certain operations to occur only at specific points in time.</span>
+			</p>
+
+			<p>
+				<span>Clocks divide time into “cycles” that consist of two phases, a high phase and a low phase. Specifically, a</span> <span class="Bolded">clock cycle</span> <span>is defined as the interval of time beginning when the clock goes to a high state, lasting through the return to a low state, and ending with the start of the transition back to the high state again. <span class="figNum rsflipflopholdone"></span> illustrates four complete cycles of a clock. </span>
+			</p>
+
+			<p>
+				Each clock cycle lasts for only a brief instant of time. The CPU of a modern PC, for example, runs at billions of clock cycles per second, or gigahertz. The clock speeds of other components, such as the system bus, are usually somewhat slower, but still in the range of hundreds of millions of clock cycles per second, or megahertz. The various operations that a computer can perform require one or more clock cycles to complete. The exact number of cycles depends upon the complexity of the particular operation.
+			</p>
+
+			<p>
+				As described in the previous section, flip-flops can be used to implement the most basic unit of storage, the bit. Memory devices based on R-S flip-flops perform read operations by retrieving the contents of the Q outputs of a number of selected bits. The write operation, in turn, stores bit patterns into memory by placing 1’s on either the S (set) or R (reset) inputs of various bits.
+			</p>
+
+			<p>
+				The clock ensures that these operations happen in an orderly manner. During one phase of the clock cycle (e.g., low) the contents of memory can be examined but not modified. During the opposite phase of the cycle (e.g., high) the contents of memory can be updated. This sort of timing is critical for the reliable operation of a computer, since among other things, it allows time after a “write” operation for the flip-flops to settle into their stable configurations before “read” operations can be attempted.
+			</p>
+
+			<img src="images/rsflipflopholdone.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum rsflipflopholdone"></span> Four cycles of a clock
+			</p>
+			
+			<img src="images/rsflipflopinvalid.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum rsflipflopinvalid"></span> A clocked R-S flip-flop
+			</p>
+
+			<p>
+				<span class="figNum rsflipflopinvalid"></span> presents the circuit diagram of a clocked R-S flip-flop. In addition to the R (reset) and S (set) inputs, these circuits also receive the clock signal. In the clocked R-S flip-flop the Q output will be unaffected by any change in R or S as long as the clock (C) is “0” (low). That is, during the “read” phase of the clock cycle the contents of memory cannot be changed. When the clock input goes to “1” (high), designating the “write” phase of the clock cycle, the Q output will change depending upon the values of R and S.
+			</p>
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum circuitsSequential2"></span>
+			</p>
+
+			<ol>
+				<li>
+					<p>
+						Develop a truth table for the clocked R-S flip-flop.
+					</p>
+				</li>
+			</ol>
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "circuits";
+				var sectID = "circuitsSequential2";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage(sectID);				// get arrow paths
+
+					if (!localFlag) runGA();
+				});
+			</script>
+	</body>
+</html>

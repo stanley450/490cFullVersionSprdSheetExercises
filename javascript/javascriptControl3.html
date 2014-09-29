@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui-1.10.4.custom.css">
+	    <link href="../lib/css/ch08.css" rel = "stylesheet">
+	    <link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel = "stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/grid.css" rel = "stylesheet">
+		<link rel="stylesheet" type="text/css" href="../lib/css/Dialogs.css">
+	    <!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/visibility.js"></script>
+		
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum javascriptControl3"></span>
+			</p>
+			
+			<p>
+				Repetition is the name given to the class of control constructs that allow computer programs to repeat a task over and over. You should already have some familiarity with this concept from your study of the Watson Graphics Language (WGL), since WGL includes a repetition construct of the form:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">Repeat </span><span class="Italicized">counter </span><span class="Subfigure">times</span></li>
+				<li><span class="Subfigure">Loop</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Italicized">statements</span></li>
+					</ul>
+				<li><span class="Subfigure">Endloop</span></li>
+			</ul>
+			
+			<br/>
+			
+			<p>
+				In these WGL “repeat” loops, <span class="Italicized">counter</span> is a positive integer constant in the range 1 to 99 that specifies the number of times the <span class="Italicized">statements</span> are to be executed. Recall that using this simple looping construct we created drawings and animations, and explored the idea of solving problems by decomposing them into repeatable “generic” steps.
+			</p>
+
+			<p>
+				Although not really touched on in the graphics chapter, there are two primary forms of repetition. These are known as iteration and recursion. For the moment, we will concentrate on iteration and defer discussion of recursion until <span class="contentNum javascriptRecursion"></span>.
+			</p>
+
+			<p>
+				Watson JavaScript supports iteration with two separate constructs: the “while” loop and the “for” loop. “While” loops are referred to as “condition-based” loops since they continue to execute the statements of the loop while its condition remains true. “For” loops are “count-based”. The “For” loops are known as a “count-based” loops because the number of times the loop statements execute is based on the value of a “loop variable” that is incremented each time through the loop. We will first look at the “while” loop and then proceed to the “for” loop.
+			</p>
+
+			<p>
+				The general format of the “While” loop is:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">while (</span><span class="Italicized">variable</span><span class="Italicized">&nbsp; relationalOperator</span><span class="Italicized">&nbsp; finalValue</span><span class="Subfigure">)</span></li>
+				<li><span class="Subfigure">{</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Italicized">statements</span></li>
+					</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
+
+			<br/>
+
+			<p>
+				“While” loops work by first evaluating their <span class="Italicized">Boolean_expression</span>. If the value of the expression is false, program control immediately moves to the first statement following the closing bracket: &nbsp; “}”. In this case the <span class="Italicized">statements</span> in the loop body are skipped entirely. If, on the other hand, the expression evaluates to true, then the sequence of <span class="Italicized">statements</span> in the loop body is executed once. After performing the <span class="Italicized">statements</span>, control returns to the top of the loop where the <span class="Italicized">Boolean_expression</span> is once again evaluated. If the expression is still true, the <span class="Italicized">statements</span> of the loop are executed a second time. Otherwise, execution of the loop terminates and control passes to the statement following “}”. This process repeats itself until the <span class="Italicized">Boolean_expression</span> eventually becomes false and the loop exits.
+			</p>
+
+			<img src="images/whileconstruct.png" alt="An illustration of the behavior of the while loop iteration construct" class="ImageTall">
+
+			<p class="Figure">
+				<span class="figNum whileconstruct"></span> An illustration of the behavior of the “while” loop iteration construct
+			</p>
+
+			<p>
+				The behavior of the “while” loop is illustrated graphically in <span class="figNum whileconstruct"></span>.
+			</p>
+
+			<p>
+				<span class="figNum whilesum"></span> contains a program that uses a “while” loop. The purpose of the program is to compute the sum of a collection of non-negative numbers to be entered by the user. The program will repeatedly ask the user to enter a number, adding each number to the total, and printing the total so far. When the user enters a –1 the program will print the final total and exit.
+			</p>
+
+			<p>
+				This program includes two variables: <span class="Subfigure">total</span>, which will hold the sum of the numbers, and <span class="Subfigure">newValue</span>, which will hold the input entered by the user. Execution begins by setting <span class="Subfigure">total</span> to zero. Next, the user is prompted to “Enter a positive number (or –1 to quit)”. The user’s response is stored in <span class="Subfigure">newValue</span>. In the run of the program illustrated in <span class="figNum whilesum"></span>, the user entered 100.
+			</p>
+
+			<p>
+				At this point the program encounters the “while” loop, and the value that was entered by the user is compared to 0. If this value is greater than or equal to 0 the statements that form the body of the loop will be executed, if the value is less than 0 the loop will exit. Given 100 as the value of <span class="Subfigure">newValue</span>, the loop statements are executed.
+			</p>
+			<!-- Manual fig 8.18
+
+			<p class="P10">
+				Program definition:
+			</p>
+
+			<p class="P54">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> var total; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> var newValue; // Numeric
+			</p>
+
+			<p class="P120">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> total = 0;
+			</p>
+
+			<p>
+				<span class="T15">&nbsp; </span><span class="Subfigure">newvalue = parseFloat(prompt(“</span><span class="T25">Enter a positive number (or –1 to quit)</span><span class="Subfigure">”,0));
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> while (newValue >= 0)
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> {
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span> total = total + newValue;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span> document.write(“The total so far is...”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; </span> document.writeln(total);
+			</p>
+
+			<p>
+				<span class="T16">&nbsp;  &nbsp; </span><span class="Subfigure">newvalue = parseFloat(prompt(“</span><span class="T25">Enter a positive number (or –1 to quit)</span><span class="Subfigure">”,0));
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> }
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> document.write(“The final total is...”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> document.writeln(total);
+			</p>
+
+			<p class="Bolded">
+				Program input/output behavior:
+			</p>
+
+			<p class="P67">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				Enter a positive number (or –1 to quit)
+			</p>
+
+			<p class="P45">
+				100
+			</p>
+
+			<p class="Subfigure">
+				The total so far is... 100
+			</p>
+
+			<p class="P4">
+				Enter a positive number (or –1 to quit)
+			</p>
+
+			<p class="P45">
+				50
+			</p>
+
+			<h5 class="P136">The total so far is... 150</h5>
+
+			<h5 class="P136">Enter a positive number (or –1 to quit)</h5>
+
+			<h5 class="P137">-1</h5>
+
+			<h5 class="P136">The final total is... 150</h5>
+			-->
+			<div id="JSFigure-18" class="divness"></div>
+			<p class="Figure">
+				<span class="figNum whilesum"></span> A program to compute the sum of an arbitrary number of non-negative numbers using a “While” loop
+			</p>
+
+			<p>
+				First, <span class="Subfigure">newValue</span> is added to <span class="Subfigure">total</span>. Next, the message “The total so far is… 100” is displayed. This is followed by the prompt “Enter a positive number (or –1 to quit)”. The user’s response to this prompt, which is 50 in the example run of <span class="figNum whilesum"></span>, is stored into <span class="Subfigure">newValue</span> and control returns to the top of the loop.
+			</p>
+
+			<p>
+				The value of the variable <span class="Subfigure">newValue</span> is once again compared to 0. Since <span class="Subfigure">newValue</span> contains a 50, which is greater than or equal to 0, execution of the loop continues. The 50 is added to <span class="Subfigure">total</span>. The message “The total so far is… 150” is displayed, and the next input prompt generated.
+			</p>
+
+			<p>
+				In the run of the program shown in <span class="figNum whilesum"></span> the user enters a –1 at this point. The user’s input is stored into <span class="Subfigure">newValue</span> and control again returns to the top of the loop. Since the Boolean expression, “<span class="Subfigure">newValue >= 0</span>”, would now evaluate to false, execution of the loop terminates and control moves to the “write” and “writeln” statements following the loop. These statements report the final total of 150, and program execution halts.
+			</p>
+
+			<p>
+				It is interesting to note that although the program instructs users to enter “–1 to quit”, the condition that controls the loop is actually “<span class="Subfigure">newValue >= 0</span>” which will be false for any negative number. Thus, the loop will actually terminate whenever the user enters any number less than zero, such as –5.
+			</p>
+
+			<p>
+				While the program of <span class="figNum whilesum"></span> works well for computing the total of a collection of non-negative numbers, it suffers from the limitation that it does not work for all numbers: positive, negative, and zero. The reason for this limitation is that the program depends on a ‘sentinel’, in this case a negative number, to determine when the main loop should be terminated – and therefore when the program should stop asking for additional numbers and report the final total.
+			</p>
+			
+			<!--Manual fig 8.19
+
+			<p class="Bolded">
+				Program definition:
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> var n; // Numeric
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> var total; // Numeric
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> var counter; // Numeric
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> var newvalue; // Numeric
+			</p>
+
+			<p class="P121">
+				&nbsp;
+			</p>
+
+			<p>
+				<span class="T28">&nbsp; </span><span class="T27">n = parseFloat(prompt(“</span><span class="T25">How many numbers are to be added together?</span><span class="T27">”, 0));
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> total = 0;
+			</p>
+
+			<p class="P48">
+				&nbsp; </span>counter = 1;
+			</p>
+
+			<p class="P48">
+				&nbsp; </span>while (counter <= n)
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> {
+			</p>
+
+			<p class="P48">
+				&nbsp;  &nbsp;  &nbsp; </span>document.write(“The total so far is... ”);
+			</p>
+
+			<p class="P48">
+				&nbsp;  &nbsp;  &nbsp; </span>document.writeln(total);
+			</p>
+
+			<p>
+				<span class="T28">&nbsp;  &nbsp;  &nbsp; </span><span class="T27">newvalue = parseFloat(prompt(“</span><span class="T29">Enter a number to add to the total.</span><span class="T27">”,0));
+			</p>
+
+			<p class="P108">
+				total = total + newvalue;
+			</p>
+
+			<div class="P108">
+				counter = counter + 1;
+			</div>
+
+			<p class="P48">
+				&nbsp; </span> }
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> document.write(“The final total is... ”);
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> document.writeln(total);
+			</p>
+
+			<p class="Bolded">
+				Program input/output behavior:
+			</p>
+
+			<p class="Subfigure">
+				How many numbers are to be added together?
+			</p>
+
+			<p class="P105">
+				2
+			</p>
+
+			<p class="Subfigure">
+				The total so far is... 0
+			</p>
+
+			<p class="Subfigure">
+				Enter a number to add to the total.
+			</p>
+
+			<p class="P105">
+				100
+			</p>
+
+			<p class="Subfigure">
+				The total so far is... 100
+			</p>
+
+			<p class="P14">
+				Enter a number to add to the total.
+			</p>
+
+			<p class="P105">
+				50
+			</p>
+
+			<h5 class="P139">The final total is... 150</h5>
+
+			<p class="P122">
+				&nbsp;
+			</p>
+			-->
+			<div id="JSFigure-19" class="divness"></div>
+			<p class="Figure">
+				<span class="figNum whilesumofn"></span> &nbsp; A program to compute the sum of N numbers using a “while” loop
+			</p>
+
+			<p>
+				One way around this issue, is to modify the program of <span class="figNum whilesum"></span> so that it first asks the user how many numbers are to be added together, and then uses that number to control how many times the main loop is to repeated. Such a program, which computes the sum of N numbers (positive, negative, or zero) using a “while” loop is given in <span class="figNum whilesumofn"></span>.
+			</p>
+
+			<p>
+				In many ways, the programs of <span class="figNum whilesum"></span> and <span class="figNum whilesumofn"></span> are quite similar. They use the variables <span class="Subfigure">total</span> and <span class="Subfigure">newValue</span> in the same way. They both prompt the user to enter numbers each time through the loop, print running totals, and a final total at the end. However, there are significant differences between these two programs as well.
+			</p>
+
+			<p>
+				The program of <span class="figNum whilesumofn"></span> contains four variables: <span class="Subfigure">n</span>, <span class="Subfigure">total</span>, <span class="Subfigure">counter</span>, and <span class="Subfigure">newValue</span>. The variable <span class="Subfigure">n</span> is used to hold the number of values to be summed. <span class="Subfigure">total</span> holds the sum of the numbers that have been added together so far. <span class="Subfigure">counter</span> is the loop variable – it keeps up with which iteration of the loop is currently being executed. Finally, <span class="Subfigure">newValue</span> is used to receive each number entered by the user.
+			</p>
+
+			<p>
+				After declaring the variables, the program begins execution by prompting the user for the number of values to be summed. The user’s input is captured and stored in the variable <span class="Subfigure">n</span>. In the sample run of the program given in <span class="figNum whilesumofn"></span>, the user entered 2 at this point – indicating that two numbers are to be summed. Next, the variable <span class="Subfigure">total</span> is set equal to 0. This is done to reflect the fact that, at the moment, the total of all of the numbers the program has added together is zero.
+			</p>
+
+			<p>
+				The program now prepares itself to enter the main loop, which will control the prompting of input and addition of numbers. During this portion of the program, the variable <span class="Subfigure">counter</span> will mark how many times the loop has been executed, while the variable <span class="Subfigure">n</span> keeps up with the total number of times we desire the loop to be executed.
+			</p>
+
+			<p>
+				The variable <span class="Subfigure">counter</span> is now set to 1. This action is taken to record the fact that the program is about to enter the main loop for the first time. The program now encounters the “while” loop. The variable <span class="Subfigure">counter</span> is compared to <span class="Subfigure">n</span>, and the loop statements are executed if the <span class="Subfigure">counter</span> is less than or equal to <span class="Subfigure">n</span>. Since <span class="Subfigure">n</span> holds the value 2 at the moment, while <span class="Subfigure">counter</span> holds the value 1, <span class="Subfigure">counter</span> is currently less than or equal to <span class="Subfigure">n</span>, so the body of the loop is executed.
+			</p>
+
+			<p>
+				The first two loop statements display the message “The total so far is… 0”. The third line prompts the user to “Enter a number to add to the total.” and stores the user’s input into <span class="Subfigure">newValue</span>. The next line in the body of the loop adds <span class="Subfigure">newValue</span> to the <span class="Subfigure">total</span> for far. Assuming the user enters 100 for <span class="Subfigure">newValue</span>, as is the case in the example of <span class="figNum whilesumofn"></span>, <span class="Subfigure">total</span> would now contain 100, since 0 + 100 = 100. The last action to take place during the first pass through the loop is for 1 to be added to <span class="Subfigure">counter</span>, giving it a value of 2. Control then returns to the top of the loop.
+			</p>
+
+			<p>
+				The current value of <span class="Subfigure">counter</span>, 2, is compared to the current value of <span class="Subfigure">n</span>, which is also 2. Since 2 is less than or equal to 2, the second pass through the loop begins. Lines one and two generate “The total so far is… 100”. Line three prints its prompt and stores the user’s input into <span class="Subfigure">newValue</span>, which in line four is added to total. Given 50 as the user’s input, <span class="Subfigure">total</span> would be set to 150, since 100 + 50 = 150. The variable <span class="Subfigure">counter</span> is then incremented by 1, giving it a value of 3, and control returns to the top of the loop.
+			</p>
+
+			<p>
+				Since the current value of <span class="Subfigure">counter</span>, 3, is greater than <span class="Subfigure">n</span>, 2, execution of the loop terminates and control passes to the statement following the loop’s closing bracket, “}”. This statement and the next display the message “The final total is… 150”. The end of the program is then encountered and its execution ceases.
+			</p>
+
+			<p>
+				The program of <span class="figNum whilesumofn"></span> can be simplified somewhat by replacing its “while” loop with a “for” loop. A “for” loop is a specialized iteration construct that implements count-based loops. The “for” loop combines into a single statement, loop variable initialization, the loop condition test, and the loop variable increment operation. Each of these operations are highlighted with arrows in <span class="figNum whilesumofn"></span>.
+			</p>
+
+			<p>
+				The general format of the “for” loop is:
+			</p>
+
+			<ul class="Blockcenter">
+				<li>
+					<span class="Subfigure">for (</span><span class="Italicized">variable</span><span class="Subfigure"> = </span><span class="Italicized">initialValue</span><span class="Subfigure">; &nbsp; </span><span class="Italicized">variable</span><span class="Italicized">&nbsp; relationalOperator</span><span class="Italicized">finalValue</span><span class="Subfigure">; &nbsp; </span><span class="Italicized">&nbsp; variable</span><span class="Subfigure">++</span><span class="Subfigure">)</span>
+				</li>
+			
+				<li>
+					<span class="Subfigure">{</span>
+				</li>
+				
+				<ul class="Subblockcenter">
+					<li>
+						<span class="Italicized">statements</span>
+					</li>
+				</ul>
+				
+				<li>
+					<span class="Subfigure">}</span>
+				</li>
+			</ul>
+			
+			<br/>
+							
+			<p>
+				“For” loops work in the following way. First a numeric “loop variable”, indicated above by <span class="Italicized">variable</span>, is initialized to the value of <span class="Italicized">initialValue</span>. The value of the loop variable is then compared to the value of <span class="Italicized">finalValue</span> using the <span class="Italicized">relationalOperator</span>. If the expression <span class="Italicized">variable relationalOperator finalValue</span> is true, the <span class="Italicized">statements</span> of the loop are executed. However, if the result of the expression is false, program control immediately moves to the first statement following the loop’s closing bracket, “}”skipping over the <span class="Italicized">statements</span> in this case. Assuming the expression is true, after executing the <span class="Italicized">statements</span>, the loop variable will be automatically incremented by one and control will return to the top of the loop where the value of the loop variable will once again be compared to the value of <span class="Italicized">finalValue</span>.
+			</p>
+
+			<p>
+				If the result of the expression <span class="Italicized">variable relationalOperator finalValue</span> is no longer true, execution of the loop terminates and control passes to the statement following the closing bracket, “}”. Otherwise, the <span class="Italicized">statements</span> of the loop are executed a second time. This process repeats itself until the loop expression eventually becomes false, at which point the loop terminates.
+			</p>
+
+			<p>
+				The behavior of the “for” loop is illustrated in <span class="figNum forconstruct"></span>. While certainly not always the case, the <span class="Italicized">initialValue</span> is often set at 1 and the <span class="Italicized">relationalOperator</span> is set to “<=”. Under these circumstances, <span class="Italicized">finalValue</span> would specify the number of times the loop would be executed, while <span class="Italicized">variable</span> counts off each iteration of the loop: 1, 2, 3, … <span class="Italicized">finalValue</span>. Thus, during loop execution, <span class="Italicized">variable</span> will always indicate which iteration is currently being processed.
+			</p>
+
+			<img src="images/forconstruct.png" alt="An illustration of the behavior of the while loop iteration construct" class="ImageTall">
+
+			<p class="Figure">
+				<span class="figNum forconstruct"></span> An illustration of the behavior of the “For” loop iteration construct
+			</p>
+
+			<p>
+				<span class="figNum forprogram"></span> illustrates a “for” loop in action. The program of <span class="figNum forprogram"></span> is simply the program of <span class="figNum whilesumofn"></span> rewritten to use a “for” instead of a “while”. Notice that each of the statements marked with arrows in <span class="figNum whilesumofn"></span> have been “collapsed” into the “for” construct in <span class="figNum forprogram"></span>. Namely, it is no longer necessary to initialize <span class="Subfigure">counter</span> to 1 in a separate statement prior to entering the loop, nor is it necessary to increment <span class="Subfigure">counter</span> by 1 at the bottom of the loop. These actions are now performed automatically by the “for” loop.
+			</p>
+			<!-- Manual fig 8.21
+
+			<p class="P48">
+				&nbsp; </span> var n; // Numeric
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> var total; // Numeric
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> var counter; // Numeric
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> var newvalue; // Numeric
+			</p>
+
+			<p class="P121">
+				&nbsp;
+			</p>
+
+			<p>
+				<span class="T28">&nbsp; </span><span class="T27">n = parseFloat(prompt(“</span><span class="T25">How many numbers are to be added together?</span><span class="T27">”, 0));
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> total = 0;
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> for (counter = 1; counter <= n; counter++)
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> {
+			</p>
+
+			<p class="P48">
+				&nbsp;  &nbsp;  &nbsp; </span>document.write(“The total so far is... ”);
+			</p>
+
+			<p class="P48">
+				&nbsp;  &nbsp;  &nbsp; </span>document.writeln(total);
+			</p>
+
+			<p>
+				<span class="T28">&nbsp;  &nbsp;  &nbsp; </span><span class="T27">newvalue = parseFloat(prompt(“</span><span class="T29">Enter a number to add to the total.</span><span class="T27">”,0));
+			</p>
+
+			<p class="P108">
+				total = total + newvalue;
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> }
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> document.write(“The final total is... ”);
+			</p>
+
+			<p class="P48">
+				&nbsp; </span> document.writeln(total);
+			</p>
+			-->
+			<div id="JSFigure-21" class="divness"></div>
+			<p class="Figure">
+				<span class="figNum forprogram"></span> &nbsp; A program to compute the sum of N numbers using a “For” loop
+			</p>
+
+			<p>
+				Use of the “for” construct to implement count-based loops is preferable to implementing such loops using “while”. “For” loops are convenient from the programmer’s point of view, since they combine three statements: initialization, test, and increment, into one statement. They also increase the clarity of the program by telling the reader, up front, that the loop that is being entered is count-based.
+			</p>
+
+			<p>
+				“For” loops eliminate a common source of errors. When implementing a count-based loop using a “while” construct, as in the program of <span class="figNum whilesumofn"></span>, the programmer must be careful to ensure that the last action in the body of the loop is an increment of the loop variable. If the programmer accidentally omits this increment statement, the condition controlling the loop will <span class="Ital">never</span> become false and thus the loop will never terminate. In the program of <span class="figNum whilesumofn"></span>, <span class="Subfigure">counter</span> would always be 1, so if the test <span class="Subfigure">counter <= n</span> &nbsp;  &nbsp; was true when the loop was first entered, it will always be true – and the loop will never exit.
+			</p>
+
+			<p>
+				When a program attempts to execute one of these so-called infinite loops, it gets “caught” in the loop. All that can be done at that point is to “kill” the offending program by issuing an operating system level command, such as Control-Alt-Delete in Windows.
+			</p>
+
+			<p>
+				It is important to recognize that although “for” loops are quite convenient, they are not strictly necessary, since every program incorporating a “for” loop could always be rewritten using a “while” loop.
+			</p>
+			<!-- Manual fig 8.22
+
+			<p class="P10">
+				Program definition:
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> var numberOfGrades; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> var total; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> var i; //Numeric
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> var grade; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> var average; // Numeric
+			</p>
+
+			<p>
+				<span class="T31">&nbsp; </span><span class="Subfigure">numberOfGrades = parseFloat(prompt( “</span><span class="T25">Enter the number of grades.</span><span class="Subfigure">”, 0));
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> total = 0;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> for (i = 1; i <= numberOfGrades; i++)
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> {
+			</p>
+
+			<p class="Subfigure">
+				grade = parseFloat(prompt( “Enter a grade. ”, 0));
+			</p>
+
+			<p class="Subfigure">
+				document.write(“Grade ”);
+			</p>
+
+			<p class="Subfigure">
+				document.write(i);
+			</p>
+
+			<p class="Subfigure">
+				document.write(“: ”);
+			</p>
+
+			<p class="Subfigure">
+				document.writeln(grade);
+			</p>
+
+			<p class="Subfigure">
+				total = total + grade;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> }
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> document.write(“The average of the grades is ”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> if (numberOfGrades &gt; 0)
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> {
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  &nbsp; </span>average = total / numberOfGrades;
+			</p>
+
+			<p class="Subfigure">
+				document.writeln(average);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> }
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> else
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> {
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  &nbsp; </span>document.writeln(“undefined.”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> }
+			</p>
+
+			<p class="Bolded">
+				Program input/output behavior:
+			</p>
+
+			<table border="0" cellpadding="0" cellspacing="0" class="Table3">
+				<colgroup>
+					<col width="313"/>
+					<col width="21"/>
+					<col width="405"/>
+				</colgroup>
+
+				<tr class="Table31">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;"><h6 class="Heading_20_6">Run #1</h6></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P22">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;"><h6 class="Heading_20_6">Run #2</h6></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P49">
+						Enter the number of grades.
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P49">
+						&nbsp; </span> Enter the number of grades.
+					</p></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P57">
+						3
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P57">
+						&nbsp; </span> 0
+					</p></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P49">
+						Enter a grade.
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P49">
+						&nbsp; </span> The average of the grades is undefined.
+					</p></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P57">
+						100
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P49">
+						Grade 1: 100
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P49">
+						Enter a grade.
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P57">
+						50
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P49">
+						Grade 2: 50
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P49">
+						Enter a grade.
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P57">
+						90
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P49">
+						Grade 3: 90
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+				</tr>
+
+				<tr class="Table32">
+					<td class="Table3_A1" style="text-align:left;width:2.8181in;">
+					<p class="P49">
+						The average of the grades is 80
+					</p></td>
+
+					<td class="Table3_A1" style="text-align:left;width:0.1875in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+
+					<td class="Table3_C1" style="text-align:left;width:3.6521in;">
+					<p class="P51">
+						&nbsp;
+					</p></td>
+				</tr>
+			</table>
+			-->
+			<div id="JSFigure-22" class="divness"></div>
+			<p class="Figure">
+				<span class="figNum foraverage"></span> &nbsp; A program to average grades using a “For” loop and an “If-Else” construct
+			</p>
+
+			<p>
+				Is the opposite true? &nbsp; Can every program that uses a “while” be rewritten using “for”? &nbsp; The answer is “no”. “For” loops are based on counting <span class="Ital">from</span> some value <span class="Ital">to</span> some other value. A “for” loop could not be used to implement the program of <span class="figNum whilesum"></span> since the loop in that program does not execute some fixed number of times. Instead, it repeats over and over until the user types in a value of –1. That might be the first input or it might be the hundredth or the ten thousandth. There is no way to tell.
+			</p>
+
+			<p>
+				Because “for” loops can always be replaced with “while” loops, but not all “while” loops can be replaced with “for” loops, we say that the “while” loop is “more general” than the “for”.
+			</p>
+
+			<p>
+				The next program we will examine incorporates both a “for” loop and an “if-else” statement in order to compute the average of a set of grades. The program, presented in <span class="figNum foraverage"></span>, computes the average of a collection of grades entered by the user.
+			</p>
+
+			<p>
+				Much of the program is similar to the one presented in <span class="figNum forprogram"></span>. It gets from the user the <span class="Subfigure">numberOfGrades</span> to be averaged, sets the <span class="Subfigure">total</span> to zero, and then enters a loop that asks for, receives, and adds to the <span class="Subfigure">total</span> each <span class="Subfigure">grade</span> entered by the user. As grades are entered, they are “echoed” to the screen using “write” and “writeln” statements. Once the final <span class="Subfigure">grade</span> has been added to the <span class="Subfigure">total</span> the loop exits and the <span class="Subfigure">average</span> can be computed and reported.
+			</p>
+
+			<p>
+				There is, however, one potential snag in the above scenario. If 0 were entered by the user as the <span class="Subfigure">numberOfGrades</span>, then <span class="Subfigure">average</span> would be undefined. In fact, attempting to compute <span class="Subfigure">average</span> as <span class="Subfigure">total</span> divided by <span class="Subfigure">numberOfGrades</span> would result in a divide-by-zero error. To overcome this potential problem, the program verifies that <span class="Subfigure">numberOfGrades</span> is greater than 0 before performing the division. If it is less than or equal to zero, then the string “undefined.” is printed instead of the value of <span class="Subfigure">average</span>.
+			</p>
+
+			<p>
+				Two separate runs of the program are illustrated in <span class="figNum foraverage"></span>. In the first run, there are three grades to be averaged: 100, 50, and 90, giving a result of 80. In the second run, the user enters 0 for the <span class="Subfigure">numberOfGrades</span>. Since the initial value of loop variable <span class="Subfigure">i</span>, 1, is greater than zero, the statements in the body of the loop are skipped. As a result, the program never requests the user to enter any grades and <span class="Subfigure">total</span> remains at zero. When the “if-else” statement is encountered the ‘average’ will be reported as “undefined.”.
+			</p>
+
+			<p>
+				One final point worth making about the program of <span class="figNum foraverage"></span> is that it will work correctly even if the user accidentally enters a negative value for <span class="Subfigure">numberOfGrades</span>. In this case, the statements in the body of the loop will be skipped and the “If” condition will be false, so the message “The average of the grades is undefined.” will be generated.
+			</p>
+
+			<p>
+				One limitation of this program, and many other programs that use count-based loops to control user input, is that they are critically dependent on being given the correct number of input items at the beginning of the program. If the count of the number of items to be input is off, the program will either ask for too few items or for too many. Either way, users would find such behavior quite frustrating. This limitation cannot be easily overcome without abandoning the count-based approach.
+			</p>
+
+			<p>
+				Thus, while the program of <span class="figNum foraverage"></span> may be useful for averaging a handful of grades, in reality, no one would be willing to use the program to compute the average of a long list of grades. The reason for this is that in order to use the program, the user must first count how many grades are in the list. If he or she makes a mistake while counting, the user won’t discover this until either the program fails to ask grade or asks for one when no more are available.
+			</p>
+
+			<p>
+				All is not lost however, since the program of <span class="figNum foraverage"></span> could be modified to use the sentinel-based, while loop approach of <span class="figNum whilesum"></span> for reading its input. Under this approach, the program would ask for grades until a negative number were entered, instead of requiring the user to enter the number of grades up front.
+			</p>
+
+			<p>
+				Before leaving the topic of iteration, we should say a few words about the idea of “nested loops”. Two loops are “nested” when one loop appears within the body of another loop. Since there are no restrictions as to what statements can appear within the body of a loop, a “for” or “while” can certainly appear within the body of another “for” or “while”. Nesting of loops is quite common, and in fact may be carried out to an arbitrary depth. (However, to keep the logic of a program from becoming too hard to follow, programmers try to limit nesting depths to no more than three or four levels deep.)
+			</p>
+
+			<p>
+				<span class="figNum formultiplication"></span> presents a compact little program for printing the multiplication table. A partial listing of the program’s output is included in the figure. This program consists of two nested “for” loops. The loop variable of the outer loop is <span class="Subfigure">i</span> and the loop variable for the inner loop is <span class="Subfigure">j</span>. Both of these loops count from one to twelve.
+			</p>
+
+			<p>
+				The program’s output is of the form:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Ital">i </span><span class="Subfigure">times</span> <span class="Ital">j </span><span class="Subfigure">equals</span> <span class="Italicized">x</span>
+			</p>
+
+			<p>
+				where <span class="Subfigure">i</span> and <span class="Subfigure">j</span> represent the values of the respective variables and <span class="Italicized">x</span> is their product. Notice from the partial listing of the output in <span class="figNum formultiplication"></span> that <span class="Subfigure">j</span> runs through its entire range, from 1 to 12, before <span class="Subfigure">i</span> is incremented by 1. This behavior is easy to understand when you think about the structure of the program.
+			</p>
+
+			<p>
+				Let’s look at the outer loop. What does it do? &nbsp; Well, first <span class="Subfigure">i</span> is initialized to 1, it is then compared to 12, and since it is not greater, the first iteration of the loop commences. The first statement of the loop prints out a blank line. The next “statement” is a loop construct. In order for the first iteration of the outer loop to complete, the program must execute this inner loop to completion.
+			</p>
+			<!-- Manual fig 8.23
+
+			<p class="P10">
+				Program definition:
+			</p>
+
+			<p class="P123">
+				&nbsp;  &nbsp; </span>var i; // Numeric
+			</p>
+
+			<p class="P123">
+				&nbsp;  &nbsp; </span>var j; // Numeric
+			</p>
+
+			<p class="P123">
+				&nbsp;  &nbsp; </span>var product; // Numeric
+			</p>
+
+			<p class="P123">
+				&nbsp;
+			</p>
+
+			<p class="P123">
+				&nbsp;  &nbsp; </span>for (i = 1; i <= 12; i++)
+			</p>
+
+			<p class="P123">
+				&nbsp;  &nbsp; </span>{
+			</p>
+
+			<p class="P123">
+				&nbsp;  document.writeln(“ ”);
+			</p>
+
+			<p class="P123">
+				&nbsp;  for (j = 1; j <= 12; j++)
+			</p>
+
+			<h6 class="Heading_20_8">&nbsp;  &nbsp;  &nbsp;  &nbsp;  {</h6>
+
+			<p class="P123">
+				&nbsp;  &nbsp;  &nbsp; product = i * j;
+			</p>
+
+			<p class="P123">
+				&nbsp;  &nbsp;  &nbsp; document.write(i);
+			</p>
+
+			<p class="P123">
+				&nbsp;  &nbsp;  &nbsp; document.write(“ times ”);
+			</p>
+
+			<p class="P123">
+				&nbsp;  &nbsp;  &nbsp; document.write(j);
+			</p>
+
+			<p class="P123">
+				&nbsp;  &nbsp;  &nbsp; document.write(“ equals ”);
+			</p>
+
+			<p class="P123">
+				&nbsp;  &nbsp;  &nbsp; document.writeln(product);
+			</p>
+
+			<p class="P123">
+				&nbsp;  }
+			</p>
+
+			<p class="P123">
+				&nbsp;  &nbsp; </span>}
+			</p>
+
+			<div class="Bolded">
+				Program output: (partial)
+			</div>
+
+			<p class="P49">
+				1 times 1 equals 1&nbsp;  &nbsp; 3 times 1 equals 3&nbsp;  &nbsp;  &nbsp; 5 times 1 equals 5
+			</p>
+
+			<p class="P49">
+				1 times 2 equals 2&nbsp;  &nbsp; 3 times 2 equals 6&nbsp;  &nbsp;  &nbsp; 5 times 2 equals 10
+			</p>
+
+			<p class="P49">
+				1 times 3 equals 3&nbsp;  &nbsp; 3 times 3 equals 9&nbsp;  &nbsp;  &nbsp; 5 times 3 equals 15
+			</p>
+
+			<p class="P49">
+				1 times 4 equals 4&nbsp;  &nbsp; 3 times 4 equals 12&nbsp;  &nbsp;  &nbsp; 5 times 4 equals 20
+			</p>
+
+			<p class="P49">
+				1 times 5 equals 5&nbsp;  &nbsp; 3 times 5 equals 15&nbsp;  &nbsp;  &nbsp; 5 times 5 equals 25
+			</p>
+
+			<p class="P49">
+				1 times 6 equals 6&nbsp;  &nbsp; 3 times 6 equals 18&nbsp;  &nbsp;  &nbsp; 5 times 6 equals 30
+			</p>
+
+			<p class="P49">
+				1 times 7 equals 7&nbsp;  &nbsp; 3 times 7 equals 21&nbsp;  &nbsp;  &nbsp; 5 times 7 equals 35
+			</p>
+
+			<p class="P49">
+				1 times 8 equals 8&nbsp;  &nbsp; 3 times 8 equals 24&nbsp;  &nbsp;  &nbsp; 5 times 8 equals 40
+			</p>
+
+			<p class="P141">
+				1 times 9 equals 9 <span style="position:absolute;left:8.295cm;text-align:center;">&nbsp; 3 times 9 equals 27</span><span style="position:absolute;left:18.415cm;text-align:right;">&nbsp;  &nbsp; 5 times 9 equals 45
+			</p>
+
+			<p class="P49">
+				1 times 10 equals 10&nbsp;  &nbsp; 3 times 10 equals 30&nbsp;  &nbsp;  &nbsp; 5 times 10 equals 50
+			</p>
+
+			<p class="P49">
+				1 times 11 equals 11&nbsp;  &nbsp; 3 times 11 equals 33&nbsp;  &nbsp;  &nbsp; 5 times 11 equals 55
+			</p>
+
+			<p class="P49">
+				1 times 12 equals 12 &nbsp;  &nbsp;  &nbsp; 3 times 12 equals 36 &nbsp;  &nbsp;  &nbsp; 5 times 12 equals 60
+			</p>
+
+			<p class="P49">
+				&nbsp;
+			</p>
+
+			<p class="P49">
+				2 times 1 equals 2&nbsp;  &nbsp; 4 times 1 equals 4&nbsp;  &nbsp;  &nbsp; 6 times 1 equals 6
+			</p>
+
+			<p class="P49">
+				2 times 2 equals 4&nbsp;  &nbsp; 4 times 2 equals 8&nbsp;  &nbsp;  &nbsp; 6 times 2 equals 12
+			</p>
+
+			<p class="P49">
+				2 times 3 equals 6&nbsp;  &nbsp; 4 times 3 equals 12&nbsp;  &nbsp;  &nbsp; 6 times 3 equals 18
+			</p>
+
+			<p class="P49">
+				2 times 4 equals 8&nbsp;  &nbsp; 4 times 4 equals 16&nbsp;  &nbsp;  &nbsp; 6 times 4 equals 24
+			</p>
+
+			<p class="P49">
+				2 times 5 equals 10&nbsp;  &nbsp; 4 times 5 equals 20&nbsp;  &nbsp;  &nbsp; 6 times 5 equals 30
+			</p>
+
+			<p class="P49">
+				2 times 6 equals 12&nbsp;  &nbsp; 4 times 6 equals 24&nbsp;  &nbsp;  &nbsp; 6 times 6 equals 36
+			</p>
+
+			<p class="P49">
+				2 times 7 equals 14&nbsp;  &nbsp; 4 times 7 equals 28&nbsp;  &nbsp;  &nbsp; .  .  .  &nbsp; .  .
+			</p>
+
+			<p class="P49">
+				2 times 8 equals 16&nbsp;  &nbsp; 4 times 8 equals 32&nbsp;  &nbsp;  &nbsp; .  .  .  &nbsp; .  .
+			</p>
+
+			<p class="P49">
+				2 times 9 equals 18&nbsp;  &nbsp; 4 times 9 equals 36&nbsp;  &nbsp;  &nbsp; .  .  .  &nbsp; .  .
+			</p>
+
+			<p class="P49">
+				2 times 10 equals 20&nbsp;  &nbsp; 4 times 10 equals 40
+			</p>
+
+			<p class="P49">
+				2 times 11 equals 22&nbsp;  &nbsp; 4 times 11 equals 44
+			</p>
+
+			<p class="P49">
+				2 times 12 equals 24&nbsp;  &nbsp; 4 times 12 equals 48
+			</p>
+			-->
+			<div id="JSFigure-23" class="divness"></div>
+
+			<p class="Figure">
+				<span class="figNum formultiplication"></span> &nbsp; A program that prints the multiplication table using nested “For” loops.
+			</p>
+
+			<p>
+				The inner loop begins by initializing <span class="Subfigure">j</span> to 1. Since 1 is not greater than 12, the first pass through the inner loop begins. The first statement of this loop computes the <span class="Subfigure">product</span> of <span class="Subfigure">i</span> and <span class="Subfigure">j</span>. Since they are both 1, their product is 1. Next, the following four items are printed on a single line: the current value of <span class="Subfigure">i</span>, the string “ times ”, the current value of <span class="Subfigure">j</span>, and the string “ equals ”. These are followed by the current value of <span class="Subfigure">product</span> and a new line character. Thus the string “1 times 1 equals 1” is generated. The first pass of the inner loop ends with <span class="Subfigure">j</span> being incremented from 1 to 2 and control returning to the top of that loop.
+			</p>
+
+			<p>
+				Each pass through the inner loop proceeds in a similar fashion, with <span class="Subfigure">i</span> remaining constant and <span class="Subfigure">j</span> being bumped up by one each time. So, during the second pass “1 times 2 equals 2” is printed, during the third “1 times 3 equals 3” is display, and so forth. Eventually, <span class="Subfigure">j</span> reaches 12 and &nbsp; “1 times 12 equals 12” is output. <span class="Subfigure">j</span> is then incremented to 13 and control returns to the top of the inner loop. Since 13 is greater than 12 the inner loop completes.
+			</p>
+
+			<p>
+				Execution of the first pass through the outer loop can now resume. Since the inner loop was the last “statement” of the outer loop, the loop variable <span class="Subfigure">i</span> is incremented by 1, to 2, and control returns to the top of the outer loop.
+			</p>
+
+			<p>
+				The current value of <span class="Subfigure">i</span>, 2, is not greater than 12, so the second pass through the outer loop begins. The first statement generates a blank line, as it did during the first pass through the loop. Next, the inner loop is encountered and its execution starts afresh. <span class="Subfigure">j</span> is initialized to 1. Since that value is less than 12 the statements of the loop are executed and the string “2 times 1 equals 2” is printed. Subsequent passes through the inner loop produce “2 times 2 equals 4”, “2 times 3 equals 6”, etc. Eventually, of course, the inner loop will again complete and the third pass of the outer loop can begin.
+			</p>
+
+			<p>
+				This process repeats itself until all 144 entries in the multiplication table, from 1 &times; 1 to 12 &times; 12, are computed and printed.
+			</p>
+
+			<p>
+				We conclude this section on iteration with the program of <span class="figNum beeriterative"></span>. This program prints the lyrics to the song &nbsp; “99 Bottles of Beer on the Wall”. As you most likely know, the song begins:
+			</p>
+			<!-- Manual fig 8.24
+
+			<p class="P116">
+				99 bottles of beer on the wall.
+			</p>
+
+			<p class="P116">
+				99 bottles of beer.
+			</p>
+
+			<p class="P116">
+				Take one down. Pass it around.
+			</p>
+
+			<p class="P116">
+				98 bottles of beer on the wall.
+			</p>
+
+			<p class="P116">
+				&nbsp;
+			</p>
+
+			<p class="P116">
+				98 bottles of beer on the wall.
+			</p>
+
+			<p class="P116">
+				98 bottles of beer.
+			</p>
+
+			<p class="P116">
+				Take one down. Pass it around.
+			</p>
+
+			<p class="P116">
+				97 bottles of beer on the wall.
+			</p>
+
+			<p class="Subfigure">
+				var count; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				count = parseFloat(prompt(“How many bottles?”,0));
+			</p>
+
+			<p class="Subfigure">
+				while (count &gt; 0)
+			</p>
+
+			<p class="Subfigure">
+				{
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; document.write(count);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; document.writeln(“ bottles of beer on the wall,”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; </span> document.write(count);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; document.writeln(“ bottles of beer.”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; document.writeln(“Take one down. Pass it around.”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; count = count – 1;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; &nbsp;  &nbsp; document.write(count);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; document.writeln(“ bottles of beer on the wall.”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp; document.writeln(“ ”);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; }
+			</p>
+
+			<p class="Figure">
+				&nbsp;
+			</p>
+			-->
+			<div id="JSFigure-24" class="divness"></div>
+			<p class="Figure">
+				<span class="figNum beeriterative"></span> &nbsp; Beer – the iterative version
+			</p>
+
+			<p>
+				It continues in this manner, with one less bottle in each verse, until it finally runs out of beer. Actually, instead of beginning the song at 99 bottles, the program of <span class="figNum beeriterative"></span> asks the user to enter the number of bottles.
+			</p>
+
+			<p>
+				An interesting feature of the program is that it decrements <span class="Subfigure">count</span> in the middle of the loop, rather than at the end. You should trace through the program with a few bottles to convince yourself that it does work properly. One thing you will probably notice as you do so is that when the program gets down to one beer it reports that as “1 bottles of beer on the wall.” &nbsp; While this lack of grammatical correctness might not seem like such a big deal, especially after 98 beers, I’ll ask you to correct it in the exercises.
+			</p>
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum javascriptControl3"></span>
+			</p>
+
+			<ol id="exerciseList">
+				<li>
+					Show exactly what would be output by the following program assuming that the value entered by the user for <span class="Subfigure">i</span> is: (a) &nbsp; 2, &nbsp;  (b) 5, &nbsp;  (c) 7.&nbsp;
+					<ul class="Blockcenter">
+						<li><span class="Subfigure">var i; // Numeric</span></li>
+						<li><span class="Subfigure">var j; // Numeric</span></li>
+						<li><span class="Subfigure">var x; // Numeric</span></li>
+						<br />
+						<li><span class="Subfigure">i = parseFloat(prompt(“Enter an integer value. ”,0));</span></li>
+						<li><span class="Subfigure">document.write( “Man, this question ”);</span></li>
+						<li><span class="Subfigure">if (i &lt; 5)</span></li>
+						<li><span class="Subfigure">{</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Subfigure">x = 5 - i;</span></li>
+							<li><span class="Subfigure">for (j = 1; j <= x; j++)</span></li>
+							<li><span class="Subfigure">{</span></li>
+							<ul class="Subblockcenter">
+								<li><span class="Subfigure">document.write(“really ”);</span></li>
+							</ul>
+							<li><span class="Subfigure">}</span></li>
+							<li><span class="Subfigure">document.writeln(“sucks!”);</span></li>
+						</ul>
+						<li><span class="Subfigure">}</span></li>
+						<li><span class="Subfigure">else</span></li>
+						<li><span class="Subfigure">{</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Subfigure">document.write(“is ”);</span></li>
+							<li><span class="Subfigure"> x = i - 5;</span></li>
+							<li><span class="Subfigure">for (j = 1; j <= x; j++)</span></li>
+							<li><span class="Subfigure">{</span></li>
+							<ul class="Subblockcenter">
+								<li><span class="Subfigure">document.write(“way ”);</span></li>
+							</ul>
+							<li><span class="Subfigure">}</span></li>
+							<li><span class="Subfigure">document.writeln(“cool!”);</span></li>
+						</ul>
+						<li><span class="Subfigure">}</span></li>
+						<li><span class="Subfigure">document.writeln(“Peace.”);</span></li>
+					</ul>
+
+					<br/>
+					
+					</li>
+				<li>
+					<p class="exercise solvable 8">
+					Modify the program of <span class="figNum whilesum"></span> so that both negative and positive numbers can be added together. In order to do so and still have a way to exit the loop, use 0 as the exit sentinel.
+					</p>
+					
+					<div class="exerciseDiv 8"></div>
+				<br/>
+				</li>
+				<li>
+					<p class="exercise solvable 9">
+					Rewrite the program of <span class="figNum foraverage"></span> so that it uses a “while” loop to read in grades until a negative grade is entered, instead of using a “for” loop that requires the user to enter the number of grades in advance.
+					</p>
+					
+					<div class="exerciseDiv 9"></div>
+				<br/>
+				</li>
+				<li>
+					<p class="exercise solvable 10">
+					Modify the program of <span class="figNum beeriterative"></span> so that it correctly handles one bottle of beer. In other words, it should say “1 bottle of beer on the wall.” Instead of “1 bottles of beer…”
+					</p>
+					
+					<div class="exerciseDiv 10"></div>
+				<br/>
+				</li>
+				<li>
+					<p class="exercise solvable 11">
+					Rewrite the program of <span class="figNum beeriterative"></span> so that it uses a “For” loop instead of “While” loop. Note that “For” loops count “up” while the song counts “down”.
+					</p>
+					
+					<div class="exerciseDiv 11"></div>
+					<br/>
+				</li>
+				<li>
+					Explain in a single easy-to-understand English sentence exactly what the following program does.
+					
+					<ul class="Blockcenter">
+						<li><span class="Subfigure">var i; // Numeric</span></li>
+						<li><span class="Subfigure">var n; // Numeric</span></li>
+						<br/>
+						<li><span class="Subfigure">i = 1;</span></li>
+						<li><span class="Subfigure">n = 0;</span></li>
+						<li><span class="Subfigure">while (i <= 5)</span></li>
+						<li><span class="Subfigure">{</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Subfigure">n = n + i;</span></li>
+							<li><span class="Subfigure">i = i + 1;</span></li>
+						</ul>
+						<li><span class="Subfigure">}</span></li>
+						<li><span class="Subfigure">document.writeln(n);</span></li>
+					</ul>
+				</li>
+			</ol>
+			
+			<div class="push"></div>
+			<!-- End main content -->
+			</div> 
+			
+			<div class="blueFooterBar"></div>
+			
+			<script src="js/acorn.js"></script>
+			<script src="js/interpreter.js"></script>
+			<script src="js/WatsonDataStore.js"></script>
+			<script src="js/WatsonEditor.js"></script>
+			<script type="text/javascript" src="js/engine.js"></script>
+			<script src="js/JSFigures.js"></script>
+			<script src="js/WatsonDialogs.js"></script>
+			<script type="text/javascript" src="js/global.js"></script>
+			<link rel="stylesheet" type="text/css" href="css/editor.css">
+
+			<!-- Arrow navigation scripts -->
+		<script>
+			var pageObj;											// do NOT change name of variable
+			var chapID = "javascript";
+			var sectID = "javascriptControl3";
+			
+			$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("javascriptControl3");		// get arrow paths
+				setupExerciseButtons(sectID);
+				if (!localFlag) runGA();
+			});	
+
+			var figure18 = new Figure(18, "whilesum");
+			var figure19 = new Figure(19, "whilesumofn");
+			var figure21 = new Figure(21, "forprogram");
+			var figure22 = new Figure(22, "foraverage");
+			var figure23 = new Figure(23, "formultiplication");
+			var figure24 = new Figure(24, "beeriterative");
+		</script>
+	</body>
+</html>

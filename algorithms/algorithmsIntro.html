@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+		<link href = "../lib/css/styles.css" rel = "stylesheet">
+		<link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+			
+	    <!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+   		<div class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->			
+			<p class="Section">
+				<span class="contentNum algorithmsIntro"></span>
+			</p>
+	
+
+			<p>
+				One of the most important concepts in computing is the concept of an algorithm.  An <span class="Bolded">algorithm</span> is a detailed sequence of steps that describes how to solve a problem or accomplish some task.  In order to fully understand this definition, it is important to distinguish between a problem, an algorithm for solving that problem, and the process used to design the algorithm.
+			</p>
+
+			<p>
+				We all have a good intuitive feel for what a problem is – it is “something” that we want an answer to.  More formally, a <span class="Bolded">problem statement</span> generally consists of: (1) a description of the conditions at the start of the problem solving process, also known as the <span class="Bolded">input</span>; and (2) a description of the valid solution states, or desired <span class="Bolded">output</span>.  Often these aspects of the problem are stated explicitly, such as: “the input will be three integer numbers and the output will be the sum of those numbers.”  At other times they are stated implicitly, as in: “determine the amount of income tax you owe this year,” where the inputs are implied to be your income, tax rate, deductible expenses, and other such things.
+			</p>
+
+			<p>
+				An algorithm is essentially a description of how to solve a problem.<span class="Bolded">  Computer programs</span> are just algorithms that are written in a language that can be executed by a computer.  It is important to realize that when a computer executes, or runs, a program, it does not really “understand” the problem it is solving.  Instead, the computer is blindly following a sequence of instructions.  In general, computers do not design algorithms, human beings do.  The reason for this is that designing a good algorithm requires creativity and imagination (in addition to a lot of hard work).
+			</p>
+
+			<p>
+				One way to think about the difference between designing an algorithm (which humans do) and executing an algorithm (which computers do) is to think about the differences between performing a piece of music and composing that piece.  Imagine a composition in the form of sheet music; say Beethoven’s Piano Sonata No. 14 “Moonlight.”  The notes and other symbols printed on the page are instructions that describe how to play that piece.  These instructions are an algorithm that any competent pianist can follow (execute on a piano) to produce the music.  The job of the performer can be thought of as quite mechanical, requiring no imagination or creativity<span class="Footnote" title="Footnote: Of course, what separates an exceptional musician from one who is simply adequate is the ability to go beyond a purely mechanical reproduction of the notes on the page."><a href="#ftn1" id="body_ftn1">[1]</a></span>.  In fact, modern synthesizers can accept a musical score and perform it flawlessly.
+			</p>
+
+			<p>
+				The job of the composer is very different.  He or she imagines and designs the piece of music and ultimately encodes it as a series of symbols on paper.  Clearly, this task requires a set of skills, and level of creativity, very different from the performer.  In this analogy, the performer’s role is similar to that of the computer – simply executing the algorithm or playing the music, while the composer’s role is similar to that of a computer programmer – designing the instructions that can be followed to create the music.
+			</p>
+
+			<p>
+				This chapter is intended to give you a better understanding of algorithms and how humans develop them.  Its primary goal is to help you see that there are often many ways to solve a problem and that these ways can differ greatly in efficiency.
+			</p>
+
+			<p>
+				<span class="contentNum algorithmsEfficiency"></span> presents a simple problem and uses it to develop the concepts of “algorithm” and “algorithm efficiency.” <span class="contentNum algorithmsSearching"></span> and <span class="contentNum algorithmsSorting"></span> describe two common and useful tasks, searching and sorting, and present a number of different procedures (algorithms) for solving them.  The efficiency of each of the algorithms is characterized in order to determine the “best” way to accomplish these two tasks.
+			</p>
+			
+			<!-- Footnotes -->
+			<hr/>
+			
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a class="Footnote_20_Symbol" id="ftn1" href="#body_ftn1">[1]</a>&nbsp;Of course, what separates an exceptional musician from one who is simply adequate is the ability to go beyond a purely mechanical reproduction of the notes on the page.
+			</p>
+			
+			<div class="push"></div> <!-- pushes the footer static bottom -->
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the footer -->	
+			
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID="algorithms";
+				
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("algorithmsIntro");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+			<div>
+
+			</div>
+		</div>
+	</body>
+</html>

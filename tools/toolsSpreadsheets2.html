@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	  <!--<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	  <!-- CSS files -->
+		<link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<!-- Java Script files -->
+		<link rel="stylesheet" href="css/jquery.handsontable.full.css">
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+		<script src="js/jquery.handsontable.full.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End Navbar -->
+			
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum toolsSpreadsheets2"></span>
+			</p>
+		
+			<p>
+				While spreadsheet formulas and mathematical expressions are quite similar, one difference between the two is that spreadsheet formulas use cell references, rather than variables like <span class="Ital">X</span> and <span class="Ital">Y</span>.  There are other differences as well.
+			</p>
+		
+			<p>
+				In order to begin to understand these differences let’s consider how we would go about constructing a spreadsheet that would convert a temperature expressed in degrees Celsius into one expressed in degrees Fahrenheit.  The standard equation that expresses the relationship between these two temperature scales is:
+			</p>
+			
+			<ul class="Blockcenter">
+				<img src="images/fig2-fahrenheit.png" alt="">
+			
+			</ul>
+			<p>
+				This expression cannot be entered directly into a spreadsheet for two main reasons.  First, it refers to the variables <span class="Ital">F</span> and <span class="Ital">C</span> rather than to spreadsheet cell locations, and second the expression is an equation.  The first point is rather obvious; the second point is subtle but important.  Mathematical equations are essentially statements of fact, which say that two quantities are equal.  Spreadsheet formulas, instead of expressing equivalence, specify a sequence of mathematical operations that are to be performed.
+			</p>
+		
+			<p>
+				In order to construct a spreadsheet to perform temperature conversions from Celsius to Fahrenheit, we must first decide which spreadsheet cell will contain the input – the temperature in degrees Celsius – and which cell will hold the output – the same temperature expressed in degrees Fahrenheit.  Let’s say that we decide to place the input in cell B2 and would like the result to be placed immediately below it, in cell B3.
+			</p>
+		
+			<p>
+				Under these conditions, B2 will take the place of <span class="Ital">C</span> in the above expression.  But, what about <span class="Ital">F</span>?  It will not appear directly in the formula.  Instead, B3, the cell corresponding to <span class="Ital">F</span>, will be the cell in which we place the formula that describes <span class="Ital">how </span>to perform the temperature conversion.  Specifically, the following formula will be placed in cell B3:
+			</p>
+		
+			<p class="Subfigure">
+				= 9 / 5 * B2 + 32
+			</p>
+			
+			<p>
+				This formula instructs the spreadsheet to divide 9 by 5 and then multiply the result by whatever value is stored in cell B2, and finally to take that result and add 32.  The final result of this computation will then be displayed in the cell that contains the formula, cell B3 in this case.  
+			</p>
+		
+			<p>
+				Note that the symbol for multiplication must be included between <span class="Subfigure">9 / 5</span> and B2.  Even thought he rules of algebra allow multiplication to be implied by writing two quantities next to one another, spreadsheets require that all multiplication operations be explicitly indicated by the “*” symbol.  Many people familiar with spreadsheet formulas would also add parentheses around <span class="Subfigure">9 / 5</span>, giving <span class="Subfigure">= (9 / 5) * B2 + 32</span>, to make the formula easier to read, even though the parentheses are not strictly required in this case.
+			</p>
+		
+			<p>
+				The above example is illustrated in <span class="figNum ctofspreadsheet"></span>.  The number 0 is stored in cell B2, in order to represent an input of zero degrees Celsius.  Cell B3 holds the formula that will compute the equivalent temperature in degrees Fahrenheit.  In order to improve the readability of the spreadsheet, the text strings “Celsius” and “Fahrenheit” have been placed in cells C2 and C3, respectively.  Note that this example includes all three types of data that a spreadsheet may hold: numbers, formulas, and text strings.
+			</p>
+			
+			<p>
+				It is important to clearly understand that cell B3 in the spreadsheet of <span class="figNum ctofspreadsheet"></span> contains a formula and not a number. The value 32 is displayed in cell B3 because that is the value currently being computed by the formula stored in the cell.  In order to see the formula underlying a cell, simply click on the cell.  In <span class="figNum ctofspreadsheet"></span> cell B3 has been highlighted and its underlying formula is displayed immediately above the spreadsheet.
+			</p>
+
+			<div id="container4" style="margin-bottom:-80px; width:314px" class="container-fluid"></div>
+		
+			<p class="Figure">
+				<span class="figNum ctofspreadsheet"></span>  A spreadsheet for converting temperatures from Celsius to Fahrenheit
+			</p>
+		
+			<p>
+				At this point it would be natural to think to yourself, “Wow, that was a lot of work to go through just to show that 0 degrees Celsius is equal to 32 degrees Fahrenheit.”  And you would be right if that was all this spreadsheet could do.  
+			</p>
+		
+			<p>
+				The power of spreadsheets lie in their ability to automatically recalculate and update values that depend on other values.  In the case of the current example, changing the value stored in cell B2 will cause the formula in cell B3 to be recomputed.  So, if the value of 100 were placed in B2, the value displayed in B3 would automatically change to 212.  The Fahrenheit equivalent of <span class="Ital">any</span> temperature expressed in degrees Celsius can be computed just as easily – simply enter the temperature in Cell B2.
+			</p>
+		
+			<p>
+				Another example of spreadsheet formulas can be found by returning to <span class="figNum simplespreadsheet"></span>.  The spreadsheet of <span class="figNum simplespreadsheet"></span> computes the average of three grades, stored in cells C2, C3, and C4, and places the result into cell C6.  Since the average of three grades is given by the equation: 
+			</p>
+		
+			<ul class="Blockcenter">
+				<img src="images/fig2-average.png" alt="average formula">
+			</ul>
+		
+			<p>
+				the formula: 
+			</p>
+		
+			<p class="Subfigure">
+				= ( C2 + C3 + C4 ) / 3
+			</p>
+		
+			<p>
+				should be entered into location C6.  The parentheses are a critical part of the formula in this case, since all three grades must be added together and then that sum divided by 3.  If the parentheses had been omitted, only the last grade, C4, would have been divided by three.  This is due to the fact that division has a higher precedence than addition and so would be performed first.
+			</p>
+		
+			<p>
+				In order to be able to work with spreadsheets effectively, it is important that you fully understand operator precedence.  <span class="Bolded">Operator precedence</span> specifies the order in which the individual mathematical operations that make up a formula are to be performed.
+			</p>
+		
+			<p>
+				<span class="figNum operatorspreadsheet"></span> summarizes the priorities of the most common spreadsheet operators.  Using this information, let’s take a closer look at exactly how a spreadsheet formula is evaluated. 
+			</p>
+			
+			<img src="images/operatorspreadsheet.png" alt="Operator precedence in spreadsheets" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum operatorspreadsheet"></span> Operator precedence in spreadsheets
+			</p>
+		
+			<img src="images/evalspreadsheet.png" alt="The evaluation of the spreadsheet formula = 9/5 * B2 + 32" class="Image">
+		
+			<p class="Figure">
+				<span class="figNum evalspreadsheet"></span>  The evaluation of the spreadsheet formula  <span class="Subfigure">= 9/5 * B2 + 32</span>
+			</p>
+		
+			<p>
+				The process of evaluating a formula may be envisioned as scanning the formula from left to right for priority one operations, stopping to perform each operation that is encountered, and then repeating this process for priorities 2 through 5.<span class="Footnote" title="Footnote: In reality, a more efficient evaluation method that does not require multiple passes over the formula is generally used. While the details of that method are beyond the scope of this chapter, be assured that the method described here will always return the correct result."><a href="#ftn10" id="body_ftn10">[10]</a></span>
+			</p>
+		
+			<p>
+				As mentioned above, a temperature can be converted from Celsius to Fahrenheit using the formula: = <span class="Subfigure">9 / 5 * B2 + 32</span>, assuming cell B2 contains the input temperature in degrees Celsius.  The first step in computing a value from this, or any other, formula involves resolving all cell references and function calls in a left to right manner.  This formula contains only a single reference, to cell B2, and no function calls.<span class="Footnote" title="Footnote: For the moment, discussion of functions is deferred."><a href="#ftn11" id="body_ftn11">[11]</a></span>  So, the reference to B2 can be replaced with the value currently stored in that cell.  Let us assume 100 is the value currently stored in B2.  Our formula has now been reduced to  = <span class="Subfigure">9 / 5 * 100 + 32</span>.
+			</p>
+		
+			<p>
+				Next the formula must be scanned for parentheses.  None are found so we consider priority 4 operations: multiplication and division.  The first such operation encountered in a left to right scan is “/”, so <span class="Subfigure">9 / 5</span> is evaluated, producing 1.8.  The formula has thus been reduced to = <span class="Subfigure">1.8 * 100 + 32</span>.  The operation <span class="Subfigure">1.8 * 100</span> is performed next, leading to the formula = <span class="Subfigure">180 + 32</span>.  As there are no more priority 4 operations, we move on to priority 5 and find one remaining operation to be performed.  The operation <span class="Subfigure">180 + 32</span> is carried out to produce the final result of 212.  <span class="figNum evalspreadsheet"></span> summarizes this computation.
+			</p>
+		
+			<p>
+				As alluded to above, the order in which the operations of a formula are carried out can dramatically affect the final computed value.  This concept is illustrated further in <span class="figNum parenthesispower"></span>.  As can be seen in the figure, = <span class="Subfigure">5 + 1 / 6 + 3</span> evaluates to 8.167, since the division is performed first, followed by the two addition operations, in left to right order.  Placing parentheses around <span class="Subfigure">5 + 1</span> leads to the formula = <span class="Subfigure">( 5 + 1 ) / 6 + 3</span> which evaluates to 4, and so on.  When multiple sets of parentheses appear in a formula they are evaluated from left to right, as can be seen in the example = <span class="Subfigure">( 5 + 1 ) / ( 6 + 3 )</span> which is equivalent to the fraction <span class="Subfigure">6 / 9</span> or 0.667.
+			</p>
+		
+			<p>
+				Parentheses may also be nested to create more complex expressions.  For example, the expression 
+			</p>
+		
+			<ul class="Blockcenter">
+				<img src="images/fig2-complex.png" alt="">
+			</ul>
+		
+			<p>
+				can be represented by the formula: <span class="Subfigure">= 5  * ( ( A1 + 3 ) / ( A5 – 3 ) )</span>.
+			</p>
+		
+			<p>
+				When sets of parentheses are nested within one another, the rule is to evaluate them from the innermost set to the outermost set.  Hence, if A1 is 5 and A5 is 7, the above formula evaluates to 10.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">= 5 * ( ( 5 + 3 ) / ( 7 – 3 ) )</span></li>
+				<li><span class="Subfigure">= 5 * (     8     / ( 7 – 3 ) )</span></li>
+				<li><span class="Subfigure">= 5 * (     8     /     4     )</span></li>
+				<li><span class="Subfigure">= 5 * 2</span></li>
+			</ul>
+		
+			<br/>
+		
+			<img src="images/parenthesispower.png" alt="The effect of parentheses on formula evaluation" class="Image">
+		
+			<p class="Figure">
+				<span class="figNum parenthesispower"></span> The effect of parentheses on formula evaluation
+			</p>
+		
+			<p>
+				As we have just seen, the ability to work with formulas is what makes spreadsheets so useful.  Because they are so powerful, formulas must be used with care or problems may result.  One of the most common problems involving spreadsheet formulas occurs when the user makes a typographical error while entering the formula.  For example, if the user entered  = <span class="Subfigure">A1 // 3</span>  rather than  = <span class="Subfigure">A1 / 3  </span>the spreadsheet program would flag the entry as an error, since it would not know how to interpret two slashes following one another. 
+			</p>
+		
+			<p>
+				A more subtle problem occurs when the user enters a valid formula, but one which computes a different quantity than expected.  For example, a valid formula for averaging three grades, stored in C2, C3, and C4, is  = <span class="Subfigure">( C2 + C3 + C4 ) / 3</span>.  To compute an average in this way, parentheses must be used to force the sum of the grades to be computed before the division by the number of grades.  What happens if the parentheses are accidentally omitted?  Will the spreadsheet program warn you?  Unfortunately, no.  Since = C2 + C3 + C4 / 3 is a valid formula (albeit one that does not compute an average) the spreadsheet program will be happy to compute it for you.
+			</p>
+		
+			<p>
+				When working with spreadsheets, try to always keep in mind that the spreadsheet program doesn’t really know <span class="Ital">what</span> you are trying to do.  It will compute any formula you give it; whether or not that formula really yields the value you are interested in.
+			</p>
+		
+			<p>
+				Another error that can occur while working with formulas has to do with the contents of the cells referenced by the formula.  If a formula refers to a cell that does not yield a valid number, then that formula cannot be computed and will thus be marked as an error.
+			</p>
+		
+			<p>
+				For example, a formula to compute the average of three grades is shown in cell C6 of part (a) of <span class="figNum gradespreadsheet"></span>.  This formula depends on cells C2, C3, and C4 yielding valid numbers.  If the contents of C2 were replaced by a text string, the average could not be computed and the spreadsheet program would mark the formula in cell C6 as in error.  As soon as a number was once again entered into cell C2, the error condition would be resolved and the spreadsheet program would immediately compute a value for C6 from its formula.
+			</p>
+		
+			<p>
+				Note that it is only necessary that a cell referenced by a formula <span class="Ital">yield</span> a number, not that it directly contain a number.  Hence, it is possible (and is quite often the case) that a cell referenced in a formula will itself contain a formula.  For example, the spreadsheet of <span class="figNum gradespreadsheet"></span> computes a student’s final grade in a class by averaging together three grades: the grade on exam 1 (stored in cell C2), the grade on exam 2 (stored in cell C3), and the average grade made on all homeworks (computed in cell C4).  The homework grade is, in turn, computed as the average of four individual homework grades, stored in cells F2, F3, F4, and F5.
+			</p>
+		
+			<div id="container81" style="margin-bottom:-140px; width:577px" class="container-fluid"></div>
+		
+			<p class="Figure">
+				(a) Actual cell contents 
+			</p>
+				
+			<div id="container82" style="margin-bottom:-150px; width:460px" class="container-fluid"></div>
+		
+			<p class="Figure">
+				(b) Displayed values
+			</p>
+		
+			<p class="Figure">
+				<span class="figNum gradespreadsheet"></span> A spreadsheet for computing a final course grade
+			</p>
+		
+			<p>
+				The above spreadsheet would be very useful when playing that “what if” game students are so fond of as finals draw near.  Just plug in the homework and exam grades and see what the final grade will be.  “Let’s see, what if I really buckle down and score a “100” on that last homework and a “95” on the final exam…”
+			</p>
+		
+			<p class="Exercise">
+				Exercises for <span class="contentNum toolsSpreadsheets2"></span>
+			</p>
+		
+			<ol>
+				<li>
+					Assuming that cell A1 contains the number 10 and cell A2 contains the number 5 show how the following formulas would be evaluated. 
+				
+					<ul class="Subblockcenter">
+						<li>
+							(a) = A1 + 2 * A2
+						</li>
+						<br/>
+						<li>
+							(b) = A1 + A2 + 10 / 5
+						</li>
+						<br/>
+						<li>
+							(c) = A1 / 2 * ( A2 + 10 )
+					</ul>
+				</li>
+				<br/>
+				<li>
+					Explain what, if anything, is wrong with each of the following spreadsheet formulas.  Assume valid numbers have been entered in the cells A1 and A2. 
+			
+					<ul class="Subblockcenter">
+						<li>
+							(a) = 2 A1 + 3
+						</li>
+						<br/>
+						<li>
+							(b) = X / (Y + 2)
+						</li>
+						<br/>
+						<li>
+							(c) = A1 2 + 5
+						</li>
+						<br/>
+						<li>
+							(d) = A0 – 99
+						</li>
+						<br/>
+						<li>
+							(e) “ = A1 + A2 “
+						</li>
+					</ul>
+				</li>
+				<br/>
+				<li>
+					Show how a spreadsheet for computing both the area and circumference of a circle, given its radius, could be constructed.  For each cell of the spreadsheet, show exactly what should be entered.  The relevant equations are:
+					
+					<ul class="Blockcenter">
+						<li><span class="Subfigure"><span class="Ital">Circumference</span> = 2ΠR</span></li>
+						<li><span class="Subfigure"><span class="Ital">Area</span> = ΠR<span class="Superscript">2</span></span></li>
+						<li><span class="Subfigure">Π = 3.14159</span></li>
+						<li><span class="Subfigure"><span class="Ital">R</span> = <span class="Ital">radius</span></span></li>
+					</ul>
+				</li>
+			</ol>
+			
+			<!-- Footnotes -->
+			<hr/>
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn10" href="#body_ftn10">[10]</a></span> In reality, a more efficient evaluation method that does not require multiple passes over the formula is generally used.  While the details of that method are beyond the scope of this chapter, be assured that the method described here will always return the correct result.
+			</p>
+		 
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn11" href="#body_ftn11">[11]</a></span> For the moment, discussion of functions is deferred.
+			</p>
+			
+			<div class="push"></div> <!-- pushes the footer static bottom -->	
+				
+	</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+		<script>
+			var pageObj;											// do NOT change name of variable
+			var chapID = "tools";							// stores current chapter for Section button in navbar
+
+			$(document).ready(function() {
+			populateNav();										// populate nav content
+			populateSpans();									// populate figure/content spans
+			pageObj = getArrowPathsByPage("toolsSpreadsheets2");		// get arrow paths
+			if (!localFlag) runGA();
+			});	
+
+		</script>			
+	</body>
+	<script src="js/addElements.js"></script>
+	<script src="js/jquery.mobile.custom.min.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="js/table.js"></script>
+	<script src="js/cellFunctions.js"></script>
+	<script src="js/functionParse.js"></script>
+	<script src="js/setup.js"></script>
+	<script>Setup(4)</script>
+	<script>Setup(81)</script>
+	<script>Setup(82)</script>
+</html>

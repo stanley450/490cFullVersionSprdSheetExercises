@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+
+	    <!-- CSS files -->
+		<link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui-1.10.4.custom.css">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		
+	    <!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.js"></script>
+		<script type="text/javascript" src="js/kinetic.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<link href = "../lib/css/Dialogs.css" rel = "stylesheet">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			<!-- End nav -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum circuitsCombinatorial5"></span>
+			</p>
+
+			<p>
+				<span>Multiplexers are circuits that are used to transfer the contents of an input data line to an output line based on the value of one or more input selector lines. While that definition sounds a bit intimidating, multiplexers really aren’t that complex. Essentially, a multiplexer is a kind of switch. It has two types of inputs, data lines and selector lines, and a single output line. The purpose of a multiplexer is to transfer the contents of</span> <span class="Ital">one</span> <span>of the input lines to the circuit’s sole output line. The values placed on the selector lines determine which data line will have its contents echoed to the output line. Thus, the selector lines allow the multiplexer circuit to switch its “attention” between the various input data lines when determining the value to be output.</span>
+			</p>
+
+			<p>
+				<span>Generally, a multiplexer, or MUX</span> <span class="Footnote"><a href="#ftn2" id="body_ftn2">[2]</a></span> <span>, will have 2</span><span class="Superscript">n</span> <span>data lines for</span> <span class="Ital">n</span> <span>selector lines. The data lines are numbered 0 to 2</span><span class="Superscript">n</span> <span>– 1, and the selector lines are numbered 0 to</span> <span class="Ital">n</span> <span>– 1. The bit pattern placed on the selector lines, when interpreted as an unsigned binary number, determines the active data line.  Multiplexers are often referred to in terms of their number of data lines. So, an eight-input MUX will have eight data lines and three selector lines, while a two-input MUX will have two data lines and a single selector line. Remember that regardless of the number of input data and selector lines, every MUX has only one output line.</span>
+			</p>
+
+			<p>
+				<span><span class="figNum twomultiplex"></span> presents an implementation of a two-input multiplexer. It has two data lines, one selector line, and a single output. When the selector line, S, is set to “0”, the current value of D</span><span class="Subscript">0</span> <span>(either a “1” or a “0”) becomes the output of the circuit, regardless of the value of line D</span><span class="Subscript">1</span> <span>. The circuit is, in a sense, “listening” to D</span><span class="Subscript">0</span> <span>and “ignoring” D</span><span class="Subscript">1</span> <span>. When S is “1”, the opposite situation exists. The output of the multiplexer becomes the current value of D</span><span class="Subscript">1</span> <span>, and D</span><span class="Subscript">0</span> <span>is ignored.</span>
+			</p>
+
+			<div id="topDiv-18" class="Centered"></div>
+			<div id="container-18" class="Centered"></div>
+			<p class="Figure">
+				<span class="figNum twomultiplex"></span> An implementation of a two-input multiplexer.
+			</p>
+
+			<p>
+				The behavior of the two-input multiplexer is summarized in the following truth table.
+			</p>
+
+			<img src="images/fig12-twoinputmultiplex.png" alt="" class="ImageTall">
+
+			<p>
+				<span><span class="figNum fourmultiplex"></span> illustrates a somewhat more complex multiplexer, a four-input MUX. The four-input MUX has two selector lines, four data lines, and a single output line. Placing a “0” on both S</span><span class="Subscript">1</span> <span>and S</span><span class="Subscript">0</span> <span>, corresponding to 00</span><span class="Subscript">two</span> <span>, or zero, causes the value of D</span><span class="Subscript">0</span> <span>to be sent to the output line. Setting S</span><span class="Subscript">1</span> <span>to “0” and S</span><span class="Subscript">0</span> <span>to “1”, corresponding to 01</span><span class="Subscript">two</span> <span>, or one, causes D</span><span class="Subscript">1</span> <span>to be the active line. Likewise, S</span><span class="Subscript">1</span> <span>= “1” and S</span><span class="Subscript">0</span> <span>= “0”, meaning 10</span><span class="Subscript">two</span> <span>, or two, focuses attention on D</span><span class="Subscript">2</span> <span>. Finally, S</span><span class="Subscript">1</span> <span>= “1” and S</span><span class="Subscript">0</span> <span>= “1”, meaning 11</span><span class="Subscript">two</span> <span>, or three, causes the D</span><span class="Subscript">3</span> <span>input to be transferred to the output line.</span>
+			</p>
+			<div id="topDiv-19" class="Centered"></div>
+			<div id="container-19" class="Centered"></div>
+
+			<p class="Figure">
+				<span class="figNum fourmultiplex"></span> An implementation of a four-input multiplexer
+			</p>
+
+			<p>
+				<span>An inspection of the circuit diagram for the four-input multiplexer of <span class="figNum fourmultiplex"></span> reveals that it contains four three-input</span> <span class="Ital">and</span> <span>gates, two single-input</span> <span class="Ital">not</span> <span>gates, and one four-input</span> <span class="Ital">or</span> <span>gate. Each</span> <span class="Ital">and</span> <span>has one of the data lines running into it, plus two selector signals. Some of the selector signals have been routed directly from the selector input lines, while others have been negated before being sent on to the</span> <span class="Ital">and</span> <span>gates. The outputs of all four of the</span> <span class="Ital">and</span> <span>gates are routed into the four-input</span> <span class="Ital">or</span> <span>. The output of this</span> <span class="Ital">or</span> <span>becomes the output of the multiplexer circuit. If any one of the</span> <span class="Ital">and</span> <span>gates generate a “1”, the circuit will output a “1”. If all of the</span> <span class="Ital">and</span> <span>gates produce “0”, the circuit will output a “0”.</span>
+			</p>
+
+			<p>
+				<span>In order to better understand the behavior of this multiplexer, let’s examine the conditions under which each of the</span> <span class="Ital">and</span> <span>gates could fire. A three-input</span> <span class="Ital">and</span> <span>gate can produce a “1” only if all of its inputs are “1”. Thus, the two selector signals and the data value reaching the</span> <span class="Ital">and</span> <span>gate must be “1” for that gate to generate a “1”.</span>
+			</p>
+
+			<p>
+				<span>The selector signals reaching the gate that is connected to D</span><span class="Subscript">0</span> <span>are</span> <span class="Ital">not</span> <span>S</span><span class="Subscript">1</span> <span>and</span> <span class="Ital">not</span> <span>S</span><span class="Subscript">0</span> <span>. This gate can produce a “1” only when S</span><span class="Subscript">1</span> <span>= “0”, S</span><span class="Subscript">0</span> <span>= “0” and D</span><span class="Subscript">0</span> <span>= “1”. Under any other circumstances, such as a D</span><span class="Subscript">0</span> <span>of “0”, or either S</span><span class="Subscript">1</span> <span>or S</span><span class="Subscript">0</span> <span>being set to “1”, this</span> <span class="Ital">and</span> <span>gate produces a “0”. Hence, this part of the circuit faithfully “echoes” the value of D</span><span class="Subscript">0</span> <span>when the S</span><span class="Subscript">1</span> <span>,S</span><span class="Subscript">0</span> <span>bit pattern is “00”. Just as importantly, this</span> <span class="Ital">and</span> <span>gate stays low when the selector bit pattern is not “00”, regardless of the value of D</span><span class="Subscript">0</span> <span>.</span>
+			</p>
+
+			<p>
+				<span>The other</span> <span class="Ital">and</span> <span>gates act in a similar manner. The gate for D</span><span class="Subscript">1</span> <span>is attached to</span> <span class="Ital">not</span> <span>S</span><span class="Subscript">1</span> <span>and S</span><span class="Subscript">0</span> <span>, so it only generates a “1” when S</span><span class="Subscript">1</span> <span>= “0”, S</span><span class="Subscript">0</span> <span>= “1”, and D</span><span class="Subscript">1</span> <span>= “1”. Other selector bit patterns keep it low. The</span> <span class="Ital">and</span> <span>gate that receives the D</span><span class="Subscript">2</span> <span>signal is connected to S</span><span class="Subscript">1</span> <span>and</span> <span class="Ital">not</span> <span>S</span><span class="Subscript">0</span> <span>. This gate produces a “1” only when S</span><span class="Subscript">1</span> <span>= “1”, S</span><span class="Subscript">0</span> <span>= “0”, and D</span><span class="Subscript">2</span> <span>= “1”; it generates a “0” at all other times. Finally, the</span> <span class="Ital">and</span> <span>gate for D</span><span class="Subscript">3</span> <span>is attached directly to S</span><span class="Subscript">1</span> <span>and S</span><span class="Subscript">0</span> <span>. Thus, it generates a “1” when S</span><span class="Subscript">1</span> <span>= “1”, S</span><span class="Subscript">0</span> <span>= “1”, and D</span><span class="Subscript">3</span> <span>= “1”.</span>
+			</p>
+
+			<p>
+				<span>Because of the way the selector signals are routed to the various</span> <span class="Ital">and</span> <span>gates, it is impossible for more than one of them to produce a “1” at the same time. For this reason</span> <span>the results of the</span> <span class="Ital">and</span> <span>gates can be safely combined via an</span> <span class="Ital">or</span> <span>without worrying that signals from multiple data lines will be accidentally combined.</span>
+			</p>
+
+			<p>
+				The four-input multiplexer can be represented by a “black box” such as the following.
+			</p>
+
+			<img src="images/channelzeroa1.png" alt="" class="Image">
+			<img src="images/channelzeroa2.png" alt="" class="Image">
+			
+			<p class="Figure">
+				(a) &nbsp;MUX transmitting input Data Channel Zero on output Channel Z
+			</p>
+
+			<img src="images/channelzerob.png" alt="" class="Image">
+			
+			<p class="Figure">
+				(b) &nbsp;MUX transmitting input Data Channel One on output Channel Z
+			</p>
+
+			<p class="Figure">
+				<span class="figNum channelzero"></span> An illustration of the behavior of multiplexers
+			</p>
+
+			<p>
+				<span><span class="figNum channelzero"></span> illustrates the behavior of the four-input MUX over time. The input lines and output lines are labeled with the data streams flowing down them. During the period of time illustrated in <span class="figNum channelzero"></span>(a), selector lines S</span><span class="Subscript">1</span> <span>and S</span><span class="Subscript">0</span> <span>are both held at zero, making Data Channel Zero the “active” data channel. In part (b), S</span><span class="Subscript">1</span> <span>is held at zero and S</span><span class="Subscript">0</span> <span>at one, activating Data Channel One.</span>
+			</p>
+
+			<span>While the selector lines are held steady, the current state of each of the data lines varies over time.</span> <span class="Footnote"><a href="#ftn3" id="body_ftn3">[3]</a></span> <span>&nbsp;For example, in both parts of <span class="figNum channelzero"></span>, line D</span><span class="Subscript">0</span> <span>first contains a “0”, then its value changes to “1”, then back to “0”, then to “1”, then “0”, then “1”, etc. Line D1 begins by broadcasting four consecutive “1’s” followed by four consecutive “0’s”.</span>
+
+			<p>
+				<span>Notice that when Data Channel Zero is active (S</span><span class="Subscript">1</span> <span>= “0”, S</span><span class="Subscript">0</span> <span>= “0”), its bit pattern, (“0”, “1”, “0”, “1”, “0”, “1”, “0”, “1”) is copied to the output channel. Likewise, when Data Channel One is active (S</span><span class="Subscript">1</span> <span>= “0”, S</span><span class="Subscript">0</span> <span>= “1”), its bit pattern (“1”, “1”, “1”, “1”, “0”, “0”, “0”, “0”) is copied to the output channel.</span>
+			</p>
+
+			<div id="topDiv-21" class="Centered"></div>
+			<div id="container-21" class="Centered"></div>
+			<p class="Figure">
+				<span class="figNum channelone"></span> An implementation of a four-output demultiplexer
+			</p>
+
+			<p>
+				<span>The next circuit we will look at is the demultiplexer. The demultiplexer is the exact opposite of the multiplexer. Each demultiplexer has a single data input line,</span> <span class="Ital">n</span> <span>selector input lines, and 2</span><span class="Superscript">n</span> <span>output data lines. As was the case with multiplexers, the</span> <span class="Ital">n</span> <span>selector lines are numbered from 0 to</span> <span class="Ital">n</span> <span>– 1, and the 2</span><span class="Superscript">n</span> <span>output data lines from 0 to 2</span><span class="Superscript">n</span> <span>– 1. Demultiplexers generate a copy of their input data value on the output data line specified by their selector lines. </span>
+			</p>
+
+			<p>
+				<span>Demultiplexers are often referred to using their number of output lines. <span class="figNum channelone"></span> illustrates an implementation of a four-output demultiplexer. The value of the input data line labeled “A” is transferred to one of the output data lines, D</span><span class="Subscript">0</span> <span>through D</span><span class="Subscript">3</span> <span>, based on an interpretation of the bit pattern in S</span><span class="Subscript">1</span> <span>,S</span><span class="Subscript">0</span> <span>as two-bit unsigned binary number. For example, if S</span><span class="Subscript">1</span> <span>= “1” and S</span><span class="Subscript">0</span> <span>= “0”, corresponding to 10</span><span class="Subscript">two</span> <span>, or two, then the current state of the input line would be transferred to D</span><span class="Subscript">2</span> <span>.</span>
+			</p>
+
+			<p>
+				The design of this circuit is quite similar to the one used for the decoder circuit of <span class="contentNum circuitsCombinatorial4"></span>. The only difference is that a copy of the input data value is routed to each of the <span class="Ital">and</span> gates so that instead of simply setting the selected output line high, its value will instead be determined by the input data value.
+			</p>
+
+			<p>
+				Here is a “black box” representation of the four-output demultiplexer, or DEMUX.
+			</p>
+			
+			<img src="images/fig12-fouroutputmux.png" alt="" class="Image">
+			
+			<p>
+				<span><span class="figNum fourdemultiplex"></span> illustrates the behavior of the four-input DEMUX over time. The input lines and output lines are labeled with the data streams flowing down them. During the period of time illustrated in <span class="figNum fourdemultiplex"></span>(a), selector line S</span><span class="Subscript">1</span> <span>is held at one and S</span><span class="Subscript">0</span> <span>is held at zero, making output Data Channel Two the “active” data channel. In part (b), S</span><span class="Subscript">1</span> <span>and S</span><span class="Subscript">0</span> <span>are both one, activating output Data Channel Three. These examples illustrate how a demultiplexer can “broadcast” an input data stream down one of many different output channels. Changing S</span><span class="Subscript">1</span> <span>,S</span><span class="Subscript">0</span> <span>switches the “broadcast” to a different output channel.</span>
+			</p>
+
+			<img src="images/fourdemultiplexa.png" alt="" class="Image">
+			
+			<p class="Figure">
+				(a) DEMUX transmitting input Channel A on output Data Channel Two
+			</p>
+
+			<img src="images/fourdemultiplexb.png" alt="" class="Image">
+			
+			<p class="Figure">
+				(b) &nbsp;DEMUX transmitting input Channel A on output Data Channel Three
+			</p>
+			
+			<p class="Figure">
+				<span class="figNum fourdemultiplex"></span> An illustration of the behavior of demultiplexers
+			</p>
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum circuitsCombinatorial5"></span>
+			</p>
+
+			<ol id="exerciseList">
+				<li>
+					<p>
+						Derive the Boolean expression for the output of the four-input multiplexer shown in <span class="figNum fourmultiplex"></span>.&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Give a Boolean expression that represents the output of an eight-input multiplexer.&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Design a circuit to implement the functionality of an eight-input multiplexer.&nbsp;
+					</p>
+					
+				</li>
+
+				<li>
+					<p class="exercise solvable 18">
+						Design a circuit to implement the functionality of an eight-output demultiplexer.&nbsp;
+					</p>
+					
+					<div class="exerciseDiv 18"></div>
+				</li>
+			</ol>
+			<!-- Sandbox -->
+			<p class="Section" id="Scratch"></p>
+			<div id="sandbox1"></div>
+			<div id="truthTableDiv1" class="ui-widget-content" style="position: relative; visibility: hidden"></div>
+			<!-- End Sandbox -->
+			
+			<hr/>
+			<p class="Section">Footnotes</p>
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote" href="#body_ftn2" id="ftn2">[2]</a></span> <span>&nbsp;</span>Rhymes with “sucks”.
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote" href="#body_ftn3" id="ftn3">[3]</a></span> <span>&nbsp;</span>Signals that vary over time require the presence of a “system clock”. As we will see later in this chapter, computers incorporate clocks to coordinate the actions of all of their various circuits and the data that flows through them.
+			</p>
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			<!-- Figure js -->
+			<script src="js/visibility.js"></script>
+			<script type="text/javascript" src="js/global.js"></script>
+			<script src="../lib/js/WatsonDataStore.js"></script>
+			<script src="../lib/js/WatsonDialogs.js"></script>
+			<script src="js/Serializer.js"></script>
+			<script src="js/Controller.js"></script>
+			<script src="js/AndGate.js"></script>
+			<script src="js/AndGate3.js"></script>
+			<script src="js/AndGate4.js"></script>
+			<script src="js/NandGate.js"></script>
+			
+			<script src="js/OrGate.js"></script>
+			<script src="js/OrGate3.js"></script>
+			<script src="js/OrGate4.js"></script>
+			<script src="js/NorGate.js"></script>
+			
+			<script src="js/NotGate.js"></script>
+			<script src="js/Connector.js"></script>
+			<script src="js/InputNode.js"></script>
+			<script src="js/OutputNode.js"></script>
+			<script src="js/PopupMenu.js"></script>
+			<script src="js/Figures.js"></script>
+			<script src="js/TruthTable.js"></script>
+			<script src="js/Setup.js"></script>
+			<script src="js/DigitalLogicFigure.js"></script>
+			
+		<script>
+			var pageObj;											// do NOT change name of variable
+			var chapID = "circuits";
+			var sectID = "circuitsCombinatorial5";
+			
+			$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage(sectID);				// get arrow paths
+
+				var figure21 = new DigitalLogicFigure("container-21", "21", true, false, "fourdemultiplex");
+				var figure19 = new DigitalLogicFigure("container-19", "19", true, false, "fourmultiplex");
+				var figure18 = new DigitalLogicFigure("container-18", "18", false, false, "twomultiplex");
+				
+				setupExerciseButtons(sectID);
+				
+				if (!localFlag) runGA();
+			});
+		</script>
+	</body>
+</html>

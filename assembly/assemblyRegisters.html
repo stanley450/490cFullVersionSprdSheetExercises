@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+			<!-- Java Script files -->
+			<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+			<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../lib/js/nav.js"></script>
+			<script type="text/javascript" src="../lib/js/master.js"></script>
+			<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+			<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyRegisters"></span>
+			</p>
+
+			
+			<p>
+				The general organization of a machine is often referred to as its <span class="Ital">architecture</span>.  Over the years, computer scientists and engineers have explored a wide variety of computer architectures.  This section introduces the most popular architecture – the register-based machine.  Our study of register-based machines will be aided by reference to the Watson Virtual Machine.  While the Watson Virtual Machine (VM) is a “toy” computer, designed solely for the purpose of instruction, it embodies most of the major features of register-based machines and does exist as a fully programmable software simulation (the Watson assembly lab).
+			</p>
+			
+			<p>
+				The Watson Virtual Machine is presented in <span class="figNum watsonvm"></span>.  The Watson VM consists of two major parts: a main memory and a CPU (Central Processing Unit).  These two components are connected together via a third component, called the data bus, which allows information to be copied between the CPU and main memory.
+			</p>
+
+			<img src="images/watsonvm.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum watsonvm"></span> The Watson Virtual Machine
+			</p>
+			
+			<p>
+				The purpose of <span class="Ital">main memory</span> is to store computer programs and the data on which they act.  The main memory of the Watson Virtual Machine can be visualized as a list, or array, of 256 storage locations, numbered 0 to 255.  Each of these locations is individually addressable.  In other words, the main memory unit can be given an address and told to retrieve a value from that location, or be given an address and told to write a value to that location.  
+			</p>
+			
+			<p>
+				The purpose of the <span class="Ital">Central Processing Unit</span>, or CPU, is to perform the arithmetic and logic functions specified by the instructions of a computer program.  CPU’s are complex devices composed of many functional units.  One of the most prominent features of the CPU’s of register-based machines is a large collection of general-purpose registers.  The Watson Virtual Machine contains sixteen of these registers – labeled 0-9 and A-F.
+			</p>
+			
+			<p>
+				Registers can be directly manipulated by the arithmetic and logic units of the CPU.  Main memory locations cannot.  Thus, in order to perform any kind of arithmetic or logic operation on values stored in main memory it is necessary to copy those values into CPU registers, manipulate the contents of the registers in the desired way, and then copy the computed results back to main memory.  For example, in order to add two numbers stored in main memory locations, the computer must:
+			</p>
+			
+			<ol>
+				<li>
+					Copy the values of both numbers from main memory into separate CPU registers, 
+				</li>
+				<br/>
+				<li>
+					Add the contents of those registers, placing the result into yet another register, 
+				</li>
+				<br/>
+				<li>
+					Copy the result of the addition operation back into a main memory location. 
+				 </li>
+			</ol>
+			
+			<p>
+				In addition to the general-purpose registers, there are a number of special-purpose registers important to the operation of the CPU.  These registers include the instruction register, the program counter, and the status bits.  The <span class="Ital">instruction register</span> holds a copy of the program instruction that the CPU is currently executing.  The <span class="Ital">program counter</span> contains the address of the next instruction to be executed.  The <span class="Ital">status bits</span> are used to hold information about the most recently performed computation – was a carry generated? Was the result zero? Or negative? Did an overflow occur?
+			</p>
+			
+			<p>
+				We’ll not worry too much about these special-purpose registers right now.  They are described in detail in <span class="contentNum assemblyMachine"></span>.  At this point, I just want you to know they exist.
+			</p>
+			
+			<p>
+				Real world computers are similar to the Watson Virtual machine in that they contain a main memory, CPU, and data bus.  The Watson Virtual Machine differs from real machines in that it has no I/O devices (such as keyboards, display screens, mice, and modems); nor any long-term storage devices (like disk drives).  The size of its memory is also very small, containing only 256 “words”.  Modern computers typically have memories capable of storing hundreds of millions of words.  There are other differences between the Watson VM and real-world computers, such as the size of the numbers it can manipulate and the limited number of commands in its machine language. 
+			</p>
+			
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyRegisters");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>

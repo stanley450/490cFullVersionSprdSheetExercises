@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link rel='stylesheet' href='../lib/css/bootstrap-3.css'>
+		<link rel='stylesheet' href='../lib/css/jquery-ui-custom.css'>
+		<link rel='stylesheet' href='../lib/css/editor.css'>
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<link rel='stylesheet' href='../lib/css/Dialogs.css'>
+		<link rel="stylesheet" href="../lib/css/jquery-ui-1.10.4.custom.css">
+		<link rel='stylesheet' href='css/assembly.css'>	
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link rel='stylesheet' href='css/assembly.css'>	
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+		<script type="text/javascript" src="../lib/js/visibility.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/angular.js"></script>
+	    <script type="text/javascript" src="../lib/js/jQuery.js"></script>
+	    <script type="text/javascript" src="../lib/js/less.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-ui.js"></script>
+<!--
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+-->
+	    <script type="text/javascript" src="../lib/js/ui-bootstrap-0.10.0.js"></script>
+	    <script type="text/javascript" src="../lib/js/tabs.js"></script>
+	    <script type="text/javascript" src="../lib/js/ui-bootstrap.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/editor.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDialogs.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
+		<script type="text/javascript" src="js/figuresV2.js"></script>
+		<script type="text/javascript" src="js/inserts.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentSolverEx"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Sandbox -->
+			<div id="Scratch"></div>
+			<hr>
+			<div id="container-exerAssembly-Sandbox"></div>
+			<!-- End Sandbox -->
+			
+			<div style="text-align: center">
+				<button class="btn btn-small btn-primary" onclick="saveExercise()" style="margin-top: 10px;">Save Exercise</button>
+				<!--  button class="btn btn-small btn-primary" onclick="clearExercise()" style="margin-top: 10px;">Clear Exercise</button -->
+			</div>
+			<br>
+			
+			<!-- End main content -->
+			<div class="push" style="height: 1em;"></div>
+			</div>
+			
+			<footer class="footer">
+			  <div class="verybottom">
+				<div class="container">
+				  <div class="row">
+					<div class="col-lg-12">
+
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</footer>
+		
+		<script>
+			var lab;
+			var chapterName = "assembly";
+			
+			$(document).ready(function() {
+				populateNav();
+				
+				var exerNum = parseFloat(localStorage.getItem("currExerNum"));
+				var exerQues = localStorage.getItem("currExerQues");
+				
+				document.getElementById("Scratch").innerHTML = exerQues;
+				if (!localFlag) runGA();
+				
+				//lab = new DigitalLogicsLab(1, exerNum);
+				
+				editor = new Figure(exerNum, false, chapterName, true);
+				
+			});
+			var word = function(editorName){
+				editor.word();
+			};
+			
+			var block = function(editorName){
+				editor.block();
+			};
+			
+			var loadIMM = function(editorName){
+				editor.loadIMM();
+			};
+			
+			var load = function(editorName){
+				editor.load();
+			};
+			
+			var store = function(editorName){
+				editor.store();
+			};
+			
+			var loadIND = function(editorName){
+				editor.loadIND();
+			};
+			
+			var storeIND = function(editorName){
+				editor.storeIND();
+			};
+			
+			var add = function(editorName){
+				editor.add();
+			};
+			
+			var subtract = function(editorName){
+				editor.subtract();
+			};
+			
+			var and = function(editorName){
+				editor.and();
+			};
+			
+			var or = function(editorName){
+				editor.or();
+			};
+			
+			var not = function(editorName){
+				editor.not();
+			};
+			
+			var asl = function(editorName){
+				editor.asl();
+			};
+			
+			var asr = function(editorName){
+				editor.asr();
+			};
+			
+			var compare = function(editorName){
+				editor.compare();
+			};
+			
+			var branch = function(editorName){
+				editor.branch();
+			};
+			
+			var jump = function(editorName){
+				editor.jump();
+			};
+			
+			var halt = function(editorName){
+				editor.halt();
+			};
+			function saveExercise() {
+				editor.saveExercise();
+			}
+			
+			// Note: functionality not yet clearly defined.
+			function clearExercise() {
+				var exerNum = parseFloat(localStorage.getItem("currExerNum"));
+				var exerQues = localStorage.getItem("currExerQues");
+				
+				editor.clearExercise();
+				editor = new Figure(exerNum, false, chapterName, true);
+			}
+		</script>
+	</body>
+</html>

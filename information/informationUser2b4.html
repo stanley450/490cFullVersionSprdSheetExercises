@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='DatabaseApp'>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <link href = "figure/css/database.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationUser2b4"></span>
+      </p>
+
+      <p>
+        At the beginning of this section a number of questions were posed, typical of those that might occur in a university environment. These questions included:
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            Who is currently majoring in computer science?
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Who taught CS 100 in the fall of 2012?
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Where is Dr. O’Neal’s office located?
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        It was then claimed that a database system should make it possible to easily answer these questions.
+      </p>
+
+      <p>
+        So far we have discussed two of the three relation database query operators: “select” and “project”. These two operators can be used together to construct tables that answer very specific questions about the data stored in a relation.
+      </p>
+
+      <p>
+        For example, to answer the question “Who is currently majoring in computer science?”, we can construct a relation that contains the names of all CS majors. All that is required is the following sequence of two relational queries:
+      </p>
+
+      <!-- <p class="Subfigure"> -->
+      <!--   CS_Majors &#8592; Select from Students where Major = “CS” -->
+      <!-- </p> -->
+
+      <!-- <p class="Subfigure"> -->
+      <!--   Names_of_CS_Majors &#8592; Project Sname from CS_Majors -->
+      <!-- </p> -->
+
+      <div id='select_project1'></div>
+
+      <p class="Figure">
+        <span class="figNum nameofcsmajors"></span>A relation containing the names of all CS majors.
+      </p>
+
+      <p>
+        The first command creates a table, named CS_Majors, that is based on the “Students” relation but only contains those tuples that contain information about CS majors. The second statement projects the name attribute from the “CS_Majors” relation, producing a table that contains only the names of CS majors.
+      </p>
+
+      <p>
+        It is interesting to note that during the discussion of the programmer’s view of data in <span class="contentNum informationProgrammer"></span>, we constructed a program that essentially answered the same question. That program, presented in <span class="figNum csmajorlist"></span>, is ten lines long and requires knowledge of file systems and programming concepts in order to be developed.</span><span class="Footnote_20_Symbol"><span class="Footnote" title="Footnote: Actually, Figure 3.11 does not contain a “complete” program, only the main parts of one. The entire program would be substantially longer."><a href="#ftn5" id="body_ftn5">[5]</a></span></span>
+      </p>
+
+      <p>
+        The other questions listed above can be answer by constructing a series of relational commands that use both “select” and “project”. For example, “Who taught CS 100 in the Fall of 2012?” can be answered with the following sequence of commands:
+      </p>
+
+      <!-- <p class="Subfigure"> -->
+      <!--   CS100 &#8592; Select from Courses where Course = “CS100” -->
+      <!-- </p> -->
+
+      <!-- <p class="Subfigure"> -->
+      <!--   CS100_2012 &#8592; Select from CS100 where Year = 2012 -->
+      <!-- </p> -->
+
+      <!-- <p class="Subfigure"> -->
+      <!--   CS100_Fall_2012 &#8592; Select from CS100_2012 where Quarter = “Fall” -->
+      <!-- </p> -->
+
+      <!-- <p class="Subfigure"> -->
+      <!--   CS100_Fall_2012_Instructors &#8592; Project Fname from CS100_Fall_2012 -->
+      <!-- </p> -->
+
+      <div id='select_project2'></div>
+
+      <p class="Figure">
+        <span class="figNum cs100fall2012instructors"></span>A relation containing the name of the instructor who taught CS 100 in the Fall quarter of 2012.
+      </p>
+
+      <p>
+        The first “select” gets information on CS 100 courses. The second “select” narrows this down to CS 100 courses taught in 2012. The third “select” narrows the data even further to the sections of CS 100 taught during the fall quarter of 2012. The final statement projects only the faculty members’ names, so that the resulting relation answers the original question: “Who taught CS 100 in the Fall of 2012?”. For our example university database, the final relation consists of a single entry “ONeal M.B.” Given different data, the final table might have contained multiple entries, since it is possible that a number of different instructors could have taught separate sections of CS 100 in the fall of 2012.
+      </p>
+
+      <p>
+        While the above example is easy to understand, writing separate “select” statements for every attribute condition we need to express can become cumbersome. Many database programs allow you to “and” together a number of different condition tests, where all of the tests must yield true for a tuple to be selected. The first three statements of the above example can be reduced to a single expression by using such a “compound select”. Hence, the question of who taught CS 100 in the Fall of 2012 could be determined by the following two relational expressions.
+      </p>
+
+      <p class="Subfigure">
+        CS100_Fall_2012 &#8592; Select from Courses where Course = “CS100”  and
+        <br />
+        Year = 2012 and
+        <br />
+        Quarter = “Fall”
+        <br />
+        CS100_Fall_2012_Instructors &#8592; Project Fname from CS100_Fall_2012
+      </p>
+
+      <p>
+        You may have noticed that all of the examples in this subsection applied the “select” operator before the “project”. A common error made by students who are just learning to write queries that involve multiple relational expressions, is to perform the “project” too early, or to leave out necessary attributes when crafting a needed projection.
+      </p>
+
+      <p>
+        For example, let’s say that in trying to determine the names of CS 100 Fall 2012 instructors, I began by first making a list of instructor names and then tried to narrow the list to those instructors who taught CS 100 in the Fall of 2012. In other words, I took the following approach:
+      </p>
+
+      <p class="Subfigure">
+        Instructors &#8592; Project Fname from Courses
+      </p>
+
+      <p class="Subfigure">
+        CS100_Fall_2012_Instructors &#8592; Select from Instructors where ???????
+      </p>
+
+      <p>
+        The problem that I would encounter is that the table with the instructor names does not contain the proper fields to allow me to narrow the list any further – it is just a list of names and nothing more. However, you should not conclude that placing “projects” before “selects” is necessarily wrong. The following sequence of relational expressions, which does begin with a “project” statement, is an acceptable, albeit somewhat longer, solution to the problem.
+      </p>
+
+      <p class="Subfigure">
+        Course_Data &#8592; Project Fname, Course, Quarter, Year from Courses
+      </p>
+
+      <p class="Subfigure">
+        CS100_Fall_2012 &#8592; Select from Course_Data where Course = “CS100” and Year = 2012 and Quarter = “Fall”
+      </p>
+
+      <p class="Subfigure">
+        CS100_Fall_2012_Instructors &#8592; Project Fname from CS100_Fall_2012
+      </p>
+
+      <p>
+        This solution concentrates first on determining the attributes needed to solve the problem, rather than the tuples needed to do so. Such an approach makes a lot of sense when dealing with tables that contain large numbers of attributes, since it helps us to focus on which parts of a relation are relevant to the question being answered.
+      </p>
+
+      <p class="Exercise">
+        Exercises for <span class="contentNum informationUser2b4"></span>
+      </p>
+
+      <p>
+        Using the relations presented in <span class="figNum facultyrelation"></span>, <span class="figNum studentrelation"></span>, and <span class="figNum coursesrelation"></span>, develop</span> <span class="Ital">relational queries</span> to solve each of the following problems.
+      </p>
+
+      <ol>
+        <li>
+          <p>
+            Where is Dr. O’Neal’s office located?
+          </p>
+          <div id='select_project_exercise1'><div>
+        </li>
+
+        <li>
+          <p>
+            What course did Dr. Kurtz teach in fall 2013?
+          </p>
+          <div id='select_project_exercise2'><div>
+        </li>
+
+        <li>
+          <p>
+            What are the names of all male math majors who are between the ages of 19 and 21, inclusive?
+          </p>
+          <div id='select_project_exercise3'><div>
+        </li>
+
+        <li>
+          <p>
+            What are the names and telephone numbers of faculty in the math department?
+          </p>
+          <div id='select_project_exercise4'><div>
+        </li>
+
+        <li>
+          <p>
+            List the student numbers (but no other information) of female CS students.
+          </p>
+          <div id='select_project_exercise5'><div>
+        </li>
+
+        <li>
+          <p>
+            List the salaries of computer science faculty members (but, to protect confidentiality, don’t include any other information in the table).
+          </p>
+          <div id='select_project_exercise6'><div>
+        </li>
+      </ol>
+
+      <!-- Footnotes -->
+      <hr/>
+      <p class="Section">
+        Footnotes
+      </p>
+
+      <p class="Footnote">
+        <a href="#body_ftn5" id="ftn5">[5]</a> Actually, <span class="figNum csmajorlist"></span> does not contain a “complete” program, only the main parts of one. The entire program would be substantially longer.
+      </p>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+    <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";       // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationUser2b4");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  <script type='text/javascript' data-main='figure/js/2b4_config.built' src='lib/js/require.js'></script>
+  </body>
+</html>

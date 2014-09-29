@@ -1,0 +1,113 @@
+/* ======================================================================= */
+/* this stuff works, so far.                                               */
+/* ======================================================================= */
+/* vim: set et sts=2 sw=2 : */
+
+/* tweaking the relaiton list buttons */
+.list-group-btn {
+  text-align: left;
+  border-radius: 0px;
+  padding: 6px 12px;
+}
+
+/* making the dropdown-toggles more noticable */
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+#inner_row {
+  position: relative;
+  min-height: 126px;
+}
+
+/* adding emphasis to the button group buttons w/ thicker borders */
+#editor_button_group .btn {
+  border-width: 2px;
+  border-style: solid;
+}
+
+#editor_button_group {
+  padding-bottom: 12px;
+}
+
+#inner_row {
+  position: relative;
+}
+
+/* the "default" action. giving it a different look */
+#default {
+  color: #999999;
+}
+
+.mybutton {
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+/* remove a bit of padding from the left of the relation list. will probably
+ * need to be conditional on having a larger screen (@media) */
+@media (min-width: 768px) {
+  #list_group_div {
+      padding-left: 0;
+  }
+}
+
+/* #list_group_div *.active { */
+/*   color: white; */
+/* } */
+
+/* adding horizontal scrolling to the table. eww, but it has to be done. */
+#relation {
+  overflow-x: auto;
+  margin-bottom: 12px;
+}
+
+#relation > table {
+  margin-bottom: 0;
+}
+
+#relation td,
+#relation th {
+  white-space: nowrap;
+}
+
+/* ======================================================================= */
+/* Copied and pasted from bootstrap.css to give preference to buttons.     */
+/* (was having issues w/ the buttons inside the list group)                */
+/* ======================================================================= */
+
+.btn-default {
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+.btn-warning {
+  color: #ffffff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+.btn-danger {
+  color: #ffffff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.btn-success {
+  color: #ffffff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.btn-info {
+  color: #ffffff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}

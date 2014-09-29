@@ -1,0 +1,52 @@
+.spanMem {
+	height:413px;
+	width:200px;
+	border: 1px solid black;
+	overflow-y:scroll;
+}
+
+.spanReg {
+	height:auto;
+	width:auto;
+	border: 1px solid black;
+	overflow-y:scroll;
+}
+
+table td {
+	border: none;
+}
+
+td.comment {
+	color: #007500;
+}
+
+td.constant {
+	color: #A52A2A;
+}
+
+td.keyword {
+	color: #CC0099;
+}
+
+td.command {
+	color: #0000FF;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.table th,
+.table td {
+  padding: 0px;
+  line-height: 1.428571429;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}

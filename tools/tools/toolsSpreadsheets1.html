@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	  <!--<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	  <!-- CSS files -->
+		<link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<!-- Java Script files -->
+		<link rel="stylesheet" href="css/jquery.handsontable.full.css">
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script src="js/jquery.handsontable.full.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
+		
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End Navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum toolsSpreadsheets1"></span><span class="Footnote" title="Footnote: I have endeavored to keep this discussion of spreadsheets as generic as possible, avoiding references to particular products, such as Microsoft Excel. However, occasionally “implementation specific” details cannot be avoided. In such cases the details presented conform to the way the Watson Spreadsheet Lab works. When these details differ from Microsoft Excel’s way of doing things, the differences are pointed out in a footnote such as this."><a href="#ftn6" id="body_ftn6">[6]</a></span>
+			</p>
+		
+			<p>
+				A spreadsheet consists of a rectangular grid, or table, of “cells.”  The table is divided into horizontal rows (usually numbered 1, 2, 3, etc.) and vertical columns (usually labeled A, B, C, etc.).  The location of each cell in the table can be specified by its column letter and row number.  For example, the upper-left-most cell of a spreadsheet is labeled A1, since its location is column A, row 1.  Cell locations are always specified with the column designator listed first, followed by the row designator.  
+			</p>
+		
+			<!--<img src="images/simplespreadsheet.png" alt="A simple spreadsheet" class="Image"> -->
+		
+			<div id="container3" style="margin-bottom:-80px; width:300px" class="container"></div>
+			
+			<p class="Figure">
+				<span class="figNum simplespreadsheet"></span>  A simple spreadsheet
+			</p>
+			<p>
+				A small spreadsheet containing four columns and eight rows is shown in <span class="figNum simplespreadsheet"></span>.  Notice that the word “Grades” is stored in cell B2.  The value “100” is stored in cell C3.  In order to use a spreadsheet program effectively, the first task you must master is to become comfortable with the cell reference system.
+			</p>
+			<p>
+				Each cell of a spreadsheet may hold one of three things: a number, a text string, or a formula.  <span class="Bolded">Numbers</span> are generally composed of the digits 0 through 9 together with an optional decimal point and sign.  Hence, “50”, “50.0”, “+50”, and “+50.0” are all valid ways of representing the number fifty.<span class="Footnote" title="Footnote: Spreadsheet programs differ in their abilities to handle numeric data that contains special symbols (e.g., “$” and “,”). While all spreadsheets will recognize “50000” and “75” as numbers, some programs will not accept “50,000” and “$75” as numeric data. The Watson Spreadsheet lab generally does not allow special characters in numeric data. Newer versions of Microsoft Excel do allow some special symbols in numeric data."><a href="#ftn7" id="body_ftn7">[7]</a></span>
+			</p>
+		
+			<p>
+				The standard way that values are entered into a spreadsheet cell is to click the mouse on that cell and then type in the value to be inserted.  For example, the value of “50” could have been placed into cell C2 of the spreadsheet of <span class="figNum simplespreadsheet"></span> by first clicking on the cell and then typing “50” followed by the “enter” key.
+			</p>
+		
+			<p>
+				Even though spreadsheets are primarily used to manipulate numbers, there is often a need to include text in the table for such things as titles and column headings.  In general,<span class="Bolded"> text strings</span> may consist of any sequence of typeable characters<span class="Footnote" title="Footnote: The primary restriction in both the Watson Spreadsheet lab and Microsoft Excel is that text strings may not begin with an equals mark “=” since that character is used to identify formulas."><a href="#ftn8" id="body_ftn8">[8]</a></span>.  As an example, consider the cell B2 in the spreadsheet of <span class="figNum simplespreadsheet"></span>, which contains the character string “grades”.  Similarly, cell B6 holds the text string “average.”
+			</p>
+		
+			<p>
+				The final type of item that can be stored in a spreadsheet cell is a formula.  <span class="Bolded">Formulas</span> are used to represent mathematical expressions that are to be calculated.  As a result, they look and behave very similar to standard mathematical expressions.  At a minimum, every spreadsheet program will support the four basic mathematical operators: addition, denoted by “+”; subtraction, denoted by “-”; multiplication, usually denoted by “*”; and division, denoted by “/”.
+			</p>
+		
+			<p>
+				In addition to the mathematical operators, formulas may contain the numbers upon which the operators are to act.  Hence, <span class="Subfigure">= 5 * 3</span> and <span class="Subfigure">= 1 + 2 + 3</span> are both valid spreadsheet formulas<span class="Footnote" title="Footnote: The Watson Spreadsheet Lab and Microsoft Excel both require that all formulas being with an equal sign “=” in order to distinguish them from text strings."><a href="#ftn9" id="body_ftn9">[9]</a></span>.  In general, formulas are evaluated from left to right with all multiplication and division being performed before any addition or subtraction.  So,  <span class="Subfigure">= 1 + 2 + 3</span>  is computed as  1 + 2  giving  3, followed by  3 + 3  giving 6.
+			</p>
+		
+			<p>
+				Just as with mathematical expressions, parenthesis may be used to override this default ordering and force operations to be performed in any order you desire.  So,  <span class="Subfigure">= 1 + (2 + 3)</span> would be evaluated as 2 + 3 giving 5, followed by 1 + 5 giving 6.
+			</p>
+			
+			<!-- Footnotes -->
+			<hr/>
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn6" href="#body_ftn6">[6]</a></span> I have endeavored to keep this discussion of spreadsheets as generic as possible, avoiding references to particular products, such as Microsoft Excel.  However, occasionally “implementation specific” details cannot be avoided.  In such cases the details presented conform to the way the Watson Spreadsheet Lab works.  When these details differ from Microsoft Excel’s way of doing things, the differences are pointed out in a footnote such as this.
+			</p>
+		 
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn7" href="#body_ftn7">[7]</a></span> Spreadsheet programs differ in their abilities to handle numeric data that contains special symbols (e.g., “$” and “,”).  While all spreadsheets will recognize “50000” and “75” as numbers, some programs will not accept “50,000” and “$75” as numeric data.  The Watson Spreadsheet lab generally does not allow special characters in numeric data.  Newer versions of Microsoft Excel do allow some special symbols in numeric data.
+			</p>
+		 
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn8" href="#body_ftn8">[8]</a></span> The primary restriction in both the Watson Spreadsheet lab and Microsoft Excel is that text strings may not begin with an equals mark “=” since that character is used to identify formulas.
+			</p>
+		 
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn9" href="#body_ftn9">[9]</a></span> The Watson Spreadsheet Lab and Microsoft Excel both require that all formulas being with an equal sign “=” in order to distinguish them from text strings.
+			</p>
+			
+			<div class="push"></div> <!-- pushes the footer static bottom -->	
+				
+	</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+		<script>
+			var pageObj;											// do NOT change name of variable
+			var chapID = "tools";							// stores current chapter for Section button in navbar
+
+			$(document).ready(function() {
+			populateNav();										// populate nav content
+			populateSpans();									// populate figure/content spans
+			pageObj = getArrowPathsByPage("toolsSpreadsheets1");		// get arrow paths
+			if (!localFlag) runGA();
+			});	
+
+		</script>
+	</body>
+	<script src="js/addElements.js"></script>
+	<script src="js/jquery.mobile.custom.min.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="js/table.js"></script>
+	<script src="js/cellFunctions.js"></script>
+	<script src="js/functionParse.js"></script>
+	<script src="js/setup.js"></script>
+	<script>Setup(3)</script>
+</html>

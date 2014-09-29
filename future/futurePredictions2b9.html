@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->			
+			<!-- CHAPTER 15:THE PAST, PRESENT, AND FUTURE OF COMPUTING -->
+
+			<p class="Section">
+				<span class="contentNum futurePredictions2b9"></span>
+			</p>
+
+			<p>
+				Over the next 10 years or so I believe we will begin to see the use of computer generated, photo-realistic vactors (virtual actors) that are indistinguishable from real actors in movies and TV shows.<span class="Footnote" title="Footnote: "><a href="#ftn19" id="body_ftn19">[19]</a></span> More specifically, I predict that within the next 15 years there will be a film featuring 1950’s sex symbols Marilyn Monroe and James Dean – even though these two actors never worked together during their lives. Similarly, I wouldn’t be surprised to see new episodes of the original Star Trek series, staring Shatner (Kirk), Nimoy (Spock), and Kelly (McCoy) in their mid-1960’s prime. These characters will look, act, and sound (perhaps through motion capture and voice actors) very close, if not identical to the originals. If Hollywood chooses not to go in this direction, I believe fans of the original series will take it upon themselves to do so (<span class="figNum trekquality"></span>).
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/trekquality.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum trekquality"></span> An example of the level of quality of some fan generated Star Trek inspired productions
+			</p>
+
+			<p>
+				Progress toward constructing vactors is ongoing. Hollywood is already very good at generating believable aliens (such as the Na’vi from Avatar) and human-like creatures (such as Gollum from The Hobbit and Dobby in the Harry Potter movies). Computer graphics have also been used quite effectively to generate much older versions of actors (such as Brad Pitt’s character in “The Curious Case of Benjamin Button”) and far less successfully to generate younger versions of actors (Patrick Stewart’s Professor X and Ian McKellen’s Magneto in the opening flashback scene of 2006’s “X-Men: The Last Stand”; and the younger version of Jeff Bridges’ character in Tron 2). Despite this progress, as of 2013, I am aware of no computer generated character that fits the definition of a completely photorealistic virtual actor (<span class="figNum karacg"></span>).
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/karacg.mp4" type="video/mp4">
+			</video>
+			</div>
+
+			<p class="Figure">
+				<span class="figNum karacg"></span> While no one would mistake the computer generated Kara for a human actress, the realism is rather amazing, especially when one considers this video was generated in real time on a PS3.
+			</p>
+			
+		
+			<hr />
+			<!-- Footnotes -->
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a href="#body_ftn19" id="ftn19">[19]</a>&nbsp; In the interest of full disclosure, I originally made this prediction in 2002 and am somewhat surprised it hasn’t already come to pass. Of course, given the 2008 movie “The Curious Case of Benjamin Button” in which the face and head of the very old version of the character played by Brad Pitt is computer generated, some might argue the prediction has already become reality.
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+			
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "future";
+
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("futurePredictions2b9");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

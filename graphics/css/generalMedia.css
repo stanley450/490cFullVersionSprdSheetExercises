@@ -1,0 +1,181 @@
+/* Defines link (anchor) behavior */
+a:link {
+	color: #002F8B;
+	text-decoration: none
+}
+a:visited {
+	color: #000058;
+	text-decoration: none
+}
+a:active {
+	color: #000058;
+	text-decoration: underline
+}
+/* End link behavior */
+
+/* Applies font choices to everything */
+* {
+	/* font-family: Verdana, Geneva, sans-serif */;
+}
+/*End font choices */
+
+/* div id styling */
+#wrapper {
+	width: 540px;
+	margin: 0 auto;
+	border: solid 0px #002F8B;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+#header {
+	background-color: #002F8B;
+	color: white;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+#nav {
+	background-color: #002F8B;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+#headnav {
+		background-color: #002F8B;
+		text-align: center;
+		font-family: Verdana, Geneva, sans-serif;
+}
+#chapnav {
+		background-color: #002F8B;
+		text-align: center;
+		font-family: Verdana, Geneva, sans-serif;
+}
+
+#vid {
+	margin: 0 auto;
+	display: block;
+}
+
+#main {
+}
+
+#personalnotes {
+	font-size: 10%;
+}
+
+#container1 {
+	width:70%
+}
+/* End div id styling */
+
+/* Body element styling by class */
+.Section { /* Section and subsection headers use this */
+	font-weight: bold;
+}
+.Figure { /*Used on "Figure 1.1: xyz" portion under each figure */
+	text-align: center;
+	font-size:80%
+}
+.Subfigure { /* Typically used for code segments */
+	text-align: center;
+	font-family:monospace;
+	font-size:120%
+}
+.Blockcenter { /* Provides a way to center a block of text while retaining internal text alignment */
+	display:table;
+	list-style:none;
+	margin:0 auto;
+	
+}
+.Image { /* Centers images */
+	margin: 0 auto;
+	display: block;
+	width:70%;
+}
+.Video { /* Centers video */
+	margin: 0 auto;
+	display: block;
+}
+.sdfootnotesym { /*Autodefined footnote name, same as below */
+	font-size: small;
+	vertical-align: top;
+}
+.Footnote { /* Used with footnotes */
+	font-size: small;
+	vertical-align:top;
+}
+.Emphasized {
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+}
+.Bolded { /* Used with plain bolding cases */
+	font-weight: bold;
+}
+.Italicized { /* For use with font-differentiated subfigures */
+	font-family:monospace;
+	font-style:italic;
+}
+.Ital { /* For use with other italic needs */
+	font-style:italic;
+}
+.Underlined {
+	text-decoration:underline;
+}
+.Superscript {
+	font-size:xx-small;
+	vertical-align:top;
+}
+.Subscript {
+	font-size:xx-small;
+	vertical-align:bottom;
+}
+.Center {
+	width:70%;
+	margin: auto auto;
+}
+.Centered {
+	margin: 0 auto;
+	text-align: center;
+}
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+    
+/* td { padding-left: 10px; padding-right: 10px } For Digital Logic*/
+/* End body element styling by class */
+
+/* @media definitions for various devices and resolutions */
+@media screen and (max-width: 360px) {
+	#wrapper{width:240px; font-size:50%}
+	#header{width: 220px; font-size:80%}
+	#headnav{width: 240px; font-size:60%}
+	#chapnav{width: 240px; font-size:60%}
+}
+@media screen and (max-width: 480px) and (min-width:361px) {
+	#wrapper{width:320px; font-size:70%}
+	#header{width:320px; font-size:90%}
+	#headnav{width:320px; font-size:70%}
+	#chapnav{width:320px; font-size:70%}
+}
+@media screen and (max-width: 720px) and (min-width:481px) {
+	#wrapper{width: 440px; font-size:80%}
+	#header{width:440px;}
+	#headnav{width:440px; font-size:80%}
+	#chapnav{width:440px; font-size:80%}
+}
+@media screen and (min-width:721px) and (max-width:900px){
+	#wrapper{width:680px; font-size:90%}
+	#header{width:680px; font-size:110%}
+	#headnav{width:680px; font-size:90%}
+	#chapnav{width:680px; font-size:90%}
+}
+@media screen and (min-width:901px){
+	#wrapper{width:880px}
+	#header{width:100%; font-size:120%}
+	#headnav{width:880px;}
+	#chapnav{width:880px;}
+}
+/* End @media definitions for various devices and resolutions */

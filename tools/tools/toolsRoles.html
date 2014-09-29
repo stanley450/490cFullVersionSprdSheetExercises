@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	  <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	  <!-- CSS files -->
+		<link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End Navbar -->
+			
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum toolsRoles"></span>
+			</p>
+	
+			<p>
+				Without computers modern life would be all but impossible.  Computers keep track of our bank accounts. They power ATMs, generate our paychecks, print billing statements, and produce most of the “junk mail” we wade through.  They enable us to purchase food, clothing, and other items with credit and debit cards.  They allow monetary funds to be transferred, stocks to be traded, and airline reservations to be booked.  They help engineers design and build airplanes, automobiles, roads, and bridges.  They enable scientists to study distant planets, understand DNA, and model new drugs.  In fact, computers have become so much a part of modern life one wonders how engineering, business, or science was ever conducted without them.
+			</p>
+	
+			<p>
+				In the not too distant past, only highly trained professionals used computers.  Today, large numbers of people use computers on a daily basis for tasks such as email, instant messaging, web browsing, word processing, creating and giving presentations, spreadsheet modeling, and information storage and retrieval.  In order to understand how we reached this point and, perhaps, where we are headed, it is useful to look back at how computing has changed the way we work.  
+			</p>
+	
+			<p>
+				Large mainframe computers transformed the way business was conducted in the late 1960’s and 1970’s, automating most record keeping, accounting, and billing operations.  With the advent of personal computers and networks in the 1980’s, businesses were transformed once again, becoming more decentralized and receptive to individual customer needs.  By the 1990’s, computers had become inexpensive and common enough for most employees to have immediate access to them, once again changing the way business was conducted.  The first decade of the 21<span class="T10">st</span> century is witnessing the rise of wireless and mobile computing – extending network connectivity beyond the desktop and promising to once again fundamentally change the way we work and live.
+			</p>
+		
+			<p>
+				Although the magnitude of these changes has been quite large, it is interesting to note that much of this change has occurred in unexpected directions and that some expected changes have failed to materialize.  For example, in the late 1970’s, the Xerox Corporation funded advanced research into how computers would be used in business settings in the coming decades.  The Altos research project conducted at PARC, the Palo Alto Research Center, focused on developing prototype tools for the “paperless office.”  The idea was that when computers could be used for creating documents, and networks for transmitting them, there would no longer be a need for paper in offices.  This was, of course, a concern for Xerox, since their major business was producing photocopiers.  
+			</p>
+	
+			<p>
+				While the Altos project led to many advances, such as graphical user interfaces and mouse pointing devices, that are in common use today, the anticipated “paperless office” never really arrived.  In fact, with the widespread availability of high quality laser printers and the ability to quickly update manuscripts with word processors, paper consumption has increased rather than decreased.
+			</p>
+	
+			<p>
+				Some people think that eventually paper will lose its dominant role as a medium for recording and disseminating information.  They point out that computers are still relatively expensive, not yet universally available, and suffer from a lack of software standards.  Others believe that paper will continue to be cheaper and more portable for the foreseeable future.  
+			</p>
+	
+			<p>
+				Regardless of whether paper eventually goes the way of the dinosaur or not, one of the lessons of the Altos project is that progress in computing does not always proceed in easy to predict ways.  As we take a look at the applications that are currently popular, you should try to keep this fact in mind.  Today’s most popular end-user applications – web browsers and presentation software – didn’t even exist until around the 1990s.  Thus, the applications you will be using ten years from now are likely to be very different from the ones that are popular today.
+			</p>
+			
+			<div class="push"></div> <!-- pushes the footer static bottom -->	
+				
+	</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+		<!-- Arrow navigation scripts -->
+		<script>
+			var pageObj;											// do NOT change name of variable
+			var chapID = "tools";							// stores current chapter for Section button in navbar
+
+			$(document).ready(function() {
+			populateNav();										// populate nav content
+			populateSpans();									// populate figure/content spans
+			pageObj = getArrowPathsByPage("toolsRoles");		// get arrow paths
+			if (!localFlag) runGA();
+			});	
+
+		</script>
+	</body>
+</html>

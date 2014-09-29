@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui-1.10.4.custom.css">
+	    <link href="../lib/css/ch08.css" rel = "stylesheet">
+	    <link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel = "stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/grid.css" rel = "stylesheet">
+		<link href="../lib/css/Dialogs.css" rel="stylesheet">
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/visibility.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		
+		<script src="js/acorn.js"></script>
+		<script src="js/interpreter.js"></script>
+		<script src="js/WatsonDataStore.js"></script>
+		<script src="js/WatsonEditor.js"></script>
+		<script type="text/javascript" src="js/engine.js"></script>
+		<script src="js/JSFigures.js"></script>
+		<script src="js/WatsonDialogs.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/editor.css">
+			
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum javascriptExpressions"></span>
+			</p>
+			
+			<p>
+				As we have just seen, the “prompt” statements can be used to store user input into a variable. The “prompt” statements are really just specialized versions of the more general “assignment” statement.  &nbsp; Assignments take the form:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Italicized">variable </span><span class="Subfigure">=</span> <span class="Italicized">expression</span><span class="Subfigure">;</span>
+			</p>
+
+			<p>
+				The symbol “=” is called the assignment operator. It is related to, but unique from the mathematical “equals” operator. Assignment statements work by first evaluating the expression on the right hand side of the assignment operator to determine its value. Once that value has been computed, the value is then stored in the variable named on the left hand side of the assignment operator.
+			</p>
+
+			<p>
+				Watson JavaScript supports two major types of expressions: text string-valued expressions and numeric-valued expressions. Since the variable named on the left hand side of the assignment statement specifies where the value of the right hand side expression is to be stored, it is important that their types match. In other words, if a numeric variable is named on the left hand side of the assignment operator, then a numeric-valued expression must occur on the right hand side of the operator. Similarly, if a text string-valued expression occurs on the right hand side of the assignment operator, then a text variable must be named on the left hand side. The following are valid assignment statements, assuming <span class="Subfigure">firstName</span> is a text variable, and <span class="Subfigure">total</span> and <span class="Subfigure">age</span> are numeric variables.
+			</p>
+
+			<p class="Subfigure">
+				firstName = “Chris”;&nbsp; &nbsp; total = 0;&nbsp; &nbsp; age = 41;
+			</p>
+
+			<p>
+				The numeric expressions supported by Watson JavaScript are very similar to the spreadsheet formulas presented in <span class="contentNum toolsSpreadsheets2 true"></span> of Chapter <span class="contentNum tools false"></span>. Watson JavaScript numeric expressions support the same math operators as do spreadsheet formulas; namely, addition “+”, subtraction “-”, multiplication “*”, and division “/”. The precedence of these operators remains the same, with multiplication and division being performed ahead of addition and subtraction. Parentheses for grouping sub-expressions are used identically in both systems.
+			</p>
+
+			<p>
+				The major difference between spreadsheet formulas and Watson JavaScript expressions are that Watson JavaScript expression use variable names in place of cell references.
+			</p>
+
+			<p>
+				Thus, assuming <span class="Subfigure">X</span> and <span class="Subfigure">Y</span> are numeric variables,
+			</p>
+
+			<p class="Subfigure">
+				Y + Z
+			</p>
+
+			<img src="images/opsprecedence.png" alt="Operator precedence in Watson Javascript mathematical expressions" class="Image">
+			
+			<br/>
+
+			<p class="Figure">
+				<span class="figNum opsprecedence"></span> &nbsp; Operator precedence in Watson JavaScript mathematical expressions
+			</p>
+
+			<p>
+				will be evaluated as the sum of the value stored in <span class="Subfigure">Y</span> together with the value stored in <span class="Subfigure">Z</span>. Assuming that <span class="Subfigure">Y</span> holds the value 15 and <span class="Subfigure">Z</span> holds the value 10, the expression would evaluate to 25. If this expression appeared in an assignment statement such as
+			</p>
+
+			<p class="Subfigure">
+				X = Y + Z;
+			</p>
+
+			<p>
+				which is read “<span class="Subfigure">X</span> is assigned the value of <span class="Subfigure">Y</span> plus <span class="Subfigure">Z</span>”, <span class="Subfigure">X</span> would take on the value 25. Of course, if <span class="Subfigure">Y</span> and <span class="Subfigure">Z</span> held different values, such as 100 and 250, then the value stored in <span class="Subfigure">X</span> would be different as well, 350 in this case.
+			</p>
+
+			<p>
+				The priorities, or precedence, of the various Watson JavaScript mathematical operators are summarized in <span class="figNum opsprecedence"></span>. This figure is almost identical to Figure 2.5, which contains the priorities for spreadsheet formulas.
+			</p>
+
+			<p>
+				When evaluating expressions, the general rule is that all operations at the same “level” are performed one after another working through the expression from left to right. Evaluation continues in this manner until a single result is computed.
+			</p>
+
+			<p>
+				For example, the expression:
+			</p>
+
+			<p class="Subfigure">
+				Z + Y / 3 * 8
+			</p>
+
+			<p>
+				Where <span class="Subfigure">Y</span> is again 15 and <span class="Subfigure">Z</span> is 10, would be evaluated in the following way. First, <span class="Subfigure">Z</span> would be replaced with 10 and then <span class="Subfigure">Y</span> with 15, giving the intermediate expression:
+			</p>
+
+			<p class="Subfigure">
+				10 + 15 / 3 * 8
+			</p>
+
+			<br/>
+
+			<p>
+				There are now three operations that need to be performed to compute the result: one addition, one division, and one multiplication. Since multiplication and division are at a higher precedence level than addition and subtraction, the division of 15 by 3 is performed, resulting in:
+			</p>
+
+			<p class="Subfigure">
+				10 + 5 * 8
+			</p>
+
+			<p>
+				Next, the multiplication 5 by 8 is performed, giving:
+			</p>
+
+			<p class="Subfigure">
+				10 + 40
+			</p>
+
+			<p>
+				Finally, the addition takes place, producing the result:
+			</p>
+
+			<p class="Subfigure">
+				50
+			</p>
+
+			<p>
+				Assuming the expression had occurred in the statement
+			</p>
+
+			<p class="Subfigure">
+				document.writeln(Z + Y / 3 * 8);
+			</p>
+
+			<p>
+				the value 50 would have been output to the display.
+			</p>
+
+			<p>
+				In addition to numbers, Watson JavaScript also provides limited support for text strings. As we have seen, text strings may be represented as both constants and variables. They can be written to the display screen (via “write” and “writeln”), read from the keyboard (via “prompt”), and assigned to variables (via assignment statements).
+			</p>
+
+			<p>
+				For example, the following:
+			</p>
+
+			<p class="Subfigure">
+				president = “George Bush”;
+			</p>
+
+			<p>
+				is a perfectly valid assignment statement, as long as <span class="Subfigure">president</span> is a text variable. When executed this statement will place the value of the text string “George Bush” into the text variable <span class="Subfigure">president</span>. Likewise,
+			</p>
+
+			<p class="Subfigure">
+				commanderInChief = president;
+			</p>
+
+			<p>
+				is valid as well, assuming both <span class="Subfigure">commanderInChief</span> and &nbsp; <span class="Subfigure">president</span> are text variables. The statement places a copy of the current value held in <span class="Subfigure">president</span> into the variable <span class="Subfigure">commanderInChief</span>.
+			</p>
+
+			<p>
+				Watson JavaScript includes one built in operation that may be performed on text strings. This operator, called concatenation, allows two separate strings to be merged together. In a sense, concatenation is the text string equivalent of the mathematical operator addition. For this reason, the JavaScript symbol for concatenation is “+”.
+			</p>
+
+			<p>
+				Whenever a “+” symbol is encountered in an expression, JavaScript determines its meaning by looking at the type of the variables and constants appearing in that expression. If these variables and constants are numeric, then JavaScript interprets “+” as addition. If the variables and constants of the expression are text-based, then JavaScript interprets “+” as concatenation.
+			</p>
+
+			<p>
+				For example, the following is a legal assignment statement, assuming president is a <span class="Subfigure">text</span> variable.
+			</p>
+
+			<p class="Subfigure">
+				president = “George ” + “Bush”;
+			</p>
+
+			<p>
+				This statement would first evaluate the text expression &nbsp; <span class="Subfigure">“George ” + “Bush”</span> which generates the text string “George Bush”, and then assign that value to the text variable <span class="Subfigure">president</span>. Note that in order for this statement to have meaning in Watson JavaScript, <span class="Subfigure">president</span> must be a text variable and not a numeric variable. Also note that a space was included at the end of the first text string, “George ”. This was necessary so that when this string was concatenated with “Bush” a blank would appear between the first and last name.
+			</p>
+
+			<br/>
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum javascriptExpressions"></span>
+			</p>
+
+			<ol id="exerciseList">
+				<li>
+					<p>
+						Show what would be printed by the following program.&nbsp;
+					</p>
+					<ul class="Blockcenter">
+						<li><span class="Subfigure">var A; // Numeric</span></li>
+						<li><span class="Subfigure">var B; // Numeric</span></li>
+						<li><span class="Subfigure">var C; // Numeric</span></li>
+						<br />
+						<li><span class="Subfigure">A = 5;</span></li>
+						<li><span class="Subfigure">B = 10;</span></li>
+						<li><span class="Subfigure">C = 2;</span></li>
+						<br />
+						<li><span class="Subfigure">document.writeln ( A / B * 100 );</span></li>
+						<li><span class="Subfigure">document.writeln ( A + B / C );</span></li>
+						<li><span class="Subfigure">document.writeln ( B * C - A );</span></li>
+					</ul>
+				</li>
+
+				<li>
+					<p class="exercise solvable 5">
+						Write a Watson JavaScript program that computes the product of three numbers entered by the user. In other words, the program should ask for and receive three integer values from a user, multiply these three numbers together, and then print the product. This program will be similar to the program of <span class="figNum inoutnum"></span> that computes the sum of two numbers.
+					</p>
+					
+					<div class="exerciseDiv 5"></div>
+				</li>
+
+				<li>
+					<p class="exercise solvable 6">
+						Write a Watson JavaScript program to convert a temperature from degrees Fahrenheit to Celsius. The conversion is defined by the formula <span class="Italicized">C = 5/9 (F-32)</span> &nbsp;
+					</p>
+					
+					<div class="exerciseDiv 6"></div>
+				</li>
+
+				<li>
+					<p class="exercise solvable 7">
+						Write a Watson JavaScript program to compute the area of a rectangle given its height and width, in inches, as input. <span class="Footnote" title="Footnote: It is interesting to note that before the invention of spreadsheets, programmers spent much of their time writing little special purpose programs, not much more complex than those in problems 3 and 4. These programs, which generally computed tables of values based on various formulas, were used for engineering design, financial analysis, and economic modeling. Today, most of these tasks can be accomplished with general-purpose spreadsheets."><a href="#ftn3" id="body_ftn3">[3]</a></span>
+					</p>
+					
+					<div class="exerciseDiv 7"></div>
+				</li>
+			</ol>
+			
+			<!-- Footnotes -->
+			<hr/>
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a href="#body_ftn3" id="ftn3">[3]</a>&nbsp; It is interesting to note that before the invention of spreadsheets, programmers spent much of their time writing little special purpose programs, not much more complex than those in problems 3 and 4. These programs, which generally computed tables of values based on various formulas, were used for engineering design, financial analysis, and economic modeling. Today, most of these tasks can be accomplished with general-purpose spreadsheets.
+			</p>
+
+			<div class="push"></div>
+			<!-- End main content -->
+			</div> 
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "javascript";
+				var sectID = "javascriptExpressions";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("javascriptExpressions");		// get arrow paths
+					setupExerciseButtons(sectID);
+					if (!localFlag) runGA();
+				});	
+				
+			</script>
+
+	</body>
+</html>

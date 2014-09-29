@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+		<link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+	
+
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../lib/js/nav.js"></script>
+			<script type="text/javascript" src="../lib/js/master.js"></script> 
+			<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+			<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+			<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End Navbar -->
+					
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Navbar -->
+			<div id="includedContentForPage"></div>
+			<!-- End Navbar -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum scienceFour3"></span> 
+			</p>
+
+			<p>
+				So far, this chapter has looked at a number of common applications of computing and described how such applications can be constructed from algorithms and data structures expressed in the form of computer programs.  The next logical question is: “How does computer hardware execute these programs?”.  This section introduces some of the main concepts of computing hardware.  These concepts will be amplified and extended in Chapters <span class="contentNum assembly false"></span> and <span class="contentNum circuits false"></span>.
+			</p>
+
+			<p>
+				All general-purpose computers, at a minimum, consist of the following hardware components: a central processing unit, main memory, secondary storage, various input/output devices, and a data bus.  A diagram showing the major hardware components is presented in <span class="figNum blockdiagram"></span>.  
+			</p>
+
+			<p>
+				The <span class="Bolded">central processing unit</span>, or CPU, is the device that is responsible for actually executing the instructions that make up a program.  (For this reason, it has sometimes been referred to as the “brain” of the computer.)  Before examining the function of the CPU, a number of other components of the computer need to be introduced.  
+			</p>
+
+			<p>
+				<span class="Bolded">Main memory</span> is where the programs and data that are currently being used are located.  Main memory is often referred to as <span class="Bolded">RAM</span>, which stands for Random Access Memory.  This acronym is derived from the fact that the CPU may access the contents of main memory in any order – there is no fixed or predefined sequence.  In 2003, a new personal computer typically had between 512 megabytes to one gigabyte of main memory, meaning they could store somewhere between one half to one billion characters.  
+			</p>
+	
+			<img src="images/blockdiagram.png" alt="A block diagram of a computer" class="Image">
+	
+			<p class="Figure">
+				<span class="figNum blockdiagram"></span> A block diagram of a computer
+			</p>
+
+			<p>
+				<span class="Bolded">Secondary storage</span> is used to hold programs and data that are likely to be needed sometime in the near future.  Disk drives are the most common secondary storage devices.  The capacity of secondary storage devices purchased in 2003 ranged from about 40 to 120 gigabytes, meaning they could store somewhere between 40 to 120 billion characters.
+			</p>
+	
+			<p>
+				The storage capacity of memory devices, both main memory and secondary storage, tend to increase rapidly over time.  Historically, they have doubled approximately once every 18 months.  This observation, known as <span class="Bolded">Moore’s law</span><span class="Footnote_20_Symbol"><span class="Footnote" title="Footnote: Named after Intel co-founder Gordon Moore."><a href="#ftn2" id="body_ftn2">[2]</a></span></span>, has remained true since the introduction of computers more than half a century ago. 
+			</p>
+	
+			<p>
+				Moore’s law also appears to apply to the speed at which CPU’s process instructions.  Personal computers purchased in 2003 operated at speeds of approximately 3 billion cycles per second (3.0 Gigahertz) – meaning they could execute almost 3 billion individual instructions per second.  It is this blinding speed that allows computers to accomplish the amazing feats they are capable of.
+			</p>
+	
+			<p>
+				While the actual sizes of main memory and secondary storage continue to rapidly increase, their relative characteristics have remained fixed for at least a quarter century.  Historically, secondary storage devices have tended to hold about 100 times as much information as main memory.  In general, main memory is fast, expensive, and of limited size when compared to secondary storage.  Conversely, secondary storage is slow, cheap, and large compared to main memory.  The primary reason for these differences is that main memory consists of electronic components that have no moving parts.  Secondary storage generally involves electromechanical devices, such as a spinning disk, on which information may be read or retrieved using magnetic or optical (laser) technology.  Because these devices contain moving parts, they tend to be many times slower than main memory.  
+			</p>
+	
+			<p>
+				Another difference between main memory and secondary storage is that secondary storage is persistent, in the sense that it does not require continuous electrical power to maintain its data.  The main memory of most computers is, on the other hand, volatile.  It is erased whenever power is shut off.
+			</p>
+
+			<p>
+				The <span class="Bolded">data bus</span> is the component of a computer that connects the other components of the computer together so that they may communicate and share data.  For example, the instructions that make up a computer program are usually stored in main memory while the program is running.  However, the actual computations take place in the CPU.  Before an instruction can be executed, it must first be copied from the main memory into the CPU.  This copying operation takes place over the data bus.
+			</p>
+	
+			<p>
+				Now that the major components of a computer have been introduced, the operation of the CPU can be examined.  The operation of the CPU is governed by the instruction cycle.  The <span class="Bolded">instruction cycle</span> is a procedure that consists of three phases: instruction fetch, instruction decode, and instruction execution.  The CPU’s task is to perform the instruction cycle over and over until explicitly instructed to halt.  The <span class="Bolded">fetch</span> part of the instruction cycle consists of retrieving an instruction from memory.  The <span class="Bolded">decode</span> phase concerns determining what actions the instruction is requesting the CPU to perform.  Instruction <span class="Bolded">execution</span> involves performing the operation requested by the instruction.
+			</p>
+	
+			<p>
+				In order for a computer to do any kind of useful work, it must have ways of communicating with the outside world.  <span class="Bolded">Input/output devices</span> allow computers to interact with people and other machines.  I/O devices range from the mundane (e.g., keyboard, mouse, and display) to the exotic (e.g., virtual reality glasses and data gloves).  Some devices, such as keyboards, are strictly for input only.  Other devices, such as display screens, are output only.  Still other devices, such as modems, can handle both input and output.  
+			</p>
+	
+			<p>
+				The general trend in I/O devices is towards higher throughput rates.  Newer I/O devices can transmit and/or receive greater quantities of data in shorter periods of time.  This trend is related to the desire to incorporate very high-resolution graphics, sound, music, and video into modern software products – all of which require large amounts of memory and rapid I/O.
+			</p>
+	
+			<p>
+				Although modern computer hardware is quite impressive, it is easy to overestimate the capabilities of these machines.  Computers can directly perform only a small number of very primitive operations and, in general, their CPUs are sequential devices – able to perform only one instruction at a time.  These limitations are not apparent to the average computer user because computer scientists have built up a number of layers of software to insulate the user from the physical machine.  Software can be used to make computers appear much more capable and friendly than they actually are because of the tremendous speeds at which they operate.  (Remember, a modern PC can execute about 3 billion instructions each second.)
+			</p>
+	
+			<p>
+				In order to help you gain a familiarity with the capabilities and limitations of computing hardware, a Watson Assembly lab is presented in <span class="contentNum assembly true"></span>.  This lab simulates the workings of a very simple computer so that you can study the various hardware components, such as the CPU.  The machine is fully programmable with its own internal machine language.  A <span class="Bolded">Machine language</span> is the set of instructions, expressed as a series of 1’s and 0’s, that are directly executable by the machine.  Different types of machines, such as PC’s and Mac’s, have their own unique machine languages.
+			</p>
+	
+			<p>
+				In <span class="contentNum scienceFour2"></span> the various kinds of programming languages: imperative, functional, logical, and object-oriented, were introduced.  These programming languages are known as <span class="Bolded">high-level languages</span> because they hide many of the details inherent in machine languages.  Programs written in high-level languages are not <span class="Ital">directly</span> executable by a machine.  How then are programs that are written in these languages ever run?  One common approach is to translate programs written high-level languages into the machine language of a particular type of computer.  The programs that translate other programs from high-level languages to machine languages are called <span class="Bolded">compilers</span>.  After translation, these functionally equivalent machine language programs can be executed to perform the tasks specified by the original high-level programs.  
+			</p>
+	
+			<p>
+				This system of translation balances the needs of hardware designers against those of software designers, and has been in use for over forty years.  It allows people to write programs in languages that are closer to the way humans communicate with one another.  This approach also allows hardware designers to concentrate on building faster computers without having to become overly concerned with their ease of use.  Another important advantage of this system is that it allows computer hardware to advance rapidly without maintaining compatibility with previous systems.  When a new chip, such as Intel’s 64-bit Itanium processor, is introduced the only programs that must be written from scratch are the compilers that translate high-level programs into the new chip’s machine language.  The vast majority of existing programs, which are written in high-level languages, need only be “recompiled” using the new compliers in order to run on the new chip. 
+			</p>
+	
+			<p>
+				As mentioned above, computers really only understand machine language.  These machine languages consist entirely of 1’s and 0’s.  This fact brings two questions to mind.  First, if computers only process 1’s and 0’s, how can they do word processing involving character data or math involving numbers greater than one?  Second, how can an electronic device store and process the symbols “1” and “0” anyway?  The first question is addressed in <span class="contentNum assembly true"></span> and the second in <span class="contentNum circuits"></span>.  Here, I only attempt to give you an intuitive feel for some of the material that will be covered in these chapters.
+			</p>
+	
+			<p>
+				Human languages tend to be very large, with tens of thousands of individual words, and many, many more potentially valid sentences.  Most languages have a written form.  It is possible to use a unique symbol for each word, and, in fact, early forms of writing were based on this idea.  Extending the idea even further, it would be possible to use a unique symbol for every possible sentence that could be spoken in the language.  While this idea would lead to much shorter books, it is probably not a good idea due to the vast number of potential sentences, and therefore symbols, that would be required.  Modern languages have tended, in fact, to go the other way, towards fewer unique symbols.  This is possible, due to the fact that higher-level symbols, such as words, can be constructed from sequences of lower-level symbols, namely, characters.
+			</p>
+	
+			<p>
+				The situation with computers, which process only 1’s and 0’s, is analogous to having a two-letter alphabet.  It is important to realize that anything that can be written with an alphabet of 26 letters can be written using an alphabet of only two letters.  You just need a way of translating back and forth from the 26-letter alphabet to the two-letter alphabet.  Of course we use far more than 26 symbols in written English communication.  We have both upper and lower case letters, punctuation marks, such as “. , ; : ”, special symbols like “$ # @ &amp;” and so forth.  <span class="Bolded">ASCII </span>(pronounced “as ski”), the American Standard Code for Information Interchange, specifies how 128 common symbols are to be represented using 1’s and 0’s.  Each ASCII character requires exactly 7 bits, where a <span class="Bolded">bit</span> is just a “1” or a “0”.  For example, the symbol “A” has an ASCII representation of “1000001”.  It is important to understand that there is nothing magic about using this particular pattern of 1’s and 0’s to represent “A”.  The people who designed the ASCII standard could just as easily have chosen some other pattern for this character.  What is important is that ASCII is an agreed upon standard that the vast majority of computers use to represent data.  Because of this “universal” standard, it is relatively easy to share data between different kinds of machines.
+			</p>
+	
+			<p>
+				While the digits “0” through “9” are characters that have ASCII representations, computers generally store numbers in a form different from text.  The representations used for numbers are chosen in such a way as to make it easier for computers to do math.  Here is a binary representation of the number twelve: “1100”.  The number twelve is not the same as the character string “12” (read “one two”), which is the symbol for “1” followed by the symbol for “2”, in ASCII “0110001 0110010”. 
+			</p>
+	
+			<p>
+				At this point you should be convinced that anything that can be written down could be encoded using only two symbols.  But, how can computers store those two symbols?  The answer is that computer hardware contains many electrical circuits that can be either on or off.  The two symbols, “1” and “0”, are associated with the two states, on and off.  So, for example, a given circuit can be said to hold the symbol “1” when it is on and the symbol “0” when it is off.  Collections of these circuits can hold ASCII data and numbers.
+			</p>
+	
+			<p>
+				In addition to storing symbols, computers must be able to manipulate them.  As strange as this may sound, <span class="Ital">all</span> of the operations that a computer can perform, from math and logic to playing sound and graphics, can be expressed in terms of only three basic operations: “and”, “or”, and “not”.  <span class="Bolded">And</span> takes two inputs, if they are both “1”, it produces a “1”; otherwise it produces a “0”.  <span class="Bolded">Or</span> also takes two inputs, if either or both inputs are “1”, it produces a “1”; otherwise it produces a “0”.  <span class="Bolded">Not</span> takes a single input, if the input is “1” the output is “0”, and vice versa.  Electrical circuits for each of these three logic operations can easily be built, and these basic circuits can be combined to produce circuits capable of more complex behavior. <span class="contentNum circuits true"></span> explores this subject in more detail and introduces the Watson Digital Logic Lab which can be used to design and test simple digital circuits.
+			</p>
+			
+			<!-- Footnotes -->
+			<hr/>
+			<p class="Section">
+				Footnotes
+			</p>
+
+			<p class="Footnote">
+				<a class="Footnote_20_Symbol" id="ftn2" href="#body_ftn2">[2] </a></span> Named after Intel co-founder Gordon Moore.
+			</p>
+			
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "science";
+				
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("scienceFour3");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

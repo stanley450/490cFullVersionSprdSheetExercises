@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->			
+			<!-- CHAPTER 15:THE PAST, PRESENT, AND FUTURE OF COMPUTING -->
+
+			<p class="Section">
+				<span class="contentNum futureImproving4"></span>
+			</p>
+
+			<p>
+				In the previous section we looked at molecular level computing derived from biological systems. While biocomputing offers one path towards molecular level computing, in this section we explore another approach – that of directly engineering computing systems at the atomic level from the ground up without reference to biology.
+			</p>
+
+			<p>
+				The concept of atomic level computing traces its roots back to a speech given by Richard Feynman in 1959 to the American Physical Society at Cal Tech entitled “There’s Plenty of Room at the Bottom”<span class="Footnote" title="Footnote: "><a href="#ftn14" id="body_ftn14">[14]</a></span>. In his talk, Feynman anticipated the field of microelectronics and outlined some of the approaches, such as photolithography, that were later adopted for the production of integrated circuits. This was an amazing insight, given that computers filled entire rooms in his day and most people were talking about making them larger, not smaller. But Feynman didn’t stop there; he went on to describe some of the advantages of, and approaches for, manipulating matter at the atomic scale. In other words, Feynman’s speech anticipated the field of <span class="Bolded">nanotechnology</span>, which is concerned with the engineering of systems at the level of individual atoms.
+			</p>
+
+			<p>
+				Devices such as scanning tunneling microscopes (STMs) and atomic force microscopes (AFMs) can be used to image and even manipulate individual atoms. By 1990, this technology had developed to the point where researchers were able to spell out the letters “IBM” by positioning 35 xenon atoms on a nickel surface, and then create a picture of what they had done. We can easily imagine a memory system in which these xenon atoms are laid out in a 2-D grid arrangement of rows and columns on the nickel surface. A “1” would be represented by the presence of a xenon atom at a particular row and column position, and a “0” by the absence of a xenon atom at row, column position. Both reading and writing of data could be accomplished by use of the STM or AFM.
+			</p>
+
+			<p>
+				Though the information density of such a system would be almost unimaginably high, such systems are impractical because the data read and write times would be very, very slow. Regardless of its impracticality, this example does make the point that atomic-scale memory densities are possible.
+			</p>
+
+			<p>
+				In addition to being able to store data, a computer system must also be able to manipulate that data under program control.
+			</p>
+
+			<p>
+				In the 1990’s there was a lot of excitement surrounding the possibility of constructing molecular-level nanomechanical computer systems. These <span class="Bolded">nanomechanical computers</span>, first described in detail by K. Eric Drexler, would be mechanical computers built of rods and springs – but at the nanometer scale. Such nanotechnology promises far smaller and more energy efficient computers than exist today.
+			</p>
+
+			<p>
+				While the idea of directly engineering systems from the bottom up ‘atom by atom’ is intriguing, there has been little measurable progress towards the development of nanomechanical computers over the last few decades – and interest in this approach has waned. Some argue that Drexler’s designs are simply impractical – that various laws of physics preclude the construction of reliable nanomechanical computers. On the other hand, the existence of naturally occurring biological (bio-molecular) systems that encode proteins and transcribe DNA prove that robust molecular-level computing systems can, and indeed already do, exist. The fact that we currently lack the ability to engineer nano-scale computers from the ground up does not mean that breakthroughs are not “just around the corner”.
+			</p>
+			
+			<!-- End main content -->
+			<hr />
+			<!-- Footnotes -->
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a href="#body_ftn14" id="ftn14">[14]</a>&nbsp; A published copy of this talk – well worth a read over half a century after it was given – can be found on the web at <a href="http://www.zyvex.com/nanotech/feynman.html">http://www.zyvex.com/nanotech/feynman.html</a>. I encourage you to check it out.
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "future";
+
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("futureImproving4");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

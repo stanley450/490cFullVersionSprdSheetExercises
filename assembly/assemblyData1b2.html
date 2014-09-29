@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyData1b2"></span>
+			</p>
+			
+			<p>Now that we have reviewed the concept of number systems and the idea of counting in a variety of bases, let’s look more carefully at what exactly a numeric “base” is.</p>
+			
+			<p>
+				As you learned long ago in grade school, 123 is the way we normally write the number one hundred twenty three.  This is because the “1” is in the hundreds place, the “2” is in the tens place and the “3” is in the ones place.  Each digit is multiplied by the value of its position and the results are added together.  This process is illustrated below:
+			</p>
+			
+			<!--illustration 1
+			<table border="0" cellspacing="0" cellpadding="0" class="Table4">
+			<colgroup><col width="68"/><col width="68"/><col width="68"/></colgroup><tr class="Table41"><td style="text-align:left;width:0.6097in; " class="Table4_A1"><p class="P43">1</p></td><td style="text-align:left;width:0.609in; " class="Table4_A1"><p class="P43">2</p></td><td style="text-align:left;width:0.6167in; " class="Table4_C1"><p class="P43">3</p></td></tr><tr class="Table41"><td style="text-align:left;width:0.6097in; " class="Table4_A2"><p class="P18">100</p></td><td style="text-align:left;width:0.609in; " class="Table4_B2"><p class="P18">10</p></td><td style="text-align:left;width:0.6167in; " class="Table4_C2"><p class="P18">1</p></td></tr><tr class="Table41"><td style="text-align:left;width:0.6097in; " class="Table4_A3"><p class="P40"><span class="T3">10 </span><span class="Superscript">2</span></p></td><td style="text-align:left;width:0.609in; " class="Table4_B3"><p class="P40"><span class="T3">10 </span><span class="Superscript">1</span></p></td><td style="text-align:left;width:0.6167in; " class="Table4_C3"><p class="P40"><span class="T3">10 </span><span class="Superscript">0</span></p></td></tr></table>
+			
+			<table border="0" cellspacing="0" cellpadding="0" class="Table5">
+			<colgroup><col width="18"/><col width="24"/><col width="20"/><col width="35"/><col width="49"/><col width="35"/><col width="55"/><col width="29"/></colgroup><tr class="Table51"><td style="text-align:left;width:0.166in; " class="Table5_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.2167in; " class="Table5_A1"><p>(</p></td><td style="text-align:left;width:0.1819in; " class="Table5_A1"><p>1</p></td><td style="text-align:left;width:0.3125in; " class="Table5_A1"><p class="P60"></p></td><td style="text-align:left;width:0.4431in; " class="Table5_A1"><p class="P14">100</p></td><td style="text-align:left;width:0.3125in; " class="Table5_A1"><p>=</p></td><td style="text-align:left;width:0.4944in; " class="Table5_A1"><p class="P14">100</p></td><td style="text-align:left;width:0.259in; " class="Table5_H1"><p class="P14">)</p></td></tr><tr class="Table51"><td style="text-align:left;width:0.166in; " class="Table5_A1"><p>+</p></td><td style="text-align:left;width:0.2167in; " class="Table5_A1"><p>(</p></td><td style="text-align:left;width:0.1819in; " class="Table5_A1"><p>2</p></td><td style="text-align:left;width:0.3125in; " class="Table5_A1"><p class="P60"></p></td><td style="text-align:left;width:0.4431in; " class="Table5_A1"><p class="P14">10</p></td><td style="text-align:left;width:0.3125in; " class="Table5_A1"><p>=</p></td><td style="text-align:left;width:0.4944in; " class="Table5_A1"><p class="P14">20</p></td><td style="text-align:left;width:0.259in; " class="Table5_H1"><p class="P14">)</p></td></tr><tr class="Table51"><td style="text-align:left;width:0.166in; " class="Table5_A1"><p>+</p></td><td style="text-align:left;width:0.2167in; " class="Table5_A1"><p>(</p></td><td style="text-align:left;width:0.1819in; " class="Table5_A1"><p>3</p></td><td style="text-align:left;width:0.3125in; " class="Table5_A1"><p class="P60"></p></td><td style="text-align:left;width:0.4431in; " class="Table5_A1"><p class="P14">1</p></td><td style="text-align:left;width:0.3125in; " class="Table5_A1"><p>=</p></td><td style="text-align:left;width:0.4944in; " class="Table5_G3"><p class="P14">3</p></td><td style="text-align:left;width:0.259in; " class="Table5_H1"><p class="P14">)</p></td></tr><tr class="Table51"><td style="text-align:left;width:0.166in; " class="Table5_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.2167in; " class="Table5_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.1819in; " class="Table5_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.3125in; " class="Table5_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.4431in; " class="Table5_A1"><p class="P15"> </p></td><td style="text-align:left;width:0.3125in; " class="Table5_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.4944in; " class="Table5_G4"><p class="P14">123</p></td><td style="text-align:left;width:0.259in; " class="Table5_H1"><p class="P15"> </p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-1.png" alt="" class="Image">
+			
+			<p>
+				The system we normally use for representing numbers is called the decimal number system.  In this system, the rightmost digit is referred to as being in the one’s or “units” position.  Immediately to the left of the units position is the ten’s position.  To the left of the ten’s position is the hundred’s position, then the thousand’s, then the ten thousand’s, etc.  The decimal number system is a “base ten” positional number system because the value of each position can be expressed as a power of the number ten.  The exponent that the base is raised to is given by the position minus one.  The leftmost position, or units position, is 10 <span class="Superscript">0</span>, the tens position is 10 <span class="Superscript">1</span>, the hundreds is 10 <span class="Superscript">2</span>, the thousands is 10 <span class="Superscript">3</span>, etc.  The value of each position is exactly ten times the value of the position immediately to its right.
+			</p>
+			
+			<p>
+				The other bases work similarly.  In the binary system, the base is two, so the values of the positions (given from right to left) are one (2<span class="Superscript">0</span>), two (2<span class="Superscript">1</span>), four (2<span class="Superscript">2</span>), eight (2<span class="Superscript">3</span>), sixteen (2<span class="Superscript">4</span>), thirty-two (2<span class="Superscript">5</span>), etc.  The value of each position in a base two system is two times the value of the position immediately to its right.  The number five is represented in base two as 101<span class="Subscript">two</span> since there is a one in the four’s position and a one in the units position, as is illustrated below:
+			</p>
+			
+			<!--ill2
+			<table border="0" cellspacing="0" cellpadding="0" class="Table6">
+			<colgroup><col width="68"/><col width="68"/><col width="68"/></colgroup><tr class="Table61"><td style="text-align:left;width:0.6097in; " class="Table6_A1"><p class="P43">1</p></td><td style="text-align:left;width:0.609in; " class="Table6_A1"><p class="P43">0</p></td><td style="text-align:left;width:0.6167in; " class="Table6_C1"><p class="P43">1</p></td></tr><tr class="Table61"><td style="text-align:left;width:0.6097in; " class="Table6_A2"><p class="P18">4</p></td><td style="text-align:left;width:0.609in; " class="Table6_B2"><p class="P18">2</p></td><td style="text-align:left;width:0.6167in; " class="Table6_C2"><p class="P18">1</p></td></tr><tr class="Table61"><td style="text-align:left;width:0.6097in; " class="Table6_A3"><p class="P40"><span class="T3">2 </span><span class="Superscript">2</span></p></td><td style="text-align:left;width:0.609in; " class="Table6_B3"><p class="P40"><span class="T3">2 </span><span class="Superscript">1</span></p></td><td style="text-align:left;width:0.6167in; " class="Table6_C3"><p class="P40"><span class="T3">2 </span><span class="Superscript">0</span></p></td></tr></table>
+			
+			<table border="0" cellspacing="0" cellpadding="0" class="Table7">
+			<colgroup><col width="18"/><col width="24"/><col width="20"/><col width="42"/><col width="42"/><col width="35"/><col width="27"/><col width="22"/></colgroup><tr class="Table71"><td style="text-align:left;width:0.166in; " class="Table7_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.2167in; " class="Table7_A1"><p>(</p></td><td style="text-align:left;width:0.1819in; " class="Table7_A1"><p>1</p></td><td style="text-align:left;width:0.375in; " class="Table7_A1"><p class="P60"></p></td><td style="text-align:left;width:0.3806in; " class="Table7_A1"><p class="P14">4</p></td><td style="text-align:left;width:0.3125in; " class="Table7_A1"><p>=</p></td><td style="text-align:left;width:0.2444in; " class="Table7_A1"><p class="P14">4</p></td><td style="text-align:left;width:0.1944in; " class="Table7_H1"><p class="P14">)</p></td></tr><tr class="Table71"><td style="text-align:left;width:0.166in; " class="Table7_A1"><p>+</p></td><td style="text-align:left;width:0.2167in; " class="Table7_A1"><p>(</p></td><td style="text-align:left;width:0.1819in; " class="Table7_A1"><p>0</p></td><td style="text-align:left;width:0.375in; " class="Table7_A1"><p class="P60"></p></td><td style="text-align:left;width:0.3806in; " class="Table7_A1"><p class="P14">2</p></td><td style="text-align:left;width:0.3125in; " class="Table7_A1"><p>=</p></td><td style="text-align:left;width:0.2444in; " class="Table7_A1"><p class="P14">0</p></td><td style="text-align:left;width:0.1944in; " class="Table7_H1"><p class="P14">)</p></td></tr><tr class="Table71"><td style="text-align:left;width:0.166in; " class="Table7_A1"><p>+</p></td><td style="text-align:left;width:0.2167in; " class="Table7_A1"><p>(</p></td><td style="text-align:left;width:0.1819in; " class="Table7_A1"><p>1</p></td><td style="text-align:left;width:0.375in; " class="Table7_A1"><p class="P60"></p></td><td style="text-align:left;width:0.3806in; " class="Table7_A1"><p class="P14">1</p></td><td style="text-align:left;width:0.3125in; " class="Table7_A1"><p>=</p></td><td style="text-align:left;width:0.2444in; " class="Table7_G3"><p class="P14">1</p></td><td style="text-align:left;width:0.1944in; " class="Table7_H1"><p class="P14">)</p></td></tr><tr class="Table71"><td style="text-align:left;width:0.166in; " class="Table7_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.2167in; " class="Table7_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.1819in; " class="Table7_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.375in; " class="Table7_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.3806in; " class="Table7_A1"><p class="P15"> </p></td><td style="text-align:left;width:0.3125in; " class="Table7_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.2444in; " class="Table7_G4"><p class="P14">5</p></td><td style="text-align:left;width:0.1944in; " class="Table7_H1"><p class="P15"> </p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-2.png" alt="" class="Image">
+			
+			<p>
+				In the hexadecimal number system, the base is sixteen.  Hence, the values of the positions (again from right to left) are one (16<span class="Superscript">0</span>), sixteen (16<span class="Superscript">1</span>), two hundred fifty six (16<span class="Superscript">2</span>), four thousand ninety six (16<span class="Superscript">3</span>), etc.  The value of each position in this system is exactly sixteen times the value of the position immediately to its right.  The value of the base sixteen number 1A3<span class="Subscript">sixteen</span> is four hundred nineteen, since there is one in the two hundred and fifty six position, ten in the sixteen’s position, and three in the units position.  The calculations illustrating this result are given below.  Note that the computations themselves are shown in the decimal system, since that is the system we are most familiar with.
+			</p>
+			
+			<!--ill3
+			<table border="0" cellspacing="0" cellpadding="0" class="Table8">
+			<colgroup><col width="68"/><col width="68"/><col width="68"/></colgroup><tr class="Table81"><td style="text-align:left;width:0.6097in; " class="Table8_A1"><p class="P43">1</p></td><td style="text-align:left;width:0.609in; " class="Table8_A1"><p class="P43">A</p></td><td style="text-align:left;width:0.6167in; " class="Table8_C1"><p class="P43">3</p></td></tr><tr class="Table81"><td style="text-align:left;width:0.6097in; " class="Table8_A2"><p class="P18">256</p></td><td style="text-align:left;width:0.609in; " class="Table8_B2"><p class="P18">16</p></td><td style="text-align:left;width:0.6167in; " class="Table8_C2"><p class="P18">1</p></td></tr><tr class="Table81"><td style="text-align:left;width:0.6097in; " class="Table8_A3"><p class="P40"><span class="T3">16 </span><span class="Superscript">2</span></p></td><td style="text-align:left;width:0.609in; " class="Table8_B3"><p class="P40"><span class="T3">16 </span><span class="Superscript">1</span></p></td><td style="text-align:left;width:0.6167in; " class="Table8_C3"><p class="P40"><span class="T3">16 </span><span class="Superscript">0</span></p></td></tr></table>
+			
+			<table border="0" cellspacing="0" cellpadding="0" class="Table9">
+			<colgroup><col width="18"/><col width="18"/><col width="40"/><col width="21"/><col width="49"/><col width="35"/><col width="62"/><col width="21"/></colgroup><tr class="Table91"><td style="text-align:left;width:0.166in; " class="Table9_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.166in; " class="Table9_A1"><p>(</p></td><td style="text-align:left;width:0.3576in; " class="Table9_A1"><p>1</p></td><td style="text-align:left;width:0.1875in; " class="Table9_A1"><p class="P61"></p></td><td style="text-align:left;width:0.4431in; " class="Table9_A1"><p class="P14">256</p></td><td style="text-align:left;width:0.3125in; " class="Table9_A1"><p>=</p></td><td style="text-align:left;width:0.5625in; " class="Table9_A1"><p class="P14">256</p></td><td style="text-align:left;width:0.191in; " class="Table9_H1"><p class="P14">)</p></td></tr><tr class="Table91"><td style="text-align:left;width:0.166in; " class="Table9_A1"><p>+</p></td><td style="text-align:left;width:0.166in; " class="Table9_A1"><p>(</p></td><td style="text-align:left;width:0.3576in; " class="Table9_A1"><p>10</p></td><td style="text-align:left;width:0.1875in; " class="Table9_A1"><p class="P61"></p></td><td style="text-align:left;width:0.4431in; " class="Table9_A1"><p class="P14">16</p></td><td style="text-align:left;width:0.3125in; " class="Table9_A1"><p>=</p></td><td style="text-align:left;width:0.5625in; " class="Table9_A1"><p class="P14">160</p></td><td style="text-align:left;width:0.191in; " class="Table9_H1"><p class="P14">)</p></td></tr><tr class="Table91"><td style="text-align:left;width:0.166in; " class="Table9_A1"><p>+</p></td><td style="text-align:left;width:0.166in; " class="Table9_A1"><p>(</p></td><td style="text-align:left;width:0.3576in; " class="Table9_A1"><p>3</p></td><td style="text-align:left;width:0.1875in; " class="Table9_A1"><p class="P61"></p></td><td style="text-align:left;width:0.4431in; " class="Table9_A1"><p class="P14">1</p></td><td style="text-align:left;width:0.3125in; " class="Table9_A1"><p>=</p></td><td style="text-align:left;width:0.5625in; " class="Table9_G3"><p class="P14">3</p></td><td style="text-align:left;width:0.191in; " class="Table9_H1"><p class="P14">)</p></td></tr><tr class="Table91"><td style="text-align:left;width:0.166in; " class="Table9_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.166in; " class="Table9_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.3576in; " class="Table9_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.1875in; " class="Table9_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.4431in; " class="Table9_A1"><p class="P15"> </p></td><td style="text-align:left;width:0.3125in; " class="Table9_A1"><p class="P25"> </p></td><td style="text-align:left;width:0.5625in; " class="Table9_G4"><p class="P14">419</p></td><td style="text-align:left;width:0.191in; " class="Table9_H1"><p class="P15"> </p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-3.png" alt="" class="Image">
+			
+			<p>
+				As a final example, <span class="figNum ninetynine"></span> illustrates the representation of the number “nineteen ninety nine” in all three of the bases we have discussed (base ten, base two, and base sixteen).
+			</p>
+			
+			<p>
+				One of the most common tasks we face when working with multiple bases is converting numbers from one base to another.  We have already seen how to convert from base sixteen and base two to base ten – simply multiply the value of each symbol by the value of its position and add the results together.  But how do we convert from base ten to base sixteen or to base two?  We also need to figure out how to convert from base two to base sixteen and from base sixteen to base two. 
+			</p>
+			
+			<p>
+				Converting from base two to base sixteen and from base sixteen to base two is easy.  In fact, the only reason computer scientists even use base sixteen is because it serves as convenient “shorthand” for base two. <span class="figNum hextobin"></span> illustrates the fact that each base sixteen digit can be represented by a group of exactly four base two digits.  
+			</p>
+			
+			<img src="images/fig11-14pt1.png" alt="" class="Image">
+			<img src="images/fig11-14pt2.png" alt="" class="Image">
+			<img src="images/fig11-14pt3.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum ninetynine"></span> Nineteen ninety nine – written in base ten, base two, and base sixteen
+			</p>
+			
+			<img src="images/fig11-15.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum hextobin"></span>  Hexadecimal digits and their binary equivalence’s
+			</p>
+			
+			<p>
+				To convert from base sixteen to base two, simply replace each base sixteen digit with its corresponding group of four binary digits.  For example, the rather imposing hexadecimal number 1AFC3<span class="Subscript">sixteen</span> can easily be converted its binary representation as illustrated in <span class="figNum sixteentotwo"></span>
+			</p>
+			
+			<p>
+				Converting from base two to base sixteen is just as straightforward.  We scan the base two number from right to left replacing each group of four binary digits that we encounter with the equivalent hexadecimal digit. It is important that we group the digits of the base two representation from <span class="Ital">right to left</span> in case the number of digits is not evenly divisible by four.  If this occurs, we simply add leading 0’s until the number of digits is divisible by four.  Conversion of the bit pattern 11111001111<span class="Subscript">two</span> to its hexadecimal representation is represented in <span class="figNum twotosixteen"></span>
+			</p>
+			
+			<img src="images/sixteentotwo.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum sixteentotwo"></span>  Conversion of a number from base sixteen to base two
+			</p>
+			
+			<img src="images/twotosixteen.png" alt="" class="Image">
+			
+			<p>                                            L                                                   R</p>
+						
+			<p class="Figure">
+				<span class="twotosixteen"></span>  Conversion of a number from base two to base sixteen
+			</p>
+			
+			<p>
+				It is important that you understand that these conversions between binary and hexadecimal representations in no way change the actual number being represented, 7CF<span class="Subscript">sixteen</span> and 11111001111<span class="Subscript">two</span> both refer to the same number 1999<span class="Subscript">ten</span> as was illustrated in <span class="figNum ninetynine"></span>
+			</p>
+			
+			<p>
+				We have now looked at conversion methods from base two (and base sixteen) to base ten (<span class="figNum ninetynine"></span>), from base sixteen to base two (<span class="figNum sixteentotwo"></span>), and from base two to base sixteen (<span class="figNum twotosixteen"></span>).   The only conversions involving decimal, hexadecimal, and binary that we have yet to cover are from base ten to base sixteen and from base ten to base two.  We really only need to look at base ten to base two conversion, since conversion between base two and sixteen is so trivial.  If you have a base ten number and want its base sixteen representation, you can apply a decimal to binary conversion algorithm and then change the base two result to its base sixteen representation via the grouping method described above.
+			</p>
+			
+			<p>
+				A number can be converted from decimal to binary by subtracting from it the largest power of two that is less than or equal to the number, repeating until a remainder of zero is reached.  The binary representation of the number is then formed by placing a “1” in the positions corresponding to each of the powers of two that were subtracted.  A “0” is placed in the positions corresponding to the powers of two that were not subtracted.  
+			</p>
+			
+			<img src="images/tentotwo.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum tentotwo"></span>  Conversion of a number from base ten to base two 
+			</p>
+			
+			<p>
+				Given the decimal number 37, the largest power of two that can be subtracted is 32 = 2 <span class="Superscript">5</span>, leaving a remainder of five.  The largest power of two that can be subtracted from 5 is     4 = 2 <span class="Superscript">2</span>, which leaves a remainder of one.  Finally, the largest power of two that can be subtracted from 1 is 1=2 <span class="Superscript">0</span>, leaving a remainder of zero.  The base two representation of the number is thus formed by placing 1’s in the thirty-two’s, four’s, and units positions and 0’s in all other positions, giving 100101.  The conversion process for this number is illustrated in <span class="figNum tentotwo"></span>.
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum assemblyData1b2"></span>
+			</p>
+			
+			<ol>
+				<li>
+					Convert the following numbers from base two to base ten.
+					<img src="images/ex11-4-1-2-num1.png" alt="" class="Image">
+					
+			<!--table of stuff
+			<table border="0" cellspacing="0" cellpadding="0" class="Table24">
+			<colgroup><col width="105"/><col width="104"/><col width="125"/><col width="125"/></colgroup><tr class="Table241"><td style="text-align:left;width:0.95in; " class="Table24_A1"><p class="P12">a.</p></td><td style="text-align:left;width:0.9375in; " class="Table24_A1"><p class="P12">1</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">i.</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">1100</p></td></tr><tr class="Table241"><td style="text-align:left;width:0.95in; " class="Table24_A1"><p class="P12">b.</p></td><td style="text-align:left;width:0.9375in; " class="Table24_A1"><p class="P12">10</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">j.</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">1010</p></td></tr><tr class="Table241"><td style="text-align:left;width:0.95in; " class="Table24_A1"><p class="P12">c.</p></td><td style="text-align:left;width:0.9375in; " class="Table24_A1"><p class="P12">100</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">k.</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">10 1010</p></td></tr><tr class="Table241"><td style="text-align:left;width:0.95in; " class="Table24_A1"><p class="P12">d.</p></td><td style="text-align:left;width:0.9375in; " class="Table24_A1"><p class="P12">1000</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">l.</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">1010 1010</p></td></tr><tr class="Table241"><td style="text-align:left;width:0.95in; " class="Table24_A1"><p class="P12">e.</p></td><td style="text-align:left;width:0.9375in; " class="Table24_A1"><p class="P12">1 0000</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">m.</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">101 0101</p></td></tr><tr class="Table241"><td style="text-align:left;width:0.95in; " class="Table24_A1"><p class="P12">f.</p></td><td style="text-align:left;width:0.9375in; " class="Table24_A1"><p class="P12">10 0000</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">n.</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">0011 1111</p></td></tr><tr class="Table241"><td style="text-align:left;width:0.95in; " class="Table24_A1"><p class="P12">g.</p></td><td style="text-align:left;width:0.9375in; " class="Table24_A1"><p class="P12">100 0000</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">o.</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">0110 1010</p></td></tr><tr class="Table241"><td style="text-align:left;width:0.95in; " class="Table24_A1"><p class="P12">h.</p></td><td style="text-align:left;width:0.9375in; " class="Table24_A1"><p class="P12">1000 0000</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12">p.</p></td><td style="text-align:left;width:1.125in; " class="Table24_A1"><p class="P12"> 0111</p></td></tr></table>
+				-->
+				</li>
+				<li>
+					Convert the following numbers from base sixteen to base ten. 
+					<img src="images/ex11-4-1-2-num2.png" alt="" class="Image">
+			<!--table of stuff
+			<table border="0" cellspacing="0" cellpadding="0" class="Table25">
+			<colgroup><col width="105"/><col width="104"/><col width="125"/><col width="125"/></colgroup><tr class="Table251"><td style="text-align:left;width:0.95in; " class="Table25_A1"><p class="P12">a.</p></td><td style="text-align:left;width:0.9375in; " class="Table25_A1"><p class="P12">1</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">i.</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">AA</p></td></tr><tr class="Table251"><td style="text-align:left;width:0.95in; " class="Table25_A1"><p class="P12">b.</p></td><td style="text-align:left;width:0.9375in; " class="Table25_A1"><p class="P12">10</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">j.</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">A1A</p></td></tr><tr class="Table251"><td style="text-align:left;width:0.95in; " class="Table25_A1"><p class="P12">c.</p></td><td style="text-align:left;width:0.9375in; " class="Table25_A1"><p class="P12">100</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">k.</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">1CAB</p></td></tr><tr class="Table251"><td style="text-align:left;width:0.95in; " class="Table25_A1"><p class="P12">d.</p></td><td style="text-align:left;width:0.9375in; " class="Table25_A1"><p class="P12">1000</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">l.</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">ABBA</p></td></tr><tr class="Table251"><td style="text-align:left;width:0.95in; " class="Table25_A1"><p class="P12">e.</p></td><td style="text-align:left;width:0.9375in; " class="Table25_A1"><p class="P12">12 </p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">m.</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">F1</p></td></tr><tr class="Table251"><td style="text-align:left;width:0.95in; " class="Table25_A1"><p class="P12">f.</p></td><td style="text-align:left;width:0.9375in; " class="Table25_A1"><p class="P12">21</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">n.</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">101</p></td></tr><tr class="Table251"><td style="text-align:left;width:0.95in; " class="Table25_A1"><p class="P12">g.</p></td><td style="text-align:left;width:0.9375in; " class="Table25_A1"><p class="P12">37</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">o.</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">DAD</p></td></tr><tr class="Table251"><td style="text-align:left;width:0.95in; " class="Table25_A1"><p class="P12">h.</p></td><td style="text-align:left;width:0.9375in; " class="Table25_A1"><p class="P12">A1</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">p.</p></td><td style="text-align:left;width:1.125in; " class="Table25_A1"><p class="P12">007</p></td></tr></table>
+				-->
+				</li>
+				<li>
+					Convert the following numbers from base sixteen to base two.
+					<img src="images/ex11-4-1-2-num3.png" alt="" class="Image">
+			<!--table of stuff
+			<table border="0" cellspacing="0" cellpadding="0" class="Table26">
+			<colgroup><col width="105"/><col width="104"/><col width="125"/><col width="125"/></colgroup><tr class="Table261"><td style="text-align:left;width:0.95in; " class="Table26_A1"><p class="P12">a.</p></td><td style="text-align:left;width:0.9375in; " class="Table26_A1"><p class="P12">1</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">i.</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">AA</p></td></tr><tr class="Table261"><td style="text-align:left;width:0.95in; " class="Table26_A1"><p class="P12">b.</p></td><td style="text-align:left;width:0.9375in; " class="Table26_A1"><p class="P12">10</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">j.</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">A1A</p></td></tr><tr class="Table261"><td style="text-align:left;width:0.95in; " class="Table26_A1"><p class="P12">c.</p></td><td style="text-align:left;width:0.9375in; " class="Table26_A1"><p class="P12">100</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">k.</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">1CAB</p></td></tr><tr class="Table261"><td style="text-align:left;width:0.95in; " class="Table26_A1"><p class="P12">d.</p></td><td style="text-align:left;width:0.9375in; " class="Table26_A1"><p class="P12">1000</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">l.</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">ABBA</p></td></tr><tr class="Table261"><td style="text-align:left;width:0.95in; " class="Table26_A1"><p class="P12">e.</p></td><td style="text-align:left;width:0.9375in; " class="Table26_A1"><p class="P12">12 </p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">m.</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">F1</p></td></tr><tr class="Table261"><td style="text-align:left;width:0.95in; " class="Table26_A1"><p class="P12">f.</p></td><td style="text-align:left;width:0.9375in; " class="Table26_A1"><p class="P12">21</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">n.</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">101</p></td></tr><tr class="Table261"><td style="text-align:left;width:0.95in; " class="Table26_A1"><p class="P12">g.</p></td><td style="text-align:left;width:0.9375in; " class="Table26_A1"><p class="P12">37</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">o.</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">DAD</p></td></tr><tr class="Table261"><td style="text-align:left;width:0.95in; " class="Table26_A1"><p class="P12">h.</p></td><td style="text-align:left;width:0.9375in; " class="Table26_A1"><p class="P12">A1</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">p.</p></td><td style="text-align:left;width:1.125in; " class="Table26_A1"><p class="P12">007</p></td></tr></table>
+				-->
+				</li>
+				<li>
+					Convert the following numbers from base two to base sixteen.
+					<img src="images/ex11-4-1-2-num4.png" alt="" class="Image">
+			<!--table of stuff
+			<table border="0" cellspacing="0" cellpadding="0" class="Table27">
+			<colgroup><col width="105"/><col width="104"/><col width="125"/><col width="125"/></colgroup><tr class="Table271"><td style="text-align:left;width:0.95in; " class="Table27_A1"><p class="P12">a.</p></td><td style="text-align:left;width:0.9375in; " class="Table27_A1"><p class="P12">1</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">i.</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">1100</p></td></tr><tr class="Table271"><td style="text-align:left;width:0.95in; " class="Table27_A1"><p class="P12">b.</p></td><td style="text-align:left;width:0.9375in; " class="Table27_A1"><p class="P12">10</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">j.</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">1010</p></td></tr><tr class="Table271"><td style="text-align:left;width:0.95in; " class="Table27_A1"><p class="P12">c.</p></td><td style="text-align:left;width:0.9375in; " class="Table27_A1"><p class="P12">100</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">k.</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">10 1010</p></td></tr><tr class="Table271"><td style="text-align:left;width:0.95in; " class="Table27_A1"><p class="P12">d.</p></td><td style="text-align:left;width:0.9375in; " class="Table27_A1"><p class="P12">1000</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">l.</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">1010 1010</p></td></tr><tr class="Table271"><td style="text-align:left;width:0.95in; " class="Table27_A1"><p class="P12">e.</p></td><td style="text-align:left;width:0.9375in; " class="Table27_A1"><p class="P12">1 0000</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">m.</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">101 0101</p></td></tr><tr class="Table271"><td style="text-align:left;width:0.95in; " class="Table27_A1"><p class="P12">f.</p></td><td style="text-align:left;width:0.9375in; " class="Table27_A1"><p class="P12">10 0000</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">n.</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">0011 1111</p></td></tr><tr class="Table271"><td style="text-align:left;width:0.95in; " class="Table27_A1"><p class="P12">g.</p></td><td style="text-align:left;width:0.9375in; " class="Table27_A1"><p class="P12">100 0000</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">o.</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">0110 1010</p></td></tr><tr class="Table271"><td style="text-align:left;width:0.95in; " class="Table27_A1"><p class="P12">h.</p></td><td style="text-align:left;width:0.9375in; " class="Table27_A1"><p class="P12">1000 0000</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12">p.</p></td><td style="text-align:left;width:1.125in; " class="Table27_A1"><p class="P12"> 0111</p></td></tr></table>
+				-->
+				</li>
+				<li>
+					Convert the following numbers from base ten to base two.
+					<img src="images/ex11-4-1-2-num5.png" alt="" class="Image">
+			<!--table of stuff
+			<table border="0" cellspacing="0" cellpadding="0" class="Table28">
+			<colgroup><col width="105"/><col width="104"/><col width="125"/><col width="125"/></colgroup><tr class="Table281"><td style="text-align:left;width:0.95in; " class="Table28_A1"><p class="P12">a.</p></td><td style="text-align:left;width:0.9375in; " class="Table28_A1"><p class="P12">1</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">i.</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">67</p></td></tr><tr class="Table281"><td style="text-align:left;width:0.95in; " class="Table28_A1"><p class="P12">b.</p></td><td style="text-align:left;width:0.9375in; " class="Table28_A1"><p class="P12">10</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">j.</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">150</p></td></tr><tr class="Table281"><td style="text-align:left;width:0.95in; " class="Table28_A1"><p class="P12">c.</p></td><td style="text-align:left;width:0.9375in; " class="Table28_A1"><p class="P12">100</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">k.</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">2001</p></td></tr><tr class="Table281"><td style="text-align:left;width:0.95in; " class="Table28_A1"><p class="P12">d.</p></td><td style="text-align:left;width:0.9375in; " class="Table28_A1"><p class="P12">1000</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">l.</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">42</p></td></tr><tr class="Table281"><td style="text-align:left;width:0.95in; " class="Table28_A1"><p class="P12">e.</p></td><td style="text-align:left;width:0.9375in; " class="Table28_A1"><p class="P12">12 </p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">m.</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">1984</p></td></tr><tr class="Table281"><td style="text-align:left;width:0.95in; " class="Table28_A1"><p class="P12">f.</p></td><td style="text-align:left;width:0.9375in; " class="Table28_A1"><p class="P12">21</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">n.</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">101</p></td></tr><tr class="Table281"><td style="text-align:left;width:0.95in; " class="Table28_A1"><p class="P12">g.</p></td><td style="text-align:left;width:0.9375in; " class="Table28_A1"><p class="P12">37</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">o.</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">1492</p></td></tr><tr class="Table281"><td style="text-align:left;width:0.95in; " class="Table28_A1"><p class="P12">h.</p></td><td style="text-align:left;width:0.9375in; " class="Table28_A1"><p class="P12">123</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">p.</p></td><td style="text-align:left;width:1.125in; " class="Table28_A1"><p class="P12">007</p></td></tr></table>
+				-->
+			</li>
+				<li>
+					Convert the following numbers from base ten to base sixteen.
+					<img src="images/ex11-4-1-2-num6.png" alt="" class="Image">
+			
+				</li>
+			</ol>
+			
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyData1b2");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>

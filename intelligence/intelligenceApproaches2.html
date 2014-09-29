@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		 	<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/colmn_test.css" rel="stylesheet">	    
+		<!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+				<!--Navbar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div  class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum intelligenceApproaches2"></span>
+			</p>
+
+			<p>
+				At about the same time that some computer scientists were studying ways of creating computer systems that could play games (late 1950’s and 1960’s), other computer scientists were thinking about the problem of how to build a system that could “reason”. Much of the early work on automated reasoning focused on constructing computer programs to carry out the rules of symbolic logic. A <span class="Bolded">symbolic logic</span>, or formal logic, combines a way of representing information using symbols together with a collection of rules for manipulating those symbols, in order to reach logically valid conclusions.
+			</p>
+
+			<p>
+				The reason that symbolic logic was of such interest to computer scientists studying artificial intelligence is that these logics are capable of “reasoning” about concepts and ideas based purely on the form of the statements used to represent them. In other words, a symbolic logic can draw logically valid conclusions about a collection of statements based not on the meaning of those statements, but on the form in which they are written.<span class="Footnote" title="Footnote: Believe me, I know this sounds odd. But it will actually make sense once we look at some examples."><a href="#ftn10" id="body_ftn10">[10]</a></span>
+			</p>
+
+			<p>
+				There are many kinds of symbolic logics. In this chapter we will look at one logic, propositional logic, in some detail.
+			</p>
+			<!-- End main content -->
+			<hr />
+			
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a href="#body_ftn10" id="ftn10">[10]</a>&nbsp; Believe me, I know this sounds odd. But it will actually make sense once we look at some examples.
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "intelligence";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("intelligenceApproaches2");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>		
+	</body>
+</html>
+

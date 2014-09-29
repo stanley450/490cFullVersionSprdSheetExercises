@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyData2"></span>
+			</p>
+			
+			<p>
+				We now turn our attention to representing characters at the machine level.  One of the most popular methods of representing character data in a computer is to use the ASCII character set.  The basic idea behind ASCII (the American Standard Code for Information Interchange), and all other character sets, is to associate particular bit patterns with individual characters.
+			</p>
+			
+			<p>
+				There are 128 symbols in the ASCII character set.  These are numbered from 0 to 127      ( 7F<span class="Subscript">sixteen</span>  or  0111 1111<span class="Subscript">two</span> ).  ASCII characters are grouped together in the following way:
+			</p>
+			
+			<!--ill20
+			<table border="0" cellspacing="0" cellpadding="0" class="Table57">
+			<colgroup><col width="289"/><col width="90"/><col width="118"/><col width="167"/></colgroup><tr class="Table571"><td rowspan="2" style="text-align:left;width:2.6in; " class="Table57_A1"><p class="P54"> </p><h2 class="Heading_20_2"><a id="a__Character_Group"></a>Character Group</h2></td><td colspan="3" style="text-align:left;width:0.8125in; " class="Table57_B1"><p>Range</p></td></tr><tr class="Table571"><td style="text-align:left;width:0.8125in; " class="Table57_B2"><p>Decimal</p></td><td style="text-align:left;width:1.0625in; " class="Table57_B2"><p>Hexadecimal</p></td><td style="text-align:left;width:1.5069in; " class="Table57_D2"><p>Binary</p></td></tr><tr class="Table573"><td style="text-align:left;width:2.6in; " class="Table57_A1"><p>Control characters</p></td><td style="text-align:left;width:0.8125in; " class="Table57_B3"><p>0 - 31</p></td><td style="text-align:left;width:1.0625in; " class="Table57_B3"><p class="P132">00 – 1F</p></td><td style="text-align:left;width:1.5069in; " class="Table57_B1"><p class="P126">0000 0000 – 0001 1111</p></td></tr><tr class="Table573"><td style="text-align:left;width:2.6in; " class="Table57_A4"><h1 class="Heading_20_1"><a id="a__Punctuation"></a>Punctuation</h1></td><td style="text-align:left;width:0.8125in; " class="Table57_B4"><p>32 - 47</p></td><td style="text-align:left;width:1.0625in; " class="Table57_B4"><p>20 – 2F</p></td><td style="text-align:left;width:1.5069in; " class="Table57_D4"><p class="P126">0010 0000 – 0010 1111</p></td></tr><tr class="Table573"><td style="text-align:left;width:2.6in; " class="Table57_A4"><p>Digits:  0  1  2  3  4  5  6  7  8  9</p></td><td style="text-align:left;width:0.8125in; " class="Table57_B4"><p>48 - 57</p></td><td style="text-align:left;width:1.0625in; " class="Table57_B4"><p>30 – 39</p></td><td style="text-align:left;width:1.5069in; " class="Table57_D4"><p class="Figure">0011 0000 – 0011 1001</p></td></tr><tr class="Table573"><td style="text-align:left;width:2.6in; " class="Table57_A4"><p>Punctuation:  :   ;   &lt;   =   &gt;   ?</p></td><td style="text-align:left;width:0.8125in; " class="Table57_B4"><p>58 - 64</p></td><td style="text-align:left;width:1.0625in; " class="Table57_B4"><p>3A – 40</p></td><td style="text-align:left;width:1.5069in; " class="Table57_D4"><p class="Figure">0011 1010 – 0100 0000</p></td></tr><tr class="Table573"><td style="text-align:left;width:2.6in; " class="Table57_A4"><p>Upper case letters:  “A” through “Z”</p></td><td style="text-align:left;width:0.8125in; " class="Table57_B4"><p>65 - 90</p></td><td style="text-align:left;width:1.0625in; " class="Table57_B4"><p>41 – 5A</p></td><td style="text-align:left;width:1.5069in; " class="Table57_D4"><p class="Figure">0100 0001 – 0101 1010</p></td></tr><tr class="Table573"><td style="text-align:left;width:2.6in; " class="Table57_A4"><h1 class="Heading_20_1"><a id="a__Punctuation________^__"></a>Punctuation:  [   \   ]   ^   _</h1></td><td style="text-align:left;width:0.8125in; " class="Table57_B4"><p>91 - 96</p></td><td style="text-align:left;width:1.0625in; " class="Table57_B4"><p>5B – 60</p></td><td style="text-align:left;width:1.5069in; " class="Table57_D4"><p class="Figure">0101 1011 – 0110 0000</p></td></tr><tr class="Table573"><td style="text-align:left;width:2.6in; " class="Table57_A4"><p>Lower case letters:  “a” through “z”</p></td><td style="text-align:left;width:0.8125in; " class="Table57_B4"><p>97 - 122</p></td><td style="text-align:left;width:1.0625in; " class="Table57_B4"><p>61 – 7A</p></td><td style="text-align:left;width:1.5069in; " class="Table57_D4"><p class="Figure">0110 0001 – 0111 1010</p></td></tr><tr class="Table573"><td style="text-align:left;width:2.6in; " class="Table57_A4"><p>Punctuation: {   |   }   ~</p></td><td style="text-align:left;width:0.8125in; " class="Table57_B4"><p>123 - 126</p></td><td style="text-align:left;width:1.0625in; " class="Table57_B4"><p>7B – 7E</p></td><td style="text-align:left;width:1.5069in; " class="Table57_D4"><p class="Figure">0111 1011 – 0111 1110</p></td></tr><tr class="Table573"><td style="text-align:left;width:2.6in; " class="Table57_A2"><p>Control character: Delete</p></td><td style="text-align:left;width:0.8125in; " class="Table57_B2"><p>127</p></td><td style="text-align:left;width:1.0625in; " class="Table57_B2"><p>7F</p></td><td style="text-align:left;width:1.5069in; " class="Table57_D2"><p class="Figure">0111 1111</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-20.png" alt="" class="Image">
+			
+			<p>
+				where “Control characters” refer to “nonprinting” characters such as return, line feed, and form feed; and  “Punctuation” refers to any printable character that is not a digit or letter.  
+			</p>
+			
+			<p>
+				<span class="figNum onefortythree"></span> contains a table illustrating the binary and hexadecimal representations of all of the printable ASCII characters.  These range from the space character at position 32  (20<span class="Subscript"> sixteen</span> or 0010 0000 <span class="Subscript">two</span>), to the tilde, “~”, at position 126 (7E<span class="Subscript"> sixteen</span> or 0111 1110<span class="Subscript"> two</span>).
+			</p>
+			
+			<p>
+				The ASCII code for a character may be found in the table by locating the row and column in which the character appears.  The row specifies the high-order hexadecimal digit (or high-order four binary digits) and the column specifies the low-order hexadecimal digit    (or low-order four binary digits).  For example, the ASCII code for “H” is 48<span class="Subscript"> sixteen</span> since it appears on the row labeled “4” and in the column labeled “8”.  This same character expressed as a binary number is 0100 1000<span class="Subscript">two</span>.   To see this, you could either directly convert 48 <span class="Subscript">sixteen</span> to 0100 1000<span class="Subscript"> two</span> or you could perform the table lookup using the binary values rather than the hexadecimal values.  To determine the decimal version of the ASCII value, you must perform the conversion from base two (or base sixteen) to base ten using the algorithm discussed in <span class="contentNum assemblyData1"></span>. In the case of “H” the decimal representation is 72 <span class="Subscript">ten</span> (4 * 16 + 8 * 1).
+			</p>
+			
+			<img src="images/onefortythree.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum onefortythree"></span>  The printable ASCII Characters
+			</p>
+			
+			<p>
+				While any assignment of bit patterns to characters would accomplish the primary task of enabling computers to store character data, a lot of thought went into the design of ASCII.  For example, upper case and lower case characters differ in ASCII by exactly one bit (e.g., “A” is 0100 0001 and “a” is 0110 0001).  Hence, any lower case character can be changed to upper case by simply setting bit six to “0”.  Conversion from upper case to lower case is just as easy – set bit six to “1”.
+			</p>
+			
+			<p>
+				Ok, time out for a second.  This concept of mapping characters to bit patterns may make sense, but isn’t it true that when you type something into your computer, like an email message or a term paper, you type characters on a keyboard and see characters on the screen – not ASCII codes?  What gives?
+			</p>
+			
+			<p>
+				What gives is that the ASCII codes are hidden from the computer user.  When you type “yo” on your keyboard, you first hit a key marked “y” – which causes the keyboard circuitry to generate the ASCII code “0111 1001”.  Next you strike the key marked “o” causing the keyboard circuitry to generate the ASCII code “0110 1111”.  The display circuitry built into your computer’s video card, in turn displays the character “y” when it receives the ASCII code “0111 1001” and “o” when it receives the ASCII bit pattern “0110 1111”.  Hence, the user never sees the ASCII codes.  From his or her perspective, “yo” was typed on the keyboard and displayed on the screen.
+			</p>
+			
+			<p>
+				It is interesting to note what happens when you hold down the shift key as you strike the “y”.  What the shift key actually does (for the keys marked with letters of the alphabet) is set bit six to “0”.  Thus, the combination of “shift” and “y” produces “0101 1001” which is the ASCII code for “Y”
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum assemblyData2"></span>
+			</p>
+			
+			<ol>
+				<li>
+					Translate the following text into its ASCII representation.
+				
+					<p class="Subfigure">
+						I will not eat them in the rain.
+					</p>
+				</li>
+
+			
+				<li>
+					Translate the following ASCII text into the English alphabet.
+					
+					<p class="Subfigure">
+						43  69  6E  64  79  20  4C  6F  75  20  57  68  6F
+					</p>
+				</li>
+			</ol>
+			
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyData2");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>

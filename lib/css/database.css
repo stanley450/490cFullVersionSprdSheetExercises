@@ -1,0 +1,108 @@
+/* ======================================================================= */
+/* this stuff works, so far.                                               */
+/* ======================================================================= */
+
+/* tweaking the relaiton list buttons */
+.list-group-btn {
+    text-align: left;
+    border-radius: 0px;
+    padding: 6px 12px;
+}
+
+/* making the dropdown-toggles more noticable */
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+/* make the statement editor section stay the same size */
+.panel > .panel-footer {
+  min-height: 41px;
+}
+
+/* By default, buttons inside button groups inside vertical button groups
+ * don't resize to their column. Not sure why? */
+.btn-group-vertical > .btn-group > .btn {
+  width: 100%;
+}
+
+/* getting the padding between row items to work right */
+.row *:not(:last-child) {
+  padding-right: 0;
+}
+
+hr {
+  margin-top: 0;
+}
+
+/* ======================================================================= */
+/* this stuff is still experimental                                        */
+/* ======================================================================= */
+
+/* #row_div { */
+#inner_row {
+  position: relative;
+}
+
+#statement_div {
+  /* position: absolute; */
+  /* left: 195px; */
+  bottom: 0;
+}
+
+.btn-group-vertical {
+  position: absolute;
+  padding-bottom: 20px;
+  bottom: 0;
+  /* left: 975px; */
+}
+
+/* the "default" action. giving it a different look */
+#default {
+  color: #999999;
+}
+
+.mybutton {
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+/* ======================================================================= */
+/* Copied and pasted from bootstrap.css to give preference to buttons.     */
+/* (was having issues w/ the buttons inside the list group)                */
+/* ======================================================================= */
+
+.btn-default {
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+.btn-warning {
+  color: #ffffff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+.btn-danger {
+  color: #ffffff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.btn-success {
+  color: #ffffff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.btn-info {
+  color: #ffffff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}

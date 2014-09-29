@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/colmn_test.css" rel="stylesheet">	    
+		<!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div  class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum intelligenceIntro"></span>
+			</p>
+			
+			<p>
+				From the earliest days of computing, humans have been fascinated by the prospect of constructing intelligent machines. This chapter introduces the field of artificial intelligence. <span class="Bolded">Artificial intelligence</span> (AI) is a branch of computer science that has as its goal the construction of a general-purpose intelligence – of constructing machines that are capable of doing all of the things which, at the present time, people are better. Some of the topics associated with the field of AI include creating machines that can: see and recognize objects in the real world, including people; converse fluently in human languages, such as English, and translate between different human languages; safely drive a car; plan and reason as people do; play strategy games like chess or Go, and knowledge games like <span class="Ital">Jeopardy!</span>; display creativity and discover new knowledge. Essentially, AI seeks to make computers more like people.
+			</p>
+
+			<p>
+				<span class="contentNum intelligenceOverview"></span> provides an overview of artificial intelligence including the goals of the field, its underlying assumptions, a brief history of the field, and a summary of progress to date in a number of areas. <span class="contentNum intelligenceApproaches"></span> describes a variety of topics that have been studied in the effort to achieve intelligent behavior in machines, including: game playing and search, automated reasoning, and neural networks and machine learning. The presentation of these topics is independent from one another, so the instructor and/or student can pick and choose which areas are of interest.
+			</p>
+  
+			<!-- End main content -->
+			
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "intelligence";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("intelligenceIntro");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>

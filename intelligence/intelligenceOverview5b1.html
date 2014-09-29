@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		 	<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/colmn_test.css" rel="stylesheet">	    
+		<!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div  class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+
+			<p class="Section">
+				<span class="contentNum intelligenceOverview5b1"></span>
+			</p>
+
+			<p>
+				Computer Scientists use the term <span class="Bolded">big data</span> to describe the extremely large datasets that are becoming available in a wide variety of disciplines, such as genomics, social networks, astronomy, Internet text and documents, and atmospheric science – to name but a few. Big data is often characterized as high volume (very large datasets), high velocity (the data changes rapidly), and/or high variety (large range of data types and sources of data).
+			</p>
+
+			<p>
+				<span class="Bolded">Statistical machine learning techniques</span> refer to methods, or techniques, that apply statistical models to large amounts of data in order to enable machines to automatically infer relationships from the patterns that can be found in the data. There are a number of statistical inference models used in machine learning but one of the most popular is called <span class="Ital">Bayesian inference</span>.
+			</p>
+
+			<p>
+				Note that while statistical machine learning techniques differ from the neural networks mentioned in <span class="contentNum intelligenceOverview4"></span> above, they are both sub-disciplines of machine learning – they are both trained on large data sets and learn to recognize patterns present in the data. The major difference between the two is that neural networks are inspired by biological neural systems and the feedback cycles that appear to be inherent to those systems, while statistical machine learning techniques have grown out of mathematics and statistics rather than biology. Neural networks were once the most popular machine learning model but since the turn of the century statistical methods have become dominant.
+			</p>
+
+			<p>
+				Until relatively recently, progress had been quite limited on a number of important problems in AI. For example, the traditional symbolic AI approach to translating documents from one language to another proved ineffective.&nbsp;There are simply too many exceptions to the ‘rules’ governing how humans use languages for it to be practical to try to capture them all. Many computer scientists thought that computers to would need to master common sense knowledge, in order to ‘understand’ what was being said, before substantial progress could be made. What big data and statistical machine learning techniques have shown us is that given enough data many of these problems can be solved to a large degree, absent deep understanding, by looking for patterns in the data.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/machinetrans.mp4" type="video/mp4">
+			</video>
+			</div>
+
+			<p class="Figure">
+				<span class="figNum machinetrans"></span> An early attempt at machine translation. This scene is taken from the 1992 PBS series “The Machine That Changed The World”, episode four “The Thinking Machine”.
+			</p>
+
+			<p>
+				To use an example you may be familiar with, let’s look at Google Translate. Google Translate learns to translate documents between two languages, say English and French, by first comparing millions of documents, such as books and web sites, which humans have already translated. These document pairs are scanned for statistically significant patterns. The billions of patterns generated by this process can then be used to translate new documents between the two languages. Given enough source data the resulting translations, while not perfect, are usually “good enough” for the reader to understand the ideas the writer is attempting to communicate.
+			</p>
+
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/googletranslate.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum googletranslate"></span> A Google video that provides a brief overview of the technology underlying Google Translate.
+			</p>
+
+			<p>
+				In the Google approach humans are not directly teaching the computers how to translate documents. Instead, humans have taught the computers how to compare documents and look for statistically significant patterns. We humans then give these computers millions of pairs of already translated documents. The computers then figure out which input patterns (say in French) are most likely to be associated to which output patterns (say in English). When presented with some new input text in French, the system produces the most likely English output pattern associated with that text.
+			</p>
+
+			<p>
+				It is very important to understand that <span class="Ital"><span class="Bolded">Google Translate has no understanding of what the words and sentences it translates actually mean</span></span>, it simply replaces one string of text with another string of text based on statistical patterns derived from human translated documents.
+			</p>
+
+			<p>
+				As we approach the midpoint of the second decade of the 21<span class="Superscript">st</span> century we appear to be on the verge of achieving real time natural language translation. <span class="Bolded">Real time natural language translation</span> occurs when human speech is translated from one language to another as it is spoken, with little or no apparent delay. While we are not there yet, apps such as Google Translate with Conversation Mode for Android – where two people can take turns speaking and the smart phone acts as translator – hint at what may soon become possible.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/googleconverse.mp4" type="video/mp4">
+			</video>
+			</div>
+	
+			<p class="Figure">
+				<span class="figNum googleconverse"></span> A Google video demonstrating how Google Translate with Conversation Mode works.
+			</p>
+			<!-- End main content -->
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "intelligence";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("intelligenceOverview5b1");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>		
+	</body>
+</html>
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='DatabaseApp'>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <link href = "figure/css/database.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationUser2"></span>
+      </p>
+
+      <p>
+        <span class="Bolded">Database</span> programs, such as Microsoft Access, are popular end-user applications that allow people to organize large quantities of data in ways that make it easy to answer questions about that data.
+      </p>
+
+      <p>
+        For example, a database for a university should make it easy to answer questions such as:
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            Who is currently majoring in computer science?
+          </p>
+        </li>
+
+        <li>
+          <p>
+            What are the names and student ID numbers of the students who took Dr. Carpenter’s offering of Math 241 in the spring of 2013?
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Who taught CS 100 in the fall of 2012?
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Where is Dr. O’Neal’s office located?
+          </p>
+        </li>
+      </ul>
+
+      <!-- <img src="images/facultyrelation.png" alt="The “Faculty” relation – part of a university database" class="Image"> -->
+      <div id='Faculty'></div>
+
+      <p class="Figure">
+        <span class="figNum facultyrelation"></span> The “Faculty” relation – part of a university database
+      </p>
+
+      <p>
+        In order to answer these kinds of questions, a university database must maintain information on faculty, students, courses offered, and grades earned.
+      </p>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+    <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";       // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationUser2");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  <script type='text/javascript' data-main='figure/js/2_config.built' src='lib/js/require.js'></script>
+  </body>
+</html>

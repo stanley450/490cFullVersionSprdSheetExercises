@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link rel='stylesheet' href='../lib/css/bootstrap-3.css'>
+		<link rel='stylesheet' href='../lib/css/jquery-ui-custom.css'>
+		<link rel='stylesheet' href='../lib/css/editor.css'>
+		<link rel='stylesheet' href='../lib/css/Dialogs.css'>
+		<link rel="stylesheet" href="../lib/css/jquery-ui-1.10.4.custom.css">
+		<link rel='stylesheet' href='css/assembly.css'>	
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link rel='stylesheet' href='css/assembly.css'>	
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<script type="text/javascript" src="../lib/js/visibility.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/angular.js"></script>
+	    <script type="text/javascript" src="../lib/js/jQuery.js"></script>
+	    <script type="text/javascript" src="../lib/js/less.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-ui.js"></script>
+<!--
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+-->
+	    <script type="text/javascript" src="../lib/js/ui-bootstrap-0.10.0.js"></script>
+	    <script type="text/javascript" src="../lib/js/tabs.js"></script>
+	    <script type="text/javascript" src="../lib/js/ui-bootstrap.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/editor.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDialogs.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
+		<script type="text/javascript" src="js/figuresV2.js"></script>
+		<script type="text/javascript" src="js/inserts.js"></script>
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyProgramming5"></span>
+			</p>
+
+			
+			<p>
+				In <span class="contentNum javascriptArrays"></span> of <span class="contentNum javascript"></span>, an array was defined as a collection of data elements, all of the same type, that are stored in contiguous memory locations.  To access an item stored in an array, high-level languages require both the name of the array and the relative position, or “offset” of the item of interest.  Hence, <span class="Subfigure">A[0]</span> is a  reference to the first element of the array <span class="Subfigure">A</span>, because the offset is zero.  Likewise,  <span class="Subfigure">A[1]</span> is a reference to the 2<span class="Superscript">nd</span> element because it is offset from the start of the array by one element.
+			</p>
+			
+			<p>
+				Variables, as well as constants, may be used for subscripts.  Hence, the statement:
+			</p>
+			
+			<p class="Subfigure">
+				A[i] = -1;
+			</p>
+			
+			<p>
+				places the value –1 into the element at index position <span class="Ital">i</span> of array <span class="Subfigure">A</span>.  Similarly the statement:
+			</p>
+			
+			<p class="Subfigure">
+				X = A[j];
+			</p>
+			
+			<p>
+				places a copy of element <span class="Ital">j</span> of <span class="Subfigure">A</span> into the variable <span class="Subfigure">X</span>.
+			</p>
+			
+			<p>
+				This ability to access and modify array elements using variable subscripts is important when one wishes to access or modify <span class="Ital">all</span> of the elements of an array.  Generally, if one wants to perform an operation on all of the elements of an array, the desired operation is described in terms of some generic element, such as the element at index position <span class="Ital">i</span>, and then the operation is embedded within a repetition construct.
+			</p>
+			
+			<p>
+				As an example, perhaps one wants to initialize all of the elements of an array to some initial value.  The following high-level Watson JavaScript program initializes each of the elements of a 30-element numeric array, named <span class="Subfigure">myArray</span>, to –1.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">var i; // Numeric</span></li>
+				<li><span class="Subfigure">var myArray = new Array(30); // Numeric</span></li>
+				<br/>
+				<li><span class="Subfigure">for (i = 0; i &lt; 30; i++)</span></li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">myArray[i] = -1;</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
+			
+			<p>How can such a program be translated into assembly language?</p>
+			
+			<p>
+				Declaring an array is simple – just reserve the appropriate amount of space via the <span class="Subfigure">.BLOCK</span> command.  For a 30-element array of integers named <span class="Subfigure">myArray</span> the command:
+			</p>
+			
+			<p class="Subfigure">
+				MYARRAY        .BLOCK        30
+			</p>
+			
+			<p>
+				does the job.  Accessing the elements of this array via variable subscripts is somewhat more challenging to implement. In fact, in order to use arrays effectively, it will be necessary for us to find a way to calculate the memory address of each of the elements of the array.  We will also need access to assembly language instructions that can load data from, and store data to, calculated addresses. 
+			</p>
+			
+			<p>
+				We will look at the calculation of addresses in a moment.  But first, let’s examine the way in which a value can be retrieved from a memory location via the “load indirect” statement assuming the memory address calculation has already been done for us. 
+			</p>
+			
+			<p>
+				The form of the load indirect instruction is:
+			</p>
+			
+			<p class="Subfigure">
+				LOADIND        <span class="Ital">destination register</span>, <span class="Ital">source location register</span>
+			</p>
+			
+			<p>
+				A statement such as:
+			</p>
+			
+			<p class="Subfigure">
+				LOADIND        REGA, REGB
+			</p>
+			
+			<p>
+				will place a copy of the value held in the memory address indicated by register B into register A.  
+			</p>
+			
+			<p>
+				Consider a high-level assignment statement such as:
+			</p>
+			
+			<p class="Subfigure">
+				x = A[5];
+			</p>
+			
+			<p>
+				which places the value of the element of <span class="Subfigure">A</span> located at index position 5 into the variable <span class="Subfigure">x</span>.  Assuming register B held the address of <span class="Subfigure">A[5]</span>, such a statement could be implemented by the following code segment:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">LOADIND      REGA, REGB</span></li>
+				<li><span class="Subfigure">STORE        REGA, X</span></li>
+			</ul>
+			
+			<p>
+				Placing a value into an array works in a similar manner, except that the “store indirect” command is used rather than the “load indirect” command.  The form of the store indirect instruction is:
+			</p>
+			
+			<p class="Subfigure">
+				STOREIND        <span class="Ital">source register</span>, <span class="Ital">destination location register</span>
+			</p>
+			
+			<p>
+				Hence, the statement:
+			</p>
+			
+			<p class="Subfigure">
+				STOREIND        REGE, REGF
+			</p>
+			
+			<p>
+				will store the value held in register E into the memory address indicated by register F.
+			</p>
+			
+			<p>
+				These instructions, <span class="Subfigure">LOADIND</span> and <span class="Subfigure">STOREIND</span>, are referred to as “indirect” instructions due to the fact that they do not directly specify which memory address is to be accessed.  Instead, the statements indirectly specify the target address by indicating where that address may be found – i.e., indirect instructions specify a register that is consulted for the actual target address.
+			</p>
+			
+			<p>
+				Indirect instructions add a lot of power to an assembly language by allowing programs written in that language to compute “on the fly” the memory addresses of objects that are to be accessed or modified.  Without some form of indirection, array processing with variable subscripts would be impossible, since the memory location specified by an expression such as <span class="Subfigure">a[i]</span> depends on the value of the subscript <span class="Subfigure">i</span>.
+			</p>
+			
+			<p>
+				It should now be clear that if we had the address of a particular element of an array we could both access that element (via <span class="Subfigure">LOADIND</span>) and modify the element (via <span class="Subfigure">STOREIND</span>).  This begs the question:  “How can the address of an array element be computed?”
+			</p>
+			
+			<p>
+				The address of the element at index position <span class="Subfigure">i</span> of an array can be computed from the expression:
+			</p>
+			
+			<p class="Subfigure">
+				<span class="Ital">base_address_of_array</span>  + ( <span class="Ital">i</span>  * <span class="Ital">size_of_each_element</span> )
+			</p>
+			
+			<p>
+				where:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Ital">base_address_of_array</span> is the location of the first element of the array.</li>
+				<br/>
+				<li><span class="Ital">i</span> is the subscript indicating which element of the array is to be accessed.</li>
+				<br/>
+				<li><span class="Ital">size_of_each_element</span> is the number of “words” required to hold a single</li>
+			</ul>
+			<br/>
+			<p>
+				array element.
+			</p>
+			
+			<p>
+				Since we are limiting ourselves to the study of integers (which require a single word of memory), <span class="Ital">size_of_each_element</span> is one and can be safely ignored, leading to the simplified form of the expression:
+			</p>
+			
+			<p class="Subfigure">
+				<span class="Ital">base_address_of_array</span>  + <span class="Ital">i</span>
+			</p>
+			
+			<p>
+				The term <span class="Ital">i </span>is often referred to as the “offset” into the array, since it specifies how far past the base address the element of interest is located.
+			</p>
+			
+			<p>
+				Here is an example that illustrates the process of memory address computation for array elements.  If we assume that the array <span class="Subfigure">A</span> begins at memory location 10, then <span class="Subfigure">A[3]</span> (the 4<span class="Superscript">th</span> element) will be stored at location 13.  
+			</p>
+			
+			<div id='fig1111Div'></div>
+			<p class="Figure">
+				<span class="figNum initializing30"></span> Initializing all 30 elements of an array to -1
+			</p>
+			
+			<p>
+				The above algorithm for calculating the location of index position <span class="Ital">i</span> of an array can be translated into assembly language as follows:
+			</p>
+			
+			<ol>
+				<li>
+					Load the base address of the array into register<span class="Subscript">x</span>
+					
+					<ul>
+						<span class="Subfigure">LOAD         </span><span class="Ital">reg</span><span class="Subscript">x</span><span class="Ital"> </span>,<span class="Ital"> base_address_of_array</span>
+					</ul>
+				</li>
+				<br/>
+				<li>
+					Load the value of subscript i (the offset) into register<span class="Subscript">y</span>
+					
+					<ul>
+						<span class="Subfigure">LOAD         </span><span class="Ital">reg</span><span class="Subscript">y</span><span class="Ital"> </span>,<span class="Ital"> i</span>
+					</ul>
+				</li>
+				<br/>
+				<li>
+					Add the offset to the base address giving the location of the <span class="Ital">i</span><span class="Superscript">th</span> element.
+					
+					<ul>
+						<span class="Subfigure">ADD          </span><span class="Ital">reg</span><span class="Subscript">z</span><span class="Ital"> </span>,<span class="Ital"> reg</span><span class="Subscript">x</span><span class="Ital"> </span>,<span class="Ital"> reg</span><span class="Subscript">y</span>
+					</ul>
+				</li>
+			</ol>
+						
+			<p>
+				At the end of this process register<span class="Subscript">z</span> will contain the address of the array element at index position <span class="Ital">i</span>.
+			</p>
+			
+			<p>
+				<span class="figNum initializing30"></span> presents a complete assembly language program for initializing all of the elements of a 30-element array to –1.  The figure also contains two high-level Watson JavaScript programs for accomplishing the same task – one using a “for” loop, the other a “while” loop.
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum assemblyProgramming5"></span>
+			</p>
+			
+			<ol id="exerciseList">
+				<li>
+					<div class="exercise solvable 9">
+						Complete the following program, the purpose of which is to compute the sum of the items given in the first <span class="Subfigure">N</span> elements of an array and then store that total in the variable <span class="Subfigure">TOTAL</span>.  To solve this problem efficiently you will probably want to use the <span class="Subfigure">LOADIND</span> (Load Indirect) instruction, which loads a value into a register from a location specified by another register.
+						
+						<ul class="Blockcenter">
+							<li><span class="Subfigure">A &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;.WORD &nbsp; &nbsp; 2        ; a[0] = 2;</span></li>
+							<li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .WORD &nbsp; &nbsp; 4        ; a[1] = 4;</span></li>
+							<li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .WORD &nbsp; &nbsp; 8        ; a[2] = 8;</span></li>
+							<li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .WORD &nbsp; &nbsp; 16       ; a[3] = 16;</span></li>
+							<li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .WORD &nbsp; &nbsp; 32       ; a[4] = 32;</span></li>
+							<li><span class="Subfigure">TOTAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .BLOCK &nbsp; &nbsp;1</span></li>
+							<li><span class="Subfigure">N &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.WORD &nbsp; &nbsp; 5</span></li>
+						</ul>
+					</div>
+					
+					<div class="exerciseDiv 9"></div>
+				</li>
+				<br/>
+				<li>
+					<div class="exercise solvable 10">
+						Beginning with an uninitialized array of 12 elements, write an assembly language program to assign the value 10 to the element at index zero, 20 to the element at index one, 30 to the element at index two, and so forth.  Ending with the value 120 in the final element located at index eleven.  You must solve this problem using a loop construct.
+					</div>
+					
+					<div class="exerciseDiv 10"></div>
+				</li>
+			</ol>
+
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+				var sectID = "assemblyProgramming5";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage(sectID);		// get arrow paths
+					setupExerciseButtons(sectID);
+					if (!localFlag) runGA();
+				});	
+				
+			</script>    	
+    	<script>
+    			var fig1111 = new Figure(1111, true, chapID, false);
+		</script>
+	</body>
+</html>

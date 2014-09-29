@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href = "../lib/css/grid.css" rel = "stylesheet">
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+	    
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum javascriptOverview"></span>
+			</p>
+			
+			<p>
+				The <span class="Bolded">imperative paradigm</span> is based on the idea that a program is sequence of commands or instructions that the computer is to follow to complete a task. The imperative style of programming is the oldest, and now with object-oriented extensions, continues to be far and away the most popular style of programming.
+			</p>
+
+			<p>
+				Watson JavaScript is an imperative programming language based on JavaScript.  JavaScript is a popular programming language that is often used for writing small programs that are embedded in web pages. Most web browsers, including Microsoft’s Internet Explorer and Mozilla’s FireFox, can run these programs.
+			</p>
+
+			<p>
+				Watson JavaScript is an “extended subset” of regular JavaScript. By “extended” I mean that Watson JavaScript requires programmers to specify some additional information that full JavaScript does not, such as the type of a variable upon its declaration. By “subset” I mean that Watson JavaScript does not include all of the features of full JavaScript – though it does include all of the basics, and is a complete, general-purpose programming language.
+			</p>
+
+			<p>
+				One way of thinking about writing Watson JavaScript programs is to compare it to programming full JavaScript with “training wheels” on. Every program you write in Watson JavaScript can be run on most web browsers without modification, but there are many things programmers are allowed to do in full JavaScript that are forbidden in Watson JavaScript. For example, Watson JavaScript forces programmers to do certain things in certain ways, such as declaring all variables at the top of a program, where full JavaScript allows much more flexibility. These restrictions are designed to help beginning programmers avoid making common mistakes.
+			</p>
+
+			<p>
+				<span class="figNum watsonformat"></span> illustrates the general format of a Watson JavaScript program and shows how such a program could be embedded in a simple web page. The first thing to notice about this figure is that much of the text is shown in gray. This gray text is not JavaScript code but is instead HTML, or HyperText Markup Language. In order to run Watson JavaScript programs directly in a web browser, they would need to be embedded within the HTML tags shown in gray. Conversely, the HTML can be omitted when Watson JavaScript programs are created and run within the Watson JavaScript Lab environment available at http://watson.latech.edu.
+			</p>
+			<!-- <span class="figNum watsonformat"></span> -->
+			<ul class="Blockcenter">
+				<li style="color:grey;"><span class="Subfigure">&lt;html&gt;</span></li>
+				
+				<li style="color:grey;"><span class="Subfigure">&lt;body&gt;</span></li>
+				
+				<li style="color:grey;"><span class="Subfigure">&lt;pre&gt;</span></li>
+				
+				<br/>
+				
+				<li style="color:grey;"><span class="Subfigure">&lt;script type="text/javascript"&gt;</span></li>
+				
+			<ul style="list-style:none">
+				<li>
+					<span class="Ital">declarations</span>
+				</li>
+	
+				<li>
+					<span class="Ital">statements</span>
+				</li>
+			</ul>
+				<li style="color:grey;"><span class="Subfigure">&lt;/script&gt;</span></li>
+				
+				<br/>
+				
+				<li style="color:grey;"><span class="Subfigure">&lt;/pre&gt;</span></li>
+				
+				<li style="color:grey;"><span class="Subfigure">&lt;/body&gt;</span></li>
+				
+				<li style="color:grey;"><span class="Subfigure">&lt;/html&gt;</span></li>
+
+			</ul>
+			<!-- End <span class="figNum watsonformat"></span> -->
+			<p class="Figure">
+				<span class="figNum watsonformat"></span> The format of a Watson JavaScript program embedded within a web page
+			</p>
+
+			<p>
+				HTML is the language used to write web pages. While the purpose of this chapter is not to teach HTML, I will say a few words about this subject for those of you who might be interested in what all that gray text means.
+			</p>
+
+			<p>
+				HTML pages are text documents “marked up” with a variety of “tags” that define the structure of the document. Most tags come in pairs such as <span class="Subfigure">&lt;html&gt;</span> and <span class="Subfigure">&lt;/html&gt;</span>. Every valid web page begins with the <span class="Subfigure">&lt;html&gt;</span> opening tag and ends with the <span class="Subfigure">&lt;/html&gt;</span> closing tag. All of the text between these two tags, including other pairs of tags, is part of the HTML document.
+			</p>
+
+			<p>
+				HTML documents generally consist of two parts, the “head” and the “body”. The head is optional and is omitted in <span class="figNum watsonformat"></span>. The body of an HTML document resides between the opening <span class="Subfigure">&lt;body&gt;</span> and closing <span class="Subfigure">&lt;/body&gt;</span> tags.
+			</p>
+
+			<p>
+				One of the primary jobs of web browsers is to format the contents of HTML documents and present those documents in an attractive manner. For our purposes, however, we want to turn this feature off so that the output of our Watson JavaScript programs will be presented to the user in exactly the form we specify. Thus, our JavaScript programs will be embedded within <span class="Subfigure">&lt;pre&gt;</span> and <span class="Subfigure">&lt;/pre&gt;</span> tags. These tags tell the web browser that the output has been pre-formatted and should be displayed without modification.
+			</p>
+
+			<p>
+				The <span class="Subfigure">&lt;script type=”text/javascript”&gt;</span> and <span class="Subfigure">&lt;/script&gt;</span> tags surround the actual JavaScript program. Everything within these tags will be JavaScript code.
+			</p>
+
+			<p>
+				Watson JavaScript programs consist of two parts, declarations and imperative statements. The <span class="Italicized">declarations</span> define the objects that will be used by the program, while the imperative <span class="Italicized">statements</span> specify how those objects will be manipulated in order to accomplish the actions of the program.
+			</p>
+			
+			<!-- <span class="figNum objectkinds"></span> -->
+			<ul>
+				<ul class="Subblockcenter">
+					<li>Variable Declaration</li>
+				</ul>
+			</ul>
+
+			<p class="Blockcenter">
+				<span class="Subfigure">var </span><span class="Italicized">name </span><span class="Subfigure">; //</span> <span class="Italicized">type</span>
+			</p>
+			<ul>
+				<ul class="Subblockcenter">
+					<li>Function Declaration</li>
+				</ul>
+			</ul>
+
+			<ul class="Blockcenter">
+			<li>
+				<span class="Subfigure">function </span><span class="Italicized">name</span><span class="Subfigure">(</span><span class="Italicized">input variables</span><span class="Subfigure">) // returns </span><span class="Italicized">type</span>
+			</li>
+
+			<li>
+				<span class="Subfigure">{ </span>
+			</li>
+			
+			<ul class="Subblockcenter">
+				<li>
+					<span class="Italicized">declarations</span>
+				</li>
+	
+				<li>
+					<span class="Italicized">statements</span>
+				</li>
+			</ul>
+			<li>
+				<span class="Subfigure">}</span>
+			</li>
+			</ul>
+			<!-- End <span class="figNum objectkinds"></span> -->
+			<p class="Figure">
+				<span class="figNum objectkinds"></span> The two kinds of objects (variables and functions) that can be declared in Watson JavaScript Programs
+			</p>
+
+			<p>
+				<span class="figNum objectkinds"></span> illustrates the two kinds of objects that can be declared in Watson JavaScript programs. These objects are variables and functions. You may recall from your study of the Watson Graphics Language that variables are named objects that can hold a value of a particular type. Functions are subprograms – programs that occur within other programs. If this idea seems strange at the moment, don’t worry. The usefulness of functions will become apparent as we proceed through this chapter.
+			</p>
+
+			<p>
+				<span class="figNum watsonstatements"></span> presents all of the statements types available in Watson JavaScript. Every Watson JavaScript program that can ever be written will be formed from these basic building blocks, along with the declarations of <span class="figNum objectkinds"></span>. Surprisingly, this small number of statements is all that is required to give Watson JavaScript the power of a general-purpose programming language.
+			</p>
+
+			<p>
+				Watson JavaScript statements can be grouped into seven general categories. These categories are: output statements, input statements, variable assignment, selection statements, iteration statements, function invocation, and function return. Each of these categories and the details of the statements that occur within them are discussed below.
+			</p>
+
+			<p>
+				As mentioned above Watson JavaScript is an extended subset of true JavaScript. Watson JavaScript is not intended as a replacement for full JavaScript – or Java or C++ for that matter. Instead, Watson JavaScript is a teaching tool aimed at simplifying the process of learning to program. Watson JavaScript purposefully omits many features available in full JavaScript and other popular languages, in order to keep the language from becoming overly complex. In addition, the Watson lab that you will most likely use to create your Watson JavaScript programs incorporates a point-and-click interface similar to the one provided by the Watson Graphics Lab. The Watson JavaScript language and its implementation in the lab are designed to help beginning students focus on “the big picture” rather than get bogged down in the complexities inherent in “real” languages and their program development environments.
+			</p>
+			
+			<!-- <span class="figNum watsonstatements"></span> -->
+
+			<p class="Bolded">
+				Output Statements:
+			</p>
+			
+			<div class="section group">
+				<ul class="Subblockcenter">
+				<div class="col span_1_of_2">
+					<span class="Subfigure">document.write(</span><span class="Italicized">expression</span><span class="Subfigure">);</span>
+				</div>
+				<div class="col span_1_of_2">
+					<span>document.writeln(</span><span class="Italicized">expression</span><span class="Subfigure">);</span>
+				</div>
+				</ul>
+			</div>
+
+			<!--
+			<p>
+				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <span class="Subfigure">document.write(</span><span class="Italicized">expression</span><span class="Subfigure">);&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  document.writeln(</span><span class="Italicized">expression</span><span class="Subfigure">);</span>
+			</p>
+			-->
+
+			<p class="Bolded">
+				Input Statements:
+			</p>
+			
+			<div class="section group">
+				<div class="col span_1_of_3">
+					<ul class="Subblockcenter">Text input:</ul>
+				</div>
+				<div class="col span_2_of_3">
+					<ul class="Subblockcenter"><span class="Subfigure">variable = prompt(</span><span class="Italicized">message</span><span class="Subfigure">,</span><span class="Italicized">defaultValue</span><span class="Subfigure">);</span></ul>
+				</div>
+			</div>
+			
+			<div class="section group">
+				<div class="col span_1_of_3">
+					<ul class="Subblockcenter">Numeric input:</ul>
+				</div>
+				<div class="col span_2_of_3">
+					<ul class="Subblockcenter"><span class="Italicized">variable</span><span class="Subfigure"> = </span><span class="Subfigure">parseFloat(</span><span class="Subfigure">prompt(</span><span class="T43">message</span><span class="Subfigure">,</span><span class="T43">defaultValue</span><span class="Subfigure">)</span><span class="Subfigure">)</span><span class="Subfigure">;</span></ul>
+				</div>
+			</div>
+
+			<!--
+			<p>
+				<span>&nbsp;  &nbsp;  &nbsp; </span>Text <span>input:</span><span>&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="Italicized">variable</span><span class="Subfigure"> = prompt(</span><span class="Italicized">message</span><span class="Subfigure">,</span><span class="Italicized">defaultValue</span><span class="Subfigure">);</span>
+			</p>
+
+			<p>
+				<span>&nbsp;  &nbsp;  &nbsp; </span><span>Numeric </span><span>input:</span><span>&nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; </span><span class="Italicized">variable</span><span class="Subfigure"> = </span><span class="Subfigure">parseFloat(</span><span class="Subfigure">prompt(</span><span class="T43">message</span><span class="Subfigure">,</span><span class="T43">defaultValue</span><span class="Subfigure">)</span><span class="Subfigure">)</span><span class="Subfigure">;</span>
+			</p>
+			-->
+
+			<p class="Bolded">
+				Assignment Statement:
+			</p>
+
+			<ul class="Subblockcenter">
+				<li><span class="Italicized">variable </span><span class="Subfigure">= </span><span class="Italicized">expression</span><span class="Subfigure">;</span></li>
+			</ul>
+	
+			<p class="Bolded">
+				Selection Statements:
+			</p>
+			
+			<div class="section group">
+				<div class="col span_1_of_2">
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">if (</span><span class="Italicized">expression</span><span class="Italicized"> relationalOperator expression</span><span class="Subfigure">)</span></li>
+						<li><span class="Subfigure">{</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Italicized">statements to be executed if expression is true</span></li>
+						</ul>
+						<li><span class="Subfigure">}</span></li>
+						<li><span class="Subfigure">else</span></li>
+						<li><span class="Subfigure">{</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Italicized">statements to be executed if expression is false</span></li>
+						</ul>
+						<li><span class="Subfigure">}</span></li>
+					</ul>
+				</div>
+				<div class="col span_1_of_2">
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">if (</span><span class="Italicized">expression</span><span class="Italicized"> relationalOperator expression</span><span class="Subfigure">)</span></li>
+						<li><span class="Subfigure">{</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Italicized">statements to be executed if expression is true</span></li>
+						</ul>
+						<li><span class="Subfigure">}</span></li>
+					</ul>
+				</div>
+			</div>
+			<!--
+			<ul class="Subblockcenter">
+				<li><span class="Subfigure">if (</span><span class="Italicized">expression</span><span class="Italicized"> relationalOperator expression</span><span class="Subfigure">)</span></li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Italicized">statements to be executed if expression is true</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+				<li><span class="Subfigure">else</span></li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Italicized">statements to be executed if expression is false</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
+			
+			<br/><br/>
+			
+			<ul class="Subblockcenter">
+				<li><span class="Subfigure">if (</span><span class="Italicized">expression</span><span class="Italicized"> relationalOperator expression</span><span class="Subfigure">)</span></li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Italicized">statements to be executed if expression is true</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
+			-->
+
+			<p class="Bolded">
+				Iteration Statements:
+			</p>
+			
+			<ul class="Subblockcenter">
+				<li>while (<span class="Italicized">variable</span><span class="Italicized">&nbsp; relationalOperator</span><span class="Italicized">&nbsp; finalValue</span>)</li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Italicized">statements</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+				<br />
+				<li>for (<span class="Italicized">variable</span><span class="Subfigure"> = </span><span class="Italicized">initialValue</span><span class="Subfigure">; &nbsp; </span><span class="Italicized">variable</span><span class="Italicized">&nbsp; relationalOperator </span><span class="Italicized">finalValue</span><span class="Subfigure">; &nbsp; </span><span class="Italicized">&nbsp; variable</span><span class="Subfigure">++</span>)</li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Italicized">statements</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
+
+			<!-- Fail columns
+			<p>
+				<span class="Bolded">Function Invocation: &nbsp;  &nbsp;  &nbsp;  &nbsp; </span> &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <span class="Bolded">Function Return:</span>
+			</p>
+
+			<ul class="Subblockcenter">
+				<li><span class="Italicized">functionName</span><span class="Subfigure">(</span><span class="Italicized">inputs</span><span class="Subfigure">);</span>&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <span class="Subfigure">return(</span><span class="Italicized">expression</span><span class="Subfigure">);</span></li>
+			</ul>
+			-->
+			
+			<div class="section group">
+				<div class="col span_1_of_2">
+					<p><span class="Bolded">Function Invocation:</span></p>
+					<ul class="Subblockcenter"><span class="Italicized">functionName</span><span class="Subfigure">(</span><span class="Italicized">inputs</span><span class="Subfigure">);</span></ul>
+				</div>
+				<div class="col span_1_of_2">
+					<p><span class="Bolded">Function Return:</span></p>
+					<ul class="Subblockcenter"><span class="Subfigure">return(</span><span class="Italicized">expression</span><span class="Subfigure">);</span></ul>
+				</div>
+			</div>
+			
+			<!-- End <span class="figNum watsonstatements"></span> -->
+			
+			<p class="Figure">
+				<span class="figNum watsonstatements"></span> The Watson JavaScript program statements.
+			</p>
+
+			<div class="push"></div>
+			<!-- End main content -->
+			</div> 
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "javascript";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("javascriptOverview");		// get arrow paths
+					if (!localFlag) runGA();
+				});	
+				
+			</script>
+	</body>
+</html>

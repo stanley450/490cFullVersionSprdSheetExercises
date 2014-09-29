@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../lib/js/nav.js"></script>
+			<script type="text/javascript" src="../lib/js/master.js"></script> 
+			<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+			<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+			<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum graphicsIntro"></span>
+			</p>
+			
+			<p>
+				This chapter presents a number of concepts central to the design and development of algorithms.  It also introduces many of the concepts fundamental to the field of computer graphics.
+			</p>
+			
+			<p>
+				<span class="contentNum graphicsWhat"></span> provides an introduction to computer graphics and describes three different approaches to generating graphical images: (1) data visualization tools, (2) drawing packages, and (3) model-based graphics.  <span class="contentNum graphicsFundamentals"></span> presents some of the basic concepts and terminology from computer graphics, such as pixels, frame buffers, and coordinate systems.  It also introduces the major graphics primitives: points, lines, polygons, and circles.
+			</p>
+			
+			<p>
+				<span class="contentNum graphicsLanguage"></span> of this chapter presents the Watson Graphical Language, a language designed to illustrate the principles of algorithm development in a graphical environment.  This language is not meant to be general purpose.  Instead, it is meant to be easy to learn and use.  <span class="contentNum graphicsAlgorithms"></span> examines how the Watson Graphical Language can be used to produce images.  The emphasis is on how the basic components of a programming language can be used to solve simple problems.  A number of examples of graphical algorithms and the drawings produced by them are discussed.
+			</p>
+			
+			<p>
+				After completing this chapter and the associated laboratory exercises, you should have an understanding of many of the fundamental concepts of both algorithm development and computer graphics.  This understanding will enable you to create simple graphical images and animations using the Watson Graphical Language.  It should also help prepare you for the study of the more general purpose programming languages that will follow in succeeding chapters. 
+			</p>
+
+			<!-- End main content -->
+			<div class="push"></div> <!-- pushes the footer static bottom -->
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the footer -->	
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID="graphics";	
+				
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("graphicsIntro");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

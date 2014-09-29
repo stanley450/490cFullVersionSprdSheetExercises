@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+			<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyProgramming1"></span>
+			</p>
+			
+			<p>
+				The Watson assembly language consists of 18 instructions, which can be divided into six groups.  These instructions are summarized in <span class="figNum watsonassembly"></span>.  Here I will provide a brief overview of these instructions.  The remainder of this section is devoted to exploring these instructions in much more depth and examining at how they can be used in simple assembly language programs.
+			</p>
+			
+			<p>
+				The first group of Watson assembly instructions are the variable declaration statements: <span class="Subfigure">.BLOCK</span> and <span class="Subfigure">.WORD</span>.  These are both used to reserve memory locations for data storage.  They differ in that <span class="Subfigure">.WORD</span> can reserve only a single word of memory, while <span class="Subfigure">.BLOCK</span> can reserve multiple words.   Another difference is that <span class="Subfigure">.WORD</span> can initialize its storage location to a specified value.  The <span class="Subfigure">.BLOCK</span> command is not capable of initializing the memory locations it reserves.
+			</p>
+			
+			<p>
+				The next group of instructions, the input and output instructions, are used to copy values between main memory and the general-purpose registers.  There are three “load” commands that copy information into registers: <span class="Subfigure">LOAD</span>, <span class="Subfigure">LOADIMM</span>, and <span class="Subfigure">LOADIND</span>.  Two “store” commands, <span class="Subfigure">STORE</span> and <span class="Subfigure">STOREIND</span>, copy information from the registers into main memory.  The various forms of the load and store commands and the differences between them are examined below.
+			</p>
+			
+			<p>
+				The math operations <span class="Subfigure">ADD</span> and <span class="Subfigure">SUBTRACT</span> form the next group of Watson assembly language instructions.  These instructions behave pretty much the way you would expect.  <span class="Subfigure">ADD</span> adds the contents of two registers together and places the sum into a specified register.  <span class="Subfigure">SUBTRACT</span> subtracts the contents of one register from another placing the result into a specified register.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure"><h3>Watson Assembly Language Instructions</h3></span></li>
+				<br/>
+				<li><span class="Subfigure">Variable Declarations</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure"><span class="Ital">label</span>        .BLOCK <span class="Ital">size</span></span></li>
+					<li><span class="Subfigure"><span class="Ital">label</span>        .WORD  <span class="Ital">initial value</span></span></li>
+				</ul>
+				<br/>
+				<li><span class="Subfigure">Input / Output Instructions</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">LOADIMM        <span class="Ital">destination register</span>, <span class="Ital">value</span></span></li>
+					<li><span class="Subfigure">LOAD           <span class="Ital">destination register</span>, <span class="Ital">source variable label</span></span></li>
+					<li><span class="Subfigure">STORE          <span class="Ital">source register</span>, <span class="Ital">destination variable label</span></span></li>
+					<li><span class="Subfigure">LOADIND        <span class="Ital">destination register</span>, <span class="Ital">source location register</span></span></li>
+					<li><span class="Subfigure">STOREIND       <span class="Ital">source register</span>, <span class="Ital">destination location register</span></span></li>
+				</ul>
+				<br/>
+				<li><span class="Subfigure">Math Operations</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">ADD        <span class="Ital">result register</span>, <span class="Ital">first operand register</span>, <span class="Ital">second operand register</span></span></li>
+					<li><span class="Subfigure">SUBTRACT   <span class="Ital">result register</span>, <span class="Ital">first operand register</span>, <span class="Ital">second operand register</span></span></li>
+				</ul>
+				<br/>
+				<li><span class="Subfigure">Logic Operations</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">AND        <span class="Ital">result register</span>, <span class="Ital">first operand register</span>, <span class="Ital">second operand register</span></span></li>
+					<li><span class="Subfigure">OR         <span class="Ital">result register</span>, <span class="Ital">first operand register</span>, <span class="Ital">second operand register</span></span></li>
+					<li><span class="Subfigure">NOT        <span class="Ital">result register</span>, <span class="Ital">operand register</span></span></li>
+				</ul>
+				<br/>
+				<li><span class="Subfigure">Shift Operations</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">ASL        <span class="Ital">result register</span>, <span class="Ital">operand register</span>, <span class="Ital">number of bits</span></span></li>
+					<li><span class="Subfigure">ASR        <span class="Ital">result register</span>, <span class="Ital">operand register</span>, <span class="Ital">number of bits</span></span></li>
+				</ul>
+				<br/>
+				<li><span class="Subfigure">Program Control Operations</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">COMPARE       <span class="Ital">first operand register</span>, <span class="Ital">second operand register</span></span></li>
+					<li><span class="Subfigure">BRANCH        <span class="Ital">test condition</span>, <span class="Ital">target label</span></span></li>
+					<li><span class="Subfigure">JUMP          <span class="Ital">target label</span></span></li>
+					<li><span class="Subfigure">HALT</span></li>
+				</ul>
+			</ul>
+			
+			<p class="Figure">
+				<span class="figNum watsonassembly"></span>  The Watson Assembly Language
+			</p>
+			
+			<p>
+				Discussion of the next two groups of Watson assembly language instructions, the logic and shift operators, is deferred to <span class="contentNum assemblyMachine"></span>.  The reason for doing so is that it is difficult to say much about these statements without some understanding of data representation at the machine level, which is covered in <span class="contentNum assemblyData"></span>.
+			</p>
+			
+			<p>
+				The final group of Watson assembly language instructions is the program control statements.  These commands determine which program instruction, if any, will be executed next.  <span class="Subfigure">HALT</span> is the most straightforward statement of this group.  It causes program execution to terminate.  For this reason, <span class="Subfigure">HALT</span> is normally the last statement executed by a program.  <span class="Subfigure">JUMP</span> is pretty easy to understand as well.  It breaks out of the normal sequence of program execution and causes control to “jump” immediately to a specified instruction.  <span class="Subfigure">COMPARE</span> and <span class="Subfigure">BRANCH</span> are usually used together to implement a “conditional branch”.  Essentially, <span class="Subfigure">COMPARE</span> will compare the values held in two registers and set the machine’s status bits.  <span class="Subfigure">BRANCH</span> then examines these bits to determine whether a particular condition is true (e.g., <span class="Subfigure">A == B</span>).  If the condition is true control is transferred to a specified instruction.  If the condition is not true the statement has no effect.  Conditional branches are the low level equivalent of the “if” statement.
+			</p>
+			
+			<p>
+				Don’t be overly concerned if the behavior and usefulness of each of the above instructions isn’t immediately obvious.  We’re just “looking at the roadmap” here.  The details of each statement are presented throughout the remainder of this chapter.
+			</p>
+			
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyProgramming1");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>

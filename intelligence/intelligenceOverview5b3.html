@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/colmn_test.css" rel="stylesheet">	    
+		<!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div  class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+
+			<p class="Section">
+				<span class="contentNum intelligenceOverview5b3"></span>
+			</p>
+
+			<p>
+				Broadly speaking, <span class="Bolded">Computer vision</span> is the branch of computer science which aims to give computers the ability to see. Achieving computer vision has long been one of the goals of artificial intelligence researchers. In the early days it was through that this problem shouldn’t be too difficult, as one could simply attach a camera to a computer. There were even some early successes, such as the perceptrons that could distinguish male faces from female faces (which we discussed in <span class="contentNum intelligenceOverview4"></span>). Unfortunately teaching a computer to recognize various objects in the real world from different angles and under different lighting conditions is far, far harder than distinguishing men from women based solely on still photographs of front facing ‘head shots’.
+			</p>
+
+			<p>
+				One of the first computer vision projects, called Freddy, was conducted at the University of Edinburgh under the direction of Donald Michie from 1969 through 1976. In its initial version (1969-1971) Freddy consisted of a camera overlooking a rotating platform on which common objects, such as a cup, were placed. The camera was hooked to a computer that attempted to recognize the objects on the platform. The system was later expanded in the 1973 to 1976 timeframe as Freddy II. The second iteration of Freddy included a robot arm that could manipulate objects and be programmed to perform simple tasks like putting together a toy car from various parts – the car body, four wheels, and two axles. While Freddy was able to recognize, under carefully controlled conditions, the objects it had been programmed to detect, the process was quite slow, taking several minutes on some objects. The methods used to program Freddy couldn’t be effectively scaled up to larger numbers of objects or ‘real world’ lighting and viewing conditions.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/freddybot.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum freddybot"></span> A video of Freddy in action circa 1971. This scene is taken from the 1992 PBS series “The Machine That Changed The World”, episode four “The Thinking Machine”.
+			</p>
+
+			<p>
+				While we humans are very good at recognizing an immense number of objects under widely varying lighting conditions and viewing angles this problem is still beyond the capabilities of today’s computer systems. Nonetheless, computer vision systems have slowly improved over the years and in specialized domains are beginning to become rather impressive.
+			</p>
+
+			<p>
+				One computer vision application you might be familiar with is Google Goggles. <span class="Bolded">Google Goggles</span> is an application that uses the camera on your smart phone (Android or iPhone) to take a picture and then send it to Google’s servers where computer vision algorithms search the image to determine whether it contains any recognizable objects. The system works best on product logos, works of art, text, and famous landmarks. Food, cars, plants, and animals are examples of objects that Goggles can’t recognize.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/googlegoggles.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum googlegoggles"></span> An advertisement for Google Goggles.
+			</p>
+
+			<p>
+				Another application of computer vision that you may have heard of is facial recognition. <span class="Bolded">Facial recognition systems</span> are applications that focus on automatically identifying an individual from a digit image by taking that image, extracting relevant features, and then comparing those features against a database of known individuals.
+			</p>
+
+			<p>
+				While these systems are used by counter-terrorism and law enforcement officials, they do not (yet) work nearly as well as they are generally portrayed in movies and on television. Today’s facial recognition systems tend to give the most accurate results when presented with high resolution images where the subject is evenly lit, and looking directly towards the camera. Thus, their effectiveness can be quite limited in ‘real world’ situations where the lighting, viewing angle, and video quality cannot be easily controlled. Despite recent advances in facial recognition systems, these systems were unable to determine the identity of the suspects in the April 15<span class="Superscript">th</span>, 2013 Boston Marathon bombing – even after authorities spotted the individuals in video surveillance footage.
+			</p>
+
+			<p>
+				Today the most wide spread consumer facing implementation of computer vision is found in Microsoft’s Kinect. <span class="Bolded">Kinect</span> is a sensor system that allows Xbox game machines to, in a limited sense, see – to recognize and identify players from their facial features and to track their movements in real time.
+			</p>
+
+			<p>
+				Kinect was first announced in June of 2009 at E3 (the Electronic Entertainment Expo) under the name “Project Natal”.  Project Natal promised to combine motion tracking of individual players, facial recognition, voice control (speech recognition), and video conferencing into a mass produced inexpensive (under $200) consumer product.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/projectnatal.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum projectnatal"></span> A “product vision” video of “Project Natal” from 2009.
+			</p>
+
+			<p>
+				About a year and a half later, in November 2010, the first version of Kinect for Xbox360 was released. While the initial version of Kinect was a revolutionary product that achieved many of the goals set out in the original 2009 “product vision” announcement, it did come with a number of limitations. These limitations included: the ability to motion track only two individuals at a time, facial recognition that often didn’t work well in the typical lighting environments found in a home, and voice control that wasn’t very reliable in noisy environments.
+			</p>
+
+			<p>
+				As an early adopter of Kinect, this author can confirm that the original Kinect had problems recognizing and logging me in under many common lighting and distance situations (e.g., sitting on my couch when lit from behind) and the voice controls were much less reliable than when using Siri or Google Voice Search (circa 2012-2013). “Waking up” the system with a wave of the hand also felt awkward in many situations. Of course, making these complaints about a 1<span class="Superscript">st</span> generation product that was the first to bring a working implementation of computer vision technology to a mass audience seems somewhat petty.
+			</p>
+
+			<p>
+				In late 2013 Microsoft released the second iteration of Kinect as an integral part of their Xbox One launch.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/xboxkinect.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum xboxkinect"></span> A Wired magazine video that demonstrates the technical capabilities of the Kinect for Xbox One.
+			</p>
+
+			<p>
+				The second version of Kinect overcame many of the problems associated with the original Kinect: the 3-D depth sensor has a higher resolution in version 2 of Kinect, the 2-D color camera now supports 1080p resolution (instead of 640 by 480 in the original version), and the system now includes an active IR (Infra Red) camera that allows Kinect to see in the dark, overcoming the problems associated with illumination that the original Kinect suffered from. Skeletal tracking has improved: up to six individuals can be tracked simultaneously (instead of only two), with more articulation points per person (25 joints, including wrist and thumb tracking, up from 20 joints per person in the original version), and a new physics model allows the system to estimate the amount of force behind a movement. version 2 of Kinect can also perform attention and mood estimation by looking at a player’s head orientation and facial features. It does this by tracking whether a player’s head and eyes are looking in the direction of the Kinect or not, and whether he or she is smiling or frowning. The system is even able to estimate the heart rate of the individuals it is tracking by detecting the very slight flushing that our faces undergo with each heart beat.
+			</p>
+
+			<p>
+				Despite being a truly impressive innovation, it is important to clearly understand that <span class="Ital"><span class="Bolded">Kinect doesn’t “see” in the same sense that humans do</span></span>. Essentially Kinect is blind to most things in range of its sensors other than people’s faces and their bodies. What I mean by this is that Kinect possesses an internal ‘skeletal model’ of people’s joints and how those joints can move. It then looks for groupings of pixels in the images it is recording that appear to be moving in ways that match its internal model of how humans move. When it finds pixels moving in this way, it then tracks them. The result is a system that tracks human movement. Likewise, the system has a model of the way human faces are constructed and how they can move – smile, frown, close their eyes, etc. As with full body motion tracking, the system looks for pixels in configurations that match human faces, it can then crudely track a person’s facial features and even identify individuals it has been trained to recognize. Kinect doesn’t recognize cats, or coffee tables, or cups, or couches, or most anything else – it is limited to people’s faces and their bodies.
+			</p>
+			<!-- End main content -->
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "intelligence";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("intelligenceOverview5b3");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>
+

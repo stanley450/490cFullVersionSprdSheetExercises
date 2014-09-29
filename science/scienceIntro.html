@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<!-- CSS files -->
+		<link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+	   
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+	
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End Navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum scienceIntro"></span> <!-- Must change using js to pull 1.1 and Introduction -->
+			</p>
+	
+			<p>
+				This chapter provides an introduction to, and overview of, the science of computing.  <span class="contentNum scienceWhat"></span> sets the stage by defining the term “computing.” <span class="contentNum scienceFour"></span> discusses the four central questions addressed by this text. 
+			</p>
+	
+			<ul>
+				<li>How are computers used?</li>
+		
+				<li>How does computer software work?</li>
+		
+				<li>How does computer hardware work?</li>
+		
+				<li>What are the limitations and potential of computing?</li>
+			</ul>
+	
+			<p>
+				Later chapters of this text will explore each of these subjects in more detail.  As you read this chapter, try not to become overly concerned about fully understanding every detail of every topic that is mentioned.  Instead, take this chapter for what it is – a foretaste of the topics we will cover, a light snack to whet your appetite for what is to come. 
+			</p>
+
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<!--<footer class="footer">
+			<div class="verybottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<p class="Emphasized text-center">
+								<a href="#tippytop" id="returntop">Return to top</a>
+								<a href="#" onclick="nextArrowPage(pageObj)"><i class="pull-right fa fa-chevron-right"></i></a>
+								<a href="#" onclick="prevArrowPage(pageObj)"><i class="fa fa-chevron-left"></i></a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>-->
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "science";
+				
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("scienceIntro");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>			
+	</body>
+</html>

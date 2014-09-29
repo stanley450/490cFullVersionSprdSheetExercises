@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href = "../lib/css/colmn_test.css" rel = "stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../lib/js/nav.js"></script>
+			<script type="text/javascript" src="../lib/js/master.js"></script> 
+			<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+			<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+			<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+      
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum graphicsAlgorithms"></span>
+			</p>
+
+			
+			<p>
+				The previous section of this chapter introduced you to the major programming constructs available in the Watson Graphical Language.  These constructs are analogous to tools.  In this section we describe how these tools may be used to write programs that perform some particular task.  If you like, you can think of the previous section as introducing <span class="Underlined">what</span> you have to work with in WGL while this section shows you <span class="Underlined">how</span> to actually draw pictures with WGL.
+			</p>
+			
+			<p>
+				We will begin by exploring the creation of simple static images.  A static image is an image that does not change over time.  Programs that create more complex static images will be presented next, followed by programs that create dynamic images which do change their appearance over time.  As you will see, the loop statement is invaluable for creating complex static and dynamic images.
+			</p>
+			
+			<p>
+				If you have not done so already, now would be a good time to begin exploring the capabilities of the Watson Graphics Lab.  This lab supports two different ways of creating images: an interactive mode and a program mode.  The interactive mode allows you to draw images directly on the screen, using the mouse and drawing window.  The program mode consists of an editor for constructing WGL programs and an interpreter for executing them.
+			</p>
+			
+			<p>
+				<span class="figNum graphicslab"></span> contains an illustration of the Watson Graphics Lab.  As you can see, the lab consists of four main regions:  a “Drawing Window” used to display and interactively draw objects; a “Variable Declarations” window used to define and display program variables; a “Program Code” window for creating and editing program statements; and a “Program Execution Controls” window for running programs.
+			</p>
+			
+			<img src="images/graphicslab.jpg" class="Image" alt="The Watson Graphics Lab">
+			
+			<p class="Figure">
+				<span class="figNum graphicslab"></span>  The Watson Graphics Lab
+			</p>
+			<!-- End main content -->
+
+			<div class="push"></div> <!-- pushes the footer static bottom -->
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the footer -->	
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;
+				var chapID="graphics";											// do NOT change name of variable
+
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("graphicsAlgorithms");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>			
+	</body>
+</html>

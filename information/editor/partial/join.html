@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<span id='join'>
+  JOIN <span class='dropdown'>
+    <a class='dropdown-toggle' ng-bind='action.relation1.name'></a>
+    <ul class='dropdown-menu text-left'>
+      <li ng-repeat='rel in relations'>
+        <a ng-click='action.setRelation1(rel)' ng-bind='rel.name'></a>
+      </li>
+    </ul>
+  </span>
+  AND <span class='dropdown'>
+    <a class='dropdown-toggle' ng-bind='action.relation2.name'></a>
+    <ul class='dropdown-menu text-left'>
+      <li ng-repeat='rel in relations'>
+      <a ng-click='action.setRelation2(rel)' ng-bind='rel.name'></a>
+      </li>
+    </ul>
+  </span>
+  OVER <span class='dropdown'>
+    <a class='dropdown-toggle' ng-bind='action.attribute'></a>
+    <ul class='dropdown-menu text-left'>
+      <li ng-repeat='attr in action.getShared()'>
+      <a ng-click='action.setAttribute(attr)' ng-bind='attr'></a>
+      </li>
+    </ul>
+  </span>
+  ;
+</span>
+</html>

@@ -1,0 +1,19 @@
+<div ng-controller='TableController'>
+  <br>
+  <div id='relation'>
+    <table class='table table-striped table-condensed'>
+      <thead>
+        <th ng-repeat='item in relation.head'>
+          <span ng-bind='item'></span>
+        </th>
+      </thead>
+      <tbody>
+      <tr ng-repeat='row in relation.rows'>
+        <td ng-repeat='item in row'>
+          <span ng-bind='item'></span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div> <!-- End Relation View -->
+</div>

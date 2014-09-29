@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationProgrammer"></span>  
+      </p>
+
+      <p>
+        The previous two sections of this chapter described the low-level details of how files may be stored on disk. Normally, humans do not have to concern themselves directly with such issues since they are handled by the operating system program (in the case of file organization issues) or the disk drive controller (in the case of hardware-oriented issues).
+      </p>
+
+      <p>
+        This section provides an overview of how data can be accessed by the computer programs written by application programmers. </span><span class="Bolded">Application programmers</span> are the people who develop the programs run by end-users. Hence, this section is concerned with the lowest level of data manipulation that is commonly performed by humans.
+      </p>
+
+      <p>
+        While details of the software development process are deferred until Part III of this book, a brief summary of the file-oriented commands that allow computer programs to access, create, and modify data files are presented. A small example program that illustrates how these commands can be used to solve a simple problem is also included, along with a few words about how the operating system supports the programmer’s view of data.
+      </p>
+
+      <p>
+        In order to prevent the present discussion from becoming bogged down in irrelevant details, the “programming language” used in this section is a generic language that illustrates features common to most general-purpose programming languages. While every general-purpose procedural programming language, such as Java and C++, will include commands similar to those presented here, the exact syntax and semantics of those commands will vary from language to language.
+      </p>
+
+      <!-- End main content -->
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+    <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";        // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationProgrammer");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  </body>
+</html>

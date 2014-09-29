@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->			
+			<!-- CHAPTER 15:THE PAST, PRESENT, AND FUTURE OF COMPUTING -->
+
+			<p class="Section">
+				<span class="contentNum futureImproving1"></span>
+			</p>
+
+			<p>
+				When it comes to integrated circuits constructed from silicon-based semi-conductors, to paraphrase Monty Python: They’re "not dead yet.” (<span class="figNum montypython"></span>)&nbsp;Before we talk about the problems faced in continuing to improve integrated circuits, let’s take a few moments to briefly review why this technology has been so successful for so long.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/montypython.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum montypython"></span> Clip from “Monty Python and the Holy Grail”
+			</p>
+
+			<p>
+				One of the primary reasons that smart phones, computers, and tablets are so inexpensive today and that progress in the field is so rapid is that integrated circuits (i.e., computer chips) are “manufactured” by a form of photography called <span class="Bolded">photolithography</span>.
+			</p>
+
+			<p>
+				In photolithography, the design of the integrated circuit is expressed as a very large image, called a <span class="Bolded">mask</span>. The mask is similar to a projector slide, in that light can be shown through the mask to produce an image of the circuit. However, in the chip manufacturing process instead of projecting a large image, the light is focused to project a very small image. Specifically, very short wavelength light, typically ultraviolet (UV) light with a wavelength of 193 nanometers (circa 2013), is shone through the mask and focused on a wafer of silicon that has been prepared with a <span class="Bolded">photoresist</span> – a chemical that changes properties when exposed to light. In the most common process, the photoresist hardens where exposed to light. During the “development” phase of the process the soft portions are washed, or etched, away by special chemical solutions, leaving a copy of the original mask image (much reduced in size) on the silicon wafer.
+			</p>
+
+			<p>
+				In general, the shorter the wavelength of light used in the photolithography process the smaller the image that can be projected onto the wafer of silicon, and thus the smaller the size of the individual features on the resulting chip. As mentioned earlier, as of 2013 cutting edge chips sport minimum feature sizes in the range of 10 to 40 nanometers. In order to generate such small features with UV light, multiple exposures using different masks is necessary. Much effort is being expended to make extreme ultraviolet (EUV) light, at 13.5 nanometers, economically practical by 2015.<span class="Footnote" title="Footnote: "><a href="#ftn8" id="body_ftn8">[8]</a></span> EUV light will enable even smaller feature sizes and thus higher transistor density, resulting in faster processors.
+			</p>
+
+			<p>
+				As impressive as these numbers are, there are a variety of different technologies, such as electron beam lithography, X-ray lithography, and ion beam lithography, that can be used to create even smaller feature sizes and thus greater circuit densities. However, as feature sizes continue to shrink, we are beginning to approach fundamental barriers imposed by the laws of physics. For example, when wires are placed too close to one another, there can be unintended “crosstalk” between them, where a signal jumps from one wire to another.
+			</p>
+
+			<p>
+				Heat dissipation and power consumption are two fundamental problems chip manufactures must battle. Up through the end of the 20<span class="Superscript">th</span>century and the beginning of the 21<span class="Superscript">st</span>, manufactures were able to make chips run faster by increasing the number of ‘clock cycles’ per second. While this approach enabled chips to do more work, to execute more instructions in a fixed amount of time, the faster a chip runs the more power it consumes and the more heat it produces.
+			</p>
+
+			<p>
+				One way around power consumption and heat dissipation issues is for computer chips to include multiple “cores” or CPU’s. By having multiple CPU’s working together in parallel more total work done can be done in a fixed amount of time, even if the individual CPUs run at somewhat slower speeds. As of 2013, most computers and smart devices contained multiple cores – commonly either two or four cores.
+			</p>
+
+			<p>
+				Since photolithography is basically a ‘photographic’ technique, the results are essentially two dimensional in nature – like a photograph on paper is two dimensional. However, just as individual photographs can be stacked together; three dimensional integrated circuits can be constructed by, among other methods, stacking multiple silicon wafers on top of each other and connecting the layers together using a technology such as “through-silicon via”, or STV. Large scale manufacturing of 3D devices is projected for the 2014 / 2015 timeframe. One early benefit of this technology will most likely come in the form of improved DRAM (Dynamic Random Access Memory) devices. As of mid 2013, prototypes of the HMC (Hybrid Memory Cube) 3D design were claimed to be ten times faster than current high end (DDR3) memory chips.
+			</p>
+
+			<p>
+				Beyond multiple cores and three dimensional chip designs, another approach for extending the life of semi-conductor technology is to switch from silicon to other materials such as germanium or graphene or molybdenum disulfide. Materials scientists are studying these and many other materials as possible substitutes for silicon. Most conduct electricity better than silicon which could help with power consumption and heat dissipation problems, potentially allowing integrated circuits to run faster than today.
+			</p>
+
+			<p>
+				For many decades (at least since the 1980’s) people have been predicting the end of silicon-based integrated circuits manufactured using photolithography. And these individuals have been proven consistently wrong. Despite this fact fundamental physics imposes limitations and we are starting to get close to these. Thus, while there is still life left in semi-conductor based integrated circuit technology, most computer engineers agree that the road ahead promises to become more and more difficult.
+			</p>
+			
+			<!-- End main content -->
+			<hr />
+			<!-- Footnotes -->
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a href="#body_ftn8" id="ftn8">[8]</a>&nbsp;<a href="http://arstechnica.com/information-technology/2013/08/moores-law-could-stay-on-track-with-extreme-uv-progress/">http://arstechnica.com/information-technology/2013/08/moores-law-could-stay-on-track-with-extreme-uv-progress/</a>
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "future";
+
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("futureImproving1");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

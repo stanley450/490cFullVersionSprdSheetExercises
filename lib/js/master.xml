@@ -1,0 +1,2128 @@
+<?xml version='1.0'?>
+<!--******NOTES******-->
+<!--Figure tags are on the chapter level for js referencing ease-->
+<!--All variations of sections i.e. sub and sub-sub sections, are <sections>-->
+<!--***End of Notes***-->
+
+
+<!--Opening Tag for Chapters-->
+<chapters>
+	<!--Opening Tag for Chapter One-->
+	<chapter>
+		<id>science</id>
+		<name>The Science of Computing</name>
+		<path>../science/science.html</path>
+		<texture>/lib/images/textures/texture1.png</textures>
+		<sections>
+			<section><!--Chapter One Section One-->
+				<id>scienceIntro</id>
+				<name>Introduction</name>
+				<path>../science/scienceIntro.html</path>
+			</section>
+			<section>
+				<id>scienceWhat</id><!--Chapter One Section Two-->
+				<name>What is Computer Science?</name>
+				<path>../science/scienceWhat.html</path>
+			</section>
+			<section><!--Chapter One Section Three-->
+				<id>scienceFour</id>
+				<name>Four Important Questions</name>
+				<path>../science/scienceFour.html</path>
+				<!--Start Of Sub-sections for Chapter One-->
+				<sections>
+					<section><!--Chapter One Section Three Sub-section One-->
+						<id>scienceFour1</id>
+						<name>How are computers used?</name>
+						<path>../science/scienceFour1.html</path>
+					</section>
+					<section><!--Chapter One Section Three Sub-section Two-->
+						<id>scienceFour2</id>
+						<name>How does computer software work?</name>
+						<path>../science/scienceFour2.html</path>
+					</section>
+					<section><!--Chapter One Section Three Sub-section Three-->
+						<id>scienceFour3</id>
+						<name>How does computer hardware work?</name>
+						<path>../science/scienceFour3.html</path>
+					</section>
+					<section><!--Chapter One Section Three Sub-section Four-->
+						<id>scienceFour4</id>
+						<name>What are the limitations and potential?</name>
+						<path>../science/scienceFour4.html</path>
+					</section>
+				</sections>
+			</section>
+		</sections>
+
+		<!--3 Figures in Chapter One-->
+		<figures>
+			<figure><!--1.3.2-->
+				<id>paradigms</id>
+			</figure>
+			<figure><!--1.3.3-->
+				<id>blockdiagram</id>
+			</figure>
+			<figure><!--1.3.4-->
+				<id>finiteautomaton</id>
+			</figure>
+		</figures><!--End of figures-->
+	</chapter><!--End of Chapter One-->
+
+	<!--Opening Tag for Chapter Two-->
+	<chapter>
+		<id>tools</id>
+		<name>Computers as Communication and Problem Solving Tools</name>
+		<path>../tools/tools.html</path>
+		<!--Opening Tag for Sections in Chapter Two-->
+		<sections>
+			<section>
+				<id>toolsIntro</id><!--Chapter Two Section One-->
+				<name>Introduction</name>
+				<path>../tools/toolsIntro.html</path>
+			</section>
+			<section><!--Chapter Two Section Two-->
+				<id>toolsRoles</id>
+				<name>The changing role of computers?</name>
+				<path>../tools/toolsRoles.html</path>
+			</section>
+			<section><!--Chapter Two Section Three-->
+				<id>toolsCommunication</id>
+				<name>Communication-Oriented Applications</name>
+				<path>../tools/toolsCommunication.html</path>
+				<!--Start of Sub-sections for Chapter Two Section Three-->
+				<sections>
+					<section><!--Chapter Two Section Three Sub-section One-->
+						<id>toolsCommunication1</id>
+						<name>Email</name>
+						<path>../tools/toolsCommunication1.html</path>
+					</section>
+					<section><!--Chapter Two Section Three Sub-section Two-->
+						<id>toolsCommunication2</id>
+						<name>Instant messaging applications</name>
+						<path>../tools/toolsCommunication2.html</path>
+					</section>
+					<section><!--Chapter Two Section Three Sub-section Three-->
+						<id>toolsCommunication3</id>
+						<name>Web browsers</name>
+						<path>../tools/toolsCommunication3.html</path>
+					</section>
+					<section><!--Chapter Two Section Three Sub-section Four-->
+						<id>toolsCommunication4</id>
+						<name>Word processors</name>
+						<path>../tools/toolsCommunication4.html</path>
+					</section>
+					<section><!--Chapter Two Section Three Sub-section Five-->
+						<id>toolsCommunication5</id>
+						<name>Presentation software</name>
+						<path>../tools/toolsCommunication5.html</path>
+					</section>
+				</sections>
+			</section>
+			<section><!--Chapter Two Section Four-->
+				<id>toolsSpreadsheets</id>
+				<name>Spreadsheets</name>
+				<path>../tools/toolsSpreadsheets.html</path>
+				<sections>
+					<section><!--Chapter Two Section Four Sub-section One-->
+						<id>toolsSpreadsheets1</id>
+						<name>Basic Features of Spreadsheets</name>
+						<path>../tools/toolsSpreadsheets1.html</path>
+					</section>
+					<section><!--Chapter Two Section Four Sub-section Two-->
+						<id>toolsSpreadsheets2</id>
+						<name>Formula Evaluation: A Closer Look</name>
+						<path>../tools/toolsSpreadsheets2.html</path>
+					</section>
+					<section><!--Chapter Two Section Four Sub-section Three-->
+						<id>toolsSpreadsheets3</id>
+						<name>Relative and Absolute All References</name>
+						<path>../tools/toolsSpreadsheets3.html</path>
+					</section>
+					<section><!--Chapter Two Section Four Sub-section Four-->
+						<id>toolsSpreadsheets4</id>
+						<name>Miscellaneous Features: "Replicate" and Built-In Functions</name>
+						<path>../tools/toolsSpreadsheets4.html</path>
+					</section>
+					<section><!--Chapter Two Section Four Sub-section Five-->
+						<id>toolsSpreadsheets5</id>
+						<name>Solving Problems with Spreadsheets</name>
+						<path>../tools/toolsSpreadsheets5.html</path>
+					</section>
+				</sections>
+			</section>
+		</sections>
+
+		<!--14 Figures in Chapter Two-->
+		<figures>
+			<figure><!--2.3.3-->
+				<id>netscapedoc</id>
+			</figure>
+			<figure><!--2.3.5-->
+				<id>powerpoint</id>
+			</figure>
+			<figure><!--2.4.1-->
+				<id>simplespreadsheet</id>
+			</figure>
+			<figure><!--2.4.2-->
+				<id>ctofspreadsheet</id>
+			</figure>
+			<figure><!--2.4.2-->
+				<id>operatorspreadsheet</id>
+			</figure>
+			<figure><!--2.4.2-->
+				<id>evalspreadsheet</id>
+			</figure>
+			<figure><!--2.4.2-->
+				<id>parenthesispower</id>
+			</figure>
+			<figure><!--2.4.2-->
+				<id>gradespreadsheet</id>
+			</figure>
+			<!--Set of 4 Figures-->
+			<figure><!--2.4.3-->
+				<id>spreadmovements</id>
+			</figure>
+			<figure><!--2.4.3-->
+				<id>relativecellreference</id>
+			</figure>
+			<!--Set of 2 Figures-->
+			<figure><!--2.4.5-->
+				<id>absolutecellreference</id>
+			</figure>
+			<figure><!--2.4.4-->
+				<id>mixedcellreference</id>
+			</figure>
+			<!--End of Set-->
+			<!--Set of 2 Figures-->
+			<figure><!--2.4.5-->
+				<id>actualcontents</id>
+			</figure>
+			<figure><!--2.4.5-->
+				<id>avgactualcontents</id>
+			</figure>
+			<!--End of Set-->
+		</figures>
+	</chapter><!--End of Chapter Two-->
+
+	<!--Opening Tag for Chapter Three-->
+	<chapter>
+		<id>information</id>
+		<name>Information Storage and Retrieval</name>
+		<path>../information/information.html</path>
+		<sections>
+			<section><!--Chapter Three Section One-->
+				<id>informationIntro</id>
+				<name>Introduction</name>
+				<path>../information/informationIntro.html</path>
+			</section>
+			<section><!--Chapter Three Section Two-->
+				<id>informationHardware</id>
+				<name>The hardware level</name>
+				<path>../information/informationHardware.html</path>
+			</section>
+			<section><!--Chapter Three Section Three-->
+				<id>informationOrganization</id>
+				<name>The file organization level</name>
+				<path>../information/informationOrganization.html</path>
+					<!--Start of Sub-Sections-->
+					<sections>
+						<section><!--Chapter Three Section Three Sub-section One-->
+							<id>informationOrganization1</id>
+							<name>Contiguous storage</name>
+							<path>../information/informationOrganization1.html</path>
+						</section>
+						<section><!--Chapter Three Section Three Sub-section Two-->
+							<id>informationOrganization2</id>
+							<name>Linked storage</name>
+							<path>../information/informationOrganization2.html</path>
+						</section>
+						<section><!--Chapter Three Section Three Sub-section Three-->
+							<id>informationOrganization3</id>
+							<name>Indexed storage</name>
+							<path>../information/informationOrganization3.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Three Section Four-->
+				<id>informationProgrammer</id>
+				<name>The programmer level</name>
+				<path>../information/informationProgrammer.html</path>
+					<sections>
+						<section><!--Chapter Three Section Four Sub-section One-->
+							<id>informationProgrammer1</id>
+							<name>File access commands</name>
+							<path>../information/informationProgrammer1.html</path>
+						</section>
+						<section><!--Chapter Three Section Four Sub-section Two-->
+							<id>informationProgrammer2</id>
+							<name>A simple example</name>
+							<path>../information/informationProgrammer2.html</path>
+						</section>
+						<section><!--Chapter Three Section Four Sub-section Three-->
+							<id>informationProgrammer3</id>
+							<name>Buffering and direct access</name>
+							<path>../information/informationProgrammer3.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Three Section Five-->
+				<id>informationUser</id>
+				<name>The end-user level</name>
+				<path>../information/informationUser.html</path>
+					<sections>
+						<section><!--Chapter Three Section Five Sub-section One-->
+							<id>informationUser1</id>
+							<name>The operating system interface</name>
+							<path>../information/informationUser1.html</path>
+						</section>
+						<section><!--Chapter Three Section Five Sub-section Two-->
+							<id>informationUser2</id>
+							<name>Relational Database systems</name>
+							<path>../information/informationUser2.html</path>
+								<!--Start of Sub-sub-sections-->
+								<sections>
+									<section><!--Chapter Three Section Five Sub-section Two Part One-->
+										<id>informationUser2b1</id>
+										<name>Relations, attributes, and tuples</name>
+										<path>../information/informationUser2b1.html</path>
+									</section>
+									<section><!--Chapter Three Section Five Sub-section Two Part Two-->
+										<id>informationUser2b2</id>
+										<name>The "select" operator</name>
+										<path>../information/informationUser2b2.html</path>
+									</section>
+									<section><!--Chapter Three Section Five Sub-section Two Part Three-->
+										<id>informationUser2b3</id>
+										<name>The "project" operator</name>
+										<path>../information/informationUser2b3.html</path>
+									</section>
+									<section><!--Chapter Three Section Five Sub-section Two Part Four-->
+										<id>informationUser2b4</id>
+										<name>Queries involving both "select" and "project"</name>
+										<path>../information/informationUser2b4.html</path>
+									</section>
+									<section><!--Chapter Three Section Five Sub-section Two Part Five-->
+										<id>informationUser2b5</id>
+										<name>The "join" operator</name>
+										<path>../information/informationUser2b5.html</path>
+									</section>
+									<section><!--Chapter Three Section Five Sub-section Two Part Six-->
+										<id>informationUser2b6</id>
+										<name>Queries involving "select", "project", and "join"</name>
+										<path>../information/informationUser2b6.html</path>
+									</section>
+								</sections>
+						</section>
+					</sections>
+			</section>
+		</sections>
+		
+		<!--25 Figures in Chapter Three-->
+		<figures>
+			<figure><!--3.2-->
+				<id>infostorage</id>
+			</figure>
+			<figure><!--3.2-->
+				<id>diskdrive</id>
+			</figure>
+			<figure><!--3.3-->
+				<id>studentfields</id>
+			</figure>
+			<figure><!--3.3-->
+				<id>studentrecord</id>
+			</figure>
+			<figure><!--3.3.1-->
+				<id>filecollection</id>
+			</figure>
+			<figure><!--3.3.1-->
+				<id>defraggedfiles</id>
+			</figure>
+			<figure><!--3.3.2-->
+				<id>linkedfiles</id>
+			</figure>
+			<figure><!--3.3.2-->
+				<id>linkedfraggedfiles</id>
+			</figure>
+			<figure><!--3.3.2-->
+				<id>roottable</id>
+			</figure>
+			<figure><!--3.3.3-->
+				<id>indexedfiles</id>
+			</figure>
+			<figure><!--3.4.2-->
+				<id>csmajorlist</id>
+			</figure>
+			<figure><!--3.4.2-->
+				<id>filesystem</id>
+			</figure>
+			<figure><!--3.5.1-->
+				<id>pdfview</id>
+			</figure>
+			<figure><!--3.5.1-->
+				<id>facultyrelation</id>
+			</figure>
+			<figure><!--3.5.2-->
+				<id>studentrelation</id>
+			</figure>
+			<figure><!--3.5.2.1-->
+				<id>selectcsmajors</id>
+			</figure>
+			<figure><!--3.5.2.2-->
+				<id>projectfaculty</id>
+			</figure>
+			<figure><!--3.5.2.3-->
+				<id>coursesrelation</id>
+			</figure>
+			<figure><!--3.5.2.3-->
+				<id>projectcourses</id>
+			</figure>
+			<figure><!--3.5.2.5-->
+				<id>joinalphabeta</id>
+			</figure>
+			<figure><!--3.5.2.6-->
+				<id>rel4expressions</id>
+			</figure>
+			<figure><!--3.5.2.6-->
+				<id>gradesrelation</id>
+			</figure>
+			<figure><!--3.5.2.6-->
+				<id>relationr3</id>
+			</figure>
+			<figure><!--3.5.2.6-->
+				<id>relationr6</id>
+			</figure>
+		</figures><!--End of Figures-->
+	</chapter><!--End of Chapter Three-->
+
+<!--Opening Tag for Chapter Four-->
+	<chapter>
+		<id>ethical</id>
+		<name>The Social, legal, and ethical aspects of computing</name>
+		<path>../ethical/ethical.html</path>
+		<sections>
+			<section><!--Chapter Four Section One-->
+				<id>ethicalIntro</id>
+				<name>Introduction</name>
+				<path>../ethical/ethicalIntro.html</path>
+			</section>
+			<section><!--Chapter Four Section Two-->
+				<id>ethicalPublic</id>
+				<name>Issues of interest to the general public</name>
+				<path>../ethical/ethicalPublic.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Four Section Two Sub-section One-->
+							<id>ethicalPublic1</id>
+							<name>Security and privacy</name>
+							<path>../ethical/ethicalPublic1.html</path>
+								<!--Sub-sub-sections-->
+								<sections>
+									<section><!--Chapter Four Section Two Sub-section One Part One-->
+										<id>ethicalPublic1b1</id>
+										<name>Protecting online accounts from unauthorized access</name>
+										<path>../ethical/ethicalPublic1b1.html</path>
+									</section>
+									<section><!--Chapter Four Section Two Sub-section One Part Two-->
+										<id>ethicalPublic1b2</id>
+										<name>The encryption state</name>
+										<path>../ethical/ethicalPublic1b2.html</path>
+									</section>
+									<section><!--Chapter Four Section Two Sub-section One Part Three-->
+										<id>ethicalPublic1b3</id>
+										<name>Online accounts, email, and privacy</name>
+										<path>../ethical/ethicalPublic1b3.html</path>
+									</section>
+									<section><!--Chapter Four Section Two Sub-section One Part Four-->
+										<id>ethicalPublic1b4</id>
+										<name>The marketing of consumer profiles</name>
+										<path>../ethical/ethicalPublic1b4.html</path>
+									</section>
+								</sections>
+						</section>
+						<section>
+							<id>ethicalPublic2</id>
+							<name>Freedom of expression</name>
+							<path>../ethical/ethicalPublic2.html</path>
+								<!--Start of Sub-sub-sections-->
+								<sections>
+									<section><!--Chapter Four Section Two Sub-section Two Part One-->
+										<id>ethicalPublic2b1</id>
+										<name>Traditional media and the Internet</name>
+										<path>../ethical/ethicalPublic2b1.html</path>
+									</section>
+									<section><!--Chapter Four Section Two Sub-section Two Part Two-->
+										<id>ethicalPublic2b2</id>
+										<name>Legal protections and contraints</name>
+										<path>../ethical/ethicalPublic2b2.html</path>
+									</section>
+								</sections>
+						</section>
+						<section><!--Chapter Four Section Two Sub-section Three-->
+							<id>ethicalPublic3</id>
+							<name>Intellectual property</name>
+							<path>../ethical/ethicalPublic3.html</path>
+								<!--Start of Sub-sub-sub Sections-->
+								<sections>
+									<section><!--Chapter Four Section Two Sub-section Three Part One-->
+										<id>ethicalPublic3b1</id>
+										<name>The history of U.S. copyright law</name>
+										<path>../ethical/ethicalPublic3b1.html</path>
+									</section>
+									<section><!--Chapter Four Section Two Sub-section Three Part Two-->
+										<id>ethicalPublic3b2</id>
+										<name>The doctrine of "fair use"</name>
+										<path>../ethical/ethicalPublic3b2.html</path>
+									</section>
+									<section><!--Chapter Four Section Two Sub-section Three Part Three-->
+										<id>ethicalPublic3b3</id>
+										<name>The Digital Millenium Copyright Act</name>
+										<path>../ethical/ethicalPublic3b3.html</path>
+									</section>
+									<section><!--Chapter Four Section Two Sub-section Three Part Four-->
+										<id>ethicalPublic3b4</id>
+										<name>Whatever happened to the online library?</name>
+										<path>../ethical/ethicalPublic3b4.html</path>
+									</section>
+								</sections>
+						</section>
+						<section><!--Chapter Four Section Two Sub-section Four-->
+							<id>ethicalPublic4</id>
+							<name>Criminal Behavior</name>
+							<path>../ethical/ethicalPublic4.html</path>
+								<!--Start of Sub-sub-sections-->
+								<sections>
+									<section><!--Chapter Four Section Two Sub-section Four Part One-->
+										<id>ethicalPublic4b1</id>
+										<name>Hacking, Trojan Horses, and viruses</name>
+										<path>../ethical/ethicalPublic4b1.html</path>
+									</section>
+									<section><!--Chapter Four Section Two Sub-section Four Part Two-->
+										<id>ethicalPublic4b2</id>
+										<name>Software Piracy</name>
+										<path>../ethical/ethicalPublic4b2.html</path>
+									</section>
+									<section><!--Chapter Four Section Two Sub-section Four Part Three-->
+										<id>ethicalPublic4b3</id>
+										<name>Music and video piracy</name>
+										<path>../ethical/ethicalPublic4b3.html</path>
+									</section>
+								</sections>
+						</section>
+						<section><!--Chapter Four Section Two Sub-section Five-->
+							<id>ethicalPublic5</id>
+							<name>A global perspective</name>
+							<path>../ethical/ethicalPublic5.html</path>
+						</section>
+					</sections>
+			</section>
+			<section> <!--Chapter Four Section Three-->
+				<id>ethicalProfessionals</id>
+				<name>Issues of interest to computing professionals</name>
+				<path>../ethical/ethicalProfessionals.html</path>
+					<sections>
+						<section><!--Chapter Four Section Three Sub-section One-->
+							<id>ethicalProfessionals1</id>
+							<name>Accountability, liability, and professional licensing</name>
+							<path>../ethical/ethicalProfessionals1.html</path>
+						</section>
+						<section><!--Chapter Four Section Three Sub-section Two-->
+							<id>ethicalProfessionals2</id>
+							<name>ACM Code of Conduct</name>
+							<path>../ethical/ethicalProfessionals2.html</path>
+						</section>
+					</sections>
+			</section>
+		</sections>
+
+		<!--2 Figures in Chapter Four-->
+		<figures>
+			<figure><!--4.2.1.1-->
+				<id>passverify</id>
+			</figure>
+			<figure><!--4.2.1.1-->
+				<id>classicdictionary</id>
+			</figure>
+		</figures>
+	</chapter><!--End of Chapter Four-->
+
+	<!--Opening Tag for Chapter Five-->
+	<chapter>
+		<id>algorithms</id>
+		<name>Algorithms--The key to understanding software</name>
+		<path>../algorithms/algorithms.html</path>
+		<sections>
+			<section><!--Chapter Five Section One-->
+				<id>algorithmsIntro</id>
+				<name>Introduction</name>
+				<path>../algorithms/algorithmsIntro.html</path>
+			</section>
+			<section><!--Chapter Five Section Two-->
+				<id>algorithmsEfficiency</id>
+				<name>Algorithms and efficiency</name>
+				<path>../algorithms/algorithmsEfficiency.html</path>
+			</section>
+			<section><!--Chapter Five Section Three-->
+				<id>algorithmsSearching</id>
+				<name>Searching</name>
+				<path>../algorithms/algorithmsSearching.html</path>
+					<!--Start of Sub-sections-->
+					<sections>
+						<section><!--Chapter Five Section Three Sub-section One-->
+							<id>algorithmsSearching1</id>
+							<name>Sequential search</name>
+							<path>../algorithms/algorithmsSearching1.html</path>
+						</section>
+						<section><!--Chapter Five Section Three Sub-section Two-->
+							<id>algorithmsSearching2</id>
+							<name>Binary search</name>
+							<path>../algorithms/algorithmsSearching2.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Five Section Four-->
+				<id>algorithmsSorting</id>
+				<name>Sorting</name>
+				<path>../algorithms/algorithmsSorting.html</path>
+					<!--Start of Sub-sections-->
+					<sections>
+						<section><!--Chapter Five Section Four Sub-section One-->
+							<id>algorithmsSorting1</id>
+							<name>Selection sort</name>
+							<path>../algorithms/algorithmsSorting1.html</path>
+						</section>
+						<section><!--Chapter Five Section Four Sub-section Two-->
+							<id>algorithmsSorting2</id>
+							<name>Insertion sort</name>
+							<path>../algorithms/algorithmsSorting2.html</path>
+						</section>
+						<section><!--Chapter Five Section Four Sub-section Three-->
+							<id>algorithmsSorting3</id>
+							<name>Merge sort</name>
+							<path>../algorithms/algorithmsSorting3.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Five Section Five-->
+				<id>algorithmsSummary</id>
+				<name>Summary</name>
+				<path>../algorithms/algorithmsSummary.html</path>
+			</section>
+		</sections>
+
+		<!--21 Figures in Chapter Five-->
+		<figures>
+			<figure><!--5.2-->
+				<id>bruteforce</id>
+			</figure>
+			<figure><!--5.2-->
+				<id>better</id>
+			</figure>
+			<figure><!--5.2-->
+				<id>runtimes</id>
+			</figure>
+			<figure><!--5.3.1-->
+				<id>seqsearch</id>
+			</figure>
+			<figure><!--5.3.1-->
+				<id>seqsearch20</id>
+			</figure>
+			<figure><!--5.3.2-->
+				<id>binarysearch</id>
+			</figure>
+			<!--Set of 3 Figures-->
+			<figure><!--5.3.2-->
+				<id>binaryten</id>
+			</figure>
+			<!--End of Set-->
+			<figure><!--5.3.2-->
+				<id>binarycount</id>
+			</figure>
+			<figure><!--5.3.2-->
+				<id>seqvsbinary</id>
+			</figure>
+			<figure><!--5.4.1-->
+				<id>selectionsort</id>
+			</figure>
+			<figure><!--5.4.1-->
+				<id>selectionex</id>
+			</figure>
+			<figure><!--5.4.1-->
+				<id>selectionanal</id>
+			</figure>
+			<figure>
+				<id>insertionex</id>
+			</figure>
+			<figure>
+				<id>insertionsort</id>
+			</figure>
+			<!--Set of 2 Figures-->
+			<figure>
+				<id>insertionrev</id>
+			</figure>
+			<!--<figure>
+				<id>insertionpre</id>
+			</figure>-->
+			<!--End of Set-->
+			<figure>
+				<id>selectionvsinsertion</id>
+			</figure>
+			<figure>
+				<id>mergetwo</id>
+			</figure>
+			<figure>
+				<id>divideeight</id>
+			</figure>
+			<figure>
+				<id>mergeeight</id>
+			</figure>
+			<figure>
+				<id>mergesort</id>
+			</figure>
+			<figure>
+				<id>selectioninsertionmerge</id>
+			</figure>
+		</figures>
+	</chapter><!--End of Chapter Five-->
+
+	<!--Opening Tag for Chapter Six-->
+	<chapter>
+		<id>graphics</id>
+		<name>Developing Graphical Algorithms</name>
+		<path>../graphics/graphics.html</path>
+		<sections>
+			<!--Start of Sections-->
+			<section><!--Chapter Six Section One-->
+				<id>graphicsIntro</id>
+				<name>Introduction</name>
+				<path>../graphics/graphicsIntro.html</path>
+			</section>
+			<section><!--Chapter Six Section Two-->
+				<id>graphicsWhat</id>
+				<name>What is Computer Graphics?</name>
+				<path>../graphics/graphicsWhat.html</path>
+			</section>
+			<section><!--Chapter Six Section Three-->
+				<id>graphicsFundamentals</id>
+				<name>Fundamental Graphical Concepts</name>
+				<path>../graphics/graphicsFundamentals.html</path>
+			</section>
+			<section><!--Chapter Six Section Four-->
+				<id>graphicsLanguage</id>
+				<name>A Simple Graphical Language</name>
+				<path>../graphics/graphicsLanguage.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Six Section Four Sub-section One-->
+							<id>graphicsLanguage1</id>
+							<name>Data Types, Constants, Variables, and Expressions</name>
+							<path>../graphics/graphicsLanguage1.html</path>
+						</section>
+						<section><!--Chapter Six Section Four Sub-section Two-->
+							<id>graphicsLanguage2</id>
+							<name>Instructions</name>
+							<path>../graphics/graphicsLanguage2.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Six Section Five-->
+				<id>graphicsAlgorithms</id>
+				<name>Instructions</name>
+				<path>../graphics/graphicsAlgorithms.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Six Section Five Sub-section One-->
+							<id>graphicsAlgorithms1</id>
+							<name>Creating Simple Static Images</name>
+							<path>../graphics/graphicsAlgorithms1.html</path>
+						</section>
+						<section><!--Chapter Six Section Five Sub-section Two-->
+							<id>graphicsAlgorithms2</id>
+							<name>Creating Complex Images and Animation</name>
+							<path>../graphics/graphicsAlgorithms2.html</path>
+						</section>
+					</sections>
+			</section>
+		</sections>
+
+		<!--17 Figures in Chapter Six-->
+		<figures>
+			<figure>
+				<id>gui</id>
+			</figure>
+			<figure>
+				<id>fiscaltable</id>
+			</figure>
+			<figure>
+				<id>fiscalpie</id>
+			</figure>
+			<figure>
+				<id>housegraphic</id>
+			</figure>
+			<figure>
+				<id>cartesian</id>
+			</figure>
+			<figure>
+				<id>linesegment</id>
+			</figure>
+			<figure>
+				<id>fourpolygon</id>
+			</figure>
+			<figure>
+				<id>circleview</id>
+			</figure>
+			<figure>
+				<id>graphicslab</id>
+			</figure>
+			<figure>
+				<id>centercircle</id>
+			</figure>
+			<figure>
+				<id>boxpolygon</id>
+			</figure>
+			<figure>
+				<id>boxprogram</id>
+			</figure>
+			<figure>
+				<id>concentric10</id>
+			</figure>
+			<figure>
+				<id>concentricprogram</id>
+			</figure>
+			<figure>
+				<id>concentricnop1</id>
+			</figure>
+			<figure>
+				<id>growingcircle</id>
+			</figure>
+			<figure>
+				<id>fallingline</id>
+			</figure>
+		</figures><!--End of Figures-->
+	</chapter><!--End of Chapter Six-->
+
+	<!--Opening Tag for Chapter Seven-->
+	<chapter>
+		<id>structures</id>
+		<name>Data Structures--The Organization of Data at the Program Level</name>
+		<path>../structures/structures.html</path>
+		<sections>
+			<!--Start of Sub-sections-->
+			<section><!--Chapter Seven Section One-->
+				<id>structuresIntro</id>
+				<name>Introduction</name>
+				<path>../structures/structuresIntro.html</path>
+			</section>
+			<section><!--Chapter Seven Section Two-->
+				<id>structuresData</id>
+				<name>Higher-level data structures</name>
+				<path>../structures/structuresData.html</path>
+					<!--Start of Sub-sub-sections-->
+					<sections>
+						<section><!--Chapter Seven Section Two Sub-section One-->
+							<id>structuresData1</id>
+							<name>Stacks</name>
+							<path>../structures/structuresData1.html</path>
+						</section>
+						<section><!--Chapter Seven Section Two Sub-section Two-->
+							<id>structuresData2</id>
+							<name>Queues</name>
+							<path>../structures/structuresData2.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Seven Section Three-->
+				<id>structuresLower</id>
+				<name>Lower-level data structures: variables, arrays, and records</name>
+				<path>../structures/structuresLower.html</path>
+					<!--Start of Sub-sub-sections-->
+					<sections>
+						<section><!--Chapter Seven Section Three Sub-section One-->
+							<id>structuresLower1</id>
+							<name>Variables</name>
+							<path>../structures/structuresLower1.html</path>
+						</section>
+						<section><!--Chapter Seven Section Three Sub-section Two-->
+							<id>structuresLower2</id>
+							<name>Arrays</name>
+							<path>../structures/structuresLower2.html</path>
+						</section>
+						<section><!--Chapter Seven Section Three Sub-section Three-->
+							<id>structuresLower3</id>
+							<name>Records</name>
+							<path>../structures/structuresLower3.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Seven Section Four-->
+				<id>structuresImplementations</id>
+				<name>Higher-level data structures implementations</name>
+				<path>../structures/structuresImplementations.html</path>
+			</section>
+		</sections>
+
+		<!--4 Figures in Chapter Seven-->
+		<figures>
+			<figure>
+				<id>threeblockstack</id>
+			</figure>
+			<figure>
+				<id>stackops</id>
+			</figure>
+			<figure>
+				<id>realqueue</id>
+			</figure>
+			<figure>
+				<id>queueops</id>
+			</figure>
+		</figures><!--End of Figures-->
+	</chapter><!--End of Chapter Seven-->
+
+	<!--Opening Tag for Chapter Eight-->
+	<chapter>
+		<id>javascript</id>
+		<name>Javascript Programming</name>
+		<path>../javascript/javascript.html</path>
+		<sections>
+			<!--Start of Sections-->
+			<section><!--Chapter Eight Section One-->
+				<id>javascriptIntro</id>
+				<name>Introduction</name>
+				<path>../javascript/javascriptIntro.html</path>
+			</section>
+			<section><!--Chapter Eight Section Two-->
+				<id>javascriptOverview</id>
+				<name>Overview of Watson Javascript</name>
+				<path>../javascript/javascriptOverview.html</path>
+			</section>
+			<section><!--Chapter Eight Section Three-->
+				<id>javascriptTypes</id>
+				<name>Data Types, Constants, Variables</name>
+				<path>../javascript/javascriptTypes.html</path>
+			</section>
+			<section><!--Chapter Eight Section Four-->
+				<id>javascriptInput</id>
+				<name>Input and Output Statements</name>
+				<path>../javascript/javascriptInput.html</path>
+			</section>
+			<section><!--Chapter Eight Section Five-->
+				<id>javascriptExpressions</id>
+				<name>Expressions and Assignment</name>
+				<path>../javascript/javascriptExpressions.html</path>
+			</section>
+			<section><!--Chapter Eight Section Six-->
+				<id>javascriptControl</id>
+				<name>The Three Primary Control Constructs</name>
+				<path>../javascript/javascriptControl.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Eight Section Six Sub-section One-->
+							<id>javascriptControl1</id>
+							<name>Sequence</name>
+							<path>../javascript/javascriptControl1.html</path>
+						</section>
+						<section><!--Chapter Eight Section Six Sub-section Two-->
+							<id>javascriptControl2</id>
+							<name>Selection</name>
+							<path>../javascript/javascriptControl2.html</path>
+						</section>
+						<section><!--Chapter Eight Section Six Sub-section Three-->
+							<id>javascriptControl3</id>
+							<name>Repetition</name>
+							<path>../javascript/javascriptControl3.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Eight Section Seven-->
+				<id>javascriptFunctions</id>
+				<name>Functions</name>
+				<path>../javascript/javascriptFunctions.html</path>
+			</section>
+			<section><!--Chapter Eight Section Eight-->
+				<id>javascriptRecursion</id>
+				<name>Recursions</name>
+				<path>../javascript/javascriptRecursion.html</path>
+			</section>
+			<section><!--Chapter Eight Section Nine-->
+				<id>javascriptArrays</id>
+				<name>Arrays and High-level Data Structures</name>
+				<path>../javascript/javascriptArrays.html</path>
+			</section>
+		</sections>
+
+		<!--39 Figures in Chapter Eight-->
+		<figures>
+			<figure>
+				<id>watsonformat</id>
+			</figure>
+			<figure>
+				<id>objectkinds</id>
+			</figure>
+			<figure>
+				<id>watsonstatements</id>
+			</figure>
+			<figure>
+				<id>watsonprogram</id>
+			</figure>
+			<figure>
+				<id>watsontextnum</id>
+			</figure>
+			<figure>
+				<id>inouttext</id>
+			</figure>
+			<figure>
+				<id>inoutnum</id>
+			</figure>
+			<figure>
+				<id>opsprecedence</id>
+			</figure>
+			<figure>
+				<id>graphicalsequence</id>
+			</figure>
+			<figure>
+				<id>variabletrace</id>
+			</figure>
+			<figure>
+				<id>ifelseconstruct</id>
+			</figure>
+			<figure>
+				<id>ifelseprogram</id>
+			</figure>
+			<figure>
+				<id>ifthenelse</id>
+			</figure>
+			<figure>
+				<id>ifelsenest</id>
+			</figure>
+			<figure>
+				<id>ifconstruct</id>
+			</figure>
+			<figure>
+				<id>ifprogram</id>
+			</figure>
+			<figure>
+				<id>whileconstruct</id>
+			</figure>
+			<figure>
+				<id>whilesum</id>
+			</figure>
+			<figure>
+				<id>whilesumofn</id>
+			</figure>
+			<figure>
+				<id>forconstruct</id>
+			</figure>
+			<figure>
+				<id>forprogram</id>
+			</figure>
+			<figure>
+				<id>foraverage</id>
+			</figure>
+			<figure>
+				<id>formultiplication</id>
+			</figure>
+			<figure>
+				<id>beeriterative</id>
+			</figure>
+			<figure>
+				<id>subprogram</id>
+			</figure>
+			<figure>
+				<id>definedfunction</id>
+			</figure>
+			<figure>
+				<id>thirdpower</id>
+			</figure>
+			<figure>
+				<id>computevalue</id>
+			</figure>
+			<figure>
+				<id>beersubprogram</id>
+			</figure>
+			<figure>
+				<id>beertailrecursive</id>
+			</figure>
+			<figure>
+				<id>beerillustration</id>
+			</figure>
+			<figure>
+				<id>beerrecursive</id>
+			</figure>
+			<figure>
+				<id>graphicalcomp</id>
+			</figure>
+			<figure>
+				<id>graphicalcompthree</id>
+			</figure>
+			<figure>
+				<id>tenintarray</id>
+			</figure>
+			<figure>
+				<id>tenintprogram</id>
+			</figure>
+			<figure>
+				<id>searchfunction</id>
+			</figure>
+			<figure>
+				<id>watsonstack</id>
+			</figure>
+			<figure>
+				<id>stackpushes</id>
+			</figure>
+			<figure>
+				<id>stackpops</id>
+			</figure>
+		</figures><!--End of Figures-->
+	</chapter><!--End of Chapter Eight-->
+
+	
+	<!--Opening Tag for Chapter Nine-->
+	<chapter>
+		<id>objects</id>
+		<name>Functional, Logical, and Object-Oriented Programming</name>
+		<path>../objects/objects.html</path>
+		<sections>
+			<!--Start of Sub-sections-->
+			<section><!--Chapter Nine Section One-->
+				<id>objectsIntro</id>
+				<name>Introduction</name>
+				<path>../objects/objectsIntro.html</path>
+			</section>
+			<section><!--Chapter Nine Section Two-->
+				<id>objectsFunctional</id>
+				<name>Functional programming</name>
+				<path>../objects/objectsFunctional.html</path>
+					<sections>
+						<!--Start of Sub-sub-sections-->
+						<section><!--Chapter Nine Section Two Sub-section One-->
+							<id>objectsFunctional1</id>
+							<name>Introduction</name>
+							<path>../objects/objectsFunctional1.html</path>
+						</section>
+						<section><!--Chapter Nine Section Two Sub-section Two-->
+							<id>objectsFunctional2</id>
+							<name>User-definded functions</name>
+							<path>../objects/objectsFunctional2.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Nine Section Three-->
+				<id>objectsDeclarative</id>
+				<name>Declarative programming</name>
+				<path>../objects/objectsDeclarative.html</path>
+			</section>
+			<section><!--Chapter Nine Section Four-->
+				<id>objectsOriented</id>
+				<name>Object-oriented programming</name>
+				<path>../objects/objectsOriented.html</path>
+			</section>
+		</sections>
+
+		<!--16 Figures in Chapter Nine-->
+		<figures>
+			<figure>
+				<id>internallist</id>
+			</figure>
+			<figure>
+				<id>dualinternallist</id>
+			</figure>
+			<figure>
+				<id>internalmath</id>
+			</figure>
+			<figure>
+				<id>caroperator</id>
+			</figure>
+			<figure>
+				<id>nestedcar</id>
+			</figure>
+			<figure>
+				<id>cdroperator</id>
+			</figure>
+			<figure>
+				<id>nestedcdr</id>
+			</figure>
+			<figure>
+				<id>carcdrnest</id>
+			</figure>
+			<figure>
+				<id>carcdrcons</id>
+			</figure>
+			<figure>
+				<id>lispoperators</id>
+			</figure>
+			<figure>
+				<id>lispinterpreter</id>
+			</figure>
+			<figure>
+				<id>lispfunctions</id>
+			</figure>
+			<figure>
+				<id>condformat</id>
+			</figure>
+			<figure>
+				<id>legadefinition</id>
+			</figure>
+			<figure>
+				<id>legalinout</id>
+			</figure>
+			<figure>
+				<id>lispnest</id>
+			</figure>
+		</figures><!--End of Figures-->
+	</chapter><!--End of Chapter Nine-->
+
+	<!--**** CHAPTER TEN: ENGINEERING. DOES NOT EXIST ****-->
+	<chapter>
+		<id>engineering</id>
+		<name>Building Large Software Systems</name>
+		<path>../engineering/engineering.html</path>
+		<figures> <figure> </figure></figures>
+	</chapter><!--End of Chapter Ten -->
+
+	<!-- Opening Tag for Chapter Eleven -->
+	<chapter>
+		<id>assembly</id>
+		<name>Assembly Language</name>
+		<path>../assembly/assembly.html</path>
+		<sections>
+			<!--Start of Sub-sections-->
+			<section>
+				<id>assemblyIntro</id>
+				<name>Introduction</name>
+				<path>../assembly/assemblyintro.html</path>
+			</section>
+			<section>
+				<id>assemblyRegisters</id>
+				<name>Register-based Machines</name>
+				<path>../assembly/assemblyRegisters.html</path>
+			</section>
+			<section>
+				<id>assemblyProgramming</id>
+				<name>Assembly language programming</name>
+				<path>../assembly/assemblyProgramming.html</path>
+					<sections>
+						<!--Start of Sub-sub-sections-->
+						<section><!--Chapter Eleven Section Three Sub-section One-->
+							<id>assemblyProgramming1</id>
+							<name>An overview of the Watson Assembly Language</name>
+							<path>../assembly/assemblyProgramming1.html</path>
+						</section>
+						<section><!--Chapter Eleven Section Three Sub-section Two-->
+							<id>assemblyProgramming2</id>
+							<name>Assembly Language</name>
+							<path>../assembly/assemblyProgramming2.html</path>
+						</section>
+						<section><!--Chapter Eleven Section Three Sub-section Three-->
+							<id>assemblyProgramming3</id>
+							<name>Implementing selection constructs in assembly language</name>
+							<path>../assembly/assemblyProgramming3.html</path>
+						</section>
+						<section><!--Chapter Eleven Section Three Sub-section Four-->
+							<id>assemblyProgramming4</id>
+							<name>Implementing repetition constructs in assembly language</name>
+							<path>../assembly/assemblyProgramming4.html</path>
+						</section>
+						<section><!--Chapter Eleven Section Three Sub-section Five-->
+							<id>assemblyProgramming5</id>
+							<name>Array processing in assembly language</name>
+							<path>../assembly/assemblyProgramming5.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Eleven Section Four-->
+				<id>assemblyData</id>
+				<name>Data representation at machine level</name>
+				<path>../assembly/assemblyData.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Eleven Section Four Sub-section One-->
+							<id>assemblyData1</id>
+							<name>Array processing in assembly language</name>
+							<path>../assembly/assemblyData1.html</path>
+								<sections>
+									<!--Start of Sub-sub-sections-->
+									<section><!--Chapter Eleven Section Four Sub-section One Part One-->
+										<id>assemblyData1b1</id>
+										<name>Number systems</name>
+										<path>../assembly/assemblyData1b1.html</path>
+									</section>
+									<section><!--Chapter Eleven Section Four Sub-section One Part Two-->
+										<id>assemblyData1b2</id>
+										<name>Numeric bases and base conversions</name>
+										<path>../assembly/assemblyData1b2.html</path>
+									</section>
+									<section><!--Chapter Eleven Section Four Sub-section One Part Three-->
+										<id>assemblyData1b3</id>
+										<name>Binary arithmetic</name>
+										<path>../assembly/assemblyData1b3.html</path>
+									</section>
+									<section><!--Chapter Eleven Section Four Sub-section One Part Four-->
+										<id>assemblyData1b4</id>
+										<name>Signed numbers</name>
+										<path>../assembly/assemblyData1b4.html</path>
+									</section>
+									<section><!--Chapter Eleven Section Four Sub-section One Part Five-->
+										<id>assemblyData1b5</id>
+										<name>Floating point numbers</name>
+										<path>../assembly/assemblyData1b5.html</path>
+									</section>
+								</sections>
+						</section>
+						<section><!--Chapter Eleven Section Four Sub-section Two-->
+							<id>assemblyData2</id>
+							<name>Characters</name>
+							<path>../assembly/assemblyData2.html</path>
+						</section>
+						<section><!--Chapter Eleven Section Four Sub-section Three-->
+							<id>assemblyData3</id>
+							<name>Images</name>
+							<path>../assembly/assemblyData3.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Eleven Section Five-->
+				<id>assemblyMachine</id>
+				<name>Machine language</name>
+				<path>../assembly/assemblyMachine.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Eleven Section Five Sub-section One-->
+							<id>assemblyMachine1</id>
+							<name>The Watson Virtual Machine instruction set</name>
+							<path>../assembly/assemblyMachine1.html</path>
+						</section>
+						<section><!--Chapter Eleven Section Five Sub-section Two-->
+							<id>assemblyMachine2</id>
+							<name>Assembly language to machine language translation</name>
+							<path>../assembly/assemblyMachine2.html</path>
+						</section>
+						<section><!--Chapter Eleven Section Five Sub-section Three-->
+							<id>assemblyMachine3</id>
+							<name>Program execution</name>
+							<path>../assembly/assemblyMachine3.html</path>
+						</section>
+					</sections>
+			</section>
+		</sections>
+
+		<!--29 Figures in Chapter Eleven-->
+		<figures>
+			<figure>
+				<id>watsonvm</id>
+			</figure>
+			<figure>
+				<id>watsonassembly</id>
+			</figure>
+			<figure>
+				<id>assemblytotal</id>
+			</figure>
+			<figure>
+				<id>assemblydec</id>
+			</figure>
+			<figure>
+				<id>minorcode</id>
+			</figure>
+			<figure>
+				<id>minorcounter</id>
+			</figure>
+			<figure>
+				<id>selectiontemplate</id>
+			</figure>
+			<figure>
+				<id>assemblywhile</id>
+			</figure>
+			<figure>
+				<id>assemblytimes</id>
+			</figure>
+			<figure>
+				<id>optimizedtimes</id>
+			</figure>
+			<figure>
+				<id>initializing30</id>
+			</figure>
+			<figure>
+				<id>basetentwo</id>
+			</figure>
+			<figure>
+				<id>tentwosixteen</id>
+			</figure>
+			<figure>
+				<id>ninetynine</id>
+			</figure>
+			<figure>
+				<id>hextobin</id>
+			</figure>
+			<figure>
+				<id>sixteentotwo</id>
+			</figure>
+			<figure>
+				<id>twotosixteen</id>
+			</figure>
+			<figure>
+				<id>tentotwo</id>
+			</figure>
+			<!--Set of 2 Figures-->
+			<figure>
+				<id>thirtyeight</id>
+			</figure>
+			<figure>
+				<id>fortythree</id>
+			</figure>
+			<!--End of Set-->
+			<!--Set of 2 Figures-->
+			<figure>
+				<id>nineteen</id>
+			</figure>
+			<figure>
+				<id>onefortythree</id>
+			</figure>
+			<!--End of Set-->
+			<figure>
+				<id>twoscomplement</id>
+			</figure>
+			<figure>
+				<id>asciichars</id>
+			</figure>
+			<figure>
+				<id>monovsbitmap</id>
+			</figure>
+			<figure>
+				<id>watsonvmformat</id>
+			</figure>
+			<figure>
+				<id>watsonvmset</id>
+			</figure>
+			<figure>
+				<id>andornot</id>
+			</figure>
+			<figure>
+				<id>branch</id>
+			</figure>
+			<figure>
+				<id>machinevassembly</id>
+			</figure>
+		</figures><!--End of Figures-->
+	</chapter><!--End of Chapter Eleven-->
+
+	<!--Opening Tag for Chapter Twelve-->
+	<chapter>
+		<id>circuits</id>
+		<name>Digital Circuit Design</name>
+		<path>../circuits/circuits.html</path>
+		<sections>
+			<section><!--Chapter Twelve Section One-->
+				<id>circuitsIntro</id>
+				<name>Introduction</name>
+				<path>../circuits/circuitsIntro.html</path>
+			</section>
+			<section><!--Chapter Twelve Section Two-->
+				<id>circuitsFundamentals</id>
+				<name>Fundamentals of Digital Logic</name>
+				<path>../circuits/circuitsFundamentals.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Twelve Section Two Sub-section One-->
+							<id>circuitsFundamentals1</id>
+							<name>Switches</name>
+							<path>../circuits/circuitsFundamentals1.html</path>
+						</section>
+						<section><!--Chapter Twelve Section Two Sub-section Two-->
+							<id>circuitsFundamentals2</id>
+							<name>Gates</name>
+							<path>../circuits/circuitsFundamentals2.html</path>
+						</section>
+						<section><!--Chapter Twelve Section Two Sub-section Three-->
+							<id>circuitsFundamentals3</id>
+							<name>Boolean Algebra</name>
+							<path>../circuits/circuitsFundamentals3.html</path>
+						</section>
+						<section><!--Chapter Twelve Section Two Sub-section Four-->
+							<id>circuitsFundamentals4</id>
+							<name>Other Gates</name>
+							<path>../circuits/circuitsFundamentals4.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Twelve Section Three-->
+				<id>circuitsCombinatorial</id>
+				<name>Combinatorial Circuits</name>
+				<path>../circuits/circuitsCombinatorial.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Twelve Section Three Sub-section One-->
+							<id>circuitsCombinatorial1</id>
+							<name>The "Exclusive Or" Circuit</name>
+							<path>../circuits/circuitsCombinatorial1.html</path>
+						</section>
+						<section><!--Chapter Twelve Section Three Sub-section Two-->
+							<id>circuitsCombinatorial2</id>
+							<name>Comparators</name>
+							<path>../circuits/circuitsCombinatorial2.html</path>
+						</section>
+						<section><!--Chapter Twelve Section Three Sub-section Three-->
+							<id>circuitsCombinatorial3</id>
+							<name>Adders</name>
+							<path>../circuits/circuitsCombinatorial3.html</path>
+						</section>
+						<section><!--Chapter Twelve Section Three Sub-section Four-->
+							<id>circuitsCombinatorial4</id>
+							<name>Decoders and Encoders</name>
+							<path>../circuits/circuitsCombinatorial4.html</path>
+						</section>
+						<section><!--Chapter Twelve Section Three Sub-section Five-->
+							<id>circuitsCombinatorial5</id>
+							<name>Multiplexers and Demultiplexers</name>
+							<path>../circuits/circuitsCombinatorial5.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Twelve Section Four-->
+				<id>circuitsSequential</id>
+				<name>Sequential Circuits</name>
+				<path>../circuits/circuitsSequential.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Twelve Section Four Sub-section One-->
+							<id>circuitsSequential1</id>
+							<name>The R-S Flip-flop</name>
+							<path>../circuits/circuitsSequential1.html</path>
+						</section>
+						<section><!--Chapter Twelve Section Four Sub-section Two-->
+							<id>circuitsSequential2</id>
+							<name>The Clocked R-S Flip-flop</name>
+							<path>../circuits/circuitsSequential2.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Twelve Section Five-->
+				<id>circuitsMicrocomputer</id>
+				<name>Design of a Simple Microcomputer</name>
+				<path>../circuits/circuitsMicrocomputer.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Twelve Section Five Sub-section One-->
+							<id>circuitsMicrocomputer1</id>
+							<name>The Watson Virtual Machine Revisited</name>
+							<path>../circuits/circuitsMicrocomputer1.html</path>
+						</section>
+						<section><!--Chapter Twelve Section Five Sub-section Two-->
+							<id>circuitsMicrocomputer2</id>
+							<name>The Arithmetic/Logic Unit</name>
+							<path>../circuits/circuitsMicrocomputer2.html</path>
+						</section>
+						<section><!--Chapter Twelve Section Five Sub-section Three-->
+							<id>circuitsMicrocomputer3</id>
+							<name>Random Access Memory (RAM)</name>
+							<path>../circuits/circuitsMicrocomputer3.html</path>
+						</section>
+					</sections>
+			</section>
+		</sections>
+
+		<!--36 Figures in Chapter Twelve-->
+		<figures>
+			<figure>
+				<id>lightbulbs</id>
+			</figure>
+			<figure>
+				<id>openclosed</id>
+			</figure>
+			<figure>
+				<id>seriesswitches</id>
+			</figure>
+			<figure>
+				<id>parallelswitches</id>
+			</figure>
+			<figure>
+				<id>andgate</id>
+			</figure>
+			<figure>
+				<id>orgate</id>
+			</figure>
+			<figure>
+				<id>notgate</id>
+			</figure>
+			<figure>
+				<id>booleanbasic</id>
+			</figure>
+			<figure>
+				<id>nandnor</id>
+			</figure>
+			<figure>
+				<id>threefourandor</id>
+			</figure>
+			<figure>
+				<id>implementxor</id>
+			</figure>
+			<figure>
+				<id>onebitequality</id>
+			</figure>
+			<figure>
+				<id>halfadder</id>
+			</figure>
+			<figure>
+				<id>fulladder</id>
+			</figure>
+			<figure>
+				<id>fourbitadder</id>
+			</figure>
+			<figure>
+				<id>threetoeightdec</id>
+			</figure>
+			<figure>
+				<id>threetoeightenc</id>
+			</figure>
+			<figure>
+				<id>twomultiplex</id>
+			</figure>
+			<figure>
+				<id>fourmultiplex</id>
+			</figure>
+			<!--Set of 2 Figures-->
+			<figure>
+				<id>channelzero</id>
+			</figure>
+			<figure>
+				<id>channelone</id>
+			</figure>
+			<!--End of Set-->
+			<figure>
+				<id>fourdemultiplex</id>
+			</figure>
+			<!--Set of 2 Figures-->
+			<figure>
+				<id>channeltwo</id>
+			</figure>
+			<figure>
+				<id>channelthree</id>
+			</figure>
+			<!--End of Set-->
+			<figure>
+				<id>rsflipflop</id>
+			</figure>
+			<figure>
+				<id>rsflipflopone</id>
+			</figure>
+			<figure>
+				<id>rsflipflopreset</id>
+			</figure>
+			<figure>
+				<id>rsflipflopzero</id>
+			</figure>
+			<figure>
+				<id>rsflipflopsetone</id>
+			</figure>
+			<figure>
+				<id>rsflipflopholdone</id>
+			</figure>
+			<figure>
+				<id>rsflipflopinvalid</id>
+			</figure>
+			<figure>
+				<id>fourclockcycles</id>
+			</figure>
+			<figure>
+				<id>clockrsflipflop</id>
+			</figure>
+			<figure>
+				<id>watsonvmdetail</id>
+			</figure>
+			<figure>
+				<id>addandalu</id>
+			</figure>
+			<figure>
+				<id>binaryram</id>
+			</figure>
+			<figure>
+				<id>binarycellcap</id>
+			</figure>
+			<figure>
+				<id>fourbytworam</id>
+			</figure>
+		</figures><!--End of Figures-->
+	</chapter><!--End of Chapter Twelve-->
+
+<!--****CHAPTER THIRTEERN: LIMITS DOES NOT EXIST****-->
+	<chapter>
+		<id>limits</id>
+		<name>Theoretical and Practical Limits of Computing</name>
+		<path>../limits/limits.html</path>
+		<figures> <figure> </figure></figures>
+	</chapter><!--End of Chapter Thirteen-->
+
+	<!--Opening Tag for Chapter Fourteen-->
+	<chapter>
+		<id>intelligence</id>
+		<name>Computing and Intelligence</name>
+		<path>../intelligence/intelligence.html</path>
+		<sections>
+			<section><!--Chapter Fourteen Section One-->
+				<id>intelligenceIntro</id>
+				<name>Introduction</name>
+				<path>../intelligence/intelligenceIntro.html</path>
+			</section>
+			<section><!--Chapter Fourteen Section Two-->
+				<id>intelligenceOverview</id>
+				<name>An Overview of Artificial Intelligence</name>
+				<path>../intelligence/intelligenceOverview.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Fourteen Section Two Sub-section One-->
+							<id>intelligenceOverview1</id>
+							<name>HAL: the prototypical intelligent computer</name>
+							<path>../intelligence/intelligenceOverview1.html</path>
+						</section>
+						<section><!--Chapter Fourteen Section Two Sub-section Two-->
+							<id>intelligenceOverview2</id>
+							<name>Can intelligent machines be constructed?</name>
+							<path>../intelligence/intelligenceOverview2.html</path>
+						</section>
+						<section><!--Chapter Fourteen Section Two Sub-section Three-->
+							<id>intelligenceOverview3</id>
+							<name>Measuring progress: the Turing test</name>
+							<path>../intelligence/intelligenceOverview3.html</path>
+						</section>
+						<section><!--Chapter Fourteen Section Two Sub-section Four-->
+							<id>intelligenceOverview4</id>
+							<name>A brief history of artificial intelligence</name>
+							<path>../intelligence/intelligenceOverview4.html</path>
+						</section>
+						<section><!--Chapter Fourteen Section Two Sub-section Five-->
+							<id>intelligenceOverview5</id>
+							<name>Half a century and counting</name>
+							<path>../intelligence/intelligenceOverview5.html</path>
+								<sections>
+									<!--Start of Sub-sub-sections-->
+									<section><!--Chapter Fourteen Section Two Sub-section One-->
+										<id>intelligenceOverview5b1</id>
+										<name>Big data, statistical machine learning techniques, and machine translation</name>
+										<path>../intelligence/intelligenceOverview5b1.html</path>
+									</section>
+									<section><!--Chapter Fourteen Section Two Sub-section One-->
+										<id>intelligenceOverview5b2</id>
+										<name>Using language intelligently</name>
+										<path>../intelligence/intelligenceOverview5b2.html</path>
+									</section>
+									<section><!--Chapter Fourteen Section Two Sub-section One-->
+										<id>intelligenceOverview5b3</id>
+										<name>Computer Vision</name>
+										<path>../intelligence/intelligenceOverview5b3.html</path>
+									</section>
+									<section><!--Chapter Fourteen Section Two Sub-section One-->
+										<id>intelligenceOverview5b4</id>
+										<name>Autonomous Vehicles</name>
+										<path>../intelligence/intelligenceOverview5b4.html</path>
+									</section>
+								</sections>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Fourteen Section Three-->
+				<id>intelligenceApproaches</id>
+				<name>Techniques and approaches for achieving intelligent behavior</name>
+				<path>../intelligence/intelligenceApproaches.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Fourteen Section Three Sub-section One-->
+							<id>intelligenceApproaches1</id>
+							<name>Game playing and search</name>
+							<path>../intelligence/intelligenceApproaches1.html</path>
+						</section>
+						<section><!--Chapter Fourteen Section Three Sub-section Two-->
+							<id>intelligenceApproaches2</id>
+							<name>Automated reasoning</name>
+							<path>../intelligence/intelligenceApproaches2.html</path>
+								<sections>
+									<!--Start of Sub-sub-sections-->
+									<section><!--Chapter Fourteen Section Three Sub-section Two Part One-->
+										<id>intelligenceApproaches2b1</id>
+										<name>Propositional logic</name>
+										<path>../intelligence/intelligenceApproaches2b1.html</path>
+									</section>
+									<section><!--Chapter Fourteen Section Three Sub-section Two Part Two-->
+										<id>intelligenceApproaches2b2</id>
+										<name>Resolution refutation proofs</name>
+										<path>../intelligence/intelligenceApproaches2b2.html</path>
+									</section>
+								</sections>
+						</section>
+						<section><!--Chapter Fourteen Section Three Sub-section Three-->
+							<id>intelligenceApproaches3</id>
+							<name>Neural networks and machine learning</name>
+							<path>../intelligence/intelligenceApproaches3.html</path>
+						</section>
+					</sections>
+			</section>
+		</sections>
+
+		<!--45 Figures in Chapter Fourteen-->
+		<figures>
+			<figure>
+				<id>davehal</id>
+			</figure>
+			<figure>
+				<id>halinterview</id>
+			</figure>
+			<figure>
+				<id>turingtest</id>
+			</figure>
+			<figure>
+				<id>elizaprogram</id>
+			</figure>
+			<figure>
+				<id>claudeshannon</id>
+			</figure>
+			<figure>
+				<id>airesearch</id>
+			</figure>
+			<figure>
+				<id>terryshrdlu</id>
+			</figure>
+			<figure>
+				<id>perceptronfaces</id>
+			</figure>
+			<figure>
+				<id>machinetrans</id>
+			</figure>
+			<figure>
+				<id>googletranslate</id>
+			</figure>
+			<figure>
+				<id>googleconverse</id>
+			</figure>
+			<figure>
+				<id>googlevoice</id>
+			</figure>
+			<figure>
+				<id>voiceactions</id>
+			</figure>
+			<figure>
+				<id>applesiri</id>
+			</figure>
+			<figure>
+				<id>siriversions</id>
+			</figure>
+			<figure>
+				<id>googlenow</id>
+			</figure>
+			<figure>
+				<id>ibmwatson</id>
+			</figure>
+			<figure>
+				<id>watsonoverview</id>
+			</figure>
+			<figure>
+				<id>freddybot</id>
+			</figure>
+			<figure>
+				<id>googlegoggles</id>
+			</figure>
+			<figure>
+				<id>projectnatal</id>
+			</figure>
+			<figure>
+				<id>xboxkinect</id>
+			</figure>
+			<figure>
+				<id>standfordcart</id>
+			</figure>
+			<figure>
+				<id>autonomousvan</id>
+			</figure>
+			<figure>
+				<id>selfdrivencar</id>
+			</figure>
+			<figure>
+				<id>selfcarpros</id>
+			</figure>
+			<figure>
+				<id>cabbageproblem</id>
+			</figure>
+			<figure>
+				<id>cabbagestate</id>
+			</figure>
+			<figure>
+				<id>cabbagecomplete</id>
+			</figure>
+			<figure>
+				<id>searchtypes</id>
+			</figure>
+			<figure>
+				<id>logicandornot</id>
+			</figure>
+			<figure>
+				<id>logicimplies</id>
+			</figure>
+			<figure>
+				<id>notimplications</id>
+			</figure>
+			<figure>
+				<id>ponenstruth</id>
+			</figure>
+			<figure>
+				<id>tollenstruth</id>
+			</figure>
+			<figure>
+				<id>implicationchain</id>
+			</figure>
+			<figure>
+				<id>summerfacts</id>
+			</figure>
+			<figure>
+				<id>modusresolutions</id>
+			</figure>
+			<figure>
+				<id>notswimming</id>
+			</figure>
+			<figure>
+				<id>notraining</id>
+			</figure>
+			<figure>
+				<id>pleasant</id>
+			</figure>
+			<figure>
+				<id>braincell</id>
+			</figure>
+			<figure>
+				<id>ninputperceptron</id>
+			</figure>
+			<figure>
+				<id>fixedperceptron</id>
+			</figure>
+			<figure>
+				<id>trainingpasses</id>
+			</figure>
+		</figures><!--End of Figures-->
+	</chapter>
+	
+	<!--Opening Tag for Chapter Fifteen-->
+	<chapter>
+		<id>future</id>
+		<name>The Past, Present, and Future of Computing</name>
+		<path>../future/future.html</path>
+		<sections>
+			<section><!--Chapter Fifteen Section One-->
+				<id>futureIntro</id>
+				<name>Introduction</name>
+				<path>../future/futureIntro.html</path>
+			</section>
+			<section><!--Chapter Fifteen Section Two-->
+				<id>futureEvolving</id>
+				<name>The evolving nature of human-computer interaction</name>
+				<path>../future/futureEvolving.html</path>
+			</section>
+			<section><!--Chapter Fifteen Section Three-->
+				<id>futureMoores</id>
+				<name>Moore's Law and its implications</name>
+				<path>../future/futureMoores.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Fifteen Section Three Sub-section One-->
+							<id>futureMoores1</id>
+							<name>What is Moore's Law</name>
+							<path>../future/futureMoores1.html</path>
+						</section>
+						<section><!--Chapter Fifteen Section Three Sub-section Two-->
+							<id>futureMoores2</id>
+							<name>The exponential growth of supercomputer speed</name>
+							<path>../future/futureMoores2.html</path>
+						</section>
+						<section><!--Chapter Fifteen Section Three Sub-section Three-->
+							<id>futureMoores3</id>
+							<name>But, surely this can't continue definitely</name>
+							<path>../future/futureMoores3.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Fifteen Section Four-->
+				<id>futureImproving</id>
+				<name>Promising technologies for improving computing performance</name>
+				<path>../future/futureImproving.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Fifteen Section Four Sub-section One-->
+							<id>futureImproving1</id>
+							<name>Semi-conductor based computing</name>
+							<path>../future/futureImproving1.html</path>
+						</section>
+						<section><!--Chapter Fifteen Section Four Sub-section Two-->
+							<id>futureImproving2</id>
+							<name>Optical computing</name>
+							<path>../future/futureImproving2.html</path>
+						</section>
+						<section><!--Chapter Fifteen Section Four Sub-section Three-->
+							<id>futureImproving3</id>
+							<name>Bio-computing</name>
+							<path>../future/futureImproving3.html</path>
+						</section>
+						<section><!--Chapter Fifteen Section Four Sub-section Four-->
+							<id>futureImproving4</id>
+							<name>Molecular-level computing</name>
+							<path>../future/futureImproving4.html</path>
+						</section>
+						<section><!--Chapter Fifteen Section Four Sub-section Five-->
+							<id>futureImproving5</id>
+							<name>Quantum computing</name>
+							<path>../future/futureImproving5.html</path>
+						</section>
+					</sections>
+			</section>
+			<section><!--Chapter Fifteen Section Five-->
+				<id>futurePredictions</id>
+				<name>Predictions</name>
+				<path>../future/futurePredictions.html</path>
+					<sections>
+						<!--Start of Sub-sections-->
+						<section><!--Chapter Fifteen Section Five Sub-sub-section One-->
+							<id>futurePredictions1</id>
+							<name>Visions of future past</name>
+							<path>../future/futurePredictions1.html</path>
+						</section>
+						<section><!--Chapter Fifteen Section Five Sub-sub-section Two-->
+							<id>futurePredictions2</id>
+							<name>Near-term predictions (next 10 to 15 years - before 2030)</name>
+							<path>../future/futurePredictions2.html</path>
+								<sections>
+									<section><!--Chapter Fifteen Section Five Sub-sub-section Two Part One-->
+										<id>futurePredictions2b1</id>
+										<name>Exponential doubling of computing speed will continue through 2030</name>
+										<path>../future/futurePredictions2b1.html</path>
+									</section>
+									<section><!--Chapter Fifteen Section Five Sub-sub-section Two Part Two-->
+										<id>futurePredictions2b2</id>
+										<name>Ubiquitous computing and personal networks will become common</name>
+										<path>../future/futurePredictions2b2.html</path>
+									</section>
+									<section><!--Chapter Fifteen Section Five Sub-sub-section Two Part Three-->
+										<id>futurePredictions2b3</id>
+										<name>Voice-based interfaces will continue to gain acceptance</name>
+										<path>../future/futurePredictions2b3.html</path>
+									</section>
+									<section><!--Chapter Fifteen Section Five Sub-sub-section Two Part Four-->
+										<id>futurePredictions2b4</id>
+										<name>Continuous health monitoring and personalized medicine will become routine</name>
+										<path>../future/futurePredictions2b4.html</path>
+									</section>
+									<section><!--Chapter Fifteen Section Five Sub-sub-section Two Part Five-->
+										<id>futurePredictions2b5</id>
+										<name>A limited form of virtual reality gaming will become popular</name>
+										<path>../future/futurePredictions2b5.html</path>
+									</section>
+									<section><!--Chapter Fifteen Section Five Sub-sub-section Two Part Six-->
+										<id>futurePredictions2b6</id>
+										<name>Augmented reality will become commonplace</name>
+										<path>../future/futurePredictions2b6.html</path>
+									</section>
+									<section><!--Chapter Fifteen Section Five Sub-section Two Part Seven-->
+										<id>futurePredictions2b7</id>
+										<name>Intelligent assistants will become more intelligent</name>
+										<path>../future/futurePredictions2b7.html</path>
+									</section>
+									<section><!--Chapter Fifteen Section Five Sub-section Two Part Eight-->
+										<id>futurePredictions2b8</id>
+										<name>Self driving cars will start to appear on our roadways</name>
+										<path>../future/futurePredictions2b8.html</path>
+									</section>
+									<section><!--Chapter Fifteen Section Five Sub-sub-section Two Part Nine-->
+										<id>futurePredictions2b9</id>
+										<name>Photorealistic virtual actors will start to appear</name>
+										<path>../future/futurePredictions2b9.html</path>
+									</section>
+									<section><!--Chapter Fifteen Section Five Sub-section Two Part Ten-->
+										<id>futurePredictions2b10</id>
+										<name>Artificial general intelligence will be achieved in supercomputers</name>
+										<path>../future/futurePredictions2b10.html</path>
+									</section>
+								</sections>
+						</section>
+						<section><!--Chapter Fifteen Section Five Sub-section Three-->
+							<id>futurePredictions3</id>
+							<name>Long-term predictions (2030 - 2050)</name>
+							<path>../future/futurePredictions3.html</path>
+								<sections>
+									<!--Start of Sub-sub-sections-->
+									<section><!--Chapter Fifteen Section Five Sub-section Three Part One-->
+										<id>futurePredictions3b1</id>
+										<name>Human level artificial general intelligence will be common</name>
+										<path>../future/futurePredictions3b1.html</path>
+									</section>
+									<section><!--Chapter Fifteen Section Five Sub-section Three Part Two-->
+										<id>futurePredictions3b2</id>
+										<name>Fully immersive virtual reality will appear</name>
+										<path>../future/futurePredictions3b2.html</path>
+									</section>
+									<section><!--Chapter Fifteen Section Five Sub-section Three Part Three-->
+										<id>futurePredictions3b3</id>
+										<name>Ray Kurzweil's singularity will not take place by 2050, or even by 2100</name>
+										<path>../future/futurePredictions3b3.html</path>
+									</section>
+								</sections>
+						</section>
+					</sections>
+			</section>
+		</sections>
+
+		<!--20 Figures in Chapter Fifteen-->
+		<figures>
+			<figure>
+				<id>bellholmdel</id>
+			</figure>
+			<figure>
+				<id>punchcard</id>
+			</figure>
+			<figure>
+				<id>xeroxstar</id>
+			</figure>
+			<figure>
+				<id>exponentiallin</id>
+			</figure>
+			<figure>
+				<id>fortymoores</id>
+			</figure>
+			<figure>
+				<id>computertable</id>
+			</figure>
+			<figure>
+				<id>computergraph</id>
+			</figure>
+			<figure>
+				<id>scurvegraph</id>
+			</figure>
+			<figure>
+				<id>kurzweilreturns</id>
+			</figure>
+			<figure>
+				<id>montypython</id>
+			</figure>
+			<figure>
+				<id>transcriptors</id>
+			</figure>
+			<figure>
+				<id>ninetyninead</id>
+			</figure>
+			<figure>
+				<id>applenavigator</id>
+			</figure>
+			<figure>
+				<id>attyouwill</id>
+			</figure>
+			<figure>
+				<id>worldfaircar</id>
+			</figure>
+			<figure>
+				<id>trekquality</id>
+			</figure>
+			<figure>
+				<id>karacg</id>
+			</figure>
+			<figure>
+				<id>transcendant</id>
+			</figure>
+			<figure>
+				<id>sixepochs</id>
+			</figure>
+		</figures><!--End of Figures-->
+	</chapter>	
+
+</chapters><!--***END OF BOOK***-->
+
+<!-- vim: set sts=2 sw=2 : -->

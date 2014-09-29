@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+
+	    <!-- CSS files -->
+		<link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui-1.10.4.custom.css">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		
+	    <!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.js"></script>
+		<script type="text/javascript" src="js/kinetic.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script src="../lib/js/WatsonDialogs.js"></script>
+		<link href = "../lib/css/Dialogs.css" rel = "stylesheet">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			<!-- End nav -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum circuitsFundamentals2"></span>
+			</p>
+
+
+			<p>
+				Gates are electronic versions of the mechanical switches introduced above. Some gates have multiple inputs, but all gates have a single output. Just as the switches and light bulbs of the previous examples were always in either of two states, the inputs and outputs of gates are confined to two voltage states. The voltage of every input to the gate, as well as the output from the gate, must be either high (5 volts) or low (ground). We use the symbol “1” to represent the high voltage state and “0” to represent the low voltage state.
+			</p>
+
+			<p>
+				<span>There are three basic kinds of logic gates:</span> <span class="Ital">and</span> <span>gates,</span> <span class="Ital">or</span> <span>gates, and</span> <span class="Ital">not</span> <span>gates. An</span> <span class="Ital">and</span> <span>gate has two inputs and one output. The output is “1” (high) only when both inputs are “1” (high). In all other cases the output of</span> <span class="Ital">and</span> <span>is “0” (low). <span class="figNum andgate"></span> presents the standard symbol for an</span> <span class="Ital">and</span> <span>gate along with its definition in the form of a truth table. The inputs to the gate have been labeled “A” and “B”, while the output has been labeled “Z”.</span>
+			</p>
+
+			<p>
+				<span>A</span> <span class="Bolded">truth table</span> <span>defines the meaning of a gate, or circuit, by listing every possible configuration of inputs along with the corresponding output. Traditionally, inputs are listed on the left side of the table with the output on the right. Each row of the truth table represents one configuration that the circuit can be in. Truth tables for circuits with</span> <span class="Ital">n</span> <span>inputs will always have exactly 2</span><span class="Superscript">n</span> <span>rows, one for each possible configuration of the inputs.</span>
+			</p>
+
+			<p>
+				<span>Since</span> <span class="Ital">and</span> <span>has two inputs, its truth table will contain 2</span><span class="Superscript">2</span> <span>= 4 rows. The first row of the truth table of <span class="figNum andgate"></span> represents the situation in which both inputs to the</span> <span class="Ital">and</span> <span>gate are low. In this case the output will be low as well. The second and third rows cover the cases in which one of the inputs is high and the other is low. In line two, the first input is low and the second is high. In line three, the first input is high and the second is low. In either case, the output is low. The final row of the table represents the situation in which both inputs are high. In this case, the output will be high as well.</span>
+			</p>
+
+			<p>
+				<span>The functionality of the</span> <span class="Ital">and</span> <span>gate can be implemented by the series circuit introduced in <span class="contentNum circuitsFundamentals1"></span>. In fact, you may have noticed that the truth table for</span> <span class="Ital">and</span> <span>is identical to the table of values given in <span class="figNum seriesswitches"></span> for two switches in series, if “open” / “off” is replaced by “0” and “closed / “on” is replaced by “1”.</span>
+			</p>
+
+			<div id="topDiv-and" class="Centered"></div>
+			<div id="container-and" class="Centered"></div>
+			
+			<p class="Figure">
+				<span class="figNum andgate"></span> An <span class="Ital">and</span> gate
+			</p> <br /> <br />
+
+			<div id="topDiv-or" class="Centered"></div>
+			<div id="container-or" class="Centered">
+			</div>
+			<p class="Figure">
+				<span class="figNum orgate"></span> An <span class="Ital">or</span> gate
+			</p><br />
+
+			<p>
+				The reason that truth tables are called “truth tables” is that if “1” is taken to mean “true” and “0” is taken to mean “false” then the output of the table defines the circumstances under which the specified logical operation is true. For example, in common English usage, “A and B” will be true only when both A and B are true. The statement: “My cat is old and fat” is only true when the cat in question is both “old” and “fat”. If my pet cat were either young, or skinny, or both, then the statement about her would be false.
+			</p>
+
+			<p>
+				The thing that is so exceedingly cool about logic gates, and the circuits that implement them, is that very simple devices, such as those presented in <span class="contentNum circuitsFundamentals1"></span>, can capture small parts of what humans consider “logical reasoning”. As you can well imagine, this idea caused great excitement when first discovered. We’ll have much more to say about logic and its relation to intelligent behavior in <span class="contentNum intelligence"></span>: Computing and Intelligence. For now, let’s return to the discussion of the basic logic gates.
+			</p>
+
+			<p>
+				<span>The standard symbol for an</span> <span class="Ital">or</span> <span>gate and its definition via truth table are given in <span class="figNum orgate"></span>. </span> <span class="Ital">Or</span> <span>gates are similar to</span> <span class="Ital">and</span> <span>gates in that they have two inputs and a single output. The output of the</span> <span class="Ital">or</span> <span>gate is “1” whenever either, or both, of the inputs are “1”. The only case in which the output of</span> <span class="Ital">or</span> <span>is “0” is when both of the inputs are “0”.</span>
+			</p>
+
+			<p>
+				<span>An</span> <span class="Ital">or</span> <span>gate can be implemented by the parallel circuit of <span class="figNum parallelswitches"></span>. This can be seen by comparing the circuit’s table of values to the truth table of <span class="figNum orgate"></span> – making the necessary substitutions of “0” for &nbsp;“open” / “off” and “1” for “closed / “on”.</span>
+			</p>
+
+			<p>
+				<span>You should convince yourself that the behavior of the</span> <span class="Ital">or</span> <span>gate captures the semantics of the word</span> <span class="Ital">or</span> <span>as it is commonly used. The statement: “My cat is either on the couch or under the bed.” is true if either the phrase “my cat is on the couch” is true or the phrase “my cat is under the bed” is true. The original statement is false only when neither of these phrases is true.</span>
+			</p>
+
+			<div id="topDiv-not" class="Centered"></div>
+			<div id="container-not" class="Centered">
+			</div>
+			<p class="Figure">
+				<span><span class="figNum notgate"></span> A</span> <span class="Ital">not</span> <span>Gate</span>
+			</p>
+
+			<p>
+				<span>The third basic logic gate is the</span> <span class="Ital">not</span> <span>gate. It has a single input and a single output. The output is the inverse of the input, as shown in the truth table in <span class="figNum notgate"></span>. Note that this truth table consists of only two rows, rather than four as was the case with</span> <span class="Ital">and</span> <span>and</span> <span class="Ital">or</span> <span>. This is consistent with the claim that truth tables contain exactly 2</span><span class="Superscript">n</span> <span>rows for an</span> <span class="Ital">n</span> <span>input circuit. Since</span> <span class="Ital">not</span> <span>takes in only a single input, there are only two possible configurations that the gate can be in.</span>
+			</p>
+
+			<p>
+				<span>As with</span> <span class="Ital">and</span> <span>and</span> <span class="Ital">or</span> <span>, the behavior of the</span> <span class="Ital">not</span> <span>gate captures the semantics of the word. If the sentence: “My cat is black.” is true, then the sentence “My cat is</span> <span class="Ital">not</span> <span>black.” would be false. And vice versa.</span>
+			</p>
+
+			<p>
+				In exercise 3 of <span class="contentNum circuitsFundamentals1"></span>, the following circuit, which uses three switches, was presented:
+				
+				<img src="images/fig12-ex3.png" alt="" class="ImageTall">
+			</p>
+			
+			<p>
+				<span>It is natural to ask at this point what an equivalent circuit consisting of logic gates would look like. Since switches A and B are in parallel, this portion of the circuit can be represented using an</span> <span class="Ital">or</span> <span>gate. The output of that part of the circuit is in series with C, so it can be modeled with an</span> <span class="Ital">and</span> <span>gate. The logic gate circuit shown below is thus equivalent to the switch circuit given above.</span>
+			</p>
+			
+			<div id="topDiv-a" class="Centered"></div>
+			<div id="container-a" class="Centered">
+			</div>
+			<p class="Exercise">
+				Exercises for <span class="contentNum circuitsFundamentals2"></span>
+			</p>
+			
+			<ol>
+				<li>
+					<p>
+						Develop the complete truth table for the following circuit:&nbsp;
+						
+						<img src="images/fig12s2p2-ex1.png" alt="" class="ImageTall">
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Draw a circuit using switches, a power supply, and a light bulb for the following logic circuit:&nbsp;
+						
+						<img src="images/fig12s2p2-ex2.png" alt="" class="ImageTall">
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Develop the complete truth table for the circuit of problem 2.&nbsp;
+					</p>
+				</li>
+			</ol>
+			<!-- Sandbox -->
+			
+			<p class="Section" id="Scratch"></p>
+			<div id="sandbox1"></div>
+			<div id="truthTableDiv1" class="ui-widget-content" style="position: relative; visibility: hidden"></div>
+				
+			<!-- End main content -->
+
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Figure js -->
+			<script src="js/visibility.js"></script>
+			<script type="text/javascript" src="js/global.js"></script>
+			<script src="js/WatsonDataStore.js"></script>
+			<script src="js/Serializer.js"></script>
+			<script src="js/Controller.js"></script>
+			<script src="js/AndGate.js"></script>
+			<script src="js/AndGate3.js"></script>
+			<script src="js/AndGate4.js"></script>
+			<script src="js/NandGate.js"></script>
+			
+			<script src="js/OrGate.js"></script>
+			<script src="js/OrGate3.js"></script>
+			<script src="js/OrGate4.js"></script>
+			<script src="js/NorGate.js"></script>
+			
+			<script src="js/NotGate.js"></script>
+			<script src="js/Connector.js"></script>
+			<script src="js/InputNode.js"></script>
+			<script src="js/OutputNode.js"></script>
+			<script src="js/PopupMenu.js"></script>
+			<script src="js/Figures.js"></script>
+			<script src="js/TruthTable.js"></script>
+			<script src="js/Setup.js"></script>
+			<script src="js/DigitalLogicFigure.js"></script>
+			
+		<script>
+			var pageObj;				// holds previous and next arrows
+			var chapID = "circuits";
+			var sectID = "circuitsFundamentals2";
+			
+			$(document).ready(function() {
+				populateNav();											// populate page with nav bar, nav arrows
+				pageObj = getArrowPathsByPage(sectID);					// get prev and next paths for nav arrows
+				populateSpans();										// populate figure and content spans
+				
+			
+				var figureand = new DigitalLogicFigure("container-and", "and", false, false, "andgate");
+				var figureor = new DigitalLogicFigure("container-or", "or", false, false, "orgate");
+				var figurenot = new DigitalLogicFigure("container-not", "not", false, false, "notgate");
+				var figurea = new DigitalLogicFigure("container-a", "a", false, false, "switchequivalent"); 
+				
+				if (!localFlag) runGA();
+			});
+			
+		</script>
+	</body>
+</html>

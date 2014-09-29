@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+	<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyData1b5"></span>
+			</p>			
+			<p>
+				Most modern personal computers are based on a word size of thirty-two bits.  Using two’s complement notation, they can conveniently manipulate numbers in the range of –2 billion to +2 billion.<span class="Footnote" title="Footnote: Well, as pointed out earlier, actually -2,147,483,648 to 2,147,483,647"><a href="#ftn5" id="body_ftn5">[5]</a></span>  Many times we humans need our computers to work with numbers far outside of this relatively narrow range.  For example, scientific applications often need to represent very large or very small quantities, such as Avogadro’s number, 6.02 x 10 <span class="Superscript">23  </span> molecules/mole.  Even a program designed to make projections about the national debt of the United States, which is measured in trillions of dollars, will be forced to work with numbers outside of the range provided by the 32-bit two’s complement representation.
+			</p>
+			
+			<p>
+				In addition to the problem of being limited to a relatively narrow range of values, the two’s complement binary notation we studied cannot represent fractions – making it impossible to express concepts like ½ and 75%.
+			</p>
+			
+			<p>
+				Floating point notation, which is closely related to exponential notation, addresses both of these problems.  As you will recall from high school math or science classes, exponential notation is often used to express very large or very small numbers.  For example, the speed of light can be expressed as:  3.0 &#215; 10 <span class="Superscript">8</span> meters/second.
+			</p>
+			
+			<p>
+				The two components necessary to express a number in exponential notation are called the mantissa (3.0 in the above number) and the exponent (8 in the above number).  These values are expressed in base ten, so the exponent is expressed in terms of base ten as well.  Essentially the exponent tells us the number of positions that the decimal point should be moved to the right or left.  Positive exponents cause the decimal point to move right.  Negative exponents cause the decimal point to move left.  Hence, the representation for the speed of light translates to a “3” followed by eight 0’s – three hundred million meters per second.  Fractions can also be expressed in this system.  For example:
+			</p>
+			
+			<p class="Subfigure">
+				1/1,000  =  1.0 &#215; 10 <span class="Superscript">–3   </span>=  0.001
+			</p>
+			
+			<p>
+				Floating point notation is the “machine-level” equivalent of exponential notation. Floating point numbers include signed representations of both the mantissa and exponent.  Since the representations of both will be in base two, two will also be considered the base of the exponent.  
+			</p>
+			
+			<p>
+				Here is the number fifty-six expressed using one possible 32-bit floating point representation:
+			</p>
+			
+			<!--ill16
+			<table border="0" cellspacing="0" cellpadding="0" class="Table51">
+			<colgroup><col width="24"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="24"/></colgroup><tr class="Table511"><td style="text-align:left;width:0.2132in; " class="Table51_A1"><p>+-</p></td><td colspan="7" style="text-align:left;width:0.1903in; " class="Table51_A1"><h2 class="Heading_20_2"><a id="a__Exponent"></a>Exponent</h2></td><td colspan="24" style="text-align:left;width:0.1896in; " class="Table51_I1"><h2 class="Heading_20_2"><a id="a__Mantissa"></a>Mantissa</h2></td></tr><tr class="Table512"><td style="text-align:left;width:0.2132in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2153in; " class="Table51_f2"><p class="Subfigure">1</p></td></tr><tr class="Table512"><td style="text-align:left;width:0.2132in; " class="Table51_A1"><p class="P53">32</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">31</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">30</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">29</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">28</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">27</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">26</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">25</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">24</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">23</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">22</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">21</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">20</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">19</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">18</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">17</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">16</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">15</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">14</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">13</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">12</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">11</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">10</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">9</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">8</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">7</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">6</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">5</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">4</p></td><td style="text-align:left;width:0.1903in; " class="Table51_A1"><p class="P53">3</p></td><td style="text-align:left;width:0.1896in; " class="Table51_A1"><p class="P53">2</p></td><td style="text-align:left;width:0.2153in; " class="Table51_I1"><p class="P53">1</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-16.png" alt="" class="Image">
+			
+			<p>
+				The leading bit (bit 32) of this representation signifies the sign of the number (0 for positive, 1 for negative).  The next seven bits (bits 31 – 25) represent the exponent in two’s complement notation (remember the exponent can be positive or negative).  The final twenty-four bits are the mantissa expressed as an unsigned number.  The number represented in this example is 111  &#215;  two <span class="T19">11</span> which in decimal notation becomes 7  &#215;  2 <span class="T19">3  </span>= 7 &#215; 8  =  56.  
+			</p>
+			
+			<p>
+				Another way of thinking about this example is to view the exponent as specifying the number of 0’s that are to follow the bit pattern supplied by the mantissa.  In this case, we have “111” followed by three 0’s or “111000” which is 32 + 16 + 8 = 56.
+			</p>
+			
+			<p>
+				Here is an example of a number that is outside the range of values that can be stored using a 32-bit two’s complement notation.  The number is 11 &#215; two <span class="Superscript">100000 </span>  which in decimal notation is 3 &#215;  2 <span class="Superscript">32</span> = 12,884,901,888.
+			</p>
+			
+			<!--ill17
+			<table border="0" cellspacing="0" cellpadding="0" class="Table52">
+			<colgroup><col width="24"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="24"/></colgroup><tr class="Table521"><td style="text-align:left;width:0.2132in; " class="Table52_A1"><p>+-</p></td><td colspan="7" style="text-align:left;width:0.1903in; " class="Table52_A1"><h2 class="Heading_20_2"><a id="a__Exponent"></a>Exponent</h2></td><td colspan="24" style="text-align:left;width:0.1896in; " class="Table52_I1"><h2 class="Heading_20_2"><a id="a__Mantissa"></a>Mantissa</h2></td></tr><tr class="Table522"><td style="text-align:left;width:0.2132in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table52_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table52_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2153in; " class="Table52_f2"><p class="Subfigure">1</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-17.png" alt="" class="Image">
+			
+			<p>
+				Another way of thinking about the number represented by this bit pattern is as “11” followed by thirty-two 0’s.  
+			</p>
+			
+			<p>
+				As a final example, consider the representation of - 0.75 as a floating point number.
+			</p>
+			
+			<!--ill18
+			<table border="0" cellspacing="0" cellpadding="0" class="Table53">
+			<colgroup><col width="24"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="21"/><col width="24"/></colgroup><tr class="Table531"><td style="text-align:left;width:0.216in; " class="Table53_A1"><p>+-</p></td><td colspan="7" style="text-align:left;width:0.1903in; " class="Table53_A1"><h2 class="Heading_20_2"><a id="a__Exponent"></a>Exponent</h2></td><td colspan="24" style="text-align:left;width:0.1896in; " class="Table53_I1"><h2 class="Heading_20_2"><a id="a__Mantissa"></a>Mantissa</h2></td></tr><tr class="Table532"><td style="text-align:left;width:0.216in; " class="Table53_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1903in; " class="Table53_A2"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.1896in; " class="Table53_A2"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.2153in; " class="Table53_f2"><p class="Subfigure">1</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-18.png" alt="" class="Image">
+			
+			<p>
+				The “1” in the leftmost bit signifies that the number is negative.  The exponent 1111110 is also negative due the “1” in its leftmost bit.  The magnitude of the exponent is two (Complement the bits to get 0000001 and add one, giving 0000010  =  two).  The magnitude of the mantissa is 11 = three.  So, the value is -3 &#215;  2 <span class="Superscript">-2  </span>= -3 &#215; 0.25 = -0.75.
+			</p>
+			
+			<p>
+				Another way of thinking about the number in this example is to view it as “<span class="Subfigure">&#x25B4;</span>11” where the symbol “<span class="Subfigure">&#x25B4;</span>” specifies the “binary point” (the binary equivalent of the decimal point).  The columns to the right of the binary point are ½’s column, the ¼’s column, the 1/8’s column, 1/16’s column, and so forth.  The number “<span class="Subfigure">&#x25B4;</span>11” would then be interpreted as having a “1” in the ½’s place plus a “1” in the ¼’s place, giving ¾ or 0.75.  Under this interpretation, the mantissa always has an implied binary point immediately to its right.  The exponent specifies the number of positions to the right (for positive exponents) or to the left (for negative exponents) the point should be moved.  Hence, in this case the exponent moves the binary point two places to the left giving “<span class="Subfigure">&#x25B4;</span>11”.  The binary number is then interpreted in the following way:
+			</p>
+			
+			<!--ill19
+			<table border="0" cellspacing="0" cellpadding="0" class="Table54">
+			<colgroup><col width="76"/><col width="76"/><col width="76"/><col width="76"/><col width="24"/><col width="86"/><col width="86"/></colgroup><tr class="Table541"><td style="text-align:left;width:0.6833in; " class="Table54_A1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.6833in; " class="Table54_A1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.6833in; " class="Table54_A1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.6833in; " class="Table54_A1"><p class="Subfigure">0</p></td><td style="text-align:left;width:0.2167in; " class="Table54_E1"><p class="P44"> </p></td><td style="text-align:left;width:0.7708in; " class="Table54_A1"><p class="Subfigure">1</p></td><td style="text-align:left;width:0.7778in; " class="Table54_G1"><p class="Subfigure">1</p></td></tr><tr class="Table541"><td style="text-align:left;width:0.6833in; " class="Table54_A2"><p>8</p></td><td style="text-align:left;width:0.6833in; " class="Table54_B2"><p>4</p></td><td style="text-align:left;width:0.6833in; " class="Table54_C2"><p>2</p></td><td style="text-align:left;width:0.6833in; " class="Table54_D2"><p>1</p></td><td style="text-align:left;width:0.2167in; " class="Table54_E2"><div class="P62"></div></td><td style="text-align:left;width:0.7708in; " class="Table54_F2"><p>1/2</p></td><td style="text-align:left;width:0.7778in; " class="Table54_G2"><p>1/4</p></td></tr></table>
+			-->
+			
+			<img src="images/ill11-19.png" alt="" class="Image">
+			
+			<p>
+				It is interesting to note that some fractions that can be expressed precisely in decimal notation, such as 1/10 = 0.1, do not have an exact floating point representation.  This is due to the fact that floating point numbers are represented using base two.  One-tenth can be approximated by the fraction “<span class="Subfigure">&#x25B4;</span>0001 1001 1001 1001…” in base two (where “1001” repeats indefinitely), but it can never be represented exactly.  This result should not be surprising. After all, many factions, such as 1/3, cannot be represented exactly as decimal values.  This is one reason why computed results that involve fractions are not always 100% accurate.  They sometimes suffer from round off error as a result of the base ten to base two conversion process.
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum assemblyData1b5"></span>
+			</p>
+			
+			<ol>
+				<li>
+					Translate the following 32-bit floating point numbers to decimal notation
+					<br/>
+					<br/>
+					<ul class="Blockcenter">
+						<li><span class="Subfigure">a. &nbsp; 0111 1101 0000 0000 0000 0000 0100 0011</span></li>
+						<li><span class="Subfigure">b. &nbsp; 0000 0011 0000 0000 0000 0000 0100 0011</span></li>
+					</ul>
+				</li>
+				<br/>
+				<li>
+					Translate the following decimal numbers to 32-bit floating point representation.  If a value cannot be represented exactly, approximate it as closely as possible. 
+					<img src="images/ex11-4-1-5-num2.png" alt="" class="Image">
+					
+			<!--table of stuff		
+			<table border="0" cellspacing="0" cellpadding="0" class="Table56">
+			<colgroup><col width="72"/><col width="65"/><col width="160"/><col width="83"/></colgroup><tr class="Table561"><td style="text-align:left;width:0.6486in; " class="Table56_A1"><p class="P13"> </p><p class="P12">a.  </p></td><td style="text-align:left;width:0.5861in; " class="Table56_A1"><p class="P13"> </p><p class="P12">2.25</p></td><td style="text-align:left;width:1.4375in; " class="Table56_A1"><p class="P13"> </p><p class="P12">d.  </p></td><td style="text-align:left;width:0.75in; " class="Table56_A1"><p class="P13"> </p><p class="P12">-10</p></td></tr><tr class="Table561"><td style="text-align:left;width:0.6486in; " class="Table56_A1"><p class="P13"> </p><p class="P12">b.  </p></td><td style="text-align:left;width:0.5861in; " class="Table56_A1"><p class="P13"> </p><p class="P12">-2.25</p></td><td style="text-align:left;width:1.4375in; " class="Table56_A1"><p class="P13"> </p><p class="P12">e.  </p></td><td style="text-align:left;width:0.75in; " class="Table56_A1"><p class="P13"> </p><p class="P12">150.1</p></td></tr><tr class="Table561"><td style="text-align:left;width:0.6486in; " class="Table56_A1"><p class="P13"> </p><p class="P12">c.  </p></td><td style="text-align:left;width:0.5861in; " class="Table56_A1"><p class="P13"> </p><p class="P12">10</p></td><td style="text-align:left;width:1.4375in; " class="Table56_A1"><p class="P13"> </p><p class="P12">f.  </p></td><td style="text-align:left;width:0.75in; " class="Table56_A1"><p class="P13"> </p><p class="P12">75.5</p></td></tr></table>
+			-->
+				</li>
+			</ol>
+
+			
+			<!-- End main content -->
+			<hr />
+			<!-- Footnotes -->
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote"><span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn5" href="#body_ftn5">[5]</a></span> Well, as pointed out earlier, actually -2,147,483,648 to 2,147,483,647</p>
+			
+			<!-- Footnotes End -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyData1b5");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>

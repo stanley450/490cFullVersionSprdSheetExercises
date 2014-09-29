@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/colmn_test.css" rel="stylesheet">	    
+		<!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+
+				<!--Navbar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div  class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum intelligenceApproaches2b2"></span>
+			</p>
+			<p>
+				In the previous section, we establish the basic concepts underlying propositional logic. This section further refines our understanding of propositional logic by presenting a “standardized format” for representing propositional logic expressions and a simple but powerful technique for automated reasoning. The standardized format is known as <span class="Ital">conjunctive normal form</span>. The automated reasoning technique is called <span class="Ital">resolution</span>.
+			</p>
+
+			<p>
+				<span class="figNum googlevoice"></span> recaps the example used in the previous section that expressed facts about a particular summer day. The six statements that comprise this example are expressed in English in Part (a) of the figure and in propositional logic in Part (b). Part (c) illustrates the propositions of Part (b) rewritten in conjunctive normal form.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(1) If you go swimming you will get wet.</span></li>
+				<li><span class="Subfigure">(2) If it is raining and you are outside then you will get wet.</span></li>
+				<li><span class="Subfigure">(3) If it is warm and there is no rain then it is a pleasant day.</span></li>
+				<li><span class="Subfigure">(4) You are not wet.</span></li>
+				<li><span class="Subfigure">(5) You are outside.</span></li>
+				<li><span class="Subfigure">(6) It is a warm day.</span></li>
+			</ul>
+
+			<p class="Figure">
+				(a) Facts about a summer day – expressed in English
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(1)  swimming  &rArr;  wet</span></li>
+				<li><span class="Subfigure">(2)  ( rain  &and;  outside )  &rArr;  wet</span></li>
+				<li><span class="Subfigure">(3)  ( warm  &and;  ~ rain  )  &rArr;  pleasant</span></li>
+				<li><span class="Subfigure">(4)  ~ wet</span></li>
+				<li><span class="Subfigure">(5)  outside</span></li>
+				<li><span class="Subfigure">(6)  warm</span></li>
+			</ul>
+
+			<p class="Figure">
+				(b) Facts about a summer day – expressed in propositional logic
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(1)  ( ~ swimming  &or;  wet  )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&and;</span></li>
+				<li><span class="Subfigure">(2)  ( ~ rain  &or;  ~ outside  &or;  wet  )&nbsp;&and;</span></li>
+				<li><span class="Subfigure">(3)  ( ~ warm  &or;  rain  &or; pleasant  )	&and;</span></li>
+				<li><span class="Subfigure">(4)  ( ~ wet  ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &and;</span></li>
+				<li><span class="Subfigure">(5)  (  outside  ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &and;</span></li>
+				<li><span class="Subfigure">(6)  (  warm  )</span></li>
+			</ul>
+
+			<p class="Figure">
+				(c) Facts about a summer day – expressed in conjunctive normal form
+			</p>
+
+			<p class="Figure">
+				<span class="figNum summerfacts"></span> Facts about a summer day
+			</p>
+
+			<p>
+				Conjunctive normal form is a particular way of writing logical expressions, where all of the expressions concerning a particular topic are combined together to form a single statement. <span class="Bolded">Conjunctive normal form</span> statements consist of a number of conjoined clauses (clauses joined by <span class="Ital">and</span>), where each clause consists of either a single term or multiple disjoined terms (terms joined by <span class="Ital">or</span>). Terms are individual propositional variables that may or may not be negated.
+			</p>
+
+			<p>
+				Any collection of propositional logic statements can be converted into conjunctive normal form using the equivalences introduced in the previous section. In order to convert the six statements of <span class="figNum summerfacts"></span>(b) into conjunctive normal form, we first note that <span class="Bolded">all</span> six of the statements are assumed to be true. Hence, we are actually saying that the following single statement is true.
+			</p>
+
+			<p class="Subfigure">
+				(1) <span class="Ital">and</span> (2) <span class="Ital">and</span> (3) <span class="Ital">and</span> (4) <span class="Ital">and</span> (5) <span class="Ital">and</span> (6)
+			</p>
+
+			<p>
+				Using the symbol for <span class="Ital">and</span> this combined statement could be rewritten as:
+			</p>
+
+			<p class="Subfigure">
+				(1) &and; (2) &and; (3) &and; (4) &and; (5) &and; (6)
+			</p>
+
+			<p>
+				where the statement numbers would be replaced with their associated propositions.
+			</p>
+
+			<p>
+				To be in conjunctive normal form, each of the individual clauses, represented by statement numbers above, must consist of either a single term or multiple terms that are joined together by <span class="Ital">or</span>. Referring to <span class="figNum summerfacts"></span>(b), clause (5) <span class="Subfigure">outside</span> and clause (6) <span class="Subfigure">warm</span>, are in the proper form. Also, since a negated propositional variable is a valid term, clause (4) <span class="Subfigure">~ wet</span> is ok.
+			</p>
+
+			<p>
+				Clauses (1), (2), and (3) require some work since they use both the <span class="Ital">implies</span> and <span class="Ital">and</span> operators. As we showed in the previous section using truth tables, <span class="Subfigure">~ P</span> &or; <span class="Subfigure">Q</span> is equivalent to <span class="Subfigure">P &rArr;&nbsp;Q</span> so, we can rewrite the first three clauses as follows:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(1)    ~ swimming   &or;  wet</span></li>
+				<li><span class="Subfigure">(2)    ~ ( rain  &and;  outside  ) &or;  wet</span></li>
+				<li><span class="Subfigure">(3)    ~ ( warm  &and;  ~ rain  ) &or;  pleasant</span></li>
+			</ul>
+
+			<p>
+				Clause (1) is now in the correct form since it consists of two disjoined (<span class="Ital">or</span>ed) terms. Clauses (2) and (3) are not yet in final form since these clauses contain <span class="Ital">and</span> operations and <span class="Ital">not</span> operations that extend over more than a single term.
+			</p>
+
+			<p>
+				The next step is to apply the substitution <span class="Subfigure">~ ( P</span> &and; <span class="Subfigure">Q</span> ) equivalent to <span class="Subfigure">~P</span> &or; <span class="Subfigure">~ Q</span> , giving:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(2)    ~ rain  &or;  ~ outside  &or;   wet</span></li>
+				<li><span class="Subfigure">(3)    ~ warm  &or;  ~ ~ rain  &or;  pleasant</span></li>
+			</ul>
+
+			<p>
+				Clause (2) is now in proper form. Getting clause (3) into proper form depends only on recognizing that double negatives cancel themselves out. In other words, <span class="Subfigure">~ ~ P</span> is equivalent to <span class="Subfigure">P</span>.
+			</p>
+
+			<p class="Subfigure">
+				(3)    ~ warm  &or;  rain  &or;  pleasant
+			</p>
+
+			<p>This completes our conversion of the statements of <span class="figNum summerfacts"></span>(b) into the conjunctive normal form shown in <span class="figNum summerfacts"></span>(c).</p>
+
+			<p>
+				While the conjunctive normal form version of the statements may not be as clear to a human being as the original six statements, we can be sure that this version has exactly the same “meaning” since we were careful to only make logically equivalent substitutions at each step of the conversion process.
+			</p>
+
+			<p>
+				If conjunctive normal form expressions are difficult for people to read and comprehend, why study them at all? The reason for converting logical expressions into conjunctive normal form is so that the proof technique known as resolution may be applied. A <span class="Bolded">proof technique</span> is a procedure for showing that a statement logically follows from a set of premises. <span class="Bolded">Resolution</span> is a proof technique that works on conjunctive normal form expressions by (1) selecting two clauses that contain conflicting terms, (2) combining the terms contained in those two clauses, and then (3) canceling the terms that conflict. What makes resolution so important is that this one simple technique is capable of performing the same kinds of reasoning tasks as Modus Ponens, Modus Tollens, Chaining of Implication, and many other logical operations.
+			</p>
+
+			<p>
+				Here is an example illustrating how resolution can perform Chaining of Implication. Given the two statements:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(1)    sunny_Sunday  &rArr;  at_the_beach</span></li>
+				<li><span class="Subfigure">(2)    at_the_beach  &rArr;  drinking_beer</span></li>
+			</ul>
+
+			<p>
+				which can be expressed in conjunctive normal form as:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(1)   (  ~ sunny_Sunday  &or;  at_the_beach  )   &and;</span></li>
+				<li><span class="Subfigure">(2)   (  ~  at_the_beach    &or;  drinking_beer  )</span></li>
+			</ul>
+
+			<p>
+				By combining these two clauses together and canceling the conflicting terms, <span class="Subfigure">at_the_beach</span> and <span class="Subfigure">~ at_the_beach</span>, we can produce a third clause:
+			</p>
+
+			<p class="Subfigure">
+				(3)   ( ~ sunny_Sunday  &or;  drinking_beer  )
+			</p>
+			
+			<p>
+				Rewriting clause (3) using <span class="Ital">implies</span> instead of <span class="Ital">not</span> and <span class="Ital">or</span> gives:
+			</p>
+			
+			<p class="Subfigure">
+				(3)    sunny_Sunday &rArr; drinking_beer
+			</p>
+			
+			<br/><br/>
+			
+			<img src="images/chainresolution.png" alt="" class="Image">
+			<br/>
+			<p class="Figure">
+				(a)	Using Resolution to accomplish Chaining of Implication
+			</p>
+			<br/>
+			<img src="images/ponensresolution.png" alt="" class="Image">
+			<br/>
+			<p class="Figure">
+				(b)	Using Resolution to accomplish Modus Ponens
+			</p>
+			<br/>
+			<img src="images/tollensresolution.png" alt="" class="Image">
+			<br/>
+			<p class="Figure">
+				(c)	Using Resolution to accomplish Modus Tollens
+			</p>
+
+			<p class="Figure">
+				<span class="figNum modusresolutions"></span> <span class="Ital">Chaining of Implication</span>, <span class="Ital">Modus Ponens</span>, and <span class="Ital">Modus Tollens</span> via Resolution
+			</p>
+
+			<p>
+				This is the expected result; it matches our intuitive notions. If a friend were to tell you “I go to the beach every Sunday afternoon when the weather is nice.” and “When I am at the beach I like to drink beer.” You would probably conclude that your friend drinks beer on sunny Sunday afternoons.
+			</p>
+
+			<p>
+				Here is another example, this time illustrating Modus Ponens:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(1)    at_home_on_Sunday_night   &rArr;  watching_Walking_Dead</span></li>
+				<li><span class="Subfigure">(2)    at_home_on_Sunday_night</span></li>
+			</ul>
+
+			<p>
+				Or, in conjunctive normal form:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(1)   (  ~ at_home_on_Sunday_night   &or;  watching_Walking_Dead  )  &and;</span></li>
+				<li><span class="Subfigure">(2)   (  at_home_on_Sunday_night  )</span></li>
+			</ul>
+
+			<p>
+				Resolution gives:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(3) ( watching_Walking_Dead )</span></li>
+			</ul>
+	
+			<p>
+				which is identical to the result you would get from applying Modus Ponens.
+			</p>
+
+			<p>
+				Consider this final example that illustrates Modus Tollens:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(1)    at_home_on_Sunday_night   &rArr;  watching_Walking_Dead</span></li>
+				<li><span class="Subfigure">(2)    ~ watching_Walking_Dead</span></li>
+			</ul>
+
+			<p>
+				Or, in conjunctive normal form:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(1)   (  ~ at_home_on_Sunday_night   &or;  watching_Walking_Dead  )  &and;</span></li>
+				<li><span class="Subfigure">(2)   (  ~ watching_Walking_Dead  )</span></li>
+			</ul>
+
+			<p>
+				Resolution gives:
+			</p>
+
+			<p class="Subfigure">
+				(3) <span class="Subfigure">( ~ at_home_on_Sunday_night )</span>
+			</p>
+
+			<p>
+				These three examples are illustrated graphically in <span class="figNum modusresolutions"></span>, parts (a), (b), and (c).
+			</p>
+
+			<p>
+				It is often the case that we have a collection of information about some situation and we wish to know whether some other piece of information must also be true given what we already know. In the previous section we showed that given the six true statements about a summer day presented in <span class="figNum summerfacts"></span>, three additional statements could be deduced:
+			</p>
+
+			<ul class="Subblockcenter">
+				<li>(7) You are not swimming.</li>
+				<li>(8) It is not raining.</li>
+				<li>(9) It is a pleasant day.</li>
+			</ul>
+
+			<p>
+				In order to prove these three statements true, we needed to use a number of inference and substitution rules, such as modus ponens and modus tollens. Given the original six statements in conjunctive normal form, each of the three additional statements can be shown true using a single proof technique known as the <span class="Bolded"><span class="Ital">resolution refutation proof</span>.</span>
+			</p>
+
+			<img src="images/notswimming.png" alt="Resolution refutation proof of “not swimming”" class="Image">
+
+			<p class="Figure">
+				<span class="figNum notswimming"></span> Resolution refutation proof of “not swimming”
+			</p>
+
+			<p>
+				A <span class="Bolded">resolution refutation proof</span> is proof by contradiction using resolution. Like every <span class="Bolded">proof by contradiction</span>, you begin by assuming the opposite of what you wish to prove, and then show that this “fact” would lead to a contradiction. For example, the following two statements are mutually inconsistent – they cannot both be true at the same place and time:
+			</p>
+
+			<ul class="Blockcenter">
+				<li>(1) It is raining. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Subfigure">( raining )</span> &nbsp;&nbsp;&nbsp;&nbsp;&and;</li>
+				<li>(2) It is not raining. <span class="Subfigure">( ~ raining )</span></li>
+			</ul>
+
+			<p>
+				When you resolve these two clauses you get <span class="Subfigure">( )</span>, the empty clause. In resolution refutation proofs, the empty clause represents a contradiction, or inconsistent set of statements. In other words, implied in your set of “true” statements is the assertion that a proposition is both true and untrue at the same time – which is impossible: a proposition must be either “true” or “false”, not both.
+			</p>
+
+			<p>
+				For resolution refutation proofs to produce logically valid conclusions the original set of statements that are assumed true must be <span class="Bolded">consistent</span> – the statements must not imply that some propostion is both “true” and “false” at the same time. Given that the original statements are consistent, when a contradiction is detected in a resolution refutation proof, the source of the contradiction must be the statement you assumed true at the start of the refutation proof. Proving the assumed statement is false implies that its opposite (negation) must be true.
+			</p>
+
+			<p>
+				<span class="figNum notswimming"></span> illustrates a resolution refutation proof of “You are not swimming” using the facts about a summer day given in <span class="figNum summerfacts"></span>. Since we want to prove <span class="Subfigure">~ swimming</span> we begin the proof by assuming that its opposite, <span class="Subfigure">swimming</span>, is true. We then look for a contradiction between our established set of facts about a summer day and this new assumption. First up, <span class="Subfigure">(swimming)</span> and Statement 1, <span class="Subfigure">( ~ swimming</span> &or; <span class="Subfigure">wet )</span>, can be resolved since they share matching terms. In order for both of these clauses to be true, the clause <span class="Subfigure">(wet)</span> must be true. However, <span class="Subfigure">(wet)</span> can be resolved with Statement 4, <span class="Subfigure">(~wet)</span>, indicating a contradiction. Thus, given that the original six statements were true, the contradiction must have been caused by our assumption that <span class="Subfigure">(swimming)</span> was true. Since <span class="Subfigure">(swimming)</span> cannot be true, <span class="Subfigure">(~ swimming)</span> must be true.
+			</p>
+
+			<p>
+				Here is this same argument recast into English.
+			</p>
+
+			<!--Blockquote Style-->
+			<p style="margin-left: 0.5in; margin-right: 1in; margin-bottom: 0in">
+				To prove that “You are not swimming” we will assume that “You are swimming” and show that this assumption leads to a contradiction. Statement (1) says that either “You are not swimming” or “You are wet”, but since we are assuming that “You are swimming” then, logically, you must be wet. However, Statement (4) says, “You are not wet”. Hence, we have found a contradiction. If all of our original statements were true to begin with, our assumption “You are swimming” must be incorrect. So, we conclude, that you are not swimming.
+			</p>
+			<br/>
+			<p>
+				<span class="figNum notraining"></span> illustrates another resolution refutation proof based on the summer day scenario of <span class="figNum summerfacts"></span> – this one is a proof that it is not raining. As in the above example, we begin by assuming the opposite of what we would like to prove (i.e., we assume it <span class="Ital">is</span> raining) and show that this leads to a contradiction.
+			</p>
+
+			<img src="images/notraining.png" alt="Resolution refutation proof of “not raining”" class="Image">
+
+			<p class="Figure">
+				<span class="figNum notraining"></span> Resolution refutation proof of “not raining”
+			</p>
+
+			<p>
+				The clause <span class="Subfigure">( rain )</span> can be resolved with Statement (2) <span class="Subfigure">( ~ rain</span> &or; <span class="Subfigure">~ outside</span> &or; <span class="Subfigure">wet )</span> giving <span class="Subfigure">( ~ outside</span> &or; <span class="Subfigure">wet )</span>. This clause can then be resolved with Statement (5) <span class="Subfigure">( outside )</span> giving <span class="Subfigure">( wet )</span>, but that resolvant contradicts Statement (4) <span class="Subfigure">( ~ wet )</span>. Since the assumption that it is raining leads to a contradiction when combined with the known facts about the summer day given in <span class="figNum summerfacts"></span>, we conclude that it is not raining.
+			</p>
+
+			<p>
+				A final example is given in <span class="figNum pleasant"></span>, which uses a resolution refutation proof based on the summer day scenario of <span class="figNum summerfacts"></span> to show that “It is a pleasant day.” The proof starts out by assuming it is not a pleasant day. The clause <span class="Subfigure">( ~ pleasant)</span> resolves with Statement (3) <span class="Subfigure">( ~ warm</span> &or; <span class="Subfigure">rain</span> &or; <span class="Subfigure">pleasant )</span> to give <span class="Subfigure">( ~warm</span> &or; <span class="Subfigure">rain )</span> which resolves with Statement (3) <span class="Subfigure">( warm )</span> giving <span class="Subfigure">(rain)</span>. From that point on, the proof of <span class="figNum pleasant"></span> is identical to the proof of <span class="figNum notraining"></span> since we have shown that assuming <span class="Subfigure">( ~ pleasant )</span> implies <span class="Subfigure">( rain )</span> and <span class="figNum notraining"></span> proved that <span class="Subfigure">( rain )</span> is untrue.
+			</p>
+
+			<img src="images/pleasant.png" alt="Resolution refutation proof of “pleasant”" class="Image">
+
+			<p class="Figure">
+				<span class="figNum pleasant"></span> Resolution refutation proof of “pleasant”
+			</p>
+
+			<p>
+				Over the years, many AI programs have been written that use resolution refutation proofs as the basis for their behavior. In fact, the programming language Prolog is essentially a modified resolution refutation theorem prover that operates on a subset of conjunctive normal form expressions known as Horn clauses. <span class="Bolded">Horn Clause</span>s are conjunctive normal form clauses in which all terms, save at most one, must be negated.
+			</p>
+
+			<p>
+				Prolog statements have the form:
+			</p>
+
+			<p class="Subfigure">
+				Z :- A, B, C.
+			</p>
+
+			<p>
+				which means:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">Z</span> if <span class="Subfigure">A</span>, <span class="Subfigure">B</span>, <span class="Subfigure">C.</span>
+			</p>
+
+			<p>
+				This can be rewritten as the more familiar:
+			</p>
+
+			<p class="Subfigure">
+				If <span class="Subfigure">A</span> and <span class="Subfigure">B</span> and <span class="Subfigure">C</span> then <span class="Subfigure">Z</span>.
+			</p>
+
+			<p>
+				which translates to propositional logic as:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">( A</span> &and; <span class="Subfigure">B</span> &and; <span class="Subfigure">C )</span> &rArr; <span class="Subfigure">Z</span>
+			</p>
+
+			<p>
+				Using the equivalences introduced in the previous section, this version of the statement can be rewritten:
+			</p>
+
+			<p class="Subfigure">
+				~ ( A &and; B &and; C ) &or; Z or ~ A &or; ~ B &or; ~ C &or; Z
+			</p>
+
+			<p>
+				Since there is always a single conclusion in the head of a Prolog statement, Prolog rules always translate to conjunctive normal form expressions in which one, and only one, term is not negated.
+			</p>
+
+			<p>
+				Before closing out this section on symbolic logic, it is important to emphasize once again that the logic studied here, propositional logic, is just one type of symbolic logic. As an example, you may have noticed the above “translation” of Prolog rules to conjunctive normal form did not account for variables. Real Prolog statements generally include variables in their rules as a way of making those rules more general. The Prolog rule:
+			</p>
+
+			<p class="Subfigure">
+				mother(X,Y) :- parent(X,Y), female(X).
+			</p>
+
+			<p>
+				means <span class="Subfigure">X</span> is the mother of <span class="Subfigure">Y</span> if <span class="Subfigure">X</span> is a parent of <span class="Subfigure">Y</span> and <span class="Subfigure">X</span> is female. Propositional logic does not support variables “within” a proposition. Prolog is actually based on a similar but more powerful logic, known as <span class="Ital">predicate logic</span>, which does allow the use of variables. These variables allow us to write general rules that define relationships (such as “mother”) without having to specify the individual participants in that relationship.
+			</p>
+
+       <p class="Section">
+				Exercises for <span class="contentNum intelligenceApproaches2b2"></span>
+			</p>
+			
+			<ol>
+				<li>
+					Translate the following propositional logic expressions into conjunctive normal form:
+					
+					<ul class="Blockcenter">
+						<li>(1.1) <span class="Subfigure">P</span> &rArr; <span class="Subfigure">Q</span> &and; <span class="Subfigure">Q</span> &rArr; <span class="Subfigure">R</span> &and; <span class="Subfigure">P</span></li>
+						<li>(1.2) <span class="Subfigure">( A</span> &and; <span class="Subfigure">B)</span> &rArr; <span class="Subfigure">C</span> &and; <span class="Subfigure">C</span> &rArr; <span class="Subfigure">( D</span> &or; <span class="Subfigure">E )</span></li>
+					</ul>
+				</li>
+				<br/>
+				<li>
+					Assuming the following conjunctive normal form expression is true, prove <span class="Subfigure">A</span> is false (.i.e., prove <span class="Subfigure">~ A</span> is true).
+					
+					<p class="Subfigure">
+						<span class="Subfigure">( ~ A</span> &or; <span class="Subfigure">B )</span> &and; <span class="Subfigure">( ~ B</span> &or; <span class="Subfigure">C )</span> &and; <span class="Subfigure">~ C</span>
+					</p>
+				</li>
+				<br/>
+				<li>
+					Assuming the following conjunctive normal form expression is true, prove <span class="Subfigure">C</span> is true.
+					
+					<p class="Subfigure">
+						<span class="Subfigure">( ~ A</span> &or; <span class="Subfigure">~ B</span> &or; <span class="Subfigure">C )</span> &and; <span class="Subfigure">( B</span> &or; <span class="Subfigure">D )</span> &and; <span class="Subfigure">A</span> &and; <span class="Subfigure">~ D</span>
+					</p>
+				</li>
+				<br/>
+				<li>
+					<p>Given the following statements, all of which are assumed to be true:</p>
+					
+					<ul class="Blockcenter">
+						<li>If you are lactose intolerant then you cannot eat ice cream.</li>
+						<li>If you are lactose intolerant then you cannot eat cheese.</li>
+						<li>If you are lactose intolerant then you cannot drink milk.</li>
+						<li>You eat ice cream.</li>
+					</ul>
+					<br/>
+					<ul class="Subblockcenter">
+						<p>
+							(4.1) Convert these statements to propositional expressions.
+						</p>
+
+						<p>
+							(4.2) Convert these expressions into a single conjunctive normal form statement.
+						</p>
+
+						<p>
+							(4.3) Prove, using resolution that “you are not lactose intolerant” is true.
+						</p>
+					</ul>
+				</li>
+			</ol>
+			<!-- End main content -->
+			<hr />
+			
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "intelligence";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("intelligenceApproaches2b2");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>
+

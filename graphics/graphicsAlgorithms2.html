@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+			<link href = "../lib/css/colmn_test.css" rel = "stylesheet">
+
+		<!--Graphics Lab css files-->
+		<link rel="stylesheet" href="css/editor.css">
+		<link rel="stylesheet" href="css/generalMedia.css">
+        <link rel="stylesheet" href="css/Dialogs.css">
+		<link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.css">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../lib/js/nav.js"></script>
+			<script type="text/javascript" src="../lib/js/master.js"></script> 
+			<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+			<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+			<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+			<script src="../lib/js/visibility.js"></script>
+			<script type="text/javascript" src="js/global.js"></script>
+
+		<!--Graphics Lab js files-->
+		<script src="js/WatsonDialogs.js"></script>
+		<script src="js/jquery.mobile.custom.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+		<script src="js/jquery-ui-1.10.4.custom.js"></script>
+		<script src="../lib/js/editor.js"></script>
+		<script src="js/WatsonDataStore.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum graphicsAlgorithms2"></span>
+			</p>
+			
+			<p>
+				In this section we explore another feature of the Watson Graphics Language, loops, and we examine how loops can be used to create complex static images as well as animation.  The WGL loop statement implements a control construct called iteration.  <span class="Bolded">Iteration</span> is the process of performing an action, or group of actions, some number of times.  The actual number of times the actions are to be repeated is specified in the loop statement. (As we will see in <span class="contentNum javascript"></span> other languages support more powerful ways of controlling the number of times a loop should be executed.)
+			</p>
+			
+			<p>
+				Let’s say we want to draw the image shown in <span class="figNum concentric10"></span>.  This image consists of 10 concentric circles, drawn in blue, all of which share the same center point, (150,150).  The smallest circle has a diameter of 100 units (radius of 50).  The next circle a diameter of 120 units (radius of 60), and so forth.  The largest circle has a diameter of 280 units (radius of 140).
+			</p>
+			
+			
+			<img src="images/concentric10.png" class="Image">
+			<p class="Figure">
+				<span class="figNum concentric10"></span>  A series of 10 concentric circles
+			</p>
+			
+			<p>
+				How should we go about creating this image?  We could attempt to do so using the interactive drawing mode, but this promises to be painstaking and tedious work.  It would be very difficult to draw 10 circles, all of which have precisely the same center and each with the proper diameter.  For this level of precision we need the program mode.  However, at first glance, this option does not appear to be much better – the prospect of defining 10 separate circle variables, entering 10 assignment statements, and 10 separate draw statements promises to be painstaking as well.  There must be a better way...  And, in fact, there is.  
+			</p>
+			
+			<p>
+				A task such as this, that involves a reasonably large number of very similar operations, can often be expressed succinctly using iteration.  Recall the basic structure of the loop statement, introduced in <span class="contentNum graphicsLanguage2"></span>:
+			</p>
+
+			
+			<ul class="Blockcenter">
+			<li><span class="Ital"> repeat COUNTER times</span></li>
+			
+			<li><span class="Ital"> loop</span></li>
+			
+			<ul style="list-style:none;"><li><span class="Ital"> &lt;one or more statements&gt;</span></li></ul>
+			
+			<li><span class="Ital"> endloop</span></li>
+			</ul>
+			<br/>			
+	
+			<p>
+				To effectively use the loop statement, we should develop a problem solution that consists of a sequence of identical steps.  In order to do this we must express the problem in a flexible way so that a “generic” solution step can be developed.  This generic step will then be performed over and over to solve the problem.  Here is an outline showing one way loop statements can be used to solve problems in WGL programs.
+			</p>
+
+		
+			<ul class="Blockcenter">
+			<li><span class="Ital"> &lt;initialize the program objects for the first case&gt;</span></li>
+			
+			<li><span class="Ital"> repeat COUNTER times</span></li>
+			
+			<li><span class="Ital"> loop</span></li>
+			
+			<ul style="list-style:none;">
+			<li><span class="Ital"> &lt;solve the current case&gt;</span></li>
+			
+			<li><span class="Ital"> &lt;modify the program objects for the next case&gt;</span></li>
+			</ul>
+			
+			<li><span class="Ital"> endloop</span></li>
+			</ul>
+			<br/>
+			
+			<p>
+				Notice that it is often necessary to set up the first case, or step, of the problem before entering the loop.  Within the loop, the “generic step” is executed over and over, a total of COUNTER times.  This generic step usually consists of solving the current case of the problem then setting up the next case.  This technique allows a large number of similar operations to be expressed in a clear and concise manner.<span class="Footnote" title="Footnote: One minor drawback of this problem solving approach is that it is slightly inefficient. During the last pass through the loop, the program objects are modified for a “next” case that is never performed. "><a href="#ftn5" id="body_ftn5">[5]</a></span>
+			</p>
+			
+			<div id="graphicsLab2" class="Centered"></div>
+			<p class="Figure">
+				<span class="figNum concentricprogram"></span>  A program to draw a series of 10 concentric circles
+			</p>
+			
+			<p>
+				Applying these concepts to the problem at hand, gives us the program of <span class="figNum concentricprogram"></span>.  This program works by defining a circle centered at (150,150) with some variable radius, which is initially set to 50.  The circle is drawn and the distance variable that held the radius increased by 10 units to prepare for drawing the next circle.  This process is repeated 10 times to create the pattern of concentric circles shown in <span class="figNum concentric10"></span>. 
+			</p>
+			
+			<p>
+				It is important to understand that even though this program draws 10 circles, it uses only three variables: one distance variable, <span class="Ital">d1</span>, one point variable, <span class="Ital">p1</span>, and one circle variable, <span class="Ital">c1</span>.<span class="Footnote" title="Footnote: And, as we will see below, we could have actually gotten by with only two variables."><a href="#ftn6" id="body_ftn6">[6]</a></span>  If that doesn’t seem to make sense to you, remember that even though 10 circles will be drawn, the program will only draw one circle at a time.  Once the program has drawn a circle of a given radius, say a radius of 50, it no longer needs to retain that particular circle.  Instead, the program will increase <span class="Ital">d1</span> by 10 and then redefine <span class="Ital">c1</span> in terms of the original center point and the new radius distance to prepare for drawing the next circle.
+			</p>
+			
+			<p>
+				Now that we have an overview of how the program works, we examine it on a line by line basis.  The first line of the program is:
+			</p>
+			
+			<p class="Subfigure">
+				color (blue)
+			</p>
+			
+			<p>
+				This statement sets the drawing color to blue.  Since it is the only color statement in the entire program and it occurs before any draw statements, all objects rendered by this program will be blue.
+			</p>
+			
+			<p>The second line of the program is:</p>
+			
+			<p class="Subfigure">d1 = 50</p>
+			
+			<p>
+				This statement places the value 50 into the distance variable <span class="Ital">d1</span>.  The reason for doing this is to prepare for drawing the first (inner most) circle which has a radius of 50.  
+			</p>
+			
+			<p>
+				The third line of the program contains the following statement:
+			</p>
+			
+			<p class="Subfigure">p1 = (150,150)</p>
+			
+			<p>
+				The purpose of this statement is to initialize the point variable, <span class="Ital">p1</span>, to the center of the 300 by 300 drawing window.  The variables <span class="Ital">p1</span> and <span class="Ital">d1</span> will be used together to define our circle, <span class="Ital">c1</span>.
+			</p>
+			
+			<p>
+				The next “statement” in the program is actually a loop structure that will repeat the statements it contains exactly 10 times.  This loop has the following form:
+			</p>
+			
+			
+			<ul class="Blockcenter">
+				<li>
+					<span class="Subfigure">repeat 10 times</span>
+				</li>
+			
+				<li>
+					<span class="Subfigure">loop</span>
+				</li>
+			
+				<ul style="list-style: none;">
+					<li>
+						<span class="Ital">&lt;define the circle using p1 and the current value of d1&gt;</span>
+					</li>
+					
+					<li>
+						<span class="Ital">&lt;draw the circle&gt;</span>
+					</li>
+					
+					<li>
+						<span class="Ital">&lt;increase the value of d1 by 10&gt;</span>
+					</li>
+				</ul>
+								
+	
+				<li>
+					<span class="Subfigure">endloop</span>
+				</li>
+			</ul>
+			<br/>			
+	
+			<p>
+				Notice that the loop will perform three critical tasks.  First it will define the circle variable using a center point of <span class="Ital">p1</span> and a radius of <span class="Ital">d1</span>.  Next, it will draw the circle.  And finally, it will increase the value of the variable <span class="Ital">d1</span> by 10 in preparation for the next iteration of the loop.
+			</p>
+			
+			<p>
+				The first task performed by the loop can be accomplished with the following statement:
+			</p>
+			
+			<p class="Subfigure">
+				c1 = (p1,d1)
+			</p>
+			
+			<p>
+				which defines <span class="Ital">c1</span> as a circle with center point <span class="Ital">p1</span>, containing (150, 150), and radius <span class="Ital">d1</span>, initially 50.  Hence, the first circle defined by this program has the characteristics <span class="T14">((150,150),50)</span>.  
+			</p>
+			
+			<p>
+				In order to comprehend what this program does, it is important to understand precisely how assignment works.  As you know, the general form of assignment is:
+			</p>
+			
+			<p class="Subfigure">
+				<span class="Ital">VARIABLE = EXPRESSION</span>
+			</p>
+			
+			<p>
+				where <span class="Ital">EXPRESSION</span> is a collection of constants and/or variables, together with appropriate parentheses, that evaluate to a value of a particular type.  Assignment statements work by first computing the value of the <span class="Ital">EXPRESSION</span> and then placing that value into the variable listed on the left hand side of the assignment operator “=”.  When an assignment statement is encountered with one or more variables in the <span class="Ital">EXPRESSION</span> portion of the statement, Watson bases the actual value computed on the current values stored in those variables. 
+			</p>
+			
+			<p>
+				In the present example, during the first iteration of the loop, the center point of <span class="Ital">c1</span> will be set to (150,150) since that is the value that will be in  <span class="Ital">p1</span> when the assignment statement is first executed.  The radius of <span class="Ital">c1</span> will be set to 10 during the first iteration of the loop, because that is the value that will be in <span class="Ital">d1</span> when the assignment is executed.  It is very important to realize that until <span class="Ital">c1</span> again appears on the left hand side of an assignment statement it will continue to have the same center point and radius <span class="Ital">even if the values stored in p1 or d1 change</span>.
+			</p>
+			
+			<p>
+				Now that <span class="Ital">c1</span> is fully defined, the loop’s second task, rendering the circle, can be performed using the standard draw statement.
+			</p>
+			
+			<p class="Subfigure">
+				draw(c1)
+			</p>
+			
+			<p>
+				The third and final task to be performed during each loop iteration is to increase the value stored in <span class="Ital">d1</span> by 10.  WGL includes two two special kinds of assignment statements, called “increment” and “decrement” that modify the value stored in a distance variable.  Increment is used to increase the value stored in a variable by some fixed amount.  Decrement is used to reduce the value stored in a variable by some amount.  In this particular case we want to increase <span class="Ital">d1</span> by 10 so the statement is:
+			</p>
+			
+			<p class="Subfigure">
+				d1 = d1 + 10
+			</p>
+			
+			<p>
+				As with all assignment statements, the right hand side expression, in this case “d1 + 10” is evaluated using the current values of the variables and then the result is stored in the variable appearing on the left hand side of the equal sign, in this case d1.  The first time the loop is entered <span class="Ital">d1</span> has a value of 50.  Since 50 + 10 equals 60, the value 60 is copied into d1 when this statement is executed – the overall effect being that d1 is incremented (or increased) by 10 from 50 to 60.  Note that modifying <span class="Ital">d1</span> does not automatically change the definition of our circle <span class="Ital">c1</span>, its radius is still 50.  The radius of c1 will not change until the loop is repeated and the assignment <span class="T13">c1 = (p1,d1)</span> is again executed.
+			</p>
+			
+			<p>
+				The development of the program in <span class="figNum concentricprogram"></span>, which draws 10 concentric circles, is now complete.  
+			</p>
+				
+			<p>
+				Before moving on to our next example, I would like to discuss one final aspect of the current one.  The program of <span class="figNum concentricprogram"></span> contains three variables: <span class="Ital">d1</span>, <span class="Ital">p1</span>, and <span class="Ital">c1</span>.  Are three variables absolutely required to draw the 10 circles, or would it be possible to get by with fewer?  The answer is that the program could be written using only two variables. 
+			</p>
+			
+			<p>
+				In general, variables are needed when you want to represent an object whose value will change, or vary, over time.  An object whose value will not change can be represented by a constant.  Furthermore, in the WGL language, it is necessary to use a variable for any object you want to render, since the draw and erase statements do not accept constants.  
+			</p>
+			<!--Figure begins -->
+			<div id="graphicsLab3" class="Centered"></div>
+			<!--Figure ends -->
+			<p class="Figure">
+				<span class="figNum concentricnop1"></span>  A variation of the program of <span class="figNum concentricprogram"></span> that eliminates <span class="Ital">p1</span>.
+			</p>
+			
+			<p>
+				Hence, in the current problem, a variable must be used for the circle – so that it can be drawn.  Also, a variable must be used for the circle’s radius distance, since that will vary over time.  But, a constant could have been used in place of the variable <span class="Ital">p1</span> to represent the circle’s center point, since it does not vary with time.  <span class="figNum concentricnop1"></span> contains a variation of the program of <span class="figNum concentricprogram"></span> that eliminates <span class="Ital">p1</span>.
+			</p>
+			
+			<p>
+				Next, we look at two simple modifications to the program of <span class="figNum concentricprogram"></span> that have a rather large effect on its output.  The first change is rather trivial, the modified program will still draw a sequence of 10 circles of increasing size, but now they will be red rather than blue.  A more dramatic change will occur as a result of the program erasing the current circle before drawing the next one.  The combined visual effect of these two changes will be of a single red circle that grows larger over time.
+			</p>
+			
+			<p>
+				Animation works by rapidly displaying a sequence of related images.  If the images are properly related and are displayed quickly enough, the human eye will perceive movement.  We can harness this effect in our program simply by erasing the current circle immediately prior to defining and drawing the next one.  The only modification to the program of <span class="figNum concentricprogram"></span> that is required to create this animation is to insert an “erase” statement as the final task inside the loop. 
+			</p>
+			
+			<p>An erase statement takes the form of:</p>
+			
+			<p class="Subfigure"><span class="Ital">erase (OBJECT)</span></p>
+			
+			<p>
+				where <span class="Ital">OBJECT</span> is a drawable variable, such as point, line, polygon, or circle.  Erase works by “redrawing” the specified object using the color white.  Since white is the background color of the drawing window, the effect is that the object is “erased”.  In order to erase <span class="Ital">c1</span>, the actual statement to be inserted is:
+			</p>
+			<!-- manual figure
+			<ul style="list-style: none;">
+				<li>erase(c1)</li>
+				</br>
+				<li> Variable Declarations</li>
+				
+				<ul style="list-style: none;">
+					<li> distance d1</li>
+					
+					<li> point p1</li>
+					
+					<li> circle c1</li>
+				</ul>
+				
+				<li> Program Code</li>
+				
+				<ul style="list-style: none;">
+					<li> color (red)</li>
+					
+					<li> d1 = 50</li>
+					
+					<li> p1 = (150,150)</li>
+					
+					<li> repeat 10 times</li>
+					
+					<li> loop</li>
+				
+					<ul style="list-style: none;">
+						<li> c1 = (p1,d1)</li>
+						
+						<li> draw(c1)</li>
+						
+						<li> increment(d1,10)</li>
+						
+						<li> erase(c1)</li>
+					</ul>
+					
+					<li> endloop</li>
+				</ul>
+			</ul>
+		-->
+			<div id="graphicsLab4" class="Centered"></div>
+			<p class="Figure">
+				<span class="figNum growingcircle"></span>  A program to animate a circle growing larger (10 frames)
+			</p>
+			
+			<p>
+				The location of the erase statement within the program is important.  It needs to appear within the loop structure somewhere after the draw statement.  If the erase statement were not located within the loop, it would be executed only once, not ten times.  Hence, it would be unable to erase the ten circles.  The reason that erase should follow the draw statement is that we certainly don’t want to “erase” the current circle before we have drawn it.  Instead, it is reasonable that the last step in processing a particular circle should be to erase it.  
+			</p>
+			
+			<p>
+				The complete program incorporating these modifications is presented in <span class="figNum fallingline"></span>.  This program is also included in the Watson Graphics Lab as “Example Two”.  I encourage you to experiment with this program by changing its drawing color, its loop counter, and its distance constants.  As you do so, try to predict what the effect of your changes will be before running the program.  When the program’s behavior is different than you expected, try to determine why that is so.
+			</p>
+			
+			<p>
+				A final WGL program is presented in <span class="figNum fallingline"></span>.  This program draws a sequence of blue lines, all of the same length, but of decreasing height.  Since the program erases the previous line before drawing the next one, the visual effect is of a blue line falling towards the bottom of the screen.
+			</p>
+			<!-- manual figure
+			
+			<h1>FIX THIS FIGURE</h1>
+			
+			<p>Variable Declarations</p>
+			
+			<p><span class="T13">        distance d1                        </span><span class="T2">creates a distance variable named d1</span></p>
+			
+			<p><span class="T13">        line l1                                </span><span class="T2">creates a line variable named l1</span></p>
+			
+			<p>Program Code</p>
+			
+			<p><span class="T13">        color (blue)                        </span><span class="T2">sets the drawing color to blue</span></p>
+			
+			<p><span class="T13">        d1 = 250                        </span><span class="T2">        assigns the value 250 to the variable d1</span></p>
+			
+			<p><span class="T13">        repeat 20 times        </span><span class="T2">                </span></p>
+			
+			<p><span class="T13">        loop                        </span><span class="T2">                begin a loop that will executed 20 times</span></p>
+			
+			<p><span class="T13">          l1 = ((50,d1),(250,d1))</span><span class="T2">     defines the line, l1, with height d1 </span></p>
+			
+			<p><span class="T13">          draw (l1)                        </span><span class="T2">      draws the line on the screen</span></p>
+			
+			<p><span class="T13">          decrement(d1, 10)             </span><span class="T2">      decreases d1, the height, by 10</span></p>
+			
+			<p><span class="T13">          erase(l1)                </span><span class="T2">              erases the current line</span></p>
+			
+			<p><span class="T13">        endloop                </span><span class="T2">                end of loop</span></p>
+			
+			<p><span class="T13">        draw (l1)                </span><span class="T2">                draws the final line on the screen</span></p>
+			
+			-->
+			<div id="graphicsLab5" class="Centered"></div>
+			<p class="Figure">
+				<span class="figNum fallingline"></span>  A program to animate a falling blue line (21 frames)
+			</p>
+			
+			<p>
+				You should carefully trace through this program examining each statement closely until you thoroughly understand its behavior.  In order to help you do this, an explanation of each statement is included.  As with the previous example, it would be instructive for you to experiment with the program – to change the values of the various constants and try to predict the behavior of the resulting program.  To help you do so, this program is included in the Watson Graphics Lab as “Example Three”.
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum graphicsAlgorithms2"></span>
+			</p>
+			
+			<ol id="exerciseList">
+				<li>
+					<div class="exercise solvable 6">
+						<p>
+							Using the “Point”, “Line”, “Circle”, and “Polygon” buttons, together with the mouse and Drawing Window, draw a side view of a simple car. 
+						</p>
+					
+						<p>
+							As you create this image interactively, observe the program code that is automatically being generated.  This code is an actual Watson Graphics Language program that represents your drawing.  When you finish the car, execute the program using the “Run” button and watch Watson redraw the picture.
+						</p>
+				
+						<p>
+						You just wrote a program!  Kinda’ neat isn’t it.
+						</p>
+					</div>
+					
+					<div class="exerciseDiv 6"></div>
+				</li>
+				
+				<li>
+					<div class="exercise solvable 7">
+						<p>
+							In this activity you are to create a program that will draw a simple stick figure.  Instead of drawing the image interactively as you did in Activity One, use the Commands (Assign, Draw, etc.) and Program Code editor to write the program.
+						</p>
+				
+						<p>
+							In order to complete the activity, it is critical that you carefully plan out what the stick figure should look like and how the commands can be used to produce that image.
+						</p>
+					</div>
+					
+					<div class="exerciseDiv 7"></div>
+				</li>
+				
+				<li>
+					<div class="exercise solvable 8">
+						<p>
+							Write a program (using the Commands and Program Code editor) that will draw a simple house.  As with Activity Two, plan out what the house should look like and how you will create it before you begin entering the actual program code.
+						</p>
+				
+						<p>
+							While this planning step may seem a bit tedious right now, having a good understanding of the problem and knowing how you are going to attack it are important prerequisites for writing computer programs, especially large programs.
+						</p>
+					</div>
+					
+					<div class="exerciseDiv 8"></div>
+				</li>
+				
+				<li>
+					<div class="exercise solvable 9">
+						<p>
+							Write a program (using the Commands and Program Code editor) that will draw a circle and cause it to appear to move horizontally across the Drawing Window.  In reality, this program will draw and erase a series of circles.  It will use a loop in a manner similar to the programs of <span class="figNum growingcircle"></span> and <span class="figNum fallingline"></span>.  You might want to look back at those programs for ideas on how to proceed.
+						</p>
+				
+						<p>
+							Take your time and think about <span class="Ital">what</span> you are being asked to do as well as <span class="Ital">how</span> you can go about accomplishing the task.
+						</p>
+					</div>
+					
+					<div class="exerciseDiv 9"></div>
+				</li>
+				
+				<li>
+					<div class="exercise solvable 10">
+						<p>
+							Write a program (using the Commands and Program Code editor) that will draw a circle in the lower left hand corner of the Drawing Window and cause it to appear to move diagonally from its starting point to the upper right hand corner of the window.  Once the circle reaches the upper right hand corner have it “bounce” off that corner moving diagonally from the upper right corner back down to the lower left hand corner where the circle originated.  This program will be similar to the one created in Activity Four.
+						</p>
+				
+						<p>
+							Remember, plan it out before you code it up!
+						</p>
+					</div>
+					
+					<div class="exerciseDiv 10"></div>
+				</li>
+			</ol>
+			
+			
+			<hr/>
+			<p class="Section">Footnotes</p>
+			
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn5" href="#body_ftn5">[5]</a></span> One minor drawback of this problem solving approach is that it is slightly inefficient.  During the last pass through the loop, the program objects are modified for a “next” case that is never performed. 
+			</p>
+			
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn6" href="#body_ftn6">[6]</a></span> And, as we will see below, we could have actually gotten by with only <span class="T12">two</span> variables.
+			</p>
+			<!-- End main content -->
+			<div class="push"></div> <!-- pushes the footer static bottom -->
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the footer -->	
+		
+		<script src="js/addElements.js"></script>
+		<script src="js/canvas.js"></script>
+		<script src="js/variables.js"></script>
+		<script src="js/shapes.js"></script>
+		<script src="js/run_walk.js"></script>
+		<script src="js/interpreter.js"></script>
+		<script src="js/code.js"></script>
+        <script src="js/setup.js"></script>
+
+		<!-- Arrow navigation scripts -->
+		<script>
+
+			var pageObj;
+			var chapID = "graphics";											// do NOT change name of variable
+			var sectID = "graphicsAlgorithms2";
+			
+			$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage(sectID);		// get arrow paths
+				setupExerciseButtons(sectID);
+				if (!localFlag) runGA();
+			});	
+
+			Setup(2, 300);
+			Setup(3, 250);
+			Setup(4, 310);
+			Setup(5, 270);
+		</script>
+		
+	</body>
+</html>

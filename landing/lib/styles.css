@@ -1,0 +1,198 @@
+/* Nav bar coloring */
+.navbar-inverse {
+    background-image: linear-gradient(to bottom, #053d7d 0%, #002B5C 100%);
+    background-repeat: repeat-x;
+}
+/* Well holding text and video */
+.well{
+  opacity:0.9;
+  box-shadow: 1px 1px 1px #2C2E30, 2px 2px 2px #2C2E30; 
+  margin: auto  auto;
+  max-width: 90%;
+  overflow: auto;
+}
+@media screen and (max-width: 959px) { .well{ width : 98%; margin-top: 5%; margin-bottom: 10%;}}
+@media screen and (max-width: 776px) { .well{ width : 98%; margin-top: 5%; margin-bottom: 10%;}}
+@media screen and (max-width: 650px) { .well{ width : 98%; margin-top: 5%; margin-bottom: 10%;}}
+/* Background image on index page */
+#backgroundImage{
+  /*background: url(../lib/image/backgroundImage.png) center center fixed;*/
+  background: url(image/backgroundImage.png) center center fixed;
+  background-size: cover;
+}
+/* Watson title */ 
+#header .title{
+	color: #4E84C4;
+	text-shadow: 1px 1px 1px #2C2E30, 2px 2px 2px #2C2E30; 
+    font-size: 90px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    text-align: center;
+    opacity:1.0;
+    font-family: "Avenir Next", "Verdana", sans-serif;
+    text-align: center;
+}
+@media screen and (max-width: 800px) { #header .title { font-size: 75px; }}
+@media screen and (max-width: 600px) { #header .title  { font-size: 65px; }}
+@media screen and (max-width: 400px) { #header .title  { font-size: 55px; }}
+
+/* Interactive Loading Suite text */
+.subtitle{
+	color: #4E84C4;
+	font-family: "Avenir", "Verdana", sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
+@media screen and (max-width: 800px) { .subtitle { font-size: 26px; }}
+@media screen and (max-width: 753px) { .subtitle { font-size: 22px; }}
+@media screen and (max-width: 400px) { .subtitle  { font-size: 18px; }}
+
+/* Menu items withing the well */
+.menu-items{
+  list-style-type: none;
+  font-size: 25px;
+  font-family: "Avenir", "Verdana", sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+@media screen and (max-width: 800px) { .menu-items { font-size: 22px; }}
+@media screen and (max-width: 600px) { .menu-items { font-size: 20px; }}
+@media screen and (max-width: 494px) { .menu-items  { font-size: 18px; }}
+
+.menu-items > a > li{
+  padding-bottom: 3%;
+}
+
+/* Watson Logo for non mobile devices */
+#logo_lg{
+  position: absolute;
+  left: 9%;
+  padding-bottom: 1%;
+  max-height: 40px;
+}
+/* Nav styling */
+.navbar {
+    border: none;
+    margin-bottom: 20px;
+    min-height: 62px;
+    position: relative;
+}
+
+p.copyright {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-family: "Avenir Next", "Verdana", sans-serif;
+    font-weight: 500;
+}
+
+#footer {
+    background: none repeat scroll 0 0 #002B5C;
+    padding: 20px 0 5px;
+}
+
+#filltext{
+  padding-bottom: 5%;
+}
+
+
+ul {
+ text-align: center;
+ padding: 0 0;
+}
+@media screen and (max-width: 993px) { ul {   width:100%;}}
+
+li{
+  width: 150px;
+}
+#header {
+    width: 100%;
+}
+
+.center{
+  margin: auto auto;
+}
+
+.push { width:100%; height:.3em; position:relative; bottom:0 !important; margin-top: 5%;}
+@media screen and (max-width: 990px) { .push {  width:100%; height:50px; position:relative; bottom:0 !important; }}
+@media screen and (max-width: 586px) { .push {  width:100%; height:50px; position:relative; bottom:0 !important; }}
+@media screen and (max-width: 400px) { .push {  width:100%; height:50px; position:relative; bottom:0 !important;}}
+@media screen and (min-height: 800px) { .push {  width:100%; height:30px; position:relative; bottom:0 !important;}}
+
+
+.butn {
+  margin-top: 2%;
+  font-family: Arial;
+  color: #2c2e30;
+  font-size: 25px;
+  padding: 10px 20px 0 20px;
+  text-decoration: none;
+  display: inline-block;
+}
+@media screen and (max-width: 993px) { .butn { display:inline;padding-left: 5%; font-size: 20px;}}
+@media screen and (max-width: 637px) { .butn {   width:100%; text-align:justify; display:block; padding-left: 13%;font-size: 18px;}}
+@media screen and (max-width: 400px) { .butn{   width:100%; text-align:justify; margin: 2px auto; font-size: 16px;}}
+
+
+.butn:hover {
+  color:#053d7d;
+  text-decoration: none;
+}
+
+.video{
+  margin: auto auto;
+}
+
+/* Video frame */
+iframe{
+  border: solid 2px #053d7d;
+  width:560px; 
+  height:315px;
+  margin: auto auto;
+  display:block;
+}
+@media screen and (max-width: 990px) { iframe {   width:460px; height:259px; }}
+@media screen and (max-width: 637px) { iframe {   width:300px; height:169px; }}
+@media screen and (max-width: 485px) { iframe {   width:200px; height:113px; }}
+/* Modal modal modal */
+.modal-content > p, h1, h2, h3, h4, h5 {
+  margin: 0 0 10px;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.modal-content > h5 {
+  color: #053d7d; 
+  padding-top: 1%;
+  text-align: center;
+}
+
+.phase_img{
+  max-width: 85%;
+}
+/* Phases images centering */
+.Image { /* Centers images, specifically square or wider*/
+	margin: 0 auto;
+	display: block;
+	width:70%;
+}
+
+.Bold {
+  font-weight: bold;
+}
+/* List items in the Acknoledgement modal*/
+.list > ul > li{
+  width: 95%;
+  text-align: justify;
+  padding-left: 5%;
+  list-style-type: disc;
+  list-style-position: inside;
+  margin: 0;
+}
+
+span.button-title{
+  padding: 0;
+}

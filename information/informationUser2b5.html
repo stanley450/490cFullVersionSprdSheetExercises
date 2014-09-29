@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationUser2b5"></span>
+      </p>
+
+      <p>
+        The final relational query operator is “join”. The<span> <span class="Bolded">join</span> operator is used to combine information from multiple tables together into a single table, based on some attribute that the tables share in common. The number of columns (attributes) in the resulting table will always be the sum of the number of attributes in both tables minus one. The reason for this is that all attributes in the two source tables will be included in the resulting table, but since one of the attributes is shared, it will only be listed once.
+      </p>
+
+      <p>
+        The number of rows contained in the joined table will vary depending on the type of join and the data present in the tables. The most common type of join is an “Equijoin”. In an equijoin, the shared attribute in one row (tuple) of the first table must exactly match the same attribute in some row of the second table in order for a tuple (formed from these two rows) to be included in the resulting table.
+      </p>
+
+      <p>
+        An example will make this clear. Consider the two tables, Alpha and Beta, shown in <span class="figNum joinalphabeta"></span>. These two tables share attribute “Z” in common and so may be joined. Since Alpha has three columns and Beta also has three columns, the resulting table will have five columns (3 + 3 – 1). Every tuple of Alpha will be compared to every tuple of Beta. Assuming we are performing an equijoin, those tuples in which Alpha.Z equals Beta.Z will be joined together to form a tuple in the resulting relation. So, for example, since the “Z” in row one of Alpha matches the “Z” in row one of Beta, they will form a tuple in the combined relation. Row one of Alpha with row two of Beta also forms a tuple. As does row three of Alpha with row four of Beta. Since no other tuples satisfy the specified condition, the relation resulting from this join contains only these three tuples.
+      </p>
+
+      <img src="images/joinalphabeta.png" alt="A join of relations Alpha and Beta over attribute “Z”" class="Image">
+
+      <p class="Figure">
+        <span class="figNum joinalphabeta"></span> A join of relations Alpha and Beta over attribute “Z”
+      </p>
+
+      <p>
+        The join of Alpha and Beta over equal Z values could be expressed as :
+      </p>
+
+      <p class="Subfigure">
+        Join Alpha and Beta where Alpha.Z = Beta.Z
+      </p>
+
+      <p>
+        Further, if we agree that whenever we use the word “join” we really mean “equijoin” the expression can be simplified to:
+      </p>
+
+      <p class="Subfigure">
+        Join Alpha and Beta over Z
+      </p>
+
+      <p>
+        The general format used to specify joins in the remainder of this chapter is:
+      </p>
+
+      <p class="Subfigure">
+        Join</span> <span class="Italicized">relation1</span> and</span> <span class="Italicized">relation2</span> over</span> <span class="Italicized">shared_attribute
+      </p>
+
+      <p>
+        where the fields “relation1” and “relation2” will be replaced by the names of existing relations and “shared_attribute” will be replaced by the name of the attribute they share in common.
+      </p>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+    <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";       // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationUser2b5");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  </body>
+</html>

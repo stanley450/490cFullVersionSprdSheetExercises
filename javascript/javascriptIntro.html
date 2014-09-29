@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel = "stylesheet">
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../lib/js/master.js"></script>
+			<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+			<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+			<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum javascriptIntro"></span>
+			</p>
+			
+			<p>
+				We have now reached the halfway point in our discussion of software. As such, this is a good place to review where we have been and to summarize where we are going.
+			</p>
+
+			<p>
+				Chapter 5 focused on the problem solving process in general and introduced the concept of an algorithm. Chapter 6 presented a simple programming language for drawing graphical images. That language, the Watson Graphics Language (WGL), was used to introduce many of the basic features of imperative programming languages. These features include data types, constants, variables, assignment statements, and output statements; as well as the control constructs “sequence” and “repetition”. The lab that accompanied Chapter <span class="contentNum graphics false"></span> gave you an opportunity to explore the behavior of several existing WGL programs, and to begin writing programs yourself. Chapter <span class="contentNum structures false"></span> focused on data structures and addressed the question of how data can be organized to facilitate the problem solving process.
+			</p>
+
+			<p>
+				In this chapter and the next we will examine the programming process in more detail.
+			</p>
+
+			<p>
+				Over the past forty years or so, three general classes, or paradigms, of programming languages have emerged. These paradigms include the imperative paradigm, the functional paradigm, and the logical paradigm. In addition, during the past decade or so these paradigms have been extended to include object-oriented features. A language is classified as belonging to a particular paradigm based on the programming features it supports.
+			</p>
+
+			<p>
+				Object-oriented, imperative languages are, by far, the most popular type of programming languages. Both Java and C++ are object-oriented, imperative languages. The Watson Graphics Language, WGL, is also an imperative language, though it is not object-oriented.
+			</p>
+
+			<p>
+				This chapter continues the exploration of the imperative paradigm by discussing Watson JavaScript. Watson JavaScript is an extended subset of JavaScript, a widely used imperative programming language incorporated into many web pages. Using Watson JavaScript, we will examine programming structures common to most imperative programming languages. A relatively large number of small programs will be presented in order to illustrate how these program structures can be used to solve problems.
+			</p>
+
+			<p>
+				The chapter following this one, Chapter <span class="contentNum objects false"></span>, discusses the functional and logical programming paradigms. Functional programming is illustrated with the language Lisp. Logic programming is introduced with Prolog. Both of these languages are frequently used in the study of A. I., or artificial intelligence.
+			</p>
+
+			<p>
+				The last chapter in this part of the book is Chapter <span class="contentNum engineering false"></span>: Building Large Software Systems. Chapter <span class="contentNum engineering false"></span> begins with a discussion of object-oriented programming. Object-oriented features influence the ways in which the parts of a program are organized and how they communicate with one another. Object-oriented languages are extremely useful for writing complex programs that support mouse-based, graphical user interfaces. Chapter 10 also includes an introduction to the field of software engineering, which focuses on the unique challenges that must be faced when constructing large programs, such as those that require many thousands of worker-hours to complete.
+			</p>
+
+			<div class="push"></div>
+			<!-- End main content -->
+			</div> 
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "javascript";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("javascriptIntro");		// get arrow paths
+					if (!localFlag) runGA();
+				});	
+				
+			</script>
+	</body>
+</html>

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui-1.10.4.custom.css">
+	    <link href="../lib/css/ch08.css" rel = "stylesheet">
+	    <link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel = "stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/grid.css" rel = "stylesheet">
+		<link rel="stylesheet" type="text/css" href="../lib/css/Dialogs.css">
+	    <!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/visibility.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum javascriptArrays"></span>
+			</p>
+			
+			<p>
+				We now come to the final section of this chapter on imperative programming using Watson JavaScript. This section introduces the array data structure and illustrates how it can be used to implement higher-level data structures, such as stacks, which were described in Chapter <span class="contentNum structures false"></span>.
+			</p>
+
+			<p>
+				Data in Watson JavaScript can be represented using two “structures”: variables and arrays. By now, you should be well acquainted with variables. But arrays are something new. An <span class="Bolded">array</span> is a collection of data values, all of the same type, which are stored in contiguous memory locations and accessed via an array name and subscript. A <span class="Bolded">subscript</span> is an integer constant or variable that is used to indicate the relative position of an individual item in the array.
+			</p>
+
+			<p>
+				A ten-element integer array is illustrated in <span class="figNum tenintarray"></span>. This array happens to be located in the computer’s memory at addresses 1000 to 1009, but it could just as easily have been located elsewhere. Immediately to the left of each element is the array name and subscript used to reference that element. The name of this particular array is <span class="Subfigure">A</span>. The first position of <span class="Subfigure">A</span> contains the value 10, the second position the value 999, the third 50, and so forth. Note that the elements are stored in “contiguous” memory locations – the first element is “next to” the second element, which is next to the third, which is next to the fourth, etc.
+			</p>
+
+			<img src="images/tenintarray.png" alt="An illustration of a ten-element integer array" class="ImageTall">
+			
+			<p class="Figure">
+				<span class="figNum tenintarray"></span> &nbsp; An illustration of a ten-element integer array
+			</p>
+
+			<p>
+				In Watson JavaScript, arrays are declared just below variables and before functions at the top of the program. Array declarations in Watson JavaScript use the following syntax:
+			</p>
+
+			<p class="Subfigure">
+				var <span class="Italicized">name</span> = new Array(<span class="Italicized">size</span>); //<span class="Italicized">type</span>
+			</p>
+
+			<p>
+				where <span class="Italicized">name</span> is the name of the array,</span> <span class="Italicized">size</span> is the number of individual elements that can be stored in the array, and <span class="Italicized">type</span> is the type of those elements, either numeric or text. Hence, the ten-element integer array named <span class="Subfigure">A</span> illustrated in <span class="figNum tenintarray"></span> would be declared in Watson JavaScript as:
+			</p>
+
+			<p class="Subfigure">
+				var A = new Array(10); // Numeric
+			</p>
+
+			<p>
+				Once declared, the individual elements of an array can be accessed for retrieval or modification. An “array reference” consists of the array name followed immediately by a subscript enclosed in square brackets. Subscripts indicate the “position” or element of an array. An important thing to note about array subscripts (in languages such as C, C++, Java, and JavaScript) is that the first element of an array is said to be at index position zero.  Thus, <span class="Subfigure">A[0]</span> is a reference to the first element of <span class="Subfigure">A</span>, while <span class="Subfigure">A[1]</span> is a reference to the second element of <span class="Subfigure">A</span>, and <span class="Subfigure">A[2]</span> is a reference to the third element of <span class="Subfigure">A</span>.
+			</p>
+
+			<p>
+				An array reference can appear in a program pretty much anywhere a variable is allowed: in assignment statements, in “prompt” statements, in “write” and “writeln”, as function arguments, and in the relational expressions of “if”, “if-else”, “while”, and “for” statements.
+			</p>
+
+			<p>
+				For example, the statements:
+			</p>
+			<ul class="Blockcenter">
+					<span class="Subfigure">A[0] = 10;</span><br />
+					
+					<span class="Subfigure">A[4] = 2001;</span><br />
+					
+					<span class="Subfigure">A[7] = 37;</span><br />
+			</ul>
+			
+			<br/>
+
+			<p>
+				would initialize the first, fifth, and eighth elements of <span class="Subfigure">A</span> to the values shown in <span class="figNum tenintarray"></span>. The other elements could be initialized in a similar manner. The value of the eighth element of <span class="Subfigure">A</span>, which is located at <span class="Subfigure">A[7]</span>, could be copied to a variable named <span class="Subfigure">X</span> with a statement such as:
+			</p>
+
+			<p class="Subfigure">
+				X = A[7];
+			</p>
+
+			<p>
+				Given the values in <span class="figNum tenintarray"></span>, this statement would place 37 into <span class="Subfigure">X</span>. The value of <span class="Subfigure">A[7]</span>could be incremented by 5, from 37 to 42, with the following statement:
+			</p>
+
+			<p class="Subfigure">
+				A[7] = A[7] + 5;
+			</p>
+
+			<p>
+				It is also possible to directly print the value of an array element. The following statement displays value of the fifth element of <span class="Subfigure">A</span>, 2001.
+			</p>
+
+			<p class="Subfigure">
+				document.writeln(A[4]);
+			</p>
+
+			<p>
+				A subscript can be a numeric variable as well as a constant. This means that the pair of statements:
+			</p>
+
+			<ul class="Blockcenter">
+				<span class="Subfigure">J = 6;</span><br />
+				
+				<span class="Subfigure">A[J] = 42;</span><br />
+			</ul>
+			
+			<br/>
+
+			<p>
+				can be used to place the value 42 into <span class="Subfigure">A[6]</span>, the seventh element of <span class="Subfigure">A</span>. This is so because the semantics of the assignment statement dictate that the value of the expression on the right hand side of the assignment operator is copied into the location specified by the variable or array element on the left hand side. Similarly, the following statements will retrieve a copy of the value stored at <span class="Subfigure">A[1]</span>, the value 999 according to <span class="figNum tenintarray"></span>, and place it into <span class="Subfigure">X</span>.
+			</p>
+
+			<ul class="Blockcenter">
+				<span class="Subfigure">I = 1;</span><br />
+
+				<span class="Subfigure">X = A[I];</span><br />
+			</ul>
+			
+			<br/>
+
+			<p>
+				Most students have little trouble with the idea of array access as long as constants are used for the subscripts. Many become confused, however, when variables are used. It is easy for you to avoid confusion by</span> <span class="Italicized">immediately</span> looking up the</span> <span class="Italicized">current</span> value of any subscript variables</span> <span class="Italicized">before</span> you try to figure out the behavior of a statement that contains array references.
+			</p>
+
+			<p>
+				Applying this approach to the following statements:
+			</p>
+
+			<ul class="Blockcenter">
+				
+				<span class="Subfigure">J = 5;</span><br />
+				
+				<span class="Subfigure">I = J + 3;</span><br />
+				
+				<span class="Subfigure">A[I] = A[J] – 2;</span><br />
+			</ul>
+			
+			<br/>
+
+			<p>
+				We see that the first statement places a 5 in <span class="Subfigure">J</span>. The second statement adds the current value of <span class="Subfigure">J</span> to 3 and stores the result in <span class="Subfigure">I</span>. Since <span class="Subfigure">J</span> is 5, the result of the addition is 8, which is placed into <span class="Subfigure">I</span>. Thus, when the third statement is reached, <span class="Subfigure">I = 8</span> and <span class="Subfigure">J = 5</span>, so the statement would be, at that moment in time, equivalent to
+			</p>
+
+			<p class="Subfigure">
+				A[8] = A[5] – 2;
+			</p>
+
+			<p>
+				Since the value of <span class="Subfigure">A[5]</span> is 1066 (according to <span class="figNum tenintarray"></span>), element &nbsp; </span><span class="Subfigure">A[8]</span> is assigned the result of 1066 - 2, or 1064. This value overwrites any value previously stored in <span class="Subfigure">A[8]</span>, such as 99 according to <span class="figNum tenintarray"></span>.
+			</p>
+
+			<p>
+				The true power of variable subscripts becomes apparent when it is necessary to perform a specific operation on many individual array elements. For example, let’s say that we wanted to initialize all ten elements of the array of <span class="figNum tenintarray"></span> to zero.
+			</p>
+
+			<p>
+				One approach would be to use ten separate assignment statements, one for each element of the array, like so:
+			</p>
+
+			<p class="Subfigure">
+				A[0] = 0;
+			</p>
+
+			<p class="Subfigure">
+				A[1] = 0;
+			</p>
+
+			<p class="Subfigure">
+				A[2] = 0;
+			</p>
+
+			<p class="Subfigure">
+				A[3] = 0;
+			</p>
+
+			<p class="Subfigure">
+				A[4] = 0;
+			</p>
+
+			<p class="Subfigure">
+				A[5] = 0;
+			</p>
+
+			<p class="Subfigure">
+				A[6] = 0;
+			</p>
+
+			<p class="Subfigure">
+				A[7] = 0;
+			</p>
+
+			<p class="Subfigure">
+				A[8] = 0;
+			</p>
+
+			<p class="Subfigure">
+				A[9] = 0;
+			</p>
+
+			<p>
+				While this approach works, a much more flexible and compact solution to the array initialization problem can be obtained by using an iteration construct, such as “for”, to repeat a single assignment statement multiple times. In order for this technique to work, the assignment statement must reference the array elements using a variable subscript.
+			</p>
+
+			<p>
+				The technique is illustrated in <span class="figNum tenintprogram"></span>. The program presented in that figure declares a ten-element array <span class="Subfigure">A</span>, and an integer variable <span class="Subfigure">i</span>. The variable is used to control a “for” loop that executes a total of ten times. Contained within the loop is a statement that assigns zero to the element at index position <span class="T39">i</span> of <span class="Subfigure">A</span>.
+			</p>
+
+			<p>
+				The first time through the loop <span class="Subfigure">i</span> will be 0, so the statement in the body of the loop is equivalent to:
+			</p>
+
+			<p class="Subfigure">
+				A[0] = 0;
+			</p>
+
+
+			<p>
+				The next time through, <span class="Subfigure">i</span> will be 1, so the statement is equivalent to:
+			</p>
+
+			
+
+			<p class="Subfigure">
+				A[1] = &nbsp; 0;
+			</p>
+
+			
+
+			<p>
+				This pattern continues with <span class="Subfigure">i</span> being incremented by one each time through the loop until finally <span class="Subfigure">i</span> equals 9.
+			</p>
+
+			<ul class="Blockcenter">
+				<span class="Subfigure">var A = new Array(10); // Numeric</span><br/>
+
+				<span class="Subfigure">var i; &nbsp; // Numeric</span><br/>
+
+				<span class="Subfigure">for (i = 0; i <= 9; i++)</span><br/>
+
+				<span class="Subfigure">{</span><br/>
+				
+				<ul class="Subblockcenter">
+					<span class="Subfigure">A[i] = 0;</span>
+				</ul>
+				
+				<span class="Subfigure">}</span><br/>
+
+				<span class="Subfigure">&nbsp;  . . .</span>
+			</ul>
+			
+			<br/>
+
+			<p class="Figure">
+				<span class="figNum tenintprogram"></span> &nbsp; A partial program that declares a ten-element array and initializes each of its elements to zero
+			</p>
+
+			
+
+			<p>
+				At this point the statement in the loop body is equivalent to:
+			</p>
+
+			
+
+			<p class="Subfigure">
+				A[9] = 0;
+			</p>
+
+			
+
+			<p>
+				The loop variable is then incremented to 10, but since that is greater than 9, execution of the loop terminates.
+			</p>
+
+			
+
+			<p>
+				This example illustrates an important problem solving technique. In general, when one wants to perform an operation of some sort on each of the elements of an <span class="Ital">N</span> element array, the desired operation is written in terms of some generic element (such as the element at index position <span class="Ital">i</span>). The operation is then embedded within a repetition construct that is programmed to execute <span class="Ital">N</span> times.
+			</p>
+
+			
+
+			<p>
+				Using iteration constructs and variable-based array references leads to compact and flexible programs. Even with the small ten-element array of <span class="figNum tenintarray"></span>, initializing all of the array elements to zero with the program of <span class="figNum tenintprogram"></span> required only four lines of code (after discounting variable declarations), rather than the ten lines of code that would be needed if we avoided iteration.
+			</p>
+
+			
+
+			<p>
+				The advantage of the iterative approach becomes even more pronounced when we consider larger arrays. For example, let’s assume that we wanted to increase the size of array <span class="Subfigure">A</span> from 10 to 100 elements, and initialize each of these one hundred elements to zero. Regardless of the fact that we are increasing the amount of work to be done tenfold, the required changes to the program of <span class="figNum tenintprogram"></span> are actually relatively minor.
+			</p>
+
+			
+
+			<p>
+				First, in order to construct the larger array, the array declaration statement would have to be modified to read:
+			</p>
+
+			
+
+			<p class="Subfigure">
+				var A = new Array(100); // Numeric
+			</p>
+
+			
+
+			<p>
+				The only other change required to the program of <span class="figNum tenintprogram"></span> would be to update the “for” loop to allow it to repeat 100 times.
+			</p>
+
+			
+
+			<p class="Subfigure">
+				for (i = 0; i <= 99; i++)
+			</p>
+
+			
+
+			<p>
+				If we had chosen to avoid iteration and use individual assignment statements with constant-based array references, initializing the 100-element array would have required one hundred separate assignment statements. Clearly, the use of iteration and variable-based array references are critical for solving problems involving sizable arrays.
+			</p>
+
+			
+
+			<p>
+				By combining both arrays and loops, programmers can solve all sorts of problems that involve processing large amounts of data.  For example, <span class="figNum searchfunction"></span> presents a function subprogram that performs a sequential search of a 100-element array for a target item. As you may recall from Chapter <span class="contentNum algorithms false"></span>, search algorithms generally accept as input a list and a target item. Their task is to determine whether the target item is present in the list.
+			</p>
+
+			
+
+			<ul class="Blockcenter">
+				<span class="Subfigure">function search (list, &nbsp; /*numeric array*/</span><br/>
+				
+				<ul class="Subblockcenter">
+					<ul class="Subblockcenter">
+						<span class="Subfigure">size, &nbsp; /*numeric*/</span><br/>
+
+						<span class="Subfigure">target /*numeric*/ &nbsp;  &nbsp;  ) // returns numeric</span><br/>
+					</ul>
+				</ul>
+				
+				<span class="Subfigure">{</span><br/>
+
+				<ul class="Subblockcenter">
+					<span class="Subfigure">var i; // numeric</span><br/>
+
+					<span class="Subfigure">for (i = 0; i &lt; size; i++)</span><br/>
+
+					<span class="Subfigure">{</span><br/>
+
+					<ul class="Subblockcenter">
+						<span class="Subfigure">if (list[i] == target)</span><br/>
+
+						<span class="Subfigure">{</span><br/>
+						
+						<ul class="Subblockcenter">
+							return(i);</span><br/>
+						</ul>
+						
+						<span class="Subfigure">}</span><br/>
+					</ul>
+					
+					<span class="Subfigure">}</span><br/>
+
+					<span class="Subfigure">return(-1);</span><br/>
+				</ul>
+				
+				<span class="Subfigure">}</span>
+			</ul>
+			
+			<br/>
+
+			<p class="Figure">
+				<span class="figNum searchfunction"></span> &nbsp; A function subprogram for searching a numeric array
+			</p>
+
+			
+
+			
+
+			<p>
+				The sequential search algorithm accomplishes this task by comparing the target item to each of the items of the list, starting with the first item and continuing to search until either a list item identical to the target item is found or all of the list items have been examined. The sequential search procedure was outlined in <span class="figNum seqsearch"></span> of Chapter <span class="contentNum algorithms false"></span>.
+			</p>
+
+			
+
+			<p>
+				In the function of <span class="figNum searchfunction"></span>, a numeric array of indeterminate size, named <span class="Subfigure">list</span>, will hold the items to be searched. Another numeric variable, <span class="Subfigure">size</span>, will specify the number of elements stored in the list. A third numeric variable named <span class="Subfigure">target</span> will contain the value we are looking for. Since all three of these variables specify inputs to the function, they are declared in the function parameter list.
+			</p>
+
+			
+
+			<p>
+				Instead of printing messages to report whether or not the target item occurs in the list (as was done in <span class="figNum seqsearch"></span>), this function returns an integer number that indicates the index position of the first list item that matches the target. If no list item matches the target, a value of –1 is returned to indicate an unsuccessful search.
+			</p>
+
+			
+
+			<p>
+				The implementation of the function is rather straightforward. It consists of a “for” loop that executes <span class="Subfigure">size</span> number of times, with <span class="Subfigure">i</span> going from 0 to <span class="Subfigure">size - 1</span>. Thus, if the size of the array is 15, the loop will execute 15 times, with <span class="Subfigure">i</span> having the value of 0 during the first pass through the loop and 14 during the final pass. If the size of the array is 1,000, the loop will execute 1,000 times. Within the loop is a single “if” statement that tests to see whether the target item is equal to the item at index position <span class="Subfigure">i</span> of the array.
+			</p>
+
+			
+
+			<p>
+				If they are not equal, no action is taken. If they are equal, the subscript of the current item is returned and the function terminates execution. Assuming the loop completes, in other words it executes all <span class="Subfigure">size</span> times with <span class="Subfigure">i</span> going from 0 to <span class="Subfigure">size – 1</span>, then the target is not in the list and the <span class="Subfigure">Return(-1);</span> statement is executed.
+			</p>
+
+			
+
+			<p>
+				You should note that this program illustrates two new features of Watson JavaScript. First, it shows that arrays, as well as variables, can be listed as input parameters to functions. The second feature debuting in the program is the use of multiple return statements. The function can “exit” at two different points: one corresponding to the case where the target item is found, the other to the case where the target is not found.
+			</p>
+
+			<p>
+				The final example of this chapter is presented in <span class="figNum watsonstack"></span>. It illustrates how a higher-order data structure, in this case the stack, can be implemented in Watson JavaScript.
+			</p>
+
+			
+
+			<p>
+				Stacks were discussed in detail in Chapter <span class="contentNum structures false"></span>. Essentially a stack is a first-in, first-out data structure. Items can be placed onto the top of the stack via the “push” operator and removed from the top by “pop”.
+			</p>
+			<!-- Manual fig 8.38
+			
+
+			
+
+			<p class="P58">
+				&nbsp;
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>var TOP; &nbsp;  // Numeric
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>var STACK = new Array(100); // Numeric
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>function push( item /*Numeric*/ ) // Returns nothing
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>{
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> if (TOP &lt; 99)
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> {
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>TOP = TOP + 1;
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>STACK[TOP] = item;
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> }
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>}
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>function pop() // Returns Numeric
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>{
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> var item; // Numeric
+			</p>
+
+			<p class="P49">
+				&nbsp;
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> if (TOP &ge; 0)
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> {
+			</p>
+
+			<p class="P141">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>item = STACK[TOP];
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span>TOP = TOP - 1;
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  return(item);
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> }
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> else
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> {
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  return(0);
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp;  &nbsp; </span> }
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>}
+			</p>
+
+			<p class="P49">
+				&nbsp;
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>TOP = -1;
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>push(10);
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>push(20);
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>push(30);
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>document.writeln(pop());
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>document.writeln(pop());
+			</p>
+
+			<p class="P49">
+				&nbsp;  &nbsp;  &nbsp; </span>document.writeln(pop());
+			</p>
+
+			<p class="P49">
+				&nbsp;
+			</p>
+			-->
+			<div id="JSFigure-38" class="divness"></div>
+
+			<p class="Figure">
+				<span class="figNum watsonstack"></span> &nbsp; An implementation of the stack data structure in Watson JavaScript
+			</p>
+
+			
+
+			<p>
+				The program of <span class="figNum watsonstack"></span> constructs a stack out of an array, a variable, and two functions. The array will hold the actual stack items, the variable keeps up with the position of the “top” item of the stack, and the two functions implement the actual “push” and “pop” operations. The stack is designed to hold at most 100 numbers. Only numbers, as opposed to text, may be stored in this stack.
+			</p>
+
+			
+
+			<p>
+				The main program begins by declaring the numeric variable <span class="Subfigure">TOP</span> and the 100-item numeric array <span class="Subfigure">STACK</span>. <span class="Subfigure">STACK</span>’s declaration reserves room for 100 elements. Thus, numbers may be stored in positions <span class="Subfigure">STACK[0]</span> through <span class="Subfigure">STACK[99]</span>. Next, the functions <span class="Subfigure">push</span> and <span class="Subfigure">pop</span> are declared.
+			</p>
+
+			
+
+			<p>
+				The first action of the main program is to initialize the stack to its “empty” configuration by setting <span class="Subfigure">TOP</span> to –1. Why do we do this? &nbsp; Well, remember that <span class="Subfigure">TOP</span> is always supposed to point to the top item in the stack. When the stack is empty, when there are no items in the stack, there is no top item. Setting <span class="Subfigure">TOP</span> to –1, which is one less than the first position of the stack array, <span class="Subfigure">STACK[0]</span>, makes sense as a way to indicate there is no top item at the moment.
+			</p>
+
+			
+
+			<p>
+				Following initialization of the stack to its empty configuration, the main program pushes three items onto the stack: 10, 20, and 30. It then proceeds to pop each item off the stack and print returned values. The actions of the “push” operations are illustrated in <span class="figNum stackpushes"></span>. The actions of the “pop” operations are shown in <span class="figNum stackpops"></span>.
+			</p>
+
+			
+
+			<p>
+				Let’s now take a closer look at the details of how the <span class="Subfigure">push</span> and <span class="Subfigure">pop</span> functions are implemented.
+			</p>
+
+			
+
+			<p>
+				The purpose of the <span class="Subfigure">push</span> function is to add an item to the top of the stack, if there is room to do so. It receives as input from its calling program an <span class="Subfigure">item</span> that is to be stored on the top of the stack. The push function does not have a return value, since its purpose is to modify the stack not to return a value to its calling program.
+			</p>
+
+			
+
+			<p>
+				<span class="Subfigure">Push</span> begins by comparing the current value of TOP to 99 in order to determine whether there is room in the <span class="Subfigure">STACK</span> array to accept another item. Remember, the simple stack implementation illustrated in <span class="figNum watsonstack"></span> can hold at most 100 items – in positions <span class="Subfigure">STACK[0]</span> through <span class="Subfigure">STACK[99]</span>. If <span class="Subfigure">TOP</span> is currently less than 99, there is room in the array for at least one more item, so <span class="Subfigure">push</span> increments the <span class="Subfigure">TOP</span> variable by one and then places the <span class="Subfigure">item</span> into array position <span class="Subfigure">STACK[TOP]</span>. Note that if <span class="Subfigure">TOP</span> is equal to 99 the <span class="Subfigure">STACK</span> array is full and <span class="Subfigure">push</span> takes no action.
+			</p>
+
+			
+
+			<p>
+				The purpose of the <span class="Subfigure">pop</span> function is to remove the top item from the stack and return it to the calling program. <span class="Subfigure">Pop</span> has no input parameters, since the calling program doesn’t need to pass any values to <span class="Subfigure">pop</span> for it to carry out its task. The function begins by declaring <span class="Subfigure">item</span> to be a local numeric variable. Note that the <span class="Subfigure">item</span> declared in <span class="Subfigure">pop</span> is completely separate from the <span class="Subfigure">item</span> parameter used in <span class="Subfigure">push</span>.  Next, <span class="Subfigure">Pop</span> compares <span class="Subfigure">TOP</span> to zero.
+			</p>
+
+			
+
+			<img src="images/stackpush10.png" alt="The state of the stack after the push(10) operation" class="Image">
+			
+			<p class="Figure">
+				Part(a) – The state of the stack after the push(10) operation
+			</p>
+
+			
+
+			<img src="images/stackpush20.png" alt="The state of the stack after the push(20) operation" class="Image">
+			
+			<p class="Figure">
+				Part(b) – The state of the stack after the push(20) operation
+			</p>
+
+			
+
+			<img src="images/stackpush30.png" alt="The state of the stack after the push(30) operation" class="Image">
+			
+			<p class="Figure">
+				Part(c) – The state of the stack after the push(30) operation
+			</p>
+
+			
+
+			<p class="Figure">
+				<span class="figNum stackpushes"></span> &nbsp; The behavior of the <span class="Subfigure">push</span> operations
+			</p>
+
+			<br /><br />
+
+			<img src="images/stackfirstpop.png" alt="The state of the stack after the first pop operation" class="Image">
+			
+			<p class="Figure">
+				Part(a) – The state of the stack after the first pop operation
+			</p>
+
+			<img src="images/stacksecondpop.png" alt="The state of the stack after the second pop operation" class="Image">
+			
+			<p class="Figure">
+				Part(b) – The state of the stack after the second pop operation
+			</p>
+
+			<img src="images/stackthirdpop.png" alt="The state of the stack after the third pop operation" class="Image">
+			
+			<p class="Figure">
+				Part(c) – The state of the stack after the third pop operation
+			</p>
+
+
+			<p class="Figure">
+				<span class="figNum stackpops"></span> &nbsp; The behavior of the <span class="Subfigure">pop</span> operations
+			</p>
+
+			
+
+			<p>
+				If <span class="Subfigure">TOP</span> is greater than or equal to zero, then the stack is not empty. If this is the case, <span class="Subfigure">pop</span> will take three actions. First, <span class="Subfigure">pop</span> will assign to <span class="Subfigure">item</span> the value of the element currently at the top of the stack, <span class="Subfigure">STACK[TOP]</span>.  Second, the <span class="Subfigure">TOP</span> variable is decremented by one in order to denote the “removal” of this element from the stack. Finally, the value of the <span class="Subfigure">item</span> is returned to the calling program – allowing <span class="Subfigure">pop</span> to report back to the caller the item that was popped off the stack. It is important to note that even through the <span class="Subfigure">stack</span> array itself is not modified by <span class="Subfigure">pop</span>, the stack is one item “shorter” due to the change in the value of <span class="Subfigure">TOP</span>.
+			</p>
+
+			
+
+			<p>
+				If <span class="Subfigure">TOP</span> is less than zero, the stack is empty and there is no value to return. However, since <span class="Subfigure">pop</span> must return a number (according to “Returns Numeric” in the first line of the declaration) it simply returns zero in this case.
+			</p>
+
+			
+
+			<p>
+				A feature of Watson JavaScript exploited by this program is that functions have the ability to access variables that are declared in the main program. Although TOP and STACK are defined in the main program, they are used by both the <span class="Subfigure">push</span> and <span class="Subfigure">pop</span> functions. It is important to remember that even though functions can “see” variables declared in the main program, the main program cannot “see” the variables declared by functions. Thus, statements in <span class="Subfigure">pop</span> can access the main program variable <span class="Subfigure">TOP</span>, but statements in the main program cannot access the variable <span class="Subfigure">item</span> which was declared in <span class="Subfigure">pop</span>.
+			</p>
+
+			
+
+			<p>
+				While this implementation of a stack provides an excellent “capstone” example of the capabilities of Watson JavaScript programs, it also exposes a number of the language’s limitations.
+			</p>
+
+			
+
+			<p>
+				One limitation imposed by using an array as the underlying data structure is that the maximum number of items that will be stored in the stack must be known when the program is written. This is necessary in order to specify the size of the array.  &nbsp;
+			</p>
+
+			
+
+			<p>
+				There are other, more subtle, “problems” with this implementation of a stack. Most of these problems are rooted in the fact that Watson JavaScript does not fully support object-oriented concepts.
+			</p>
+
+			
+
+			<p>
+				Probably the most serious of these problems is that the definition of the stack is spread across the program – it exists as an array, a separate variable to keep up with the top item, and two separate functions for pushing and popping items on and off the stack.
+			</p>
+
+			
+
+			<p>
+				In a true object-oriented language, all of the components that define the behavior of the stack could be “encapsulated” into an object. Doing so would have great benefits – such a preventing some part of the code from accidentally (or maliciously) changing the <span class="Subfigure">TOP</span> pointer thereby breaking the functionality of the stack.
+			</p>
+
+			
+
+			<p>
+				There are many other benefits to implementing programs in languages that support object-oriented features. Many of these benefits will be discussed in Chapter <span class="contentNum engineering false"></span>.
+			</p>
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum javascriptArrays"></span>
+			</p>
+
+			<ol id="exerciseList">
+				<li>
+					<p class="exercise solvable 14">
+						Write a function called <span class="Subfigure">sum</span> that returns the sum of the numbers stored in a 50-element numeric array.&nbsp;
+					</p>
+					
+					<div class="exerciseDiv 14"></div>
+				</li>
+
+				<li>
+					<p>
+						Modify the program of <span class="figNum watsonstack"></span> so that it can handle stacks up to size 500.&nbsp;
+					</p>
+				</li>
+
+				<li>
+					<p>
+						Modify the program of <span class="figNum watsonstack"></span> so that it implements a stack of strings, rather than a stack of numbers.&nbsp;
+					</p>
+				</li>
+			</ol>
+
+			<div class="push"></div>
+			<!-- End main content -->
+			</div> 
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "javascript";
+				var sectID = "javascriptArrays";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("javascriptArrays");		// get arrow paths
+					setupExerciseButtons(sectID);
+					if (!localFlag) runGA();
+				});	
+				
+			</script>
+			<script src="js/acorn.js"></script>
+			<script src="js/interpreter.js"></script>
+			<script src="js/WatsonDataStore.js"></script>
+			<script src="js/WatsonEditor.js"></script>
+			<script type="text/javascript" src="js/engine.js"></script>
+			<script src="js/JSFigures.js"></script>
+			<script src="js/WatsonDialogs.js"></script>
+			<script type="text/javascript" src="js/global.js"></script>
+			<link rel="stylesheet" type="text/css" href="css/editor.css">
+		<script>
+		var figure38 = new Figure(38, "watsonstack");
+		</script>
+	</body>
+</html>

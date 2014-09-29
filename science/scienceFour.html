@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	  <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+
+		<!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End Navbar -->
+    	
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum scienceFour"></span>
+			</p>
+	
+			<p>
+				Our study of computer science will be guided by four questions, which, taken together, give a good overview of computing.  These questions are:
+			</p>
+	
+			<ol>
+				<li>How are computers used?</li>
+	
+				<li>How does computer software work?</li>
+	
+				<li>How does computer hardware work?</li>
+	
+				<li>What are the limitations and potential of computing?</li>
+			</ol>
+	
+			<p>
+				Each of these questions is briefly addressed below, and more thoroughly explored throughout the remainder of the text.  These questions, and their answers, will take us through computing in what is called a “top-down, breadth-first” manner.  The phrase “breadth-first” applies to this text since it spans the breadth of computing, touching on each of the major areas that make up the field.  “Top-down” means that the presentation begins at the level of computer applications, such as spreadsheets and databases, and then works its way through a study of the algorithms and software used to implement and support those applications – starting with the highest, most abstract, levels of software and proceeding through more detailed, lower-level, software, until the actual computer hardware is reached.  A description of computer hardware in terms of the major components of a computer and how those components can be constructed from simple logic gates is then presented.  The final area addressed by the book focuses on discovering the practical limitations and ultimate potential of computers.
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<!--<footer class="footer">
+			<div class="verybottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<p class="Emphasized text-center">
+								<a href="#tippytop" id="returntop">Return to top</a>
+								<a href="#" onclick="nextArrowPage(pageObj)"><i class="pull-right fa fa-chevron-right"></i></a>
+								<a href="#" onclick="prevArrowPage(pageObj)"><i class="fa fa-chevron-left"></i></a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>-->
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "science";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("scienceFour");		// get arrow paths
+					if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

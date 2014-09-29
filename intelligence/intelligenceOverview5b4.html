@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/colmn_test.css" rel="stylesheet">	    
+		<!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+
+			<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div  class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+
+			<p class="Section">
+				<span class="contentNum intelligenceOverview5b4"></span>
+			</p>
+
+			<p>
+				Another problem that AI researchers have struggled with for many decades is the concept of constructing autonomous vehicles. An <span class="Bolded">autonomous vehicle</span> is one that is capable of directing its own movements while avoiding obstacles and obeying the rules, both implicit and explicit, that govern such vehicles. Progress in this field can be seen over the past 40 years by looking at three separate projects: the Stanford Cart from the 1970’s, the CMU self-driving van from the early 1990’s, and today’s Google self-driving car.
+			</p>
+
+			<p>
+				One of the first autonomous vehicles to be constructed was the Stanford Cart, a product of SAIL (the Stanford Artificial Intelligence Laboratory). The <span class="Bolded">Stanford Cart</span> was a golf cart sized battery powered autonomous vehicle with an onboard camera and wireless connection to a large computer. The cart was designed to record video images and send those images to the computer for processing. The computer would analyze the images, determine how the cart should move, and transmit movement commands back to the vehicle. The cart would then execute the commands in order to move a few feet forward and the process would repeat itself. By the late 1970’s Hans Moravec, who was a graduate student at Stanford at the time, managed to bring the cart to a level where it was able to successfully navigate a large, 100 foot, room while avoiding chairs and other obstacles. Crossing the room required five hours.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/standfordcart.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum standfordcart"></span> A video of the Stanford Cart moving across a room. These scenes are taken from the 1992 PBS series “The Machine That Changed The World”, episode four “The Thinking Machine”.
+			</p>
+
+			<p>
+				By the early 1990’s, nearly 20 years after Moravec began his work on the Stanford Cart, autonomous vehicle technology had progressed to the point where Carnegie Mellon University had developed a large van that could slowly drive itself down a road. The vehicle used a neural network approach, called ALVINN (Autonomous Land vehicle in a Neural Network), that was trained by monitoring a human driver. Essentially, the vehicle’s cameras could detect the center line and edge of the road and the neural net kept the van between the lines. Changing lighting and weather conditions required the network to be retrained.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/autonomousvan.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum autonomousvan"></span> A demonstration from the early 1990’s of the CMU autonomous driving vehicle. These scenes are taken from the 1992 PBS series “The Machine That Changed The World”, episode four “The Thinking Machine”.
+			</p>
+
+			<p>
+				Today, 20 years or so past the CMU self-driving van, when people think of autonomous vehicles the Google self-driving car is generally what comes to mind. The Google self-driving car was originally developed as a research project at SAIL (the Stanford Artificial Intelligence Laboratory) – the same organization that gave rise to the Stanford Cart 40 years earlier. Sebastian Thrun led this project.
+			</p>
+
+			<p>
+				The Google self-driving car utilizes a number of advanced sensors including 	a laser range finder mounted to the top of the car that incorporates 64 laser beams and spins to produce a 360 degree 3D map of the car’s surroundings. Other sensors include: four radars mounted in the bumpers – two on the front bumper, two on the rear bumper – that are used for detecting other vehicles so the car can safely merge into traffic; a camera mounted near the rear view mirror for detecting traffic lights; GPS for location tracking; and an inertial measurement unit and wheel encoder to determine speed and distance traveled. The car uses these sensors together with high resolution maps to safely navigate while obeying traffic laws and avoiding obstacles.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/selfdrivencar.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum selfdrivencar"></span> A research presentation given by Sebastian Thrun and Chris Urmson at the 2011 IEEE International Conference on Intelligent Robots and Systems. While this is not a ‘slick’ video, it does present a very good overview of how the Google self-driving car actually works.
+			</p> 
+
+			<p>
+				In August 2012 Google blogged that it had about a dozen self-driving cars in service at any one time and that it had completed over 300,000 miles of testing without “a single accident under computer control”.<span class="Footnote" title="Footnote: This blog entry is available at: http://googleblog.blogspot.com/2012/08/the-self-driving-car-logs-more-miles-on.html"><a href="#ftn7" id="body_ftn7">[7]</a></span> About a year earlier, in August of 2011 there was a widely reported “fender bender” involving a Google self-driving car, but Google claims that the car was being driven under human control at the time.<span class="Footnote" title="Footnote: http://www.businessinsider.com/googles-self-driving-cars-get-in-their-first-accident-2011-8"><a href="#ftn8" id="body_ftn8">[8]</a></span>
+			</p>
+
+			<p>
+				While the Google self-driving car is an amazing device there are a number of issues that must be resolved before self-driving cars become commonplace. First, there are still some outstanding technical hurdles that need to be overcome. Google’s self-driving car cannot reliably handle driving through snow – as it temporarily changes the landscape. Similarly, road construction and other situations in which the car’s built-in maps are rendered inaccurate are problematic. The car also can not presently handle situations in which a cop or other human is directing traffic.
+			</p>
+
+			<p>
+				In addition to the technical issues, there is the question of cost. Google estimates that each self-driving car contains approximately $150,000 worth of extra equipment. With mass production the cost of the sensors will decrease dramatically, but even an order of magnitude decrease (factor of 10) would still result in a self-driving option costing $15,000 – pricing such a system out of the reach of most individuals.
+			</p>
+
+			<p>
+				Finally, there are the questions of the liability and licensing that must be addressed. Who will be judged at fault when a self-driving car is involved in an accident? What happens when someone is seriously hurt or killed? For many years this author felt that the liability issues would prevent self-driving cars from ever becoming a widespread reality. My thinking on this matter has evolved recently. I now believe that there will be significant pressure from the insurance industry and public safety groups which will provide an effective counterbalance to the inevitable liability litigation that will occur.
+			</p>
+
+			<p>
+				Once these remaining obstacles are overcome, the public good that is likely to flow from self-driving vehicles, in reduced highway fatalities and other social benefits, will be immense.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/selfcarpros.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum selfcarpros"></span> A video from Google illustrating one potential benefit of self driving vehicles
+			</p>
+			<!-- End main content -->
+			<hr />
+			
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a href="#body_ftn7" id="ftn7">[7]</a>&nbsp; This blog entry is available at: <a href="http://googleblog.blogspot.com/2012/08/the-self-driving-car-logs-more-miles-on.html">http://googleblog.blogspot.com/2012/08/the-self-driving-car-logs-more-miles-on.html</a>
+			</p>
+			<p class="Footnote">
+				<a href="#body_ftn8" id="ftn8">[8]</a>&nbsp; <a href="http://www.businessinsider.com/googles-self-driving-cars-get-in-their-first-accident-2011-8">http://www.businessinsider.com/googles-self-driving-cars-get-in-their-first-accident-2011-8</a>
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "intelligence";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("intelligenceOverview5b4");		// get arrow paths
+					if (!localFlag) runGA();
+				});	
+				
+			</script>
+	</body>
+</html>
+

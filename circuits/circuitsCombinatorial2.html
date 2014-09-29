@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+
+	    <!-- CSS files -->
+		<link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui-1.10.4.custom.css">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		
+	    <!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.js"></script>
+		<script type="text/javascript" src="js/kinetic.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<link href = "../lib/css/Dialogs.css" rel = "stylesheet">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+			<!-- End nav -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum circuitsCombinatorial2"></span>
+			</p>
+
+
+			<p>
+				The purpose of a comparator is to examine two input values to determine whether a particular condition is satisfied. If the inputs satisfy the condition, the comparator generates a “1” (true). If the inputs do not satisfy the condition, the comparator generates a “0” (false).
+			</p>
+
+			<p>
+				The most common type of comparator is the “comparator for equality”. This type of comparator determines whether two input values are identical. If the values are the same, the comparator generates a “1” (true). If the input values are different, the comparator generates a “0” (false).
+			</p>
+
+			<p>
+				Comparators come in different sizes, based on the width of their inputs. The simplest comparator is the one-bit comparator for equality. This circuit takes in two single-bit numbers and generates a “1” if they are equal and a “0” otherwise. Here is the truth table for the one-bit comparator for equality. The inputs are labeled “A” and “B”. The output is labeled “Z”.
+			</p>
+
+			<img src="images/fig12-ztable.png" alt="Z Table" class="ImageTall">
+
+			<p>
+				<span>In order to implement a circuit with this behavior, we first note the lines of the truth table that generate a “1”. These are lines one and four. Let’s look first at line four. This line of the table says that Z should be “1” when both A and B are “1”. Implementing a circuit that will generate “1” under this circumstance, and no other, is trivial since the two-input</span> <span class="Ital">and</span> <span>gate already does exactly what we want. </span>
+			</p>
+
+			<p>
+				<span>Producing a “sub-circuit” for line one of the table isn’t really that difficult either. In order to have a sub-circuit that generates “1” when both inputs are “0”, simply invert, or not, each of the inputs and send the results into an</span> <span class="Ital">and</span> <span>gate, like so:</span>
+			</p>
+			
+			<div id="topDiv-e" class="Centered"></div>
+			<div id="container-e" class="Centered"></div>
+			
+			<p>
+				This sub-circuit will produce a “1” only when both of its inputs are “0”.
+			</p>
+
+			
+			<div id="topDiv-12" class="Centered"></div>
+			<div id="container-12" class="Centered"></div>
+			<p class="Figure">
+				<span class="figNum onebitequality"></span> An implementation of the one-bit comparator for equality
+			</p>
+
+			<p>
+				<span>Combining the two sub-circuits via an</span> <span class="Ital">or</span> <span>gate gives a complete implementation of the one-bit comparator for equality. The circuit is illustrated in <span class="figNum onebitequality"></span></span>
+			</p>
+
+			<p>
+				The design for the one-bit comparator for equality can be extended to multi-bit numbers. The two-bit comparator for equality has the following truth table:
+			</p>
+
+			<img src="images/fig12-twobitcomp.png" alt="" class="ImageTall">
+
+			<p>
+				<span>This table consists of 16 rows, since it has four input bits. (Remember, the number of rows of a truth table is always 2</span><span class="Superscript">n</span> <span>where</span> <span class="Ital">n</span> <span>is the number of input bits.) &nbsp;In the table, A</span><span class="Subscript">0</span> <span>represents the low-order bit of input A and A</span><span class="Subscript">1</span> <span>represents the high-order bit of A. Likewise, B</span><span class="Subscript">0</span> <span>is the low-order bit of B and B</span><span class="Subscript">1</span> <span>is the high-order bit. Hence, the first row of the table represents inputs of A = 00</span><span class="Subscript">two</span> <span>and B = 00</span><span class="Subscript">two</span> <span>, which are equal, so the output, Z, is “1” (true). Likewise, the second row of the table represents A = 00</span><span class="Subscript">two</span> <span>and B = 01</span><span class="Subscript">two</span> <span>, which are not equal, so the output, Z, is “0” (false).</span>
+			</p>
+
+			<p>
+				To get a clearer idea of what this circuit does, let’s examine only those rows of the table in which the output is “1” (true). There are four cases in which the two-bit comparator for equality generates a “1”. They are:
+			</p>
+
+			<img src="images/fig12-cases.png" alt="" class="ImageTall">
+			
+			<p>
+				<span>The first row corresponds to the case where both A and B are zero (00</span><span class="Subscript">two</span> <span>). The second row captures the case where both inputs are one (01</span><span class="Subscript">two</span> <span>), the third where the inputs are two (10</span><span class="Subscript">two</span> <span>), and the fourth where they are three (11</span><span class="Subscript">two</span> <span>).</span>
+			</p>
+
+			<p>
+				How can we build a circuit with this behavior?
+			</p>
+
+			<p>
+				<span>In the previous examples we built sub-circuits to handle each case in which the main circuit was to produce “1”. We then connected the sub-circuits together using an</span> <span class="Ital">or</span> <span>gate. Because the present circuit is a multi-bit version of a circuit we have already constructed, we’ll take a different approach to the circuit design problem.</span>
+			</p>
+
+			<p>
+				When attempting to construct a multi-bit version of a single-bit circuit, it is best to approach the problem by looking for ways in which single-bit versions of the circuit can be interconnected to form the multi-bit circuit.
+			</p>
+
+			<p>
+				<span>A careful inspection of the above table will show that a “1” should be generated whenever the low-order bits of both inputs (A</span><span class="Subscript">0</span> <span>and B</span><span class="Subscript">0</span> <span>) are equal</span> <span class="Ital">and</span> <span>the high-order bits of the inputs (A</span><span class="Subscript">1</span> <span>and B</span><span class="Subscript">1</span> <span>) are equal as well. Hence, routing inputs A</span><span class="Subscript">0</span> <span>and B</span><span class="Subscript">0</span> <span>into a one-bit comparator for equality; and inputs A</span><span class="Subscript">1</span> <span>and B</span><span class="Subscript">1</span> <span>into a separate one-bit comparator for</span> <span>equality, then sending both of these results into an</span> <span class="Ital">and</span> <span>gate, will produce a circuit with the desired behavior. This circuit is outlined below:</span>
+			</p>
+
+			<img src="images/fig12-onebitcomp.png" alt="" class="Image">
+
+			<p>
+				The circuit is based on the idea that two-bit numbers are equal if both their low-order and high-order bits are identical. An actual implementation of the circuit would require that the boxes marked “one-bit comparator” be replaced with comparator circuitry along the lines of that shown in <span class="figNum onebitequality"></span>. You are asked to do precisely this in one of the exercises at the end of this section.
+			</p>
+
+			<p>
+				In addition to comparators for equality, comparators for other conditions, such as “less than” and “greater than”, can be constructed. While most of the details are left as exercises, I’ll get you started by giving you this truth table for the one-bit comparator for “less than” (i.e., “A &lt; B”).
+			</p>
+
+			<img src="images/fig12-onebitcomptable.png" alt="" class="ImageTall">
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum circuitsCombinatorial2"></span>
+			</p>
+
+			<ol id="exerciseList">
+				<li>
+					<p class="exercise solvable 9">
+						Construct a two-bit comparator for equality using the outline of the circuit provided in this section.&nbsp;
+					</p>
+					
+					<div class="exerciseDiv 9"></div>
+				</li>
+
+				<li>
+					<p class="exercise solvable 10">
+						Construct a one-bit comparator for less than. Also, provide a truth table and Boolean equation for the circuit.&nbsp;
+					</p>
+					
+					<div class="exerciseDiv 10"></div>
+				</li>
+
+				<li>
+					<div class="exercise solvable 11">
+						Construct a two-bit comparator for less than. Also, provide a truth table and Boolean equation for the circuit. &nbsp;HINT: For two-bit numbers A and B, A is less than B when&nbsp;
+						
+					<p>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (1) the high-order bit of A is less than the high-order bit of B
+					</p>
+
+					<p>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; or &nbsp; &nbsp;
+					</p>
+
+					<p>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (2.1) the high-order bits of A and B are identical
+					</p>
+
+					<p>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; and &nbsp;
+					</p>
+
+					<p>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (2.2) the low-order bit of A is less than the low-order bit of B
+					</p>
+
+					<p>
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					</p>
+					
+					</div>
+					
+					<div class="exerciseDiv 11"></div>
+
+				</li>
+
+				<li>
+					<p class="exercise solvable 12">
+						Construct a one-bit comparator for greater than. Also, provide a truth table and Boolean equation for the circuit.&nbsp;
+					</p>
+					
+					<div class="exerciseDiv 12"></div>
+				</li>
+
+				<li>
+					<p class="exercise solvable 13">
+						Construct a two-bit comparator for greater than. Also, provide a truth table and Boolean equation for the circuit.&nbsp;
+					</p>
+					
+					<div class="exerciseDiv 13"></div>
+				</li>
+			</ol>
+			<!-- Sandbox -->
+			<p class="Section" id="Scratch"></p>
+			<div id="sandbox1"></div>
+			<div id="truthTableDiv1" class="ui-widget-content" style="position: relative; visibility: hidden"></div>
+			
+			<!-- End main content -->
+
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+		
+		<!-- Figure js -->
+		<script src="js/visibility.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		<script src="../lib/js/WatsonDataStore.js"></script>
+		<script src="../lib/js/WatsonDialogs.js"></script>
+		<script src="js/Serializer.js"></script>
+		<script src="js/Controller.js"></script>
+		<script src="js/AndGate.js"></script>
+		<script src="js/AndGate3.js"></script>
+		<script src="js/AndGate4.js"></script>
+		<script src="js/NandGate.js"></script>
+		
+		<script src="js/OrGate.js"></script>
+		<script src="js/OrGate3.js"></script>
+		<script src="js/OrGate4.js"></script>
+		<script src="js/NorGate.js"></script>
+		
+		<script src="js/NotGate.js"></script>
+		<script src="js/Connector.js"></script>
+		<script src="js/InputNode.js"></script>
+		<script src="js/OutputNode.js"></script>
+		<script src="js/PopupMenu.js"></script>
+		<script src="js/Figures.js"></script>
+		<script src="js/TruthTable.js"></script>
+		<script src="js/Setup.js"></script>
+		<script src="js/DigitalLogicFigure.js"></script>
+		
+		<script>
+			var pageObj;											// do NOT change name of variable
+			var chapID = "circuits";
+			var sectID = "circuitsCombinatorial2";
+
+			$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage(sectID);				// get arrow paths
+				
+				var figuree = new DigitalLogicFigure("container-e", "e", false, false, "onebitcomparatorsubcircuit");
+				var figure12 = new DigitalLogicFigure("container-12", "12", false, false, "onebitequality");
+
+				setupExerciseButtons(sectID);
+				
+				if (!localFlag) runGA();
+			});	
+			
+		</script>
+	</body>
+</html>

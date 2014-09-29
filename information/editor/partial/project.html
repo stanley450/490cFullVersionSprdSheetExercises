@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<span id='project'>
+  PROJECT
+  <span class='dropdown' ng-repeat='attr in action.attributes'>
+    <a class='dropdown-toggle' ng-bind='attr + ", "'></a>
+    <button class='dropdown-menu btn btn-danger' ng-click='action.removeAttribute(attr)'>Remove</button>
+  </span>
+  <span class='dropdown'>
+    <a class='dropdown-toggle' ng-bind='action.dropdown'></a>
+    <ul class='dropdown-menu text-left'>
+      <li ng-repeat='attr in action.available'>
+      <a ng-click='action.addAttribute(attr)' ng-bind='attr'></a>
+      </li>
+    </ul>
+  </span>
+  FROM <span class='dropdown'>
+    <a class='dropdown-toggle' ng-bind='action.relation.name'></a>
+    <ul class='dropdown-menu text-left'>
+      <li ng-repeat='rel in relations'>
+      <a ng-click='action.setRelation(rel)' ng-bind='rel.name'></a>
+      </li>
+    </ul>
+  </span>
+  ;
+</span>
+</html>

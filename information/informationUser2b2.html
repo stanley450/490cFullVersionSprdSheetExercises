@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='DatabaseApp'>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <link href = "figure/css/database.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationUser2b2"></span>
+      </p>
+
+      <p>
+        The</span> <span class="Bolded">select</span> operator is used to retrieve particular rows, or tuples, from a relation that satisfy some test. For example, let’s say you wanted the complete records for every student majoring in computer science. This could be accomplished with the following query:
+      </p>
+
+      <p class="Subfigure">
+        Select from Students where Major = “CS”
+      </p>
+
+      <p>
+        The relation resulting from this query is presented in <span class="figNum selectcsmajors"></span>. Notice that this new relation contains the same attributes as its parent relation, “Students”. However, only the tuples that satisfied the condition Major = “CS” are reproduced.
+      </p>
+
+      <p>
+        In this text, select queries will be specified using the following general format:
+      </p>
+
+      <p class="Subfigure">
+        Select from</span> <span class="Italicized">relation</span> where</span> <span class="Italicized">attribute</span><span class="Italicized">operator</span><span class="Italicized">value
+      </p>
+
+      <p>
+        The fields “relation” and “attribute” stand for the names of actual relations and attributes. The field “value” will be replaced by either a number or string of characters; depending on the type of data stored in the named attribute.
+      </p>
+
+      <p>
+        The “operator” field will be replaced by a comparison operator, such as:
+      </p>
+
+      <ul class="Blockcenter">
+        &lt; less than &nbsp; &nbsp; &nbsp; &nbsp; &le;  less than or equal to
+        <br />
+        &gt; greater than &nbsp;&nbsp; &ge;  greater than or equal to
+        <br />
+        = equal to
+      </ul>
+
+      <p>
+        The last three fields of the select command (attribute operator value) form a condition test. This test will be either unambiguously true or false for each tuple of the relation being queried. Those tuples for which the condition is true are copied to the resulting answer relation. Tuples for which the condition is false are not copied.
+      </p>
+
+      <!-- <img src="images/selectcsmajors.png" alt="Results of Select from Students where Major = “CS”" class="Image"> -->
+      <div id='select1'></div>
+
+      <p class="Figure">
+        <span class="figNum selectcsmajors"></span> Results of Select from Students where Major = “CS”
+      </p>
+
+      <p>
+        When comparing a number (numeric value) to an attribute like “age” that also contains numbers, the comparison operators work in the expected way. For example,</span> 15 &lt; 17</span> is true, while</span> 28 &gt; 28</span> is false. Comparisons involving character strings are made relative to lexicographic, or dictionary, order. Hence, “A” comes before “B”, which comes before “C”, etc. Under this scheme, “&lt;” is interpreted to mean “precedes” and “&gt;” means “follows”, while “=” means “the same as”. So,</span> “A” &lt; “B”</span> is true, as would be  </span>“A” &lt; “Apple”</span>. The expression</span> “B” &gt; “C”</span> would be false.
+      </p>
+
+      <p>
+        While this approach for handling character strings certainly makes sense, it sometimes takes a bit of getting used to. For example, given a relation that contains grade information represented as “A”, “B”, “C”, etc., the condition to select all grades higher than “C” would be
+      </p>
+
+      <p class="Subfigure">
+        Grades &lt; “C”
+      </p>
+
+      <p>
+        <span class="Bolded">not</span> Grades &gt; “C” </span>due to the fact that comparisons are done using lexicographic order where “A” and “B” precede “C”.
+      </p>
+
+      <p>
+        One final point about “select”, which really applies to all relational operators. Since “select” produces a relation, it is often useful to give this relation a name so that it can be referred to elsewhere. The format used in this book for doing so is:
+      </p>
+
+      <p class="Subfigure">
+        Relation &#8592; relational_query
+      </p>
+
+      <p>
+        For example, the relational expression:
+      </p>
+
+      <p class="Subfigure">
+        Louisiana_Students &#8592; Select from Students where State = “LA”
+      </p>
+
+      <p>
+        creates a table named “Louisiana_Students” of all students who reside in Louisiana. The Louisiana_Students relation could be used in other queries, such as the following, which generates a table of male students who live in Louisiana:
+      </p>
+
+      <p class="Subfigure">
+        Male_Louisiana_Students &#8592; Select from Louisiana_Students where Sex = “M”
+      </p>
+
+      <p>
+        In summary, the “select” operator creates a new relation that consists of selected rows, or tuples, of an existing relation. The rows are selected based on the outcome of a condition test. Remember to use the “select” operator when you are interested in retrieving “complete records” about a subset of the entries stored in a relation.
+      </p>
+
+      <p class="Exercise">
+        Exercises for <span class="contentNum informationUser2b2"></span>
+      </p>
+
+      <p>
+        Using the relations presented in <span class="figNum facultyrelation"></span> and <span class="figNum studentrelation"></span>, develop</span> <span class="Ital">relational queries</span> to solve each of the following problems.
+      </p>
+
+      <ol>
+        <li>
+          <p>
+            Generate a relation, based on the Students relation of <span class="figNum studentrelation"></span>, that contains entries for all students under age 21.
+          </p>
+          <div id='select_exercise1'></div>
+        </li>
+
+        <li>
+          <p>
+            Generate a relation, based on the Faculty relation of <span class="figNum facultyrelation"></span>, that contains entries for all faculty members in the Math department.
+          </p>
+          <div id='select_exercise2'></div>
+        </li>
+
+        <li>
+          <p>
+            Generate a relation, based on the Students relation of <span class="figNum studentrelation"></span>, that contains entries for all female CS students.
+          </p>
+          <div id='select_exercise3'></div>
+        </li>
+
+        <li>
+          <p>
+            Generate a relation, based on the Students relation of <span class="figNum studentrelation"></span>, that contains entries for all male CS math majors who are between the ages of 19 and 23, inclusive.
+          </p>
+          <div id='select_exercise4'></div>
+        </li>
+      </ol>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+    <script>
+      var pageObj;
+      // do NOT change name of variable
+      var chapID = "information";
+      // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+        populateNav();
+        // populate nav content
+        populateSpans();
+        // populate figure/content spans
+        pageObj = getArrowPathsByPage("informationUser2b2");
+        // get arrow paths
+        if (!localFlag) runGA();
+      });
+
+    </script>
+  <script type='text/javascript' data-main='figure/js/2b2_config.built' src='lib/js/require.js'></script>
+  </body>
+</html>

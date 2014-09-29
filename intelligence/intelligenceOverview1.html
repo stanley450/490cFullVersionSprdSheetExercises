@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		  	<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/colmn_test.css" rel="stylesheet">	    
+		<!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div  class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+
+			<p class="Section">
+				<span class="contentNum intelligenceOverview1"></span>
+			</p>
+
+			<p>
+				Many people consider HAL, the fictional computer in Stanley Kubrick and Arthur C. Clarke’s 1968 movie “2001: A Space Odyssey,” to be the best depiction of an intelligent machine ever produced. The movie was groundbreaking at the time and much of what it has to say about machine intelligence is still relevant nearly half a century later.
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">HAL:&nbsp;&nbsp;Good evening, Dave.</span></li>
+
+				<li><span class="Subfigure">DAVE: How ya’ doin’ Hal?</span></li>
+
+				<li><span class="Subfigure">HAL:&nbsp;&nbsp;Everything’s running smoothly. And you?</span></li>
+
+				<li><span class="Subfigure">DAVE: Oh, not too bad.</span></li>
+
+				<li><span class="Subfigure">HAL:&nbsp;&nbsp;Have you been doing some more work?</span></li>
+
+				<li><span class="Subfigure">DAVE: A few sketches.</span></li>
+
+				<li><span class="Subfigure">HAL:&nbsp;&nbsp;May I see them?</span></li>
+
+				<li><span class="Subfigure">DAVE: Sure.</span></li>
+
+				<li><span class="Subfigure">HAL:&nbsp;&nbsp;That’s a very nice rendering, Dave. I think you’ve improved a great deal.</span></li>
+
+				<li><span class="Subfigure">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Can you hold it a bit closer?</span></li>
+
+				<li><span class="Subfigure">DAVE: Sure.</span></li>
+
+				<li><span class="Subfigure">HAL:&nbsp;&nbsp;That’s Doctor Hunter isn’t it?</span></li>
+
+				<li><span class="Subfigure">DAVE: uh hum.</span></li>
+
+				<li><span class="Subfigure">HAL:&nbsp;&nbsp;By the way, do you mind if I ask you a personal question?</span></li>
+
+				<li><span class="Subfigure">DAVE: No, not at all.</span></li>
+
+				
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/davehal.mp4" type="video/mp4">
+			</video>
+			</div>
+
+			<p class="Figure">
+				<span class="figNum davehal"></span> A clip of Dave interacting with HAL.
+			</p>
+
+			<p>
+				Those of you who have seen the movie will know that HAL is the computer that serves as the “brain and central nervous system” of the Discovery spaceship. HAL is capable of many feats that surpass even the most advanced computers today. For example, the astronauts aboard Discovery interact with HAL by simply talking to “him” – he is fully capable of understanding and speaking English.
+			</p>
+
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/halinterview.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum halinterview"></span> An interview with HAL from BBC.
+			</p>
+
+			<p>
+				Computer scientists call this ability to understand human languages, both written and spoken, <span class="Bolded">natural language understanding</span>. The ability to use language effectively is considered by computer scientists to be one of the most important characteristics of an intelligent entity. Constructing a machine with this ability has proven to be a tremendously difficult challenge.
+			</p>
+
+			<p>
+				Let’s consider for a moment what it takes to understand spoken language. The first problem is just trying to identify the individual words in an utterance. When we humans speak, we tend to run all of our words together into one continuous stream. We don’t usually think about this since we “hear” the individual words – that is until we try to learn a foreign language.
+			</p>
+
+			<p>
+				Compounding the word identification problem is the fact that no two people will pronounce the same word exactly the same way. Even if we limit ourselves to constructing a system to recognize the voice of a single speaker, the sound that represents a word will still change depending on all sorts of factors, such as: what other words surround it, the emphasis the speaker wishes to place on it, and even whether the speaker is ill or has been drinking. There is also the problem of separating out background noise – deciding what portions of an incoming audio stream represent voice and which represent other sounds.
+			</p>
+
+			<p>
+				Once the individual words have been recognized, the thorny issue of what they actually mean must be addressed. This problem is constrained somewhat by the structure, or <span class="Bolded">syntax</span>, of the language being spoken (e.g., <span class="Ital">verb verb</span> is not a valid sentence form in English). Nonetheless, the problem remains extraordinarily challenging, primarily because a great deal of <span class="Ital">common sense knowledge</span> is frequently required to understand the meaning of even the simplest of utterances. Think about the knowledge HAL needs of informal English usage and human relations, specifically greetings and appropriate ways to respond, in order to make sense of Dave’s “How ya’ doin’ Hal?”
+			</p>
+
+			<p>
+				In addition to being able to communicate fluently in English, HAL could also see what the crew was up to through cameras that were located throughout the ship. HAL could recognize individual crewmembers by their appearance. For example, in the dialog of <span class="figNum davehal"></span>, when Dave walks by one of HAL’s consoles, HAL recognizes him and says “Good evening, Dave.” Also, when Dave shows HAL his sketchpad, HAL is able to recognize the line drawings as artwork and interpret the images as representations of the people Dave had drawn.
+			</p>
+
+			<p>
+				<span class="Bolded">Computer vision</span> is the subdiscipline of artificial intelligence that seeks to construct machines that can see. This field consists of much more than simply connecting digital cameras to computers; it concerns trying to develop ways of automating the process of image understanding. To illustrate, most smart phones include built-in cameras which we use to take photos, record movies, and engage in Skype or FaceTime video chats. While these cameras are very useful, they don’t, in general, give our smart phones the ability to “see” in the sense that HAL could or that people can. While our phones are capable of recording and displaying visual information, and can transmit and receive images and video over the Internet, they have no understanding of the meaning of those images.<span class="Footnote" title="Footnote: This is not strictly true, as most smart phones have some limited built-in capacity for facial recognition in order to improve their ability to snap photos. On my iPhone 5 for example little boxes show up around people’s faces when in camera mode to let me know the phone knows where the people are."><a href="#ftn1" id="body_ftn1">[1]</a></span>
+			</p>
+
+			<p>
+				Throughout the movie, HAL displays other behaviors that are associated with intelligence. He is able to play games such as chess. He can recognize problems (such as potential threats to his mission), plan ways to solve those problems, implement those plans, and then learn from his mistakes. <span class="Ital">Problem solving</span>, <span class="Ital">planning</span>, and <span class="Ital">learning</span> are all areas of research in artificial intelligence. The idea of constructing computers with these attributes causes some people concern; due to the fact that computers are often used in life critical situations (such as monitoring patients in intensive care units) and that these three features (problem solving, planning, and learning) require computers to have some degree of independence from humans.
+			</p>
+
+			<p>
+				What if a computer were to misunderstand an instruction and seriously injure or kill someone as a result. For example, perhaps an artificially intelligent computer in a health care facility has among its goals: searching for ways to decrease patient suffering, to decrease the number of days a patient spends in ICU, and to limit their medical costs as much as possible consistent with its other goals. It would be important to make sure the system firmly understood that cutting off a terminal patient’s oxygen supply was not an acceptable course of action, even though doing so would accomplish all three of the stated goals.
+			</p>
+
+			<p>
+				There are a number of other characteristics that HAL displays which are harder to quantify yet of vital importance to humans. HAL appears to be self-aware and has a “life philosophy” which he sums up in a BBC interview as: “I am putting myself to the fullest possible use, which is all I think that any conscious entity can ever hope to do.” HAL also exhibits emotions, such as pride and fear.
+			</p>
+			<!-- End main content -->
+			<hr />
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<a href="#body_ftn1" id="ftn1">[1]</a>&nbsp; This is not strictly true, as most smart phones have some limited built-in capacity for facial recognition in order to improve their ability to snap photos. On my iPhone 5 for example little boxes show up around people’s faces when in camera mode to let me know the phone knows where the people are.
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "intelligence";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("intelligenceOverview1");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>
+

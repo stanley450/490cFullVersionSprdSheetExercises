@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationProgrammer1"></span>  
+      </p>
+
+      <p>
+        There are six basic commands used by programmers to manipulate data files: three to gain or release access to the file itself (</span>create</span>,</span> open</span>, and</span> close</span>), two to transfer data out of and into the file (</span>read</span> and</span> write</span>), and one to test whether all of the records have been processed (</span>end_of_file</span>). Given these commands, along with the other standard components of a programming language, it is possible to write computer programs to answer any particular question about the data stored in a file.
+      </p>
+
+      <p>
+        The</span> open</span> command is used to gain access to a file that currently exists. Every file maintained by the operating system is identified by a name and location. The location of a file is normally specified by providing a “path” to the directory that contains the file. For example, a file named “Students” located in the “UniversityData” directory on the machine’s “C” drive, could be referred to as:
+      </p>
+
+      <p class="Subfigure">
+        C:\UniversityData\Students
+      </p>
+
+      <p>
+        Since referring to a file by its full path and name can be somewhat cumbersome, an “internal” program name is usually associated with the “external” operating system path and name. The format of the</span> open</span> command is:
+      </p>
+
+      <p class="Subfigure">
+        Open (<span class="Italicized">program file name</span>, <span class="Italicized">operating system file name</span>, <span class="Italicized">access type</span>);
+        <br/>
+      </p>
+
+      <p>
+        For example,
+      </p>
+
+      <p class="Subfigure">
+        Open ( InFile, “C:\UniversityData\Students”, read_only );
+      </p>
+
+      <p>
+        is a valid command that will associate the name “InFile” with the aforementioned “Students” file located in the “UniversityData” directory of the “C” drive and then open this file for “read_only” access.
+      </p>
+
+      <p>
+        A file’s “access type” specifies the input / output operations that the program will be allowed to perform on the file. Two of the most common access types are “read_only” and “read_write”. Programs with “read _only” access to a file are permitted to read the contents of the file but are not allowed to modify the file in any way. Programs with “read_write” access to a file can read the records already stored in the file and also have permission to write new records to it. The</span> open</span> command given above, would allow a program to read the records stored in the “Students” file but not to modify the file in any way.
+      </p>
+
+      <p>
+        Attempting to open a file that does not exist results in a “run-time exception”, or error. For example, if the operating system could not find the “Students” file in the “UniversityData” directory on the “C” drive when attempting to execute the above command, then “InFile” could not be opened and an error condition would occur. The two most common reasons for this error are: (1) the programmer mistyped the path or name of the file, or (2) someone accidentally deleted or renamed the file.
+      </p>
+
+      <p>
+        The<span class="Subfigure"> create</span> command is very similar to the<span class="Subfigure"> open</span> command, except that it is used to construct a new file, rather than to gain access to an existing one. The<span class="Subfigure"> create</span> command has the format:
+        <br/>
+      </p>
+
+      <p class="Subfigure">
+        Create (<span class="Italicized">program file name</span>, <span class="Italicized">operating system file name</span>,</span> <span class="Italicized">access type</span>);
+        <br/>
+      </p>
+
+      <p>
+        The statement:
+      </p>
+
+      <p class="Subfigure">
+        Create ( OutFile, “C:\NamesOfAllCSMajors”, read_write );
+      </p>
+
+      <p>
+        instructs the operating system to create a new file, to be located on the “C” drive and named “NamesOfAllCSMajors”. This file will be called “OutFile” within the program, and its access permission is set to “read_write” to allow the program to add records to the file. While it is technically possible to create a file with an access type of read_only, such a move would make little sense, since it would be impossible for the program to place any records into that file.
+      </p>
+
+      <p>
+        Attempting to create a file that already exists results in a runtime exception for the program. This is a safety feature which helps prevent a program from accidentally wiping out an existing file by writing a new file over it.
+      </p>
+
+      <p>
+        The last of the three commands for gaining and releasing access to a file is the</span> close</span> command. This command is a “housekeeping” command that releases all of the</span> operating system resources, such as memory, that were used to access the file. The format of the</span> close</span> command is:
+      </p>
+
+      <p class="Subfigure">
+        Close (</span><span class="Italicized">program file name</span>);
+      </p>
+
+      <p>
+        The following command could be used to close the “Students” file, which was associated with the name “InFile” in the</span> open</span> command:
+      </p>
+
+      <p class="Subfigure">
+        Close (InFile);
+      </p>
+
+      <p>
+        Transfer of data between disk files and internal program variables is accomplished with the</span> read</span> and</span> write</span> commands. In the case of simple sequential files, the</span> read</span> command accesses records one after another in the order they appear in the file, until the end of the file is reached. Similarly for sequential files, the</span> write</span> command appends new records onto the end of a file. In a sequential file, records can</span> <span class="Bolded">only</span> be placed at the end of the file and never between existing records.
+      </p>
+
+      <p>
+        The formats of the<span class="Subfigure"> read</span> and<span class="Subfigure"> write</span> commands are:
+        <br/>
+      </p>
+
+      <p class="Subfigure">
+        Read (</span><span class="Italicized">program file name</span>,</span> <span class="Italicized">variable</span>);</span>
+        <br/>
+        </span>
+        Write (</span><span class="Italicized">program file name</span>,</span> <span class="Italicized">variable</span>);</span>
+        <br/>
+      </p>
+
+      <p>
+        The first argument is the program name for the file and the second argument is the variable which data is transferred to or from. For example, suppose we had an internal variable named StudentRecord that was patterned after the student records of <span class="figNum studentfields"></span>. A record from the “Students” file could be transferred to this variable by the following command, assuming that “Students” had been associated with the name “InFile”:
+      </p>
+
+      <p class="Subfigure">
+        Read (InFile, StudentRecord);
+      </p>
+
+      <p>
+        Similarly, a student name, stored in the program variable StudentRecord.Name, could be written to the output file, “OutFile”, with the following command.
+      </p>
+
+      <p class="Subfigure">
+        Write (OutFile, StudentRecord.Name);
+      </p>
+
+      <p>
+        The final file manipulation command we will look at is a command to test whether the end of file has been reached. The format of this command is:
+      </p>
+
+      <p class="Subfigure">
+        End_of_file (</span><span class="Italicized">program file name</span>);</span>
+        <br/>
+      </p>
+
+      <p>
+        This command either returns a value of TRUE (indicating the end of the file has been reached) or FALSE (indicating that the end of file has not yet been reached).
+      </p>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+    <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";        // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationProgrammer1");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  </body>
+</html>

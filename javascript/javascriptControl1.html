@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+		
+		<link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui.css">
+		<!-- Google fonts -->
+	    <!-- <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'> -->
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui.css">
+	    <link href="../lib/css/ch08.css" rel = "stylesheet">
+	    <link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel = "stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel = "stylesheet">
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.min.js"</script>
+		<script src="../lib/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum javascriptControl1"></span>
+			</p>
+			
+			<p>
+				The idea of sequence is illustrated graphically in <span class="figNum graphicalsequence"></span>. This figure shows the order in which the statements of the program of <span class="figNum inouttext"></span> would be executed.
+			</p>
+
+			<p>
+				Sequence is the most basic control construct. It is the “glue” that holds the individual statements of a program together. Yet, when students who are new to programming try to understand how a particular program works, they often just glance over the various statements making up the program to get a “feel” for what it does, rather than methodically tracing through the sequence of actions it performs. One reason such an approach is tempting is because students tend to believe they can figure out what a program is “supposed” to do based on contextual clues such as the meaning of variable names and character strings. After all, it doesn’t take a rocket scientist to figure out that the program of <span class="figNum watsonprogram"></span> prints “Hello world!”.
+			</p>
+			<!-- Manual fig 8.10
+			<p class="Bolded">
+				Program definition:&nbsp; &nbsp; &nbsp; &nbsp; Program variable trace:
+			</p>
+
+			<p class="Subfigure">
+				var x; // Numeric&nbsp;  &nbsp; &nbsp; &nbsp; x
+			</p>
+
+			<p class="Subfigure">
+				var y; // Numeric &nbsp;  &nbsp; &nbsp; x&nbsp; &nbsp; y
+			</p>
+
+			<p class="Subfigure">
+				var z; // Numeric&nbsp;  &nbsp; &nbsp; &nbsp; x &nbsp;  &nbsp; &nbsp; y&nbsp; &nbsp; z&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				x = 5;&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; x &nbsp;  5&nbsp; y&nbsp; &nbsp; z
+			</p>
+
+			<p class="Subfigure">
+				x = x + 1;&nbsp; &nbsp; &nbsp; &nbsp; x &nbsp;  6&nbsp; y&nbsp; &nbsp; z
+			</p>
+
+			<p class="Subfigure">
+				y = 3;&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; x &nbsp;  6&nbsp; y &nbsp;  3&nbsp; z
+			</p>
+
+			<p class="Subfigure">
+				z = x + y;&nbsp; &nbsp; &nbsp; &nbsp; x &nbsp;  6&nbsp; y &nbsp;  3&nbsp; z &nbsp;  9
+			</p>
+
+			<p class="Subfigure">
+				y = y – 2;&nbsp; &nbsp; &nbsp; &nbsp; x &nbsp;  6&nbsp; y &nbsp;  1&nbsp; z &nbsp;  9
+			</p>
+
+			<p class="Subfigure">
+				document.writeln(x+y+z);&nbsp; &nbsp; x &nbsp;  6&nbsp; y &nbsp;  1&nbsp; z &nbsp;  9
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;
+			</p>
+
+			<p class="Bolded">
+				Program output:
+			</p>
+
+			<p>
+				&nbsp; 16
+			</p>
+		-->
+		
+			<!-- <span class="figNum variabletrace"></span> interactive -->
+			<div id="JSFigure-10" class="divness"></div>
+			<!-- End <span class="figNum variabletrace"></span> interactive -->
+			
+			<p class="Figure">
+				<span class="figNum variabletrace"></span> &nbsp; A program and variable trace designed to illustrate the concept of sequence
+			</p>
+
+			<p>
+				While it is often possible to gain a superficial knowledge of a program simply by reading it, this approach will not give you the kind of detailed understanding that is frequently required to accurately predict a program’s output. Being able to carefully trace through a program to determine exactly what it does is an important skill. Failure to carefully follow the sequence of instructions often leads to confusion when trying to understand the behavior of a program.<span class="Footnote"><span class="Footnote" title="Footnote: And incorrect answers on exams, I might add."><a href="#ftn4" id="body_ftn4">[4]</a></span></span>
+			</p>
+
+			<p>
+				<span class="figNum variabletrace"></span> illustrates the importance of sequence. It contains a little “do nothing” program that prints the value 16 on the display screen. What makes this program interesting is not so much what its output is, as the way in which that output is computed. Without carefully tracing through the program, one statement at a time, it would be difficult to correctly predict the final output generated by the program.
+			</p>
+
+			<p>
+				The first three lines of the program define the numeric variables <span class="Subfigure">x</span>, <span class="Subfigure">y</span>, and <span class="Subfigure">z</span>. In <span class="figNum variabletrace"></span> the state of the program’s memory after executing each line of code is given beside that statement. After performing the first declaration, the program knows only about the number <span class="Subfigure">x</span>. After the second declaration, it knows of <span class="Subfigure">x</span> and <span class="Subfigure">y</span>, and after the third, <span class="Subfigure">x</span>, <span class="Subfigure">y</span>, and <span class="Subfigure">z</span>. Since these variables have not yet been assigned values, their values are considered to be undefined at this point.
+			</p>
+
+			<p>
+				The next instruction &nbsp;
+			</p>
+
+			<p class="Subfigure">
+				x = 5;
+			</p>
+
+			<p>
+				places the value 5 into the variable <span class="Subfigure">x</span>.
+			</p>
+
+			<p>
+				Notice at this point that the values of <span class="Subfigure">y</span> and <span class="Subfigure">z</span> are still undefined.  &nbsp; The next statement:
+			</p>
+
+			<p class="Subfigure">
+				x = x + 1;
+			</p>
+
+			<p>
+				will place a 6 into <span class="Subfigure">x</span>. It works in the following way. First, the expression
+			</p>
+
+			<p class="Subfigure">
+				x + 1
+			</p>
+
+			<p>
+				is evaluated. Since the value of <span class="Subfigure">x</span> is 5 at this point, the expression is equivalent to 5 + 1 which, of course, evaluates to 6. Now that the value of the right hand expression has been computed, that value can be assigned to the variable on the left hand side of the assignment operator, <span class="Subfigure">x</span>. Hence, the current value of <span class="Subfigure">x</span>, which was 5, is replaced by 6.
+			</p>
+
+			<p>
+				The next instruction:
+			</p>
+
+			<p class="Subfigure">
+				y = 3;
+			</p>
+
+			<p>
+				places a value of 3 into <span class="Subfigure">y</span>, leaving only <span class="Subfigure">z</span> without a value. This situation is rectified by the next statement:
+			</p>
+
+			<p class="Subfigure">
+				z = x + y;
+			</p>
+
+			<p>
+				which stores a 9 into <span class="Subfigure">z</span>. The expression
+			</p>
+
+			<p class="Subfigure">
+				x + y
+			</p>
+
+			<p>
+				generates this value due to the fact that when it is evaluated <span class="Subfigure">x</span> has a value of 6 and <span class="Subfigure">y</span> has a value of 3, giving 6 + 3 or 9.
+			</p>
+
+			<p>
+				The next instruction to be executed:
+			</p>
+
+			<p class="Subfigure">
+				y = y - 2;
+			</p>
+
+			<p>
+				has the effect of subtracting 2 from the current value of <span class="Subfigure">y</span>, which was 3, giving 1. Note that this statement has no effect on the values stored in <span class="Subfigure">x</span> or <span class="Subfigure">z</span>.
+			</p>
+
+			<p>
+				The final statement of the program:
+			</p>
+
+			<p class="Subfigure">
+				document.writeln(x+y+z);
+			</p>
+
+			<p>
+				will print the value 16 on the display screen. That value is computed in the following way:
+			</p>
+
+			<p class="Subfigure">
+				x + y + z
+			</p>
+
+			<p class="Subfigure">
+				6 + 1 + 9
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  7 &nbsp;  + 9
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;  &nbsp;  16
+			</p>
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum javascriptControl1"></span>
+			</p>
+
+			<p>
+				1. What would be printed by the following Watson JavaScript program?&nbsp;
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">
+					var fiveSix; // Numeric
+				</li>
+
+				<li><span class="Subfigure">
+					var pickUpSticks; // Numeric
+				</li>
+
+				<li><span class="Subfigure">
+					&nbsp;
+				</li>
+
+				<li><span class="Subfigure">
+					fiveSix = 56 - 37;
+				</li>
+
+				<li><span class="Subfigure">
+					pickUpSticks = " buckle my shoe.";
+				</li>
+
+				<li><span class="Subfigure">
+					document.write ( 100 - 99 );
+				</li>
+
+				<li><span class="Subfigure">
+					document.write ( " " );
+				</li>
+
+				<li><span class="Subfigure">
+					fiveSix = fiveSix - 17;
+				</li>
+
+				<li><span class="Subfigure">
+					document.write( fiveSix );
+				</li>
+
+				<li><span class="Subfigure">
+					document.write( " " );
+				</li>
+
+				<li><span class="Subfigure">
+					document.writeln( pickUpSticks );
+				</li>
+
+			</ul>
+			
+			<!-- Footnotes -->
+			<hr/>
+			<p class="Section">
+				Footnotes
+			</p>
+
+			<p class="Footnote">
+				<a href="#body_ftn4" id="ftn4">[4]</a>&nbsp; And incorrect answers on exams, I might add.
+			</p>
+
+			<div class="push"></div>
+			<!-- End main content -->
+			</div> 
+			
+			<div class="blueFooterBar"></div>
+			
+				
+			<script src="js/acorn.js"></script>
+			<script src="js/interpreter.js"></script>
+			<script src="js/WatsonDataStore.js"></script>
+			<script src="js/WatsonEditor.js"></script>
+			<script type="text/javascript" src="js/engine.js"></script>
+			<script src="js/JSFigures.js"></script>
+			<script src="js/WatsonDialogs.js"></script>
+			<link rel="stylesheet" type="text/css" href="css/editor.css">
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "javascript";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("javascriptControl1");		// get arrow paths
+					if (!localFlag) runGA();
+				});	
+				
+				console.log("script");
+				var figure10 = new Figure("10", "variabletrace");
+			</script>
+	</body>
+</html>

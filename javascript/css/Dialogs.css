@@ -1,0 +1,63 @@
+.NumpadInputBox {
+	width: 100%;
+	text-align: right;
+}
+
+.NumpadNumButton {
+	background-color: #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	height: 50px;
+	width: 50px;
+    border-radius:6px;
+	padding: 0;
+	margin: 0;
+    color: #fff;
+	background-color: #3399CC;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+
+.WatsonLibraryFuncButton {
+	background-color: #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	height: 30px;
+	width: 80px;
+	margin-left: 5px;
+    border-radius:6px;
+	text-align: center;
+    color: #fff;
+	background-color: #3399CC;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+
+.AlertFuncButton {
+	background-color: #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	height: 30px;
+	width: 100px;
+	margin-left: 5px;
+    border-radius:6px;
+	text-align: center;
+    color: #fff;
+	background-color: #3399CC;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+
+.WatsonSelector .ui-selecting { background: #33BBCC; }
+.WatsonSelector .ui-selected { background: #3399CC; color: white; }
+.WatsonSelector { list-style-type: none; margin: 0; padding: 0; width: 100%; cursor: pointer; }
+.WatsonSelector li { margin: 3px; padding: 0.0em; font-size: 1em; height: 18px; }

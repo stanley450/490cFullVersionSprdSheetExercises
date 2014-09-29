@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationProgrammer3"></span>
+      </p>
+
+      <p>
+        The discussion of data access at the hardware level described how disk I/O occurs in fixed size blocks, a sector at a time. The discussion of the file organization level explained the need to group the individual records of a file into blocks, in order to efficiently use disk space. The present discussion of data access at the programmer level has, so far, ignored blocks and sectors.
+      </p>
+
+      <p>
+        Why? The reason for this is that file blocks and disk sectors are essentially “invisible” at the programmer level.
+      </p>
+
+      <p>
+        Application programs access files on the record level. As illustrated above, they read and write data a record at a time. This “record at a time” access is possible because the operating system automatically blocks and unblocks records for the program using an area of memory called a</span> <span class="Bolded">buffer</span>.
+      </p>
+
+      <p>
+        When an application program first executes a</span> read</span> command, the operating system will send a message to the disk drive controller requesting the track and sector containing the first record be read. The contents of this data block will then be copied into a memory buffer. The operating system removes the first record from the buffer and passes it to the application program. When the program executes its next</span> read</span> command, the operating system will first check the buffer to see whether it contains the requested record. If so that record is removed from the buffer and passed on to the program. This process continues until the buffer becomes empty, at which point the operating system reads the next data block of the file from disk.
+      </p>
+
+      <p>
+        Writing records to a file works in much the same way. Records are initially “written” to a buffer. Once that buffer becomes full, the operating system creates a new buffer for the program and then writes out the contents of the old buffer to an appropriate track and sector of the disk.
+      </p>
+
+      <p>
+        The operating system hides all of the details about blocks, buffers, and tracks and sectors from the application program. This allows the application programmer to think of data strictly in terms of files, records, and fields.
+      </p>
+
+      <p>
+        Finally, a few words should be said about direct file access. When we studied the indexed method of file storage we noted that it could be used to retrieve individual records based on a key field. Operating systems that support this type of file organization technique generally allow “direct access” files to be accessed, modified, and created at the application program level. The<span class="Subfigure"> read</span> and<span class="Subfigure"> write</span> statements associated with direct</span> access files require a “key” be specified. When a<span class="Subfigure"> read</span> is executed, the record matching the specified key is returned to the program, assuming such a record exists in the file. Otherwise, an error message is sent to the program.
+      </p>
+
+      <p>
+        As with sequential files, the operating system handles all of the details of blocking and unblocking records. In the case of direct access files, however, the operating system must perform a number of additional tasks. For example, when a</span> read</span> is executed, the target file’s index table is searched to determine the address of the track and sector containing the block where the record should be located. That block is then retrieved and placed in a memory buffer. Next, the buffer is searched for the requested record. If the record is found, the operating system returns it to the program. If the record cannot be found, an error message is sent to the program, indicating the record is not in the file.
+      </p>
+
+      <p>
+        Again, all of these details are hidden from the application programmer. From the point of view of the application program, a record with a particular key is requested and the record either shows up or a message indicating that it could not be found is returned.
+      </p>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+
+    <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";        // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationProgrammer3");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  </body>
+</html>

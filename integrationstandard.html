@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<link rel='stylesheet' href='css/generalmedia.css'> <!-- Our overall style sheet(s) go here -->
+		<link rel='stylesheet' href='css/yourlab.css'> <!-- Any style choices that are specific to your lab should go here -->
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Navbar division -->
+
+			<!-- Main content -->
+			<!-- start filler text -->
+
+			<p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee. </p>
+			
+			<!-- Each figure is pulled identified in the chapter exclusively by an empty div with its ID -->
+			<!-- The 'functional' inclusion to follow at the bottom -->
+			<div id="container-original" class="Centered"></div>
+					
+			<p class="Figure">
+				Figure 100.1: The Original
+			</p>
+			
+			<p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man. </p>
+			
+			<p>The lysine contingency - it's intended to prevent the spread of the animals is case they ever got off the island. Dr. Wu inserted a gene that makes a single faulty enzyme in protein metabolism. The animals can't manufacture the amino acid lysine. Unless they're continually supplied with lysine by us, they'll slip into a coma and die. </p>
+			
+			<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
+			
+			
+			<!-- Each figure is pulled identified in the chapter exclusively by an empty div with its ID -->
+			<!-- Notice some the parts that are the same from the previous figure and the parts that change per-figure -->
+			<div id="container-sequel" class="Centered"></div> 
+			
+			<p class="Figure">
+				Figure 100.2: The sequel
+			</p>
+			
+			<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb. </p>
+			
+			<p>You see? It's curious. Ted did figure it out - time travel. And when we get back, we gonna tell everyone. How it's possible, how it's done, what the dangers are. But then why fifty years in the future when the spacecraft encounters a black hole does the computer call it an 'unknown entry event'? Why don't they know? If they don't know, that means we never told anyone. And if we never told anyone it means we never made it back. Hence we die down here. Just as a matter of deductive logic. </p>
+			
+			<!-- end filler text -->
+			
+			<!-- End main content -->
+			
+			<!-- Begin footer -->
+			<hr>
+			<p class="Emphasized">
+				<a href="#tippytop">Return to top</a>
+			</p>
+			<!-- End footer -->
+
+			</div> <!--End of wrapper div -->
+			
+			
+			<!-- All scripts below this, currently included here, but will need to move to require.js for cleanliness and less manual reworking for future changes -->
+			
+			<!-- Overall lab-specific JS files -->
+			<script src="js/YourLab/Controller.js"></script>
+			<script src="js/YourLab/YourReusableElement.js"></script>
+			<script src="js/YourLab/YourLabFigures.js"></script>
+			
+			<!-- Library-type JS files -->
+			<!-- Currently referenced online, but will eventually need to be stored locally for 'offline mode' -->
+				<!-- Unsure if we will need to find a way to 'fetch and store' the latest one in place -->
+				<!--  or if when we leave we should store a 'legacy' version, or the latest at the time of project completion -->
+			<script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.7.4.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+			
+			<!-- Individual figure-specific JS inclusions -->
+			<!-- How this works underneath would be a question for Neil, but I know that this is how it ends up being usable for integration -->
+			<script>
+			var figureoriginal = new YourLabFigure("container-original", "original"); //Inclusion for Figure 100.1: Original
+			var figuresequel = new YourLabFigure("container-sequel", "sequel"); //Inclusion for Figure 100.2: Sequel
+			</script>
+	</body> <!-- IN the <body></body> tags -->
+</html>

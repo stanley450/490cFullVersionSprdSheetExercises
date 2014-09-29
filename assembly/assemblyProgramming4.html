@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+		<link rel='stylesheet' href='../lib/css/bootstrap-3.css'>
+		<link rel='stylesheet' href='../lib/css/jquery-ui-custom.css'>
+		<link rel='stylesheet' href='../lib/css/editor.css'>
+		<link rel='stylesheet' href='../lib/css/Dialogs.css'>
+		<link rel="stylesheet" href="../lib/css/jquery-ui-1.10.4.custom.css">
+		<link rel='stylesheet' href='css/assembly.css'>	
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link rel='stylesheet' href='css/assembly.css'>	
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<script type="text/javascript" src="../lib/js/visibility.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/angular.js"></script>
+	    <script type="text/javascript" src="../lib/js/jQuery.js"></script>
+	    <script type="text/javascript" src="../lib/js/less.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-ui.js"></script>
+<!--
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+-->
+	    <script type="text/javascript" src="../lib/js/ui-bootstrap-0.10.0.js"></script>
+	    <script type="text/javascript" src="../lib/js/tabs.js"></script>
+	    <script type="text/javascript" src="../lib/js/ui-bootstrap.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/editor.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDialogs.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
+		<script type="text/javascript" src="js/figuresV2.js"></script>
+		<script type="text/javascript" src="js/inserts.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyProgramming4"></span>
+			</p>
+			
+			<p>
+				In addition to implementing selection structures, <span class="Subfigure">COMPARE</span>, <span class="Subfigure">BRANCH</span>, and <span class="Subfigure">JUMP</span> can be used (along with statement labels) to implement high-level repetition constructs such as “while” and “for” loops.    A template for writing the assembly language version of the high-level “while” construct is presented in <span class="figNum assemblywhile"></span>.
+			</p>
+			
+			<p>
+				As you may recall from your study of Watson JavaScript, the semantics of the “while” construct involve first testing the loop condition to determine whether it is true or false.  If the condition is “false” the loop should be exited immediately (i.e., control should be transferred to the statement immediately following the loop construct).  If the condition is “true” the body of the loop should be executed once.  Following execution of the loop body, control returns to the top of the loop where the loop condition is tested once again and this process repeats itself until the loop condition becomes “false”.
+			</p>
+			
+			<p>
+				The assembly language version of the “while” loop implements the semantics of the high-level construct in a straightforward way.  Two statement labels are used: one at the top of the loop and one immediately following the loop.  As with the assembly language version of the high-level “if” construct, two registers are loaded with the values to be tested.  
+			</p>
+			
+			<!--Maybe make containers for columns and redo part B-->
+			
+			<ul class="Blockcenter">
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">while (<span class="Ital">variable</span><span class="Subscript">1   </span><span class="Ital">condition  variable</span><span class="Subscript">2</span>)</span></li>
+					<li><span class="Subfigure">{</span></li>
+					
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure"><span class="Ital">loop_body</span></span></li>
+					</ul>
+					<li><span class="Subfigure">}</span></li>
+				</ul>
+				
+				<li><span class="Subfigure"><span class="Ital">label1</span>  LOAD    <span class="Ital">reg</span><span class="Subscript">x </span>,<span class="Ital">variable</span><span class="Subscript">1</span></span></li>
+				
+				<li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; LOAD    <span class="Ital">reg</span><span class="Subscript">y </span>,<span class="Ital">variable</span><span class="Subscript">2</span></span></li>
+				
+				<li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; COMPARE <span class="Ital">reg</span><span class="Subscript">x </span>,<span class="Ital"> reg</span><span class="Subscript">y</span></span></li>
+				
+				<li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; BRANCH  <span class="Ital">exit_condition</span>,<span class="Ital"> label2</span></span></li>
+				
+				<li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; assembly language version of loop_body</span></li>
+				
+				<li><span class="Subfigure">&nbsp; &nbsp; &nbsp; &nbsp; JUMP    <span class="Ital">label1</span</span></li>
+				
+				<li><span class="Subfigure"><span class="Ital">label2</span>  assembly language statements following “while” loop</span></li>
+			</ul>
+			
+			<p class="Figure">
+				(a)  Template for constructing assembly language version of “while” loop
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure"><span class="Underlined">While condition</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="Underlined">Exit condition</span></span></li>
+				<li><span class="Subfigure">==   equal &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NE   not equal</span></li>
+				<li><span class="Subfigure">&lt;&gt;   not equal &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;EQ   equal</span></li>
+				<li><span class="Subfigure">&lt;    less than &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;GE   greater than or equal to</span></li>
+				<li><span class="Subfigure">&gt;    greater than &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; LE   less than or equal to</span></li>
+				<li><span class="Subfigure">&lt;=   less than or equal to &nbsp; &nbsp; &nbsp;GT   greater tha</span></li>
+				<li><span class="Subfigure">&gt;=   greater than or equal to &nbsp; LT   less than</span></li>
+			</ul>
+			
+			<p class="Figure">
+				(b)  Exit condition substitutions used in above templates
+			</p>
+			
+			<p class="Figure">
+				<span class="figNum assemblywhile"></span>  General template for implementing the “While” construct in assembly
+			</p>
+			
+			<p>
+				Following the two <span class="Subfigure">LOAD</span> instructions, a <span class="Subfigure">COMPARE</span> statement examines the values held in those registers.  A <span class="Subfigure">BRANCH</span> statement, which contains the loop’s “exit condition”, is then executed.  If the exit condition is true, control is transferred to the assembly language statement immediately following the loop. Otherwise, the exit condition is false, so control flows sequentially into the assembly statements that represent the body of the loop.  At the end of the loop body, an unconditional <span class="Subfigure">JUMP</span> instruction is used to return control back to the top of the loop where the condition can be tested again.
+			</p>
+			
+			<p>
+				Note that the loop exit condition used at the assembly level is the exact opposite of the condition used in the high-level while statement.  This is because the high-level condition specifies the conditions under which the program should continue to loop, while the assembly condition specifies the conditions under which the program should exit the loop.  Thus, if the high-level code specifies that a loop should execute while <span class="Subfigure">A == B</span> (while A is equal to B), the assembly language code would capture the same meaning by specifying that the loop should be exited when <span class="Subfigure">A NE B</span> (when A is not equal to B).
+			</p>
+			
+			<p>
+				<span class="figNum assemblytimes"></span> presents an assembly language program that includes a “while” loop.  The purpose of the program is to implement the high-level multiplication statement:
+			</p>
+			
+			<p class="Subfigure">
+				z = x * y;
+			</p>
+			
+			<p>
+				You may have noticed that Watson Assembly Language does not include a multiply instruction.  How then can multiplication be performed at the assembly level?  One way that multiplication can be implemented is by repeatedly adding the value of the first operand to an initially zero product for some number of times equal to the second operand.<span class="Footnote" title="Footnote: There are other, more efficient, ways of solving this problem that will become apparent during the discussion of data representation and manipulation in Section 11.4.1.3."><a href="#ftn3" id="body_ftn3">[3]</a></span>  In the specific example given above, the first operand, “x”, is added to an initially zero product, “z”, “y” times. This “multiplication via repeated addition” algorithm can be expressed in high-level Watson JavaScript code using either a “for” loop, such as: 
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">z = 0;</span></li>
+				<li><span class="Subfigure">for (i = 1; i &lt;= y; i++)</span></li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">z = z + x;</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
+			
+			<p>
+				Or an equivalent “while” loop:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">z = 0;</span></li>
+				<li><span class="Subfigure">i = 1;</span></li>
+				<li><span class="Subfigure">while (i &lt;= y)</span></li>
+				<li><span class="Subfigure">{</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">z = z + x;</span></li>
+					<li><span class="Subfigure">i = i + 1;</span></li>
+				</ul>
+				<li><span class="Subfigure">}</span></li>
+			</ul>
+			<!-- Image fig
+			<img src="Images/AssemblyIMGS/fig11-9pt1.png" alt="" class="Image">
+			<img src="Images/AssemblyIMGS/fig11-9pt2.png" alt="" class="Image">
+			
+			Figure 11.9 Text (not formatted)
+			-->
+			<p>
+				High-level Language Statement:
+			</p>
+			
+			<p class="Subfigure">
+				z = x * y;
+			</p>
+			
+			<p>Implementing multiplication of positive integers via repeated additions:</p>
+			<img src="images/assemblytimes.png" alt="" class="ImageTall">
+			<br />
+			<!--
+			<p class="P94"><span class="T12">  </span>z = 0;</p>
+			
+			<p class="P71"><span class="T12">   </span>z = 0;<span>   i = 1;</span></p>
+			
+			<p class="P78"><span class="T12">   </span>for (i=1; i&lt;=y; y++)<span>   while (i &lt;= y)</span></p>
+			
+			<p class="P78"><span class="T12">   </span>{<span>   </span><span>   {</span></p>
+			
+			<p class="P83">z = z + x;<span>      z = z + x;</span></p>
+			
+			<p class="P71"><span class="T12">   </span>} <span>      i = i + 1;</span></p>
+			
+			<p class="P78"><span>   }</span></p>
+			
+			<h2 class="Heading_20_2"><a id="a__Multiplication_using_“For”_Multiplication_using_“While”"></a>Multiplication using “For”                          Multiplication using “While”</h2>
+			
+			
+			<p>Equivalent assembly language code:</p>
+			
+			<p><span class="Subfigure">X        .WORD     5                        </span>       ;  declare and initialize “x” to 5    /* first operand */</p>
+			
+			<p><span class="Subfigure">Y        .WORD     4                           </span>;  declare and initialize “y” to 4    /* second operand */</p>
+			
+			<p><span class="Subfigure">Z         .BLOCK    1                           </span>;  declare “z”  /* z will hold the product of the operands */ </p>
+			
+			<p class="Footnote"><span class="Subfigure">I        .BLOCK    1                           </span>;  declare “i”   /* i counts the number of loop iterations */</p>
+			
+			<p class="P73"><span class="Subfigure">LOADIMM   REGA, 0               </span>;   </p>
+			
+			<p class="P73"><span class="Subfigure">STORE            REGA, Z                   </span>;  z = 0;</p>
+			
+			<p class="P73"><span class="Subfigure">LOADIMM   REGA, 1               </span>;</p>
+			
+			<p><span class="Subfigure">        STORE            REGA, I                   </span>;  i = 1;</p>
+			
+			<p><span class="Subfigure">LOOP        LOAD            REGA, I                   </span>;  while (i &lt;= y) </p>
+			
+			<p class="P73"><span class="Subfigure">LOAD            REGB, Y                   </span>;  </p>
+			
+			<p class="P73"><span class="Subfigure">COMPARE   REGA, REGB           </span>;               </p>
+			
+			<p class="P73"><span class="Subfigure">BRANCH    GT, ENDLP             </span>;  {</p>
+			
+			<p class="P73"><span class="Subfigure">LOAD            REGA, Z                   </span>;      </p>
+			
+			<p class="P73"><span class="Subfigure">LOAD            REGB, X                   </span>;      </p>
+			
+			<p class="P73"><span class="Subfigure">ADD            REGC, REGA, REGB </span>;      </p>
+			
+			<p class="P73"><span class="Subfigure">STORE            REGC, Z                   </span>;        z = z + x;</p>
+			
+			<p class="P73"><span class="Subfigure">LOAD             REGA, I                   </span>;        </p>
+			
+			<p class="P73"><span class="Subfigure">LOADIMM   REGB, 1                   </span>;</p>
+			
+			<p class="P73"><span class="Subfigure">ADD       REGC, REGA, REGB </span>;                 </p>
+			
+			<p class="P73"><span class="Subfigure">STORE            REGC, I                   </span>;        i = i + 1;</p>
+			
+			<p class="P73"><span class="Subfigure">JUMP            LOOP                   </span>;   }</p>
+			
+			<p><span class="Subfigure">ENDLP        HALT                                   </span>; </p>
+			-->
+			<div id='fig119Div'></div>
+			<p class="Figure">
+				<span class="figNum assemblytimes"></span> Assembly language version of the statement:   <span class="Subfigure">z = x * y;</span>
+			</p>
+			
+			<p>
+				Note that this particular multiplication procedure requires that the second operand be non-negative.  There exist straightforward extensions to this algorithm that allow for the multiplication of negative integers.  
+			</p>
+			
+			<p>
+				The assembly language program presented in <span class="figNum assemblytimes"></span> implements its “while” loop directly from the template of <span class="figNum assemblywhile"></span>.  Assignment statements are implemented in a manner similar to that presented in <span class="figNum assemblytotal"></span>.  In this example, the assembly language implementation of each high-level instruction begins by copying the values of all operand variables from memory into registers.  The contents of the registers are then manipulated in accordance with the meaning of the high-level instruction, and results are immediately copied from the registers back to the underlying main memory variables. As such, the resulting assembly language program, while correct, is not very efficient.
+			</p>
+			
+			<p>
+				<span class="figNum optimizedtimes"></span> presents an optimized version of the program of <span class="figNum assemblytimes"></span>.  While an inspection of the two programs should reveal that they compute identical results, the program of <span class="figNum optimizedtimes"></span> involves fewer steps (17 verses 22) and therefore should run somewhat faster.  The approach taken in the optimized version of the program is to keep temporary results in CPU registers rather than writing them back to main memory after each operation.  This approach works by loading the initial values of the variables into registers at the beginning of the program, using those registers in place of the underlying variables during processing, and then copying results back to main memory at the end of the program.  Frequently, compilers, the programs that translate high-level language programs into low-level code, use strategies such as this to produce code that is more efficient than would be produced by a literal, statement-by-statement translation of the high-level program.
+			</p>
+			<!-- Figure 11.10 Image
+			<img src="Images/AssemblyIMGS/fig11-10.png" alt="" class="Image">
+			<!--Figure 11.10 text (not formatted)
+			<p><span class="Subfigure">X        .WORD     5                        </span>       ;  declare and initialize “x” to 5    /* first operand */</p>
+			
+			<p><span class="Subfigure">Y        .WORD     4                           </span>;  declare and initialize “y” to 4    /* second operand */</p>
+			
+			<p><span class="Subfigure">Z         .BLOCK    1                           </span>;  declare “z”  /* z will hold the product of the operands */ </p>
+			
+			<p class="Footnote"><span class="Subfigure">I        .BLOCK    1                           </span>;  declare “i”   /* i counts the number of loop iterations */</p>
+			
+			<p class="P73"><span class="Subfigure">LOADIMM   REG1, 1               </span>;  register 1 holds the constant value 1.</p>
+			
+			<p class="P73"><span class="Subfigure">LOAD      REGA, X            </span>;  register A holds the value of variable “x”.</p>
+			
+			<p class="P73"><span class="Subfigure">LOAD      REGB, Y                      </span>;  register B holds the value of variable “y”.</p>
+			
+			<p class="P73"><span class="Subfigure">LOADIMM   REGC, 0               </span>;  register C holds the value of variable “z” – initially 0.</p>
+			
+			<p class="P73"><span class="Subfigure">LOADIMM   REGD, 1               </span>;  register D holds the value of variable “i” – initially 1.</p>
+			
+			<p><span class="Subfigure">LOOP        COMPARE   REGD, REGB           </span>;  compare register D (the counter “i”) to register B (“y”).</p>
+			
+			<p class="P73"><span class="Subfigure">BRANCH    GT, ENDLP             </span>;  if  “i” is greater  than “y” then branch to “endlp”.</p>
+			
+			<p class="P73"><span class="Subfigure">ADD            REGC, REGC, REGA </span>;  otherwise, add the value of  “x” to  “z”.</p>
+			
+			<p class="P73"><span class="Subfigure">ADD       REGD, REGD, REG1 </span>;                    add 1 to the counter “i”.</p>
+			
+			<p class="P73"><span class="Subfigure">JUMP            LOOP                   </span>;                    return to the top of the loop.</p>
+			
+			<p><span class="Subfigure">ENDLP        STORE     REGD, I          </span>;   copy results back to main memory variables.</p>
+			
+			<p><span class="Subfigure">        STORE            REGC, Z                   </span>;   the product of “x” and “y” is saved in variable “z”    .</p>
+			
+			<p class="P127"><span class="Subfigure">HALT                                   </span>;   halt execution of this assembly language program.</p>
+			-->
+			<div id='fig1110Div'></div>
+			<p class="Figure">
+				<span class="figNum optimizedtimes"></span>  Optimized assembly version of:   <span class="Subfigure">z = x * y;</span>
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum assemblyProgramming4"></span>
+			</p>
+			
+			<ol id="exerciseList">
+				<li>
+					<div class="exercise solvable 7">
+						Write an assembly language program to implement the high-level assignment statement:
+						<p class="Subfigure">Z = X / Y;</p>
+						using repeated subtraction, where <span class="Subfigure">X</span>, <span class="Subfigure">Y</span>, and <span class="Subfigure">Z</span> are positive integers.
+					</div>
+					
+					<div class="exerciseDiv 7"></div>
+					<br/>
+				</li>
+				<li>
+					<p class="exercise solvable 8">
+					Write an assembly language program to compute the sum of the numbers from 1 to 20 using a loop construct.
+					</p>
+					
+					<div class="exerciseDiv 8"></div>
+				</li>
+			</ol>
+			
+			<!-- End main content -->
+			<hr />
+			<!-- Footnotes -->
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote"><span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn3" href="#body_ftn3">[3]</a></span> There are other, more efficient, ways of solving this problem that will become apparent during the discussion of data representation and manipulation in <span class="contentNum assemblyData1b4"></span>.</p>
+			
+			<!-- Footnotes End -->
+
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+				var sectID = "assemblyProgramming4";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyProgramming4");		// get arrow paths
+					setupExerciseButtons(sectID);
+					if (!localFlag) runGA();
+				});	
+
+				var fig115 = new Figure(119, true);
+				var fig116 = new Figure(1110, true);
+				angular.bootstrap(document.getElementById("fig119"), ['assembly119']);
+				angular.bootstrap(document.getElementById("fig1110"), ['assembly1110']);
+
+		</script>
+	</body>
+</html>

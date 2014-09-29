@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyData1b3"></span>
+			</p>			
+			<p>
+				So far we have learned how to represent unsigned numbers in base ten, base two, and base sixteen.  We have also studied ways of converting numbers between these three bases.  We now turn our attention to the question of how arithmetic operations, such as addition and multiplication, can be performed on unsigned binary numbers.<span class="Footnote" title="Footnote: We’ll hold off on subtraction until we discuss ways of representing negative numbers in the next part of this section."><a href="#ftn4" id="body_ftn4">[4]</a></span>
+			</p>
+			
+			<p>
+				Let’s begin by examining binary addition of single digit numbers.   First of all, zero plus zero equals zero, which is represented in binary as: 
+			</p>
+			
+			<p class="Subfigure">
+				0 + 0 = 0
+			</p>
+			
+			<p>
+				Zero plus one and one plus zero both equal one.  These expressions are represented as:
+			</p>
+			
+			<p class="Subfigure">
+				0 + 1 = 1
+			</p>
+			
+			<p class="Subfigure">
+				1 + 0 = 1
+			</p>
+			
+			<p>
+				Finally, one plus one equals two.  But, two cannot be represented as a single binary digit.  Instead, we record a zero in the one’s position and carry a one over to the two’s position.
+			</p>
+			
+			<p>
+				This situation can be represented as:
+			</p>
+			
+			<p class="Subfigure">
+				1 + 1 = 0  [carry 1]
+			</p>
+			
+			<p>
+				Multi-digit binary addition uses the same strategy employed in decimal addition.  One works right to left from the units column to the most significant digit making sure that the carry from the previous column is added to the current column.  Because the carry digit for a particular column may be “1” at the same time the corresponding digits of both of the numbers being added are also “1”, it is possible to encounter “one plus one plus one equal three” while performing addition.  Since 11<span class="Subscript">two</span> equals three, “1”should be placed in the current position and another “1” carried over to the position immediately to the left of the current position.  This situation can be represented as:
+			</p>
+			
+			<p class="Subfigure">
+				1 + 1 + 1 = 1 [carry 1]
+			</p>
+			
+			<p>
+				<span class="figNum thirtyeight"></span> illustrates two separate binary addition operations.  Part (a) of the figure presents the addition of 38<span class="Subscript">ten</span> + 15<span class="Subscript">ten</span> = 53<span class="Subscript">ten</span> written in both its binary and decimal form.  Part (b) of the figure involves slightly larger numbers, but the principle is the same.  The expression 43<span class="Subscript">ten</span> + 58<span class="Subscript">ten</span> = 101<span class="Subscript">ten</span> is shown in both its binary and decimal form.
+			</p>
+			
+			<img src="images/thirtyeighta.png" alt="" class="Image">
+			
+			<p class="Figure">
+				Part (a) – Thirty-eight plus fifteen
+			</p>
+			
+			<img src="images/thirtyeightb.png" alt="" class="Image">
+			
+			<p class="Figure">
+				Part (b) – Forty-three plus fifty-eight
+			</p>
+			
+			<p class="Figure">
+				<span class="figNum thirtyeight"></span>  Addition in base two and base ten
+			</p>
+			
+			<p>
+				Binary multiplication is also fairly simple.  Zero times zero equals zero, as does zero times one and one times zero.  One times one equals one.  These expressions can be represented in base two as:
+			</p>
+			
+			<p class="Subfigure">
+				0 &#215; 0 = 0
+			</p>
+			
+			<p class="Subfigure">
+				0 &#215; 1 = 0
+			</p>
+			
+			<p class="Subfigure">
+				1 &#215; 0 = 0
+			</p>
+			
+			<p class="Subfigure">
+				1 &#215; 1 = 1
+			</p>
+			
+			<p>
+				Notice that none of these four expressions generate a carry and only one generates a result other than zero.  As we will see below, these features lead to binary multiplication being easy to perform, in fact easier to perform than decimal multiplication.
+			</p>
+			
+			<p>
+				Multiplication of multi-digit binary numbers works in a manner similar to multiplication of decimal numbers.  As we all learned in grade school, multiplication problems are solved by adding together several partial products.  A partial product is formed by multiplying a single digit of the bottom number times the entire top number.  For example, given the base ten multiplication problem 472 &#215; 104, we would solve it in the following way.
+			</p>
+			
+			<img src="images/ill11-4.png" alt="" class="Image">
+			
+			<p>
+				The first partial product is given by multiplying 4 times 472, which is 1888.  The second partial product is computed as 0 times 472, which is 0.  Normally we do not write down zero partial products.  The final partial product is 1 times 472.   Notice that we write this partial product so that its rightmost digit is directly under the digit of the second number that we multiplied by (i.e., 1). We then add the partial products, column by column from right to left, in order to obtain the final answer, 49,088 in this case.  
+			</p>
+			
+			<p>
+				We apply this same strategy to perform binary multiplication.  <span class="figNum fortythree"></span> illustrates two separate binary multiplication operations.  Part (a) of the figure presents 19<span class="Subscript">ten</span> &#215; 5<span class="Subscript">ten</span> = 95<span class="Subscript">ten</span> (10011<span class="Subscript">two</span> &#215; 101<span class="Subscript">two</span> = 1011111<span class="Subscript">two</span>) in both binary and decimal notations.
+			</p>
+			
+			<img src="images/fortythreea.png" alt="" class="Image">
+
+			<p class="Figure">
+				Part (a) – Nineteen times five
+			</p>
+			
+			<img src="images/fortythreeb.png" alt="" class="Image">
+
+			<p class="Figure">
+				Part (b) – One hundred forty-three times nineteen
+			</p>
+			
+			<p class="Figure">
+				<span class="figNum fortythree"></span>  Multiplication in base two and base ten
+			</p>
+			
+			<p>
+				Again we form partial products by multiplying the top number by each of the digits of the bottom number.  Since the rightmost digit of the second number is “1”, the first partial product is given by 1 times 10011, or 10011.  The rightmost digit of this partial product is aligned with the rightmost digit of the second number.  We do not record the partial product for zero times something, so multiplying the first number by the second digit of the second number, “0”, doesn’t generate anything.  The final partial product is computed as 1 times 10011 where the rightmost digit of this result is aligned beneath the third digit of the second number. The partial products are then added to obtain the final result, 1011111<span class="Subscript">two</span>.
+			</p>
+			
+			<p>
+				As we have just seen, in binary multiplication the formation of the partial products is very easy since we are only multiplying by “1” ( in which case we copy the top number into the proper position ) or “0” ( in which case we do nothing ).  The only “difficult” steps in this process are making sure we align the partial products correctly and compute the sum of those products accurately.
+			</p>
+			
+			<p>
+				Part (b) of <span class="figNum fortythree"></span> illustrates binary multiplication on somewhat larger numbers. We copy the top number as a partial product everywhere there is a 1 digit in the second number, each time making sure we align the partial product so that the least significant digit is directly underneath the 1 we are multiplying by.  We get the final result by adding the partial products together.
+			</p>
+			
+			<p>
+				When adding together the partial products it is important that we handle the carry values properly.  Because there is no limit on the size of the numbers to be multiplied, it is possible that there will be a large number of partial products.  This situation can lead to carry values that extend over multiple columns.  To illustrate, if, when summing partial products, we encounter a column of five 1’s, we would add 1 + 1 + 1 + 1 + 1 to get 101<span class="Subscript">two.</span>  We would then need to write a “1” in the current column and carry “10”; placing the “0” in the column immediately to the left of the current column and the “1” immediately to the left of that column.  This is no different from the situation we encounter when adding up a long series of decimal numbers.  If the current column of digits added to one hundred and one, we would place a “1” in the current column, carry a “0” to the next column, and carry “1” to the column after that.
+			</p>
+			
+			<p>
+				Now let’s take a closer look at the summation of the partial products in Part (b) of <span class="figNum fortythree"></span>.  The rightmost column of partial products offers no problem.  It is simply “1” plus nothing, giving a result of “1” with no carry.  The second column requires us to add 1 + 1 resulting in a “0” with “1” carried over to the third column.  Column three is interesting and is illustrated below:
+			</p>
+			
+			<img src="images/ill11-5.png" alt="" class="Image">
+			
+			<p>
+				The sum of the digits in column three, including the carry, is four, 100<span class="Subscript">two</span>.  Hence, a “0” is written in column three, a “0” is carried to column four and a “1” to column five.
+			</p>
+			
+			<p>
+				Column four contains three 1’s giving us a sum of 11<span class="Subscript">two</span>.  Hence, we write a “1” in column four and carry a “1” to column five. Note that the “1” we just carried to column five joins the carry of “1” already in that column.
+			</p>
+			
+			<img src="images/ill11-6.png" alt="" class="Image">
+			
+			<p>
+				Column five now contains a total of five 1’s (including the two carries).  Since five is written in binary as 101<span class="Subscript">two</span>, we write a “1” in column five, carry a “0” into column six and a “1” into column seven.  The current state of the summation of partial products after adding the contents of column five is illustrated below:
+			</p>
+			
+			
+			<img src="images/ill11-7.png" alt="" class="Image">
+			
+			<p>
+				The remainder of the computation is carried out in a similar manner, always being careful to handle the carries properly.  The final result of the computation can be seen in Part (b) of <span class="figNum fortythree"></span>.
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum assemblyData1b3"></span>
+			</p>
+			
+			<ol>
+				<li>
+					Add the following pairs of binary numbers. 
+				<img src="images/ex11-4-1-3-num1.png" alt="" class="Image">
+			
+				</li>
+				<br/>
+				<li>
+					Multiply the following pairs of binary numbers. 
+					<img src="images/ex11-4-1-3-num2.png" alt="" class="Image">
+			
+				-->
+				</li>
+			</ol>
+			
+			
+			<!-- End main content -->
+			<hr />
+			<!-- Footnotes -->
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote"><span class="footnoteNumber"><a class="Footnote_20_Symbol" id="ftn4" href="#body_ftn4">[4]</a></span> We’ll hold off on subtraction until we discuss ways of representing negative numbers in the next part of this section.</p>
+			
+			<!-- Footnotes End -->
+			<p class="Emphasized">
+				<a href="#tippytop">Return to top</a>
+			</p>
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyData1b3");		// get arrow paths
+				});	
+				
+			</script>
+			
+			
+			<script>
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			
+			  ga('create', 'UA-50062005-1', 'latech.edu');
+			  ga('send', 'pageview');
+			</script>
+		</div>
+	</body>
+</html>

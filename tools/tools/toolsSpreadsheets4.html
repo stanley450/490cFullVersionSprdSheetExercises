@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	  <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	  <!-- CSS files -->
+		<link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+		<!-- Java Script files -->
+		<link rel="stylesheet" href="css/jquery.handsontable.full.css">
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+		<script src="js/jquery.handsontable.full.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
+		
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End Navbar -->
+			
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum toolsSpreadsheets4"></span>
+			</p>
+		
+			<p>
+				When working with spreadsheets it is frequently the case that a column (or row) of the spreadsheet will contain a large number of very similar formulas.  For example, <span class="figNum actualcontents"></span> illustrates a spreadsheet used to calculate the effect of a projected 10% raise on employee’s salaries.  Column A contains the names of the employees.  Column B contains the salaries for the current year (which is given as 2215)<span class="Footnote" title="Footnote: A reviewer of a previous draft of this text commented “why the weird years?” I take it he or she was not a Star Trek fan."><a href="#ftn12" id="body_ftn12">[12]</a></span>.  Column C contains the salaries for the following year (2216).  An examination of Column C reveals that all of the formulas in cells C2 through C6 have the same general form: multiply the contents of the cell immediately to the left of the current cell by 1.1.  These formulas have the effect of computing a 10% raise.
+			</p>
+		
+			<p>
+				What is the best way of entering these formulas into the spreadsheet? 
+			</p>
+		
+			<div id="container131" style="margin-bottom:0px; width:362px" class="container-fluid"></div>
+		
+			<p class="Figure">
+				(a) Actual cell contents
+			</p>
+		
+			<div id="container132" style="margin-bottom:0px; width:377px" class="container-fluid"></div>
+		
+			<p class="Figure">
+			(b) Displayed values
+			</p>
+		
+			<p class="Figure">
+				<span class="figNum actualcontents"></span>  A spreadsheet for calculating a 10% employee pay increase
+			</p>
+		
+			<p>
+				The most straightforward way of entering the formulas is to type each one by hand.  While this method is obvious, it is also time consuming.  
+			</p>
+		
+			<p>
+				A far better approach would be to use the “copy” and “paste” features built into most spreadsheet programs.  Interestingly, spreadsheet programs generally allow you to copy the contents of a single cell to the “clipboard” and then paste the contents of that cell into an entire block of cells simultaneously.  In addition, if the content of the cell being pasted is a formula, that formula’s relative cell references will be respected.  This combination of features often turns out to be very useful.
+			</p>
+		
+			<p>
+				For example, to produce the raises shown in column C of <span class="figNum actualcontents"></span>  a sequence of actions similar to the following could be executed.  Type the original formula <span class="Subfigure">= B1 + 1.1</span> into cell C2, then click on the cell, and select the “copy” operation.  Next, highlight the block of cells beginning at C3 and ending at C6 – by clicking on cell C3 and dragging the mouse to cell C6.  Finally, click “paste”.  <span class="Ital">All</span> of the cells from C3 to C6, inclusive, will be filled with copies of the formula in cell C2 (modified in the standard way).
+			</p>
+			
+			<p>
+				Another feature common to most spreadsheets is built-in functions.  Built-in functions provide a convenient way of expressing frequently used computations – especially computations that involve references to large blocks of cells.  For example, most spreadsheet programs include functions for computing the “sum” and “average” of any block of cells.  Without functions, computing the average of the values in cells C1 through C10 would require the user to enter a formula such as:
+			</p>
+		
+			<p class="Subfigure">
+				= ( C1 + C2 + C3 + C4 + C5 + C6 + C7 + C8 + C9 + C10 ) / 10
+			</p>
+		
+			<p>
+				Imagine how long the formula would be if we needed to average the contents of 50 cells values rather than just ten.  Besides requiring a lot of typing, such an approach is prone to error.  For example, the user must make sure he or she correctly counts the number of items to be averaged – if the sum is divided by the wrong number of items, the computed result will be incorrect.  
+			</p>
+		
+			<p>
+				A common way of expressing functions is to list the function name followed by an indication of the block of cells the function will act on, usually listed in parenthesis.  For example the function to average the contents of cells C1 through C10 might take the form:
+			</p>
+		
+			<p class="Subfigure">= AVG(C1:C10)</p>
+		
+			<p>
+				where AVG is the name of the average function, and C1:C10 indicates that C1 is the first cell in the row or column to be averaged and C10 is the final cell<span class="Footnote" title="Footnote: In Microsoft Excel, the name of the average function is “AVERAGE”. Thus, this function would be expressed as = AVERAGE(C1:C10) . "><a href="#ftn13" id="body_ftn13">[13]</a></span>.   While this formula could be typed directly into a cell, it can also be created by highlighting the block of cells from C1 to C10, selecting “average” operation, and then clicking on the target cell that is to contain the average of cells C1 through C10.e 
+			</p>
+			
+			<!-- Footnotes -->
+			<hr/>
+			<p class="Section">
+				Footnotes
+			</p>
+			
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn12" href="#body_ftn12">[12]</a></span> A reviewer of a previous draft of this text commented “why the weird years?”  I take it he or she was not a Star Trek fan.
+			</p>
+		 
+			<p class="Footnote">
+				<span class="footnodeNumber"><a class="Footnote_20_Symbol" id="ftn13" href="#body_ftn13">[13]</a></span> In Microsoft Excel, the name of the average function is “AVERAGE”.  Thus, this function would be expressed as  <span class="T15">= AVERAGE(C1:C10) </span>. 
+			</p>
+			
+		<div class="push"></div> <!-- pushes the footer static bottom -->	
+				
+	</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+		<script>
+			var pageObj;											// do NOT change name of variable
+			var chapID = "tools";							// stores current chapter for Section button in navbar
+
+			$(document).ready(function() {
+			populateNav();										// populate nav content
+			populateSpans();									// populate figure/content spans
+			pageObj = getArrowPathsByPage("toolsSpreadsheets4");		// get arrow paths
+			if (!localFlag) runGA();
+			});	
+
+		</script>
+	</body>
+	<script src="js/addElements.js"></script>
+	<script src="js/jquery.mobile.custom.min.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="js/table.js"></script>
+	<script src="js/cellFunctions.js"></script>
+	<script src="js/functionParse.js"></script>
+	<script src="js/setup.js"></script>
+	<script>Setup(131)</script>
+	<script>Setup(132)</script>
+</html>

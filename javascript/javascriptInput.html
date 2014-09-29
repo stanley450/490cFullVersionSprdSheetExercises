@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui-1.10.4.custom.css">
+	    <link href="../lib/css/ch08.css" rel = "stylesheet">
+	    <link href="../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href="../lib/css/styles.css" rel = "stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/grid.css" rel = "stylesheet">
+	    <!-- Java Script files -->
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/visibility.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			<p class="Section">
+				<span class="contentNum javascriptInput"></span>
+			</p>
+			
+			<p>
+				In order for a computer program to perform any useful work, it must be able to communicate with the outside world. The process of communicating with the outside world is known as input/output or I/O. Watson JavaScript includes two output statements for displaying information on the computer’s screen, and two input statements – one for reading in text input, the other for reading in numeric input. Most imperative languages include mechanisms for performing other kinds of I/O such as detecting where the mouse is pointing and accessing the contents of a disk drive.
+			</p>
+
+			<p>
+				The two output statements included in Watson JavaScript are <span class="Subfigure">document.write</span> and <span class="Subfigure">document.writeln</span>. These statements are of the general form:
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">document.write(</span><span class="Italicized">expression</span><span class="Subfigure">);</span></li>
+			
+				<li><span class="Subfigure">document.writeln(</span><span class="Italicized">expression</span><span class="Subfigure">);</span></li>
+			</ul>
+			<br />
+			<p>
+				where an “expression” can be a constant, a variable, a function call, or a collection of these things connected by appropriate operators. Both the <span class="Subfigure">document.write</span> and <span class="Subfigure">document.writeln</span> statements display the value of an expression on the computer screen. The only difference between the two is that <span class="Subfigure">document.writeln</span> starts a new line after printing the value on the screen. For this reason, <span class="Subfigure">document.writeln</span> is pronounced as if it were written “document write line”.
+			</p>
+
+			<p>
+				<span class="figNum watsonprogram"></span> contains a simple Watson JavaScript program together with the output produced by the program.
+			</p>
+			<!-- <span class="figNum watsonprogram"></span> -->
+			<ul class="Subblockcenter">
+				<li><span class="Bolded">Program definition:</span></li>
+			</ul>
+			<ul class="Blockcenter">
+				<li style="color:grey;"><span class="Subfigure">&lt;html&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;script type="text/javascript"&gt;</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">document.writeln("Hello World!");</span></li>
+				</ul>
+				<li style="color:grey;"><span class="Subfigure">&lt;/script&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/html&gt;</span></li>
+			</ul>
+			
+			<ul class="Subblockcenter">
+				<li><span class="Bolded">Program output:</span></li>
+			</ul>
+
+
+			<ul class="Blockcenter">
+				<li class="Subfigure">Hello World!</li>
+				<br />
+			</ul>
+			<!-- End <span class="figNum watsonprogram"></span> -->
+			<p class="Figure">
+				<span class="figNum watsonprogram"></span> A Watson JavaScript program and its output
+			</p>
+			<br />
+
+			<p>
+				This program consists of a single instruction:
+			</p>
+
+			<p class="Subfigure">
+				document.writeln(“Hello World!”);
+			</p>
+
+			<p>
+				Since the expression contained in this <span class="Subfigure">document.writeln</span> statement is the text constant “Hello World!”, the program displays the value of that constant on a line by itself, producing the output:
+			</p>
+
+			<p class="Subfigure">
+				Hello World!
+			</p>
+
+			<p>
+				The program of <span class="figNum watsontextnum"></span> illustrates the difference between <span class="Subfigure">document.write</span> and <span class="Subfigure">document.writeln</span>. It also introduces numeric expressions and the concept of sequence. The program consists of three output statements: two <span class="Subfigure">document.write</span> statements followed by a <span class="Subfigure">document.writeln</span>. When run, it produces the following line of output.
+			</p>
+	
+			<p class="Subfigure">
+				There are 13 cookies in a baker’s dozen.
+			</p>
+
+			<p>
+				To understand how this program works we must first recall from our discussion of the Watson Graphics Language that the statements of a program are executed one after another in the order, or <span class="Italicized">sequence</span>, they appear. Hence, the first statement to be executed is:
+			</p>
+
+			<p class="Subfigure">
+				document.write(“There are ”);
+			</p>
+
+			<p>
+				This statement prints the following characters on computer’s display screen:
+			</p>
+
+			<p class="Subfigure">
+				There are
+			</p>
+
+			<p>
+				While it is not apparent in the line shown above, if you look closely at the statement, you will see that a space, or “blank” is supposed to follow the word “are”. Because this statement is a “write” and not a “writeln” a new line of output was not begun after these characters were displayed. Thus, the next program output will immediately follow the characters just printed, on the same line.
+			</p>
+
+			<!-- <span class="figNum watsontextnum"></span> interactive -->
+			<div id="JSFigure-5" class="divness"></div>
+			<!-- End <span class="figNum watsontextnum"></span> interactive -->
+			<p class="Figure">
+				<span class="figNum watsontextnum"></span> &nbsp; A Watson JavaScript program that outputs both text and numbers
+			</p>
+
+			<p>
+				The position that the next character will be printed in is often indicated by the underscore symbol, _. Using this symbol, it is easy to see that a space does indeed follow the word “are” in the output.
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">There are</span> _
+			</p>
+
+			<p>
+				The next statement to be executed is:
+			</p>
+
+			<p class="Subfigure">
+				document.write(12 + 1);
+			</p>
+
+			<p>
+				This statement contains the mathematical expression 12 + 1 which evaluates to the number 13. Since “Write” and “WriteLn” statements display the <span class="Italicized">value</span> of an expression, and not the expression itself, 13 will be printed next. The program’s output now looks like the following, with the print position immediately following the 13.
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">There are 13</span><span class="Bolded"> _</span>
+			</p>
+
+			<p>
+				It is important that you pay close attention to whether or not an expression is surrounded by quote marks when attempting to determine its value. If an expression is surrounded by quote marks then the characters between those quotes represent the value of the expression. If the expression is not quoted, then its value must be determined by performing the operations specified in the expression. Thus,
+			</p>
+			<br />
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">document.write(12+1); &nbsp;  &nbsp;  &nbsp; </span> prints &nbsp;  13</li>
+			</ul>
+
+			<p>
+				but
+			</p>
+
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">document.write(“12+1”); &nbsp;  &nbsp; </span> prints &nbsp;  12 + 1</li>
+			</ul>
+			<br />
+			
+			<p>
+				Continuing with the example, the third and last statement of the program
+			</p>
+
+			<p class="Subfigure">
+				document.writeln(“ cookies in a baker’s dozen.”);
+			</p>
+
+			<p>
+				will now be executed to produce the following:
+			</p>
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">There are 13 cookies in a baker’s dozen.</span></li>
+				<li><span class="Subfigure">_</span></li>
+			</ul>
+			<br />
+			<p>
+				Note that this statement is a “writeln” rather than a “write”, so it moves the print position to the next line. Always remember that <span class="Subfigure">document.writeln</span> statements begin a new line <span class="Italicized">after</span> they print the value of their expression on the screen, not before printing.
+			</p>
+
+			<p>
+				Another important point to note about this statement is that the text string it contains begins with a blank. This is important since the print position was located immediately after the 13 when this statement was executed. If the leading blank had been omitted from the string, the program would have produced the following result:
+			</p>
+
+			<p class="Subfigure">
+				There are 13cookies in a baker’s dozen.
+			</p>
+
+			<p>
+				In a sense, Watson JavaScript programs, such as those of <span class="figNum watsonprogram"></span> and <span class="figNum watsontextnum"></span>, are quite similar to the Watson Graphics Language (WGL) programs we studied in Chapter <span class="contentNum graphics false"></span>. Both Watson JavaScript and WGL belong to the imperative paradigm and both are capable of generating output. As we continue our study of Watson JavaScript, many additional similarities will become apparent.
+			</p>
+
+			<p>
+				There are also significant differences between these languages. For example, the output statements of Watson JavaScript are <span class="Subfigure">document.write</span> and <span class="Subfigure">document.writeln</span> as opposed to <span class="Subfigure">draw</span> and <span class="Subfigure">erase</span> in WGL. Another difference between Watson JavaScript and WGL is that every WGL program always produces exactly the same output every time it is run. When using WGL, every unique drawing or animation requires that a separate program be written. Likewise, the Watson JavaScript programs of <span class="figNum watsonprogram"></span> and <span class="figNum watsontextnum"></span> will always produce the same output each time they are run.
+			</p>
+
+			<p>
+				Most programs of lasting value, however, generate different results, or outputs, depending on the inputs they are given. The primary reason that WGL programs always produce the same result each time they are run is that the language lacks an input statement. Watson JavaScript does not suffer from this limitation. It provides two input instructions – one for reading in text data, and one for reading in numeric data.
+			</p>
+
+			<p>
+				The general format of the text input statement is:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Italicized">variable </span><span class="Subfigure">= prompt(</span><span class="Italicized">message</span><span class="Subfigure">,</span><span class="Italicized">defaultValue</span><span class="Subfigure">);</span>
+			</p>
+
+			<p>
+				In this statement, <span class="Italicized">variable</span> will be replaced with an actual program variable that has been declared to be of type “Text”. This variable will hold the data entered by the user. The <span class="Italicized">message</span> field will be replaced by a text string that contains a brief message designed to prompt the user to enter the appropriate value. The <span class="Italicized">defaultValue</span> field is used to specify a default text string that will be assigned to the variable in case the user fails to enter any data when prompted to do so.
+			</p>
+
+			<p>
+				Thus, the text input statement:
+			</p>
+
+			<p class="Subfigure">
+				firstName = prompt("Please enter your first name.", "unknown");
+			</p>
+
+			<p>
+				will prompt the user to enter his or her first name by displaying an input dialog box on the screen with the prompt “Please enter your first name.” next to the input field. Whatever characters the user types in will be stored in the variable <span class="Subfigure">firstName</span>. If the user simply dismisses the input dialog without entering any characters, <span class="Subfigure">firstName</span> will be assigned the text string “unknown” in order to indicate that the user’s first name is unknown.
+			</p>
+
+			<p>
+				The Watson JavaScript numeric input statement is similar. It has the form:
+			</p>
+
+			<p class="Subfigure">
+				<span class="Ital">variable </span><span class="Subfigure">=</span><span class="Subfigure"> parseFloat(</span><span class="Subfigure">prompt(</span><span class="Ital">message</span><span class="Subfigure">,</span><span class="Italicized">defaultValue</span><span class="Subfigure">)</span><span class="Subfigure">)</span><span class="Subfigure">;</span>
+			</p>
+
+			<p>
+				The most obvious difference between Watson JavaScript’s text input statement and its numeric input statement is that the numeric input statements include the phrase “parseFloat()”. This phrase insures that Watson JavaScript will supply a numeric entry pad to the end user so that only numeric data can be entered. In addition, this statement requires that <span class="Italicized">variable</span> be replaced with a program variable declared to be of type “numeric”. Also, while the <span class="Italicized">message</span> will continue to be a text string, the <span class="Italicized">defaultValue</span> must be a numeric constant – rather than a text constant.
+			</p>
+
+			<p>
+				The numeric input statement
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">age</span><span class="Subfigure"> = </span><span class="Subfigure">parseFloat(</span><span class="Subfigure">prompt</span><span class="Subfigure">(</span><span class="Subfigure">“Enter your age.”</span><span class="Subfigure">,</span><span class="Subfigure">0</span><span class="Subfigure">)</span><span class="Subfigure">)</span><span class="Subfigure">;</span>
+			</p>
+
+			<p>
+				will prompt the user to enter his or her age by displaying a numeric entry pad on the screen with the prompt “Enter your age.” next to the input field. The number entered by the user will be stored in the variable <span class="Subfigure">age</span>. If the user fails to enter a number, zero will be assigned to age as a default value.
+			</p>
+
+			<p>
+				<span class="figNum inouttext"></span> illustrates the versatility of programs that make use of input statements. The program asks a user to enter his or her name. Next, it stores the characters entered by the user into a text variable called <span class="Subfigure">firstName</span>. The program then prints a greeting using the contents of <span class="Subfigure">firstName</span> along with some additional text strings.
+			</p>
+
+			<p>
+				Looking at <span class="figNum inouttext"></span> more closely, we see that the first thing this program does is to declare a text variable called <span class="Subfigure">firstName</span>. Next, a text input statement is executed which will prompt the user to enter his or her name, and store the text string entered by that user into the variable <span class="Subfigure">firstName</span>. If the user dismisses the input dialog without entering any text, the default value, an empty string “”, will be stored in <span class="Subfigure">firstName</span>.
+			</p>
+			
+			<div id="JSFigure-6" class="divness"></div>
+			<p class="Figure">
+				<span class="figNum inouttext"></span> &nbsp; A program that illustrates both input and output of text
+			</p>
+
+			<p>
+				It should be noted that while the input dialog box is displayed, the Watson JavaScript program is on “hold”. There is no set time limit on how long the program will wait for the user to enter his or her input. The program will “wake up” and continue with its execution when the user dismisses the input dialog window.
+			</p>
+
+			<p>
+				It is also important to recognize that the user is free to enter any sequence of characters he or she desires. However, since the message displayed on the screen asks for the user’s first name, that is what he or she will most likely enter – assuming the user is being cooperative and is capable of reading and understanding the input prompt. In <span class="figNum inouttext"></span> the text string “Mike” was entered by the user and thus stored in <span class="Subfigure">firstName</span>.
+			</p>
+
+			<p>
+				Next, the statement &nbsp; <span class="Subfigure">document.write(“Hello ”);</span> &nbsp; prints
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">Hello</span> _
+			</p>
+
+			<p>
+				on the screen. Since the statement is a “write”, as opposed to a “writeln”, the print position will remain on the same line as the string and be placed immediately following the last character of that string – a blank.
+			</p>
+
+			<p>
+				The next statement &nbsp; <span class="Subfigure">document.write(firstName);</span> &nbsp; will print the current contents of <span class="Subfigure">firstName</span> on the screen. Since this variable contains the text string “Mike”, those character are printed giving the following output
+			</p>
+
+			<p class="Subfigure">
+				<span class="Subfigure">Hello Mike</span>_
+			</p>
+
+			<p>
+				Note that the print position immediately follows the final character of the text string: “e”.
+			</p>
+
+			<p>
+				The last statement of the program:
+			</p>
+
+			<p class="Subfigure">
+				document.writeln(“. Nice to meet you.”);
+			</p>
+
+			<p>
+				causes the output to become:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">Hello Mike. Nice to meet you.</span></li>
+				<li><span class="Subfigure">_</span></li>
+			</ul>
+
+			<p>
+				Since this statement is a “writeln”, it moves the print position to the next line of output. The program then terminates.
+			</p>
+
+			<p>
+				What we have just done is to walk, or trace, through a single run of the program of <span class="figNum inouttext"></span>. During this trace we assumed the user entered “Mike” at the input prompt. The power of input statements is that they allow programs to produce different outputs based on the inputs they are given. Thus, if the user had entered “Irene” instead of “Mike”, the program would have printed:
+			</p>
+
+			<p class="Subfigure">
+				Hello Irene. Nice to meet you.
+			</p>
+
+			<p>
+				The flexibility and power that input statements give programming languages cannot be overstated. Without them the only way to get a program to change its output would be to modify the program code itself – something your typical user cannot be expected to do.
+			</p>
+
+			<p>
+				General-purpose programming languages, such as Watson JavaScript, allow human programmers to construct programs that do amazing things. When attempting to understand what a program does, however, it is vitally important that you always keep in mind that the computer does not comprehend the meaning of the character strings it manipulates or the significance of the calculations it performs.
+			</p>
+
+			<p>
+				For example, the program of <span class="figNum inouttext"></span> is simply displaying strings of characters, storing user input, and echoing that input back to the screen along with some additional character strings. The computer has no clue what the text string “Please enter your first name.” means. For all it cares the string could have been “My hovercraft is full of eels.” or “qwerty uiop asdf ghjkl;” or any other text string for that matter. Its only concern is to copy the characters of the text string onto the display screen.
+			</p>
+
+			<p>
+				Only in the minds of human beings do the sequence of characters “Please enter your first name.” take on meaning. If this seems odd, try to remember that comprehension does not even occur in the minds of all humans, only those who are capable of reading and understanding written English. A four year old, for example, would not know how to respond to this prompt because he or she would be unable to read it. This is so despite the fact that if you were to ask the child his or her name, he or she could immediately respond and perhaps even type it out on the keyboard for you.
+			</p>
+
+			<p>
+				<span class="figNum inoutnum"></span> contains another program that demonstrates input and output. Unlike the program of <span class="figNum inouttext"></span>, which dealt with the input and output of text strings, this program illustrates the process on integers. The program begins by declaring two integer variables, one called <span class="Subfigure">firstNum</span> and the other called <span class="Subfigure">secondNum</span>. The program then prompts the user to enter a number. The input is captured and stored in <span class="Subfigure">firstNum</span>. Next, the program prompts the user for another number and stores whatever the user enters in the variable <span class="Subfigure">secondNum</span>. Finally, these numbers and their sum are printed – surrounded by appropriate character strings to form a meaningful sentence. A sample run of the program, on the numbers 15 and 10, is given in <span class="figNum inoutnum"></span> along with the actual program code.
+			</p>
+
+			<p>
+				You may be wondering what would happen if the user running this program were to enter a sequence of characters that did not form a valid number. For example, say the user attempted enter “cow” or “chicken” which are text strings, or even $37, which is not a valid number since it contains the special symbol “$”. If the system attempted to store these inputs into a numeric variable an error would result.
+			</p>
+			
+			<!-- Manual fig 8.7
+
+			<p>
+				&nbsp;
+			</p>
+
+			<p>
+				&nbsp;
+			</p>
+
+			<p class="Bolded">
+				&nbsp; Program definition:
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; var firstNum; // Numeric
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; var secondNum; // Numeric
+			</p>
+
+			<p>
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; firstNum = parseFloat(prompt("Enter a number.", 0));
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; secondNum = parseFloat(prompt("Enter another number.", 0));
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; document.write("Guess what? &nbsp; The sum of ");
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; document.write(firstNum);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; document.write(" and ");
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; document.write(secondNum);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; document.write(" is ");
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; document.write(firstNum + secondNum);
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; document.writeln(".");
+			</p>
+
+			<p>
+				&nbsp;
+			</p>
+
+			<p>
+				&nbsp;
+			</p>
+
+			<p>
+				&nbsp; <span class="Bolded">Program input/output behavior:</span>
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; &nbsp; Enter a number.
+			</p>
+
+			<p>
+				<span class="Subfigure">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="T17">15</span>
+			</p>
+
+			<p class="Subfigure">
+				&nbsp; &nbsp; Enter another number.
+			</p>
+
+			<p>
+				<span class="Subfigure">&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </span><span class="T17">10</span>
+			</p>
+
+			<p class="Subfigure">
+				Guess What? &nbsp; The sum of 15 and 10 is 25.
+			</p>
+
+			<p class="Subfigure">
+				&nbsp;
+			</p>
+			-->
+			<div id="JSFigure-7" class="divness"></div>
+			<p class="Figure">
+				<span class="figNum inoutnum"></span> &nbsp; A program that illustrates input and output of numeric data
+			</p>
+
+			<p>
+				The Watson JavaScript Lab has safeguards to prevent such errors from occurring. Input is only accepted from on-screen pop-up input dialogs. When a numeric value is to be read, the input dialog provides a numeric input pad for that purpose. Thus, the lab prevents the user from entering text when a number is required, since it is impossible to enter characters through the numeric entry pad. When a text string is to be read, the input dialog provides a type-in box.
+			</p>
+
+			<p>
+				In the “real world”, the safeguards of the Watson JavaScript Lab are often absent, so programmers must create robust programs that examine user input in order to verify that it is of the proper type, before processing that input. If the input is found to be in error, the program must take appropriate corrective action, such as rejecting the invalid input and requesting the user try again.
+			</p>
+
+			<p class="Exercise">
+				Exercises for <span class="contentNum javascriptInput"></span>
+			</p>
+
+			<ol id="exerciseList">
+				<li>
+					<p>
+						Show exactly what would be printed by the following Watson JavaScript program.&nbsp;
+					</p>
+				
+				<ul class="Blockcenter">
+				<li style="color:grey;"><span class="Subfigure">&lt;html&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;script type="text/javascript"&gt;</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">document.write(“A”);</span></li>
+					<li><span class="Subfigure">document.write(“B”);</span></li>
+					<li><span class="Subfigure">document.writeln(“C”);</span></li>
+					<li><span class="Subfigure">document.writeln(“1”);</span></li>
+					<li><span class="Subfigure">document.writeln(2);</span></li>
+					<li><span class="Subfigure">document.write(“3”);</span></li>
+				</ul>
+				<li style="color:grey;"><span class="Subfigure">&lt;/script&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/pre&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/body&gt;</span></li>
+				<li style="color:grey;"><span class="Subfigure">&lt;/html&gt;</span></li>
+				</ul>
+
+				<br/>
+				</li>
+				
+				<li>
+					<div class="exercise solvable 3">
+					Write a Watson JavaScript program to produce the following output. Be sure to skip the blank line between the sentences.
+					
+				
+					<ul class="Blockcenter">
+						<li><span class="Subfigure">I will not eat them</span></li>
+						<li><span class="Subfigure">in the rain.</span></li>
+					</ul>
+					<br />
+					<ul class="Blockcenter">
+						<li><span class="Subfigure">I will not eat them</span></li>
+						<li><span class="Subfigure">on a train.</span></li>
+					</ul>
+					
+					<br/>
+					</div>
+					<div class="exerciseDiv 3"></div>
+
+				</li>
+				
+				<li>
+					<div class="exercise solvable 4">
+					Modify the program of <span class="figNum inouttext"></span> so that it is capable of carrying on “conversations” such as the following, involving both a person’s name and age.
+					
+					<ul class="Blockcenter">
+						<li><span class="Subfigure">Please enter your first name.</span></li>
+						<li><span class="Italicized">Mike</span></li>
+						<li><span class="Subfigure">Please enter your age.</span></li>
+						<li><span class="Italicized">45</span></li>
+						<li><span class="Subfigure">Hello Mike. Nice to meet you.</span></li>
+						<li><span class="Subfigure">I see that you are 45 years old.</span></li>
+						<li><span class="Subfigure">That's cool.</span></li>
+					</ul>
+					
+					<br/>
+					</div>
+					<div class="exerciseDiv 4"></div>
+				</li>
+			</ol>
+
+			
+			<p>
+				In the above program run, the user’s inputs, <span class="Ital">Mike</span> and <span class="Ital">45</span>, are shown in italics. Your program should work with any name and age, so don’t “hard code” the values <span class="Ital">Mike</span> and <span class="Ital">45</span> into the program.
+			</p>
+
+			<div class="push"></div>
+			<!-- End main content -->
+			</div> 
+			
+			<div class="blueFooterBar"></div>
+
+			<script src="js/acorn.js"></script>
+			<script src="js/interpreter.js"></script>
+			<script src="js/WatsonDataStore.js"></script>
+			<script src="js/WatsonEditor.js"></script>
+			<script type="text/javascript" src="js/engine.js"></script>
+			<script src="js/JSFigures.js"></script>
+			<script src="js/WatsonDialogs.js"></script>
+			<link rel="stylesheet" type="text/css" href="css/editor.css">
+			<link rel="stylesheet" type="text/css" href="css/Dialogs.css">
+			
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "javascript";
+				var sectID = "javascriptInput";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("javascriptInput");		// get arrow paths
+					setupExerciseButtons(sectID);
+					if (!localFlag) runGA();
+				});	
+
+				var figure5 = new Figure(5, "watsontextnum");
+				var figure6 = new Figure(6, "inouttext");
+				var figure7 = new Figure(7, "inoutnum");
+				
+		</script>
+	</body>
+</html>

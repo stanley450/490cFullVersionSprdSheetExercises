@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->			
+			<!-- CHAPTER 15:THE PAST, PRESENT, AND FUTURE OF COMPUTING -->
+
+			<p class="Section">
+				<span class="contentNum futureMoores2"></span>
+			</p>
+
+			<p>
+				<span class="figNum computertable"></span> presents a table of the world’s fastest supercomputers over the past 20 years together with their speed in gigaFLOPs (billions of floating point operations per second) and the approximate date at which each came online. As can be seen from the table the speed of the world’s fastest supercomputer increased more than 500,000 times over the period – from 60 gigaFLOPS (10<span class="Superscript">9</span>FLOPS, billons of FLOPS) to 33.86 petaFLOPS (10<span class="Superscript">15</span> FLOPS, a million billion FLOPS). This difference represents just over 9 doublings in the 20 year period from 1993 to 2013, or a little less than once every 2 years.
+			</p>
+
+			<img src="images/computertable.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum computertable"></span> World’s Fastest Supercomputers 1993 - 2013
+			</p>
+
+			<img src="images/computergraph.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum computergraph"></span> World’s Fastest Supercomputers 1993 - 2013
+			</p>
+
+			<p>
+				<span class="figNum computergraph"></span> plots the data on the world’s fastest supercomputers from 1993 to 2013 which was presented in <span class="figNum trekquality"></span>. <span class="figNum computergraph"></span> uses the logarithmic scale where exponential growth appears as a straight line. A trend line which projects historical growth through 2020 is included (shown as a yellow line in the figure). If the growth trend of the past 20 years continues to hold supercomputers should pass the one exaFLOPS (10<span class="Superscript">18</span>FLOPS, a billion billion FLOPS) benchmark by 2020.
+			</p>
+
+			<p >
+				What could one do with an <span class="Bolded">exascale</span> machine – a machine that supports a billion billion floating point operations per second? Well, for one thing, current estimates are that 1 – 10 exaFLOPS should be sufficient for real-time human brain simulation and teams of scientists and engineers in the US and Europe are working diligently to reach this goal.<span class="Footnote" title="Footnote: "><a href="#ftn6" id="body_ftn6">[6]</a></span>
+			</p>
+			
+			<!-- End main content -->
+			<hr />
+			<!-- Footnotes -->
+			<p class="Section">
+				Footnotes
+			</p>
+
+			<p class="Footnote">
+				<a href="#body_ftn6" id="ftn6">[6]</a>&nbsp; “Why we need Exascale and why we won’t get there by 2020”, Horst Simon, Optical Interconnects Conference, May 6, 2013, page 49. Available at: <a href="http://www.slideshare.net/ultrafilter/exaflops">http://www.slideshare.net/ultrafilter/exaflops</a>
+			</p>
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "future";
+
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("futureMoores2");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

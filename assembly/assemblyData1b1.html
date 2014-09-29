@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyData1b1"></span>
+			</p>
+			
+			<p>
+				Today, virtually all civilizations use a base ten counting system.  However, this has not always been so. In primitive tally systems, for example, there is one stroke for each object being counted, as in <del>||||</del> <del>||||</del> || to represent twelve.  Some tally systems group strokes together – the one illustrated places five strokes in each group. 
+			</p>
+			
+			<p>
+				Most early systems attached little or no meaning to the order of the symbols used to represent a number. Roman numerals did use position, but only to indicate whether one value should be added to or subtracted from another value.  For example, the Roman numeral MMC stands for 2100 because “M” represents one thousand, “C” represents one hundred, and the positional rule states that when the symbols are arranged in order of decreasing value, all of the values should be added together.  Hence, the meaning of MMC is 1000 + 1000 + 100 = 2100.  On the other hand, MCM means 1900 because the positional rules states that when a symbol for a smaller value immediately precedes a symbol for a larger value, the smaller value is to be subtracted from the larger value.  So, MCM is 1000 + (1000 – 100) = 1900.  The year 1999 as a Roman numeral is written MCMXCIX, meaning 1000 + (1000 – 100) + (100 – 10) + (10 – 1).  
+			</p>
+			
+			<p>
+				Positional notation truly became useful only after the zero digit was introduced by the Arabs.  Our modern decimal number system is a base ten positional system.  It uses ten symbols, “0” through “9”.  We count by sequencing through these symbols: “0” for zero, “1” for one, “2” for two, …, and “9” for nine.  Once the last symbol is encountered, namely “9”, how do we represent the next number?  What we do is to replace the current symbol, “9”, with the first symbol in the series, “0”, and then increment the symbol immediately to the left of the current symbol by one.  Since base ten numbers are assumed to be preceded by  (usually unwritten) 0’s, the number nine can be written as “09”.  Hence, cycling “9” back to “0” and incrementing the leftmost “0” to “1” gives “10” as the base ten symbol for the number ten.  To continue counting, we cycle the rightmost digit through the symbols “0” through “9” again, producing “10” through “19” for the numbers ten through nineteen.  The number twenty can be represented by resetting the “9” to “0” and replacing the “1” with the next symbol in the sequence, “2”, giving “20”.
+			</p>
+			
+			<p>
+				Computer systems use base two, or binary, instead of base ten.  Counting in binary is similar to counting in base ten.  We still cycle through the sequence of symbols – incrementing the symbol to the left of the current symbol whenever the current symbol cycles back to the beginning of the sequence.  The only difference is that instead of ten symbols, “0” through “9”, there are only two symbols: “0” and “1”. We begin counting by sequencing through these symbols: “0” for zero, “1” for one, and then we have reached the symbol with the largest value.  Keeping in mind that the number one can be rewritten as “01”, we reset the rightmost symbol, “1”, to the first symbol in the sequence, “0”, and then increment the implied “0” immediately to the left to “1”, giving us “10”, the base two symbol for two.   
+			</p>
+			
+			<p>
+				Note carefully that the symbol “10” (pronounced “one” “zero”) when interpreted as a base two number refers to the number two, <span class="Ital">not</span> ten.  When discussing base two values you should <span class="Bolded">never</span> refer to the symbol “10” as “ten”, since that is not the value of the number represented by this symbol.
+			</p>
+			
+			<p>
+				Continuing with the example, the next number, three, can be represented in base two as “11” – we simply increment the right-most digit of “10” from “0” to “1”.  
+			</p>
+			
+			<img src="images/basetentwo.png" alt="" class="Image">
+			
+			<p class="Figure">
+				<span class="figNum basetentwo"></span> The numbers zero through eight in base ten and base two
+			</p>
+			
+			<p>
+				To generate the base two representation of four, we begin with three represented as “011” – remember it is ok to add 0’s to the left-hand side of a number symbol.  Next, we set the rightmost “1” digit back to “0” and attempt to increment the middle digit.  However, that digit is also at the end of the sequence, since it contains a “1”. So, we reset this digit to “0” as well and proceed to the third (leftmost) digit, which we increment from “0” to “1”.   The final result is “100”, which is the base two representation of the number four. 
+			 </p>
+			
+			<p>
+				This process for generating base two numbers can be continued indefinitely.  The base ten (decimal) and base two (binary) representations of the numbers zero through eight are shown in <span class= "figNum basetentwo"></span>.  In order to make the counting algorithm as clear as possible, leading 0’s are shown in the binary representations of zero through seven.
+			</p>
+			
+			<p>
+				Of course, we will need to develop a fast way to find out the number represented by a base two symbol, instead of “counting up to it”.  However, before we leave the notion of counting, let’s investigate one other base that is commonly used when discussing programs and data at the machine level.
+			</p>
+			
+			<img src="images/tentwosixteen.png" alt="" class="Image">
+
+			<p class="Figure">
+				<span class="figNum tentwosixteen"></span> The numbers zero through twenty in base ten, two, and sixteen
+			</p>
+			
+			<p>
+				Base sixteen, or <span class="Ital">hexadecimal</span>, uses sixteen symbols: “0” through “9” for the numbers zero through nine, and “A” through “F” for the numbers ten through fifteen.  The number sixteen is written as “10” in base sixteen, since after the symbol “F” is encountered, it is necessary to cycle back to the beginning of the sequence, “0”.  When this occurs, the character immediately to the left of the current character (an understood “0”) is incremented to “1”, giving “10”.  <span class="figNum tentwosixteen"></span> illustrates the base ten, base two, and base sixteen representations of the numbers zero through twenty.
+			</p>
+			
+			<p>
+				In order to clearly distinguish which base a number-symbol is to be interpreted under, I will generally write the base: two, ten, or sixteen, as a subscript immediately following the digits of the number.  Hence, 11<span class="Subscript">two</span> is three, 11<span class="Subscript">ten</span> is eleven, and 11<span class="Subscript">sixteen</span> is seventeen.
+			</p>
+			
+			<p class="Exercise">
+				Exercises for <span class="contentNum assemblyData1b1"></span>
+			</p>
+			
+			<ol>
+				<li>
+					Extend the table of <span class="figNum tentwosixteen"></span> from twenty to thirty-five in all three bases.
+				</li>
+				<br/>
+				<li>
+					Another base that is occasionally used in computing – especially when talking about older computer systems is octal, or base eight.  Octal uses eight symbols, 0-7.  Add an octal column to the table you produced in the previous problem.
+				</li>
+			</ol>
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+				
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();								// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyData1b1");		// get arrow paths
+					if (!localFlag) runGA();
+				});	
+				
+			</script>		
+	</body>
+</html>

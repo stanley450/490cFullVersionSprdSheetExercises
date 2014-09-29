@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		 	<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+		<link href="../lib/css/colmn_test.css" rel="stylesheet">	    
+		<!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<!--NavBar-->
+		<div id="includedContentForPage"></div> <!-- navigation bar and overall navigation. Must include inside "a page in the book", or a non index page -->
+			<!-- End nav -->
+
+		<div  class="page-wrapper" id="wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+
+			<p class="Section">
+				<span class="contentNum intelligenceOverview5b2"></span>
+			</p>
+			<p>
+				Communicating with computers by speaking with them has long been the Holy Grail of artificial intelligence. However, after more than 50 years of effort, the capabilities of the HAL computer from “2001: A Space Odyssey” remain stubbornly out of reach. Within the past decade or so, substantial progress has been made on parts of the problem – specifically in the disciplines of speech recognition, speech synthesis, and question answering systems.
+			</p>
+
+			<p>
+				<span class="Bolded">Speech recognition</span> refers to the automatic conversion of human speech into text, while <span class="Bolded">speech synthesis</span> focuses on the automatic generation of human speech from text. As such, speech recognition and speech synthesis applications are complimentary in nature. They often form the first and last steps in voice-based search and question answering systems (such as that available in Google Now) or virtual assistant systems (such as Siri).
+			</p>
+
+			<p>
+				Speech recognition systems can be characterized along three different dimensions: the size of the vocabulary recognized by the system, whether or not the system is speaker dependent or independent, and whether the system supports continuous speech or is limited to discrete utterances.
+			</p>
+
+			<p>
+				<span class="Bolded">Vocabulary size</span> refers to the number of words or phrases the system can recognize. In general, the larger the vocabulary the more difficult the recognition problem becomes. A system that is limited to recognizing “yes” and “no” is rather easy to construct, while systems designed to recognize hundreds, thousands, or tens of thousands of words become progressively more difficult to build. A system’s <span class="Bolded">recognition rate</span> is the percentage of utterances that the system is capable of correctly identifying. Often a system’s recognition rate would dramatically decrease as vocabulary sizes increased – especially in earlier systems. Background noise and other factors can also significantly influence a system’s recognition rate.
+			</p>
+
+			<p>
+				A system is said to be <span class="Bolded">Speaker independent</span> if it is intended to be used by a general audience – its ability to recognize utterances is independent of who is speaking. <span class="Bolded">Speaker dependent</span> systems, on the other hand, must be trained to recognize an individual’s voice. Training usually consists of having the speaker read aloud a number of pre-selected text passages while the computer listens to the speaker’s voice. Once trained, only that individual can use the system.
+			</p>
+
+			<p>
+				Human speech is continuous, in that we don’t pause between each individual word. We are often unaware of this fact since we are so good at speech recognition – we tend to “hear” the individual words, even when they are spoken as a continuous stream. To see this, think of the last time you heard someone speaking in a language that is foreign to you. Didn’t it seem that they were just producing a stream of sounds and not a sequence of words? In fact, one of the hardest things about learning to understand a foreign language is just picking out the individual words.
+			</p>
+
+			<p>
+				<span class="Bolded">Continuous utterance recognition</span> systems allow people to speak naturally without inserting pauses between words, whereas <span class="Bolded">Discrete utterance recognition</span> systems require speakers insert brief pauses between each spoken word or phrase. Humans find speaking in this way very unnatural.
+			</p>
+
+			<p>
+				Today’s end-consumer facing speech recognition systems tend to be large vocabulary, speaker independent, continuous utterance systems. Most anyone can use them immediately without first training the system to understand their voice, and speakers can say pretty much whatever they want, while speaking in a natural voice.
+			</p>
+
+			<p>
+				Such systems are a relatively recent advance. Prior to the release of Google’s voice search in late 2008, most speech recognition systems had to compromise on one of the three primary features. So, for example you could have a speaker dependent, large vocabulary, continuous utterance system – which required the speaker to train the system before use; or a speaker independent, small vocabulary, continuous utterance system – which anyone could use but could only recognize a limited number of words and phrases; or even a speaker independent, large vocabulary, discrete utterance system – which anyone could use but… required…. a…. pause… between… each…. word…
+			</p>
+
+			<p>
+				As was the case with machine translations, recent advances in speech recognition are due in large part to rise of big data (the availability of lots and lots of examples of spoken text) and statistical machine learning techniques. Most speech recognition programs model human speech production using a formal mathematical model called a Hidden Markov Model.
+			</p>
+
+			<p>
+				A <span class="Bolded">Markov Model</span>, or Markov Chain, is a system that consists of a number of discrete states where the probably of being in a particular state at a particular time is dependent on the previous state and likelihood of transitioning between that state and the current one. Individual states in the model generate outputs with some probability. In a <span class="Bolded">Hidden Markov Model</span> (HMM) the sequences of transitions between states in the underlying Markov Model are not visible but the outputs produced by those transitions are. HMM’s enable one to determine the most likely sequence of states that were traversed in the underlying system based solely on the observed output. HMM are useful in speech recognition programs since all we are able to observe are the sounds that were produced (the output) and we wish to infer the underlying (hidden) sequence of words that produced those sounds.
+			</p>
+
+			<p>
+				Understanding a spoken human language, like English, involves solving at least two separate problems. The first problem, which we have been discussing so far, is recognizing the individual spoken words. The second problem, known as <span class="Bolded">semantics</span>, involves comprehending the meaning of those words.
+			</p>
+
+			<p>
+				Using big data, machine learning techniques, and Hidden Markov Models computer scientists and engineers have made good progress on the first problem – recognizing the individual spoken words. Much less progress has been made on the second problem – understanding the meaning of the words.
+			</p>
+
+			<p>
+				Thus far, creating systems that can truly comprehend general spoken (or written) English is not currently possible. However, reasonable results can often be achieved if the topic of conversation is narrowly focused and task oriented.
+			</p>
+
+			<p>
+				One way of judging our progress to date in giving computers the ability to use language intelligently is to look at the evolution of voice-based search and the rise of ‘intelligent’ assistants. Such a review can also help us understand the limitations of our present tools and techniques.
+			</p>
+
+			<p>
+				The first large-scale general purpose (speaker independent, large vocabulary, continuous utterance) deployment of speech recognition technology intended for a wide audience was Google’s voice-based web search. Released in 2008 for Android and iPhone smart phones, this technology enabled one to speak a search query, rather than type. While remarkably impressive for its time, Google voice search simply returned a web page of Google search results – exactly as if the speaker had typed the search query.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/googlevoice.mp4" type="video/mp4">
+			</video>
+			</div>
+
+			<p class="Figure">
+				<span class="figNum googlevoice"></span> A Google video from November 2008 introducing Google Mobile App for iPhone with Voice Search.
+			</p>
+
+			<p>
+				Two years later, in 2010, Google extended this technology to enable Android phones to perform simple actions based on spoken input.  For example, the updated system made it possible to send a text message or email to someone on your contact list by speaking the request (e.g., “Send text message to Mike O’Neal. Wow! AI has a come a long way in a little over 50 years.”). Other actions included calling the phone number of a business by name (e.g., “Call Johnny’s Pizza in Ruston Louisiana”), getting directions (e.g., “Navigate to Louisiana Tech University”), or finding and playing music. This technology required the system to have some limited understanding of what the speaker was asking the phone to do. The implementation was straightforward as the system simply listened for special keywords, such as “navigate”, and then launched the appropriate application passing it any specified parameters, such as “Louisiana Tech University”, when the keyword was detected.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/voiceactions.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum voiceactions"></span> A demonstration of Google Voice Actions.
+			</p>
+
+			<p>
+				Apple followed suit a year later in the fall of 2011 with the introduction of Siri for the iPhone 4S.  Siri, billed as a “personal assistant”, could handle a wider range of tasks than Google Voice Actions and provided for a more natural spoken interface. The interface was far less rigid and didn’t require the speaker to remember particular keywords. So, for example, instead needing to say something precise like “Navigate to Louisiana Tech University” one could say “Show me how to get to Louisiana Tech” or “Give me directions to Louisiana Tech”, etc.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/applesiri.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum applesiri"></span> An Apple video introducing Siri.
+			</p>
+
+			<p>
+				Another big innovation was that Siri implemented the ability to respond verbally to some tasks. For example, you could ask Siri “What’s my schedule like for tomorrow?” and ‘she’ would access your calendar and go through your list of appointments for the next day. Siri could also schedule an appointment for you and even notify you of conflicts with existing appointments. The system also possessed the ability to verbally respond to a very limited range of factual question about time and the weather, such as “What time is it in London?” or “Will it rain tomorrow?”.
+			</p>
+
+			<p>
+				Since weather varies by location, in order to correctly answer such questions Siri needs to know the location to which the user is referring. Unless we explicitly state a location, when we ask such a question we generally mean “right here” – which Siri can determine from the iPhone’s GPS or cell tower triangulation. However, the implied location can change depending on the context of the conversation. Siri is smart enough to know that when you ask it “What time is it in London?” followed immediately by “What will the weather be like tomorrow?” – you are probably referring to the weather in London, England. Similarly, if you ask “What will the weather be like in Paris tomorrow?” followed immediately by “in Rome?” it knows from the context of the conversation that the phrase “in Rome?” means “What will the weather be like in Rome tomorrow?”
+			</p>
+
+			<p>
+				In order to successfully answer these kinds of questions it is necessary for Siri to possess a rudimentary understanding of conversation and context – something absent from the original version of Google Voice Actions.
+			</p>
+
+			<p>
+				Apple further improved Siri with the release of the iPhone 5 in September 2012. &nbsp;The revised version of Siri included expanded knowledge of sports and entertainment allowing the system to verbally respond to a wider range of question. For example, in response to “Who is Drew Brees?” Siri replied “Drew Brees currently plays quarterback for the Saints.” while showing me his picture and player stats. Despite this rather impressive result, the vast majority of questions posed to Siri (as of late 2013) generally return web pages, from either a Google search or Wolfram Alpha query.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/siriversions.mp4" type="video/mp4">
+			</video>
+			</div>
+
+			<p class="Figure">
+				<span class="figNum siriversions"></span> This video is comparing the functionality of the first version of Siri with its second iteration. Siri may sound a bit odd in this video to an American audience as the British versions are being compared.
+			</p>
+			
+			<p>
+				In July 2012, several months prior to the release of the iPhone 5, Google once again raised the bar with the release of Google Now’s integrated voice search which dramatically expanded the scope of questions that can generate a verbal response.&nbsp; By pulling information from Wikipedia and a variety of other sources, reformatting that data, and providing a brief verbal summary, Google Now can provide a verbal response to large numbers of questions over substantial areas of human knowledge.  For example, if I ask “When did Man first step foot on the Moon?” Google responds with “July 20, 1969 is one guess based on results below.” while displaying the Google search results on which it based its answer.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/googlenow.mp4" type="video/mp4">
+			</video>
+			</div>
+
+			<p class="Figure">
+				<span class="figNum googlenow"></span> This video demonstration of some of the features of Google Now (circa September 2012).
+			</p>
+
+			<p>
+				Over the course of just four years, from 2008 to 2012, voice based interfaces went from quite rare to rather commonplace. As we approach the midpoint of the second decade of the 21<span class="Superscript">st</span> century voice based personal assistants and question answering systems are being used daily by more and more people. However, these systems are still quite limited in their overall capabilities compared to the ultimate goal of constructing computers that can converse intelligently.
+			</p>
+
+			<p>
+				IBM’s Watson (not to be confused with the Watson labs used in this course) is an example of a question answering system that goes far beyond simple search. IBM’s Watson is most famous for winning a two game <span class="Ital">Jeopardy!</span> tournament in 2011 while competing against Ken Jennings and Brad Rutter, the two most successful humans to ever play the game.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/ibmwatson.mp4" type="video/mp4">
+			</video>
+			</div>
+	  
+			<p class="Figure">
+				<span class="figNum ibmwatson"></span> Jeopardy! IBM Watson Day 3 (Feb 16, 2011).
+			</p>
+
+			<p>
+				During the games, Watson was given exactly the same clues as the human players, with the exception that Watson’s clues were in textual form since it could neither see nor hear. After receiving the clue, Watson would decompose it into key words and phrases and then simultaneously runs thousands of language analysis algorithms to find statistically related phrases in its repository of stored text (obtained from reference books, web sites, and Wikipedia). Watson then compared these thousands of different results, filtering against clues in the question category (such as the answer is probably a city) to select its final answer – generally the most popular result (the one returned by the greatest number of algorithms). The process, which is far more complex than that used by Google Now and Siri, is often called <span class="Ital">deep question answering</span>.
+			</p>
+			
+			<div class="video">
+			<video id="vid" controls>
+				<source src="videos/watsonoverview.mp4" type="video/mp4">
+			</video>
+			</div>
+			
+			<p class="Figure">
+				<span class="figNum watsonoverview"></span> A video from IBM that provides an overview of Watson and the Jeopardy! challenge.
+			</p>
+
+			<p>
+				Despite recent progress, it is important to understand that <span class="Ital"><span class="Bolded">neither IBM’s Watson nor Google Now’s voice search understand the questions they are being asked nor the answers they provide in the way humans do</span></span>. These systems “simply” compare strings of text in the questions to strings of text in their knowledge bases and then, using statistics along with filters for the type of answer most likely sought (a name, a date, a place, etc.), generate the most likely answer. These systems have no understanding of the meaning of the words in the questions, or the words in the knowledge base, or even the words in the answer that is generated. Given these constraints, this author is truly amazed at the level of performance these systems have achieved.
+			</p>
+
+			<!-- End main content -->
+			<div class="push"></div>
+				
+		</div> <!-- End wrapper -->
+
+		<div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "intelligence";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+
+					pageObj = getArrowPathsByPage("intelligenceOverview5b2");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>
+

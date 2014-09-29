@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+			<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	    <link href="../lib/css/styles.css" rel="stylesheet">
+	    <link href="../lib/css/generalmedia.css" rel="stylesheet">
+			
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<div id="includedContentForPage"></div>
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum assemblyMachine"></span>
+			</p>			
+			<p>
+				This section is concerned with software at its lowest level – the machine level of 1’s and 0’s.  The particular machine language we will examine is the Watson Virtual Machine language.
+			</p>
+			
+			<p>
+				Let’s begin by reviewing the architecture of the Watson VM and filling in some details that were omitted when the machine was first introduced in <span class="contentNum assemblyRegisters"></span>.  Referring back to <span class="figNum watsonvm"></span>, we see that the Watson VM consists of 256 words of memory together with a CPU that holds sixteen general-purpose registers, a program counter, an instruction register, and various status bits.
+			</p>
+			
+			<p>
+				The reason why there are only 256 words of memory (labeled 0-255) in this machine is that addresses are limited to exactly eight bits.  Thus, the range of valid addresses extends from 0000 0000<span class="Subscript">two</span> to 1111 1111<span class="Subscript">two</span> ( 0 to FF<span class="Subscript">sixteen</span> or 0 to 255<span class="Subscript">ten</span>, when interpreted as unsigned binary numbers).  Since the program counter is a special-purpose register that is used to hold the address of the next instruction, its size is limited to eight bits – the width of an address.
+			</p>
+			
+			<p>
+				The word size used in the Watson VM for both main memory and the general-purpose registers is sixteen bits.  This means that the range of values that can be represented by a register or single word of memory is –2<span class="Superscript">15</span> to 2<span class="Superscript">15</span> –1 ( -32,768 to 32,767 ) when using two’s complement notation.
+			</p>
+			
+			<p>
+				Since a word of memory can hold a program instruction as well as data, the size of each Watson Virtual Machine instruction is sixteen bits.  This is also the size of the instruction register located in the CPU.  Finally, the status bit registers, as their names imply, are each one bit long. 
+			</p>
+			
+			
+			<!-- End main content -->
+			<div class="push"></div>
+			</div>
+			
+			<div class="blueFooterBar"></div>
+			
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "assembly";
+
+				$(document).ready(function() {
+					populateNav();										// populate nav content
+					populateSpans();									// populate figure/content spans
+					pageObj = getArrowPathsByPage("assemblyMachine");		// get arrow paths
+					if (!localFlag) runGA();
+
+				});	
+				
+			</script>
+	</body>
+</html>

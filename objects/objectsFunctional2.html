@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Watson</title>
+
+		<!-- Google fonts -->
+	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	    <!-- CSS files -->
+	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+	    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+	    <link href = "../lib/css/styles.css" rel = "stylesheet">
+	    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+	    <!-- Java Script files -->
+	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/nav.js"></script>
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<div id="includedContentForPage"></div>
+		<!-- End navbar -->
+
+		<div id="wrapper" class="page-wrapper">
+			<a id="tippytop"></a>
+			<!-- Header division -->
+
+			<!-- Main content -->
+			
+			<p class="Section">
+				<span class="contentNum objectsFunctional2"></span>
+			</p>
+
+			<p>
+				In the previous section, we looked at the fundamentals of Lisp – the list data structure, a variety of basic mathematical and list-oriented operators, expression evaluation, and the behavior of the Lisp interpreter.  In this section we turn our attention to the question of how Lisp programs may be written.
+			</p>
+
+			<p>
+				A <span class="Bolded">Lisp program</span> is simply a collection of related functions that work together to solve a problem.  In a sense, the expressions presented in the previous section can be considered “programs”, but they weren’t general purpose in the sense that they could only operate on numbers and quoted data, not variables, and were limited to accessing built-in operators, such as <span class="Subfigure">cond</span>, <span class="Subfigure">cdr</span>, and <span class="Subfigure">+</span>.  In order to be able to write truly useful programs we need a way to ‘extend’ Lisp beyond its built-in functions, to include user-defined functions.
+			</p>
+
+			<p>
+				The <span class="Subfigure">defun</span> procedure is used to define functions; in fact, its name stands for <span class="Bolded">de</span>fine <span class="Bolded">fun</span>ction.  The format of the <span class="Subfigure">defun</span> procedure is:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">( defun <span class="Italicized">function_name</span>(<span class="Italicized">argument</span><span class="Subscript">1</span><span class="Italicized">argument</span><span class="Subscript">2</span><span class="Italicized">argument</span><span class="Subscript">3</span>…<span class="Italicized">argument</span><span class="Subscript">n</span>)</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure"><span class="Italicized">function_body</span></span></li>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+
+			<p>
+				where <span class="Italicized">function_name</span> is a symbolic atom that specifies the name of the function being defined; each of the <span class="Italicized">arguments</span> are symbolic atoms that will be bound to input values; and <span class="Italicized">function_body</span>  is a list that specifies the operations to be carried out on the arguments.  Note that the <span class="Italicized">function_body</span> list can be a simple list of atoms or quite complex with many nested sublists.  
+			</p>
+
+			<p>
+				While <span class="Subfigure">defun</span> is used to define functions, it is not, itself, a traditional function.  Most Lisp functions accept one or more elements as input, and return a single result value.  The <span class="Subfigure">defun</span> procedure returns <span class="Italicized">function_name</span> – the name of the function being defined – as its result.  In addition, <span class="Subfigure">defun</span> has the “side effect” of actually creating the function and adding its name to the collection of functions recognized by Lisp.  Thus, when the Lisp Eval interpreter, illustrated in <span class="figNum lispinterpreter"></span>, encounters a list with the symbol <span class="Subfigure">defun</span> as its first element, it will take the “yes” branch at the condition labeled “Is the first element of S non-standard?”
+			</p>
+
+			<p>
+				Now, let’s write a function.  We will start with something very simple; a function called <span class="Subfigure">head</span> that returns the first element of a list.  This function will do exactly the same thing as the built-in function <span class="Subfigure">car</span>, but will have a more meaningful name.  So, if the <span class="Subfigure">head</span> function were called in the following manner:
+			</p>
+
+			<p class="Subfigure">
+				(head (quote<span class="Subfigure Lite">(this is a list)</span>))
+			</p>
+
+			<p>
+				we would expect it to return the atom <span class="Subfigure Lite">this</span>.  In exactly the same manner that the expression <span class="Subfigure">(car (quote</span><span class="Subfigure Lite">(this is a list)</span><span class="Subfigure">))</span> would have.
+			</p>
+
+			<p>
+				Here is the definition of the function <span class="Subfigure">head</span>:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(defun head (L)</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">(car L)</span></li>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+			
+			<p>
+				The definition is a list.  The first element of that list is the keyword <span class="Subfigure">defun</span>, an atom.  The second element of the list is the name of the function we are defining, <span class="Subfigure">head</span>.  The third element of every <span class="Subfigure">defun</span> list is always itself a list.  This list contains symbolic atoms that will act as placeholders for the function’s inputs.  
+			</p>
+
+			<p>
+				Since the purpose of the <span class="Subfigure">head</span> function will be to return the first element of a list, it needs a way to refer to its input list.  In this example, the symbol <span class="Subfigure">L</span> is used to represent the input list.  There is nothing magic or special about using <span class="Subfigure">L</span>, we could just as easily have used another symbol, such as LST or LIS.  However, one symbol we could not have used for our list variable is <span class="Subfigure">LIST</span>.  That is because Lisp already uses <span class="Subfigure">list</span> as the name of one of its list composition functions, as we discussed in the previous section.  
+			</p>
+
+			<p>
+				You may have noticed that I am writing Lisp function names in lower case and Lisp argument names in upper case.  The reason for doing so is to make it easier to quickly tell which atoms refer to functions and which refer to data.  However, many Lisp interpreters are not “case sensitive”, which means that <span class="Subfigure">list</span>, <span class="Subfigure">List</span>, <span class="Subfigure">LiST</span>, and <span class="Subfigure">LIST</span> look identical to those interpreters and would thus refer to the same object.
+			</p>
+
+			<p>
+				Returning to our example, the fourth and final element of the <span class="Subfigure">head</span> definition list is the list:<span class="Subfigure">(car L)</span>.  This list represents the actions to be taken by the <span class="Subfigure">head</span> function on the input list <span class="Subfigure">L</span>; namely that the <span class="Subfigure">car</span> of <span class="Subfigure">L</span> will be computed and returned by this function.
+			</p>
+
+			<p>
+				At this point you might be saying, hold on a second <span class="Subfigure">L</span> is an atom, not a list, and <span class="Subfigure">car</span> can only be applied to lists, so what gives here?  What gives is that since <span class="Subfigure">L</span> is not quoted, it will be evaluated by the Lisp interpreter prior to <span class="Subfigure">car</span> being called.  So, the value bound to <span class="Subfigure">L</span>, not <span class="Subfigure">L</span> itself, is what will be passed to <span class="Subfigure">car</span>.  This behavior can be seen by tracing <span class="Subfigure">(car L)</span> on the Eval graph of <span class="figNum lispinterpreter"></span>.  
+			</p>
+
+			<p>
+				If <span class="Subfigure">head</span> is passed a list, the first element of that list will be returned.  Passing <span class="Subfigure">head</span> an atom will generate an error, but that shouldn’t be a surprise, since passing an atom to <span class="Subfigure">car</span> would also generate an error.
+			</p>
+
+			<p>
+				It is important to note that <span class="Subfigure">(car (L))</span> could not be used in the definition of this function.  Why?  The reason is that Eval would attempt to interpret the list <span class="Subfigure">(L)</span>.  Since Eval treats all lists as function calls – unless they are quoted – it would look for a function named <span class="Subfigure">L</span>, and since there is no such function, an error would be produced.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">( defun<span class="Italicized">function_name</span>(<span class="Italicized">argument</span><span class="Subscript">1</span><span class="Italicized">argument</span><span class="Subscript">2</span><span class="Italicized">argument</span><span class="Subscript">3</span>…<span class="Italicized">argument</span><span class="Subscript">n</span></span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure"><span class="Italicized">function_body</span></span></li>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+			
+			<p class="Figure">
+				(a) The general format of the <span class="Subfigure">defun</span> procedure
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure" >(defun head (L)</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">(car L)</span></li>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+			
+			<p class="Figure">
+				(b) Definition of a function that returns the first element (head) of a list
+			</p>
+
+			<img src="images/lispuser.png" alt="" class="Image">
+
+			<p class="Figure">
+				(c) Invocation and return of user-defined function <span class="Subfigure">head</span>
+			</p>
+
+			<p class="Figure">
+				<span class="figNum lispfunctions"></span>  An overview of user-defined functions in Lisp
+			</p>
+
+			<p>
+				When evaluated by the Lisp interpreter, the definition of <span class="Subfigure">head</span> specified using <span class="Subfigure">defun</span> will be added to the collection of known Lisp functions. During the rest of the current Lisp session – that is until the Lisp environment is restarted – you will be able to use <span class="Subfigure">head</span> just like any other Lisp function.  
+			</p>
+
+			<p>
+				Our definition of head constitutes a program. A <span class="Bolded">program</span> in Lisp consists of one or more <span class="Subfigure">defun</span>s together with any needed data lists.  Programs are generally stored in files.  A program is run by loading its file into the Lisp environment and then calling its main function.
+			</p>
+
+			<p>
+				<span class="figNum lispfunctions"></span> contains a summary of user-defined Lisp functions.  Part (a) describes the format of the <span class="Subfigure">defun</span> procedure.  Part (b) presents our example user-defined function, <span class="Subfigure">head</span>.  Part (c) illustrates function invocation and return using the definition given in Part (b).
+			</p>
+
+			<p>
+				Let’s look at some additional function definitions.  First up, we could do for <span class="Subfigure">cdr</span> what we did for <span class="Subfigure">car</span> – create a new function with the same functionality but a better name.  Here is a definition for a new version of <span class="Subfigure">cdr</span> called <span class="Subfigure">tail</span>.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(defun tail (L)</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">(cdr L)</span></li>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+
+			<p>
+				It also might be useful if we defined a group of functions that retrieved the second, third, and fourth elements of a list, since those are tasks that are performed quite frequently.   One way of defining <span class="Subfigure">second</span>, using only built-in functions, would be
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(defun second (L)</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">(car (cdr L))</span></li>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+
+			<p>
+				We could also define <span class="Subfigure">second</span> using <span class="Subfigure">head</span> and <span class="Subfigure">tail</span>.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(defun second (L)</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">(head (tail L))</span></li>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+
+			<p>
+				Definitions of <span class="Subfigure">third</span> and <span class="Subfigure">fourth</span> are left as exercises.  Most versions of Lisp include <span class="Subfigure">second</span>, <span class="Subfigure">third</span>, and <span class="Subfigure">fourth</span> as built-in functions, but they are called by the more cryptic names <span class="Subfigure">cadr</span>, <span class="Subfigure">caddr</span>, and <span class="Subfigure">cadddr</span>, due to their underlying definitions – i.e., <span class="Subfigure">cadr</span> is implemented as<span class="Subfigure">(car(cdr L))</span>, <span class="Subfigure">caddr</span> as <span class="Subfigure">(car(cdr(cdr L)))</span>, and so forth.
+			</p>
+
+			<p>
+				In addition to list manipulation based functions, mathematical functions can also be written in Lisp.  For example,
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(defun second (NUM)</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">( * NUM NUM)</span></li>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+			
+			<p>
+				Defines a function that takes a numeric atom, a number, and returns its <span class="Subfigure">square</span> – i.e., multiplies the number by itself.  A slightly more complex mathematical oriented example would be a function that converts a temperature reading from degrees Fahrenheit to degrees Celsius.  The conversion formula is <span class="Subfigure">C = (F – 32)/1.8</span>.  Here is the function definition in Lisp using the name <span class="Subfigure">f-to-c</span>:
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(defun f-to-c (TEMP)</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">( / ( - TEMP 32) 1.8)</span></li>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+			
+			<p>
+				Calling <span class="Subfigure">(f-to-c 32)</span> returns <span class="Subfigure">0.0</span>, <span class="Subfigure">while</span><span class="Subfigure">(f-to-c 212)</span> returns <span class="Subfigure">100.0</span>.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(cond (<span class="Italicized">condition</span><span class="Subscript">1</span><span class="Italicized">result</span><span class="Subscript">1</span>)</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">(<span class="Italicized">condition</span><span class="Subscript">2</span><span class="Italicized">result</span><span class="Subscript">2</span>)</span></li>
+					<li><span class="Subfigure">&nbsp;&nbsp;:             :</span></li>
+					<li><span class="Subfigure">(<span class="Italicized">condition</span><span class="Subscript">n</span><span class="Italicized">result</span><span class="Subscript">n</span>))</span></li>
+				</ul>
+			</ul>
+			
+			<br/>
+
+			<p class="Figure">
+				<span class="figNum condformat"></span>  The format of the <span class="Subfigure">cond</span> function
+			</p>
+
+			<p>
+				As we learned in <span class="contentNum javascript"></span>, the three basic control constructs of imperative programming are sequence, selection, and repetition.  Functional languages such as Lisp also implement a form of these control constructs.  At this point we have seen how to write Lisp procedures that consist of a sequence of nested operations, thus we have mastered sequence in Lisp
+			</p>
+
+			<p>
+				We now turn our attention to selection.  Selection is implemented in Lisp using the “condition” operation,  <span class="Subfigure">cond</span>.  The cond operator is similar to the If-Then-Else construction of <span class="contentNum javascript"></span>, except that it allows many different “cases” to be tested instead of just two.
+			</p>
+
+			<p>
+				The format of the <span class="Subfigure">cond</span> function is shown in <span class="figNum condformat"></span>.  This function takes the form of a list, where the first element of the list is the atom <span class="Subfigure">cond</span>.  Following the function name are one or more condition/result lists. Each of these lists contains two elements.  The first element is a condition, or predicate, that will return either true or false.  If the condition is true, the associated result list will be evaluated and its result returned as the result of the <span class="Subfigure">cond</span> function.  If none of the conditions are true, <span class="Subfigure">cond</span> will return nil.  If multiple conditions are true, <span class="Subfigure">cond</span> will return the result associated with the <span class="Italicized">first</span> true condition.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(defun legal (AGE)</span></li>
+				<ul class="Blockcenter">
+					<li><span class="Subfigure">(cond ((&gt;= AGE 21)  T )</span></li>
+					<ul class="Blockcenter">
+						<li><span class="Subfigure">(    T       nil) )</span></li>
+					</ul>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+			
+			<p class="Figure">
+				(a) Definition of function <span class="Subfigure">legal</span>
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(legal 18) &rArr; nil</span></li>
+				<li><span class="Subfigure">(legal 21) &rArr; T</span></li>
+				<li><span class="Subfigure">(legal 42) &rArr; T</span></li>
+			</ul>
+
+			<br/>
+			
+			<p class="Figure">
+				(b) Input/Output behavior of <span class="Subfigure">legal</span>
+			</p>
+
+			<p class="Figure">
+				<span class="figNum legadefinition"></span>  A program that illustrates selection via the <span class="Subfigure">cond</span> function
+			</p>
+			<p class="Figure">
+				 
+			</p>
+
+			<p>
+				Lisp contains a large number of functions, called predicates, that can be used to test for a wide range of conditions.  Predicates exist to test whether two numbers are less than <span class="Subfigure">&lt;</span>, greater than <span class="Subfigure">&gt;</span>, equal <span class="Subfigure">=</span>, less than or equal <span class="Subfigure">&lt;=</span>, greater than or equal <span class="Subfigure">&gt;=</span>, or not equal <span class="Subfigure">/=</span>.
+			</p>
+
+			<p>
+				<span class="figNum legadefinition"></span>(a) presents the definition of a function that uses <span class="Subfigure">cond</span> to perform a condition test.  The function, called <span class="Subfigure">legal</span>, determines whether a person is of legal drinking age by comparing their <span class="Subfigure">AGE</span> to 21.  If <span class="Subfigure">AGE</span> is greater than or equal to 21, the function returns true, otherwise the function returns false.  The input/output behavior of legal is illustrated in <span class="figNum legadefinition"></span>(b) using three different values for <span class="Subfigure">AGE</span>, one less than 21, one equal to 21, and one greater than 21.
+			</p>
+
+			<p>
+				At this point it is important to say a few words about how Lisp represents true and false.  False is implemented as the empty list, nil or ().  Anything that is not false is considered true.  So, for example the number <span class="Subfigure">2</span>, the symbol <span class="Subfigure">cow</span>, and the list <span class="Subfigure">(chicken)</span> would all be considered true, since they are not nil.  Though every non-nil value is, by definition, true, Lisp includes a special atom, <span class="Subfigure">T</span>, solely for indicating true.  Using <span class="Subfigure">T</span> makes Lisp programs easier to read and understand.
+			</p>
+
+			<p>
+				The <span class="Subfigure">cond</span> of  <span class="figNum legadefinition"></span>(a)  has two condition/result pairs.  The first condition/result pair reads <span class="Subfigure">((&gt;= AGE 21) T)</span>.  Thus, if <span class="Subfigure">(&gt;= AGE 21)</span> is true, then its associated result, <span class="Subfigure">T</span>, meaning true, will be returned.  Assuming that <span class="Subfigure">(&gt;= AGE 21)</span> is not true, <span class="Subfigure">cond</span> would next examine its second condition/result pair.  This pair reads <span class="Subfigure">( T nil)</span>.  Placing a <span class="Subfigure">T</span> in the condition portion of the second condition/result pair guarantees that the result of this pair, nil, will be returned if this pair is ever examined.  
+			</p>
+
+			<p>
+				At first it may seem odd to ever use T in the condition portion of a condition/result pair, but in fact it is very common to do so.  Use of a <span class="Subfigure">T</span> condition in the final condition/result pair of a <span class="Subfigure">cond</span> causes that pair to behave like the else clause of an If-Then-Else statement.  In other words, if none of the “regular” conditions apply, you can be sure that the last one will, since it is always true – i.e., applies in all cases.  One note of caution however, a <span class="Subfigure">T</span> condition should only be used in the final condition/result pair of a <span class="Subfigure">cond</span>.  Any condition/result pairs placed after the <span class="Subfigure">T</span> condition will never be evaluated, since execution of the <span class="Subfigure">cond</span> will terminate at the first <span class="Subfigure">T</span> condition.
+			</p>
+
+			<p>
+				Here is the definition of another function that uses the <span class="Subfigure">cond</span> operator
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(defun absolute_value (NUM)</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">(cond ((&gt;= NUM 0)   NUM    )</span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">(    T     (- 0 NUM) ) )</span></li>
+					</ul>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+			
+			<p>
+				This function returns the absolute value of a number.  If the number is greater than or equal to zero, that number is returned unchanged.  Otherwise (that is if the number is less than zero) the original number is subtracted from zero (giving a positive result) and that result is returned as the value of the function.
+			</p>
+
+			<p>
+				As was the case with imperative language If-Then-Else statements, <span class="Subfigure">cond</span> functions may be nested within one another.  <span class="figNum legalinout"></span> contains a Lisp function based on the yuppie example illustrated in <span class="figNum ifelsenest"></span>.  While the input/output behavior of these two programs is different, comparing them gives a good feel for the differences between Lisp functions and imperative programs.  The general rule used to define yuppies is the same in both figures – i.e., that yuppies are individuals who are under 40 and make $50,000 or more per year.  The Lisp version of this program is a function that accepts two inputs, <span class="Subfigure">AGE</span> and <span class="Subfigure">INCOME</span>, and returns a list indicating whether or not the conditions of yuppiedom have been met.  If the conditions have been met, the list <span class="Subfigure">(yuppie)</span> will be returned.  If the inputs for <span class="Subfigure">AGE</span> and <span class="Subfigure">INCOME</span> do not fall with in the yuppie range, other lists such as <span class="Subfigure">(too old)</span>, <span class="Subfigure">(too poor)</span>, and <span class="Subfigure">(old and poor)</span> will be returned.  
+			</p>
+
+			<p>
+				In addition to the nesting of <span class="Subfigure">cond</span> operations, <span class="figNum legalinout"></span> introduces a number of other concepts.  The <span class="Subfigure">yuppie</span> function is the first function we’ve written that uses multiple input – two numeric atoms in this case, <span class="Subfigure">AGE</span> and <span class="Subfigure">INCOME</span>.  This function is also the first one to return a list, as opposed to an atom.
+			</p>
+
+			<p>
+				By now you should have a pretty good feeling for both sequence and selection in Lisp functions.  Before we move on to the repetition control construct, two additional topics should be addressed.  The first is input/output.  The second is predicates for symbolic atoms and lists.
+			</p>
+
+			<p>
+				Basic text-based input is achieved in Lisp by use of the <span class="Subfigure">read</span> function.  The read function returns one element, either an atom or a list, entered by the user while the program is running.
+			</p>
+			
+			<ul class="Blockcenter">
+				<li><span class="Subfigure">(defun yuppie (AGE INCOME)</span></li>
+				<ul class="Subblockcenter">
+					<li><span class="Subfigure">(cond (( &lt; AGE 40)  </span></li>
+					<ul class="Subblockcenter">
+						<li><span class="Subfigure">(cond ((&gt;= INCOME 50000)(quote </span><span class="Subfigure Lite">(yuppie)</span>) )</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Subfigure">(        T        (quote <span class="Subfigure Lite">(too poor)</span>))))</span></li>
+						</ul>
+						<li><span class="Subfigure">(cond ((&gt;= INCOME 50000)(quote <span class="Subfigure Lite">(too old)</span>))</span></li>
+						<ul class="Subblockcenter">
+							<li><span class="Subfigure">(        T        (quote <span class="Subfigure Lite">(old and poor)</span>))))</span></li>
+						</ul>
+					</ul>
+					<li><span class="Subfigure">)</span></li>
+				</ul>
+				<li><span class="Subfigure">)</span></li>
+			</ul>
+			
+			<br/>
+
+			<p class="Figure">
+				<span class="figNum legalinout"></span>  A Lisp program that illustrates nested conditions
+			</p>
+		
+			<div class="push"></div>
+			<!-- End main content -->
+			</div> 
+			
+			<div class="blueFooterBar"></div>
+
+			<!-- Arrow navigation scripts -->
+			<script>
+				var pageObj;											// do NOT change name of variable
+				var chapID = "objects";
+
+				$(document).ready(function() {
+				populateNav();										// populate nav content
+				populateSpans();									// populate figure/content spans
+				pageObj = getArrowPathsByPage("objectsFunctional2");		// get arrow paths
+				if (!localFlag) runGA();
+				});	
+
+			</script>
+	</body>
+</html>

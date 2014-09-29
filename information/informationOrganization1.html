@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Watson</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!-- CSS files -->
+      <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href="../lib/images/favicon.ico" rel="icon" type="image/png">
+    <link href = "../lib/css/bootstrap.css" rel = "stylesheet">
+    <link href="../lib/css/styles.css" rel="stylesheet">
+    <link href = "../lib/css/generalmedia.css" rel = "stylesheet">
+    <!-- Java Script files -->
+    <script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/js/nav.js"></script>
+    <script type="text/javascript" src="../lib/js/master.js"></script>
+    <script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+    <script type="text/javascript" src="../lib/js/Numbering.js"></script>
+    <script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  </head>
+
+  <body>
+      <!-- Navbar -->
+      <div id="includedContentForPage"></div>
+      <!-- End Navbar -->
+
+    <div id="wrapper" class="page-wrapper">
+      <a id="tippytop"></a>
+      <!-- Header division -->
+
+      <!-- Main content -->
+      <p class="Section">
+        <span class="contentNum informationOrganization1"></span>  
+      </p>
+
+      <p>
+        The simplest file organization technique is contiguous storage. </span><span class="Bolded">Contiguous</span> storage places blocks of records that are logically adjacent to one another into physically adjacent sectors. For example, let’s say that we have a file that consists of 20 student records that we’d like to store in alphabetical order based on last name. The first 12 records could be grouped into one block and the last eight records could be grouped into another block. Contiguous storage would place these two blocks in physically adjacent sectors, such as sectors 2 and 3 of track A.
+      </p>
+
+      <p>
+        <span class="figNum filecollection"></span> presents a collection of files stored using the contiguous approach, and illustrates their track and sector locations on a diagram of a three track, 24-sector disk.
+      </p>
+
+      <img src="images/filecollectionpt1.png" alt="A collection of contiguous files stored on a disk" class="Image">
+      <img src="images/filecollectionpt2.png" alt="A collection of contiguous files stored on a disk" class="Image">
+
+      <p class="Figure">
+        <span class="figNum filecollection"></span> A collection of contiguous files stored on a disk
+      </p>
+
+      <p>
+        An advantage of contiguous storage is that an entire file can be retrieved rather quickly. Once the access arm has positioned the read/write head over the appropriate track and the beginning of the first sector of the file spins under the head, there will be no additional seek or rotational delays associated with reading the file. In other words, since the entire file lies in contiguous sectors of the same track, once the read/write head is positioned at the beginning of the file, their will be no more need to move the access arm or wait for sectors to rotate under the head.
+      </p>
+
+      <p>
+        While speed of retrieval is a significant advantage for contiguous storage, unfortunately it has a severe disadvantage as well. Contiguous storage can be quite wasteful of space. The reason for this is simple. For a file to be stored on disk it is not only necessary that an adequate number of free sectors be available, it is also imperative that the sectors be located next to one another.
+      </p>
+
+      <p>
+        In <span class="figNum defraggedfiles"></span>, ten out of 24 total sectors are unused, yet a three-sector file cannot be stored due to the fact that the necessary number of contiguous sectors is not available. To most people this situation would be unacceptable. How would you feel if you had a disk that was only 58% full, yet refused to store a file that was less than one third the size of “available” space? Rather miffed, I would think.
+      </p>
+
+      <img src="images/defraggedfilespt1.png" alt="A collection of contiguous files after defragging" class="Image">
+      <img src="images/defraggedfilespt2.png" alt="A collection of contiguous files after defragging" class="Image">
+
+      <p class="Figure">
+        <span class="figNum defraggedfiles"></span>  A collection of contiguous files after defragging
+      </p>
+
+      <p>
+        A disk is said to be</span> <span class="Bolded">fragmented</span> when files are spread throughout the disk, leaving the free space in small scattered “clumps”. One way this fragmentation problem can be overcome is to occasionally</span> <span class="Bolded">defragment</span>, or “</span><span class="Bolded">defrag</span>”, the disk by moving the location of files so that all of the free sectors can be placed together. Performing a defragmentation operation can be time consuming. Essentially, every file on the disk must be examined and the contents of many files copied to new sectors. <span class="figNum defraggedfiles"></span> shows how the disk of <span class="figNum filecollection"></span> might look after being defragged. Because the process of defragging a disk can literally take many hours to complete, contiguous storage is generally avoided.
+      </p>
+
+      <!-- End main content -->
+      <div class="push"></div>
+
+    </div> <!-- End wrapper -->
+
+    <div class="blueFooterBar"></div> <!-- populates the bottom footer -->
+
+    <script>
+      var pageObj;                      // do NOT change name of variable
+      var chapID = "information";        // stores current chapter for Section button in navbar
+
+      $(document).ready(function() {
+      populateNav();                    // populate nav content
+      populateSpans();                  // populate figure/content spans
+      pageObj = getArrowPathsByPage("informationOrganization1");    // get arrow paths
+      if (!localFlag) runGA();
+      });
+
+    </script>
+  </body>
+</html>
