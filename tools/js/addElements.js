@@ -164,6 +164,7 @@ function AddElements(figNum) {
       buttonDiv.style.display = "none";
       functionBox.style.width = "100%";
       break;
+    case 211:
     default:
       functionBox.style.width = "71%";
       tableHolder.className = "col-md-8 col-xs-6 tableHolder";

@@ -26,6 +26,8 @@
 		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
 		<script src="js/jquery.handsontable.full.js"></script>
 		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		
 
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 
@@ -238,13 +240,22 @@
 				Exercises for <span class="contentNum toolsSpreadsheets2"></span>
 			</p>
 		
-			<ol>
+			<ol id="exerciseList">
 				<li>
 					Assuming that cell A1 contains the number 10 and cell A2 contains the number 5 show how the following formulas would be evaluated. 
 				
 					<ul class="Subblockcenter">
 						<li>
-							(a) = A1 + 2 * A2
+						
+							<p class="exercise solvable 211">(a) = A1 + 2 * A2</p>
+							<div class="exerciseDiv 211">
+								<button id="solve1" class="btn btn-sm btn-primary" onclick="solveButton(211)">Solve</button>
+								<button id="toggle211" class="btn btn-sm btn-success" onclick="toggleView('toggle211', container-exer211');">View</button>
+								<div id="container-exer211" class="Centered" style="margin-top:5px;">
+								</div>
+								<br><br>
+							</div>
+							
 						</li>
 						<br/>
 						<li>

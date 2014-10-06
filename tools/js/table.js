@@ -188,6 +188,13 @@
       minCol = 5;
       maxCol = 5;
       break;
+    case 211:
+      T.gaid = "exer1a";
+      minRow = 3;
+      maxRow = 3;
+      minCol = 3;
+      maxCol = 3;
+      break;
     default:
       //sandbox mode
       minRow = 30;
@@ -699,6 +706,11 @@
       ht.populateFromArray(0,0, fillerArray, 11, 4);
       ht.setDataAtCell(6,3, "");
         break;
+      case 211:
+    	  fillerArray[0] = [];
+          fillerArray[1] = []; fillerArray[0][0] = "10"; fillerArray[0][1] = [];
+          fillerArray[2] = []; fillerArray[1][0] = "5"; fillerArray[1][1] = [];
+          ht.populateFromArray(0,0, fillerArray, 1, 1);
       default:
         if(reload)
         {
