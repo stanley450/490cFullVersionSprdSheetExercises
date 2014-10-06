@@ -8,33 +8,25 @@
 		<title>Watson</title>
 
 		<!-- Google fonts -->
-	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+<!-- 	    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'> -->
 	    <!-- CSS files -->
-	    <link href = "../lib/images/favicon.ico" rel="icon" type="image/png">
-	    <link href="../lib/css/bootstrap.css" rel = "stylesheet">
-	    <!--<link href="../lib/css/ch08.css" rel = "stylesheet">-->
-	    <link href="../lib/css/styles.css" rel = "stylesheet">
-	    <link href="../lib/css/generalmedia.css" rel = "stylesheet">
-		<link href="../lib/css/grid.css" rel = "stylesheet">
-	
-		<link type="text/css" rel="stylesheet" href="../lib/css/editor.css"/>
-		<link href='../lib/css/style.css' rel='stylesheet' type="text/css">
-	    <link rel="stylesheet" type="text/css" href="../lib/css/jquery-ui-1.10.4.custom.css">
-		<link rel="stylesheet" href="../lib/css/Dialogs.css">
+	    <link href="../lib/css/bootstrap.css" rel="stylesheet">
+		<link href="../lib/css/styles.css" rel="stylesheet">
+		<link href="../lib/css/generalmedia.css" rel="stylesheet">
+		
+		<link rel="stylesheet" href="css/jquery.handsontable.full.css">
+		
 		
 	    <!-- Java Script files -->
-		<script type="text/javascript" src="../lib/js/master.js"></script>
-	    <script type="text/javascript" src="../lib/js/jquery-1.10.2.js"></script>
-	    <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="../lib/js/jquery-ui-1.10.4.custom.min.js"></script>
-		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
-		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../lib/js/nav.js"></script>
-		
-		<!--JS sandbox files-->
-		<script type="text/javascript" src="../lib/js/WatsonDialogs.js"></script>
-		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
+		<script type="text/javascript" src="../lib/js/master.js"></script> 
+		<script type="text/javascript" src="../lib/js/TOCGenerator.js"></script>
+		<script type="text/javascript" src="../lib/js/Numbering.js"></script>
+		<script type="text/javascript" src="../lib/js/Miscellaneous.js"></script> 
 		<script src="js/jquery.handsontable.full.js"></script>
+		<script type="text/javascript" src="../lib/js/WatsonDataStore.js"></script>
 	</head>
 	
 	<body>
@@ -49,19 +41,31 @@
 			</div>
 	</body>
 	
+	<script src="js/addElements.js"></script>
+	<script src="js/jquery.mobile.custom.min.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="js/table.js"></script>
+	<script src="js/cellFunctions.js"></script>
+	<script src="js/functionParse.js"></script>
+	<script src="js/setup.js"></script>
 	<script type="text/javascript">
 		var lab;
 		$(document).ready(function(){
 			populateNav();
 			
 			var exerNum = parseFloat(localStorage.getItem("currExerNum"));
-			var exerQues = localStorage.getItem("currExerQues");
+			var exerQues = localStorage.getItem("exerciseQuestion");
+			var metaQues = localStorage.getItem("metaQuestion");
 			
-			document.getElementById("sheetQuestion").innerHTML = exerQues;
+			document.getElementById("sheetQuestion").innerHTML = metaQues;
+						
+			document.getElementById("sheet").innerHTML = exerQues;
 			
-			document.getElementById("sheetholder").innerHTML = '<div id="container' + exerNum + '"></div>';
+			var contDiv = document.getElementById("sheetholder");
 			
-			Setup(exerNum);
+			$(contDiv).attr('id', 'container' + exerNum);
+			
+			lab = Setup(exerNum);
 		})
 		
 		
@@ -76,10 +80,4 @@
 		
 	</script>
 	
-	<script src="js/addElements.js"></script>
-	<script src="js/jquery-ui-1.10.4.custom.js"></script>
-	<script src="js/table.js"></script>
-	<script src="js/cellFunctions.js"></script>
-	<script src="js/functionParse.js"></script>
-	<script src="js/setup.js"></script>
-<html>
+</html>
