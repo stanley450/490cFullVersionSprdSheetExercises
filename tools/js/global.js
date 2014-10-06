@@ -55,7 +55,6 @@ function solveButton(exerID, name) {
 	var exquest = document.getElementById("exerQuest " + exerID);
 	var quest = exquest.innerHTML;
 	
-	alert(name);
 	var metaQuest = document.getElementById(name);
 	var meta = metaQuest.innerHTML;
 		
