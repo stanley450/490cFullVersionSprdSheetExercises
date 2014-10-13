@@ -10,5 +10,15 @@ function Setup(figNum) {
 
   table.getObjects(cellFunctions, addElements, functionParse);
   cellFunctions.getObjects(addElements, table, functionParse);
+  
+  dataStore = new DataStore();
+  
+  function saveTable(chapter, exercise, data){
+	  dataStore.saveExerciseData(chapter, exercise, data);
+  }
+  
+  function loadTable(chapter, exercise){
+	  dataStore.loadExerciseData(chapter, exercise);
+  }
 
 }

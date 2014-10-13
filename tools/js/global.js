@@ -1,6 +1,7 @@
 var exerciseFigsText = [];
 var exerciseFigs = [];						// array to hold all digital logic figures for exercises
 var section;
+dataStore = new DataStore();
 
 //function setupExerciseButtons(sectID) {
 //	section = getContentByID(sectID).replace("Section ", "");
@@ -46,8 +47,14 @@ function toggleView(buttonID, divID) {
 	var div = document.getElementById(divID);
 	var button = document.getElementById(buttonID);
 	
-	if (button.textContent == "View") { $("#" + divID).slideDown("medium"); button.textContent = "Hide"; }
+	if (button.textContent == "View") { 
+		$("#" + divID).slideDown("medium"); 
+		button.textContent = "Hide"; 
+		}
 	else { $("#" + divID).slideUp("medium"); button.textContent = "View"; }
+	
+	$("#" + divID).html(localStorage.getItem(divID));
+	
 }
 
 function solveButton(exerID, name) {
@@ -55,7 +62,6 @@ function solveButton(exerID, name) {
 	var exquest = document.getElementById("exerQuest " + exerID);
 	var quest = exquest.innerHTML;
 	
-	alert(name);
 	var metaQuest = document.getElementById(name);
 	var meta = metaQuest.innerHTML;
 		

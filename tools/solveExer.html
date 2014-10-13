@@ -49,7 +49,6 @@
 	<script src="js/functionParse.js"></script>
 	<script src="js/setup.js"></script>
 	<script type="text/javascript">
-		var lab;
 		$(document).ready(function(){
 			populateNav();
 			
@@ -65,12 +64,20 @@
 			
 			$(contDiv).attr('id', 'container' + exerNum);
 			
-			lab = Setup(exerNum);
+			Setup(exerNum);
+			
+			lab = new DataStore();
+			
+			
 		})
 		
 		
 		function saveExercise() {
-			lab.saveEditor();
+			
+			alert("thegame");
+			var exerNum = parseFloat(localStorage.getItem("currExerNum"));
+			var blarp = document.getElementById("sheetholder").innerHTML;
+			localStorage.setItem('container-exer' + exerNum, $("container" + exerNum).html.serialize());
 		}
 		
 		function clearExercise() {
