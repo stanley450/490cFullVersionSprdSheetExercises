@@ -171,15 +171,22 @@ function JSEditor(divID, chapterName, exerciseNum) {
 	  {
 	  case 9:
 	  console.log("case 9");
-	  //editor.addRow(0, [{ text: "//&nbsp;"+"Variables", type: "comment" }]);
-	  addComment(0, "Variables");
-		addVariable(1, "numberOfGrades", "NUMERIC", 0);
-		addVariable(2, "total", "NUMERIC", 0);
-		addVariable(3, "i", "NUMERIC", 0);
-		addVariable(4, "grade", "NUMERIC", 0);
+	  editor.addRow(0, [{ text: "//&nbsp;"+"Variables", type: "comment" }]);
+	  //addComment(0, "Variables");
+		//addVariable(1, "numberOfGrades", "NUMERIC", 0);
+		//var indent = getIndent(0);
+		editor.addRow(1, [ { text: " " }, { text: "var", type: "keyword" }, { text: "&nbsp" }, { text: "numberOfGrades" }, { text: ";" }, { text: "&nbsp" }, { text: "/*" + "NUMERIC" + "*/", type: "datatype" } ]);
+		//addVariable(2, "total", "NUMERIC", 0);
+		editor.addRow(2, [ { text: " " }, { text: "var", type: "keyword" }, { text: "&nbsp" }, { text: "total" }, { text: ";" }, { text: "&nbsp" }, { text: "/*" + "NUMERIC" + "*/", type: "datatype" } ]);
+		//addVariable(3, "i", "NUMERIC", 0);
+		editor.addRow(3, [ { text: " " }, { text: "var", type: "keyword" }, { text: "&nbsp" }, { text: "i" }, { text: ";" }, { text: "&nbsp" }, { text: "/*" + "NUMERIC" + "*/", type: "datatype" } ]);
+		//addVariable(4, "grade", "NUMERIC", 0);
+		editor.addRow(4, [ { text: " " }, { text: "var", type: "keyword" }, { text: "&nbsp" }, { text: "grade" }, { text: ";" }, { text: "&nbsp" }, { text: "/*" + "NUMERIC" + "*/", type: "datatype" } ]);
 		addVariable(5, "average", "NUMERIC", 0);
+		editor.addRow(5, [ { text: " " }, { text: "var", type: "keyword" }, { text: "&nbsp" }, { text: "average" }, { text: ";" }, { text: "&nbsp" }, { text: "/*" + "NUMERIC" + "*/", type: "datatype" } ]);
 		addBlankLine(6);
-		addComment(7, "Main Program");
+		//addComment(7, "Main Program");
+		editor.addRow(7, [{ text: "//&nbsp;"+"Main Program", type: "comment" }]);
 		addNumericPrompt(8, "numberOfGrades", '"Enter the number of grades."', "0", 0);
 		addAssignment(9, "total", "0", 0);
 		addFor(10, "i", "1", "<=", "numberOfGrades", "++", 0);
