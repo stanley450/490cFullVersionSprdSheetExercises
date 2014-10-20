@@ -171,16 +171,15 @@ function JSEditor(divID, chapterName, exerciseNum) {
 	  {
 	  case 9:
 	  console.log("case 9");
-	  editor.addRow(0, [{ text: "//&nbsp;"+"Variables", type: "comment" }]);
-	  //addComment(0, "Variables");
+	  //editor.addRow(0, [{ text: "//&nbsp;"+"Variables", type: "comment" }]);
+	  addComment(0, "Variables");
 		addVariable(1, "numberOfGrades", "NUMERIC", 0);
 		addVariable(2, "total", "NUMERIC", 0);
 		addVariable(3, "i", "NUMERIC", 0);
 		addVariable(4, "grade", "NUMERIC", 0);
 		addVariable(5, "average", "NUMERIC", 0);
 		addBlankLine(6);
-		//addComment(7, "Main Program");
-		editor.addRow(7, [{ text: "//&nbsp;"+"Main Program, type: "comment" }]);
+		addComment(7, "Main Program");
 		addNumericPrompt(8, "numberOfGrades", '"Enter the number of grades."', "0", 0);
 		addAssignment(9, "total", "0", 0);
 		addFor(10, "i", "1", "<=", "numberOfGrades", "++", 0);
