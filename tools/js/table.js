@@ -196,6 +196,46 @@
       maxCol = 3;
       tableHeight = 200;
       break;
+	case 212:
+      T.gaid = "avgdisplaycontents";
+      minRow = 30;
+      maxRow = 30;
+      minCol = 30;
+      maxCol = 30;
+      tableHeight = DEFAULTHEIGHT;
+      break;
+	case 213:
+      T.gaid = "avgdisplaycontents";
+      minRow = 30;
+      maxRow = 30;
+      minCol = 30;
+      maxCol = 30;
+      tableHeight = DEFAULTHEIGHT;
+      break;
+	case 214:
+      T.gaid = "avgdisplaycontents";
+      minRow = 30;
+      maxRow = 30;
+      minCol = 30;
+      maxCol = 30;
+      tableHeight = DEFAULTHEIGHT;
+      break;
+	case 215:
+      T.gaid = "avgdisplaycontents";
+      minRow = 30;
+      maxRow = 30;
+      minCol = 30;
+      maxCol = 30;
+      tableHeight = DEFAULTHEIGHT;
+      break;
+	case 216:
+      T.gaid = "avgdisplaycontents";
+      minRow = 30;
+      maxRow = 30;
+      minCol = 30;
+      maxCol = 30;
+      tableHeight = DEFAULTHEIGHT;
+      break;
     default:
       //sandbox mode
       minRow = 30;
@@ -712,6 +752,38 @@
           fillerArray[1] = []; fillerArray[0][0] = "10";
           fillerArray[2] = []; fillerArray[1][0] = "5";
           ht.populateFromArray(0,0, fillerArray, 1, 1);
+          break;
+	case 212:
+    	  fillerArray[0] = [];
+          fillerArray[1] = []; fillerArray[0][0] = "Year";
+          fillerArray[2] = []; fillerArray[0][1] = "Memory(Meg)";
+		  fillerArray[3] = []; fillerArray[0][2] = "Speed(Ghz)";
+          ht.populateFromArray(0,0, fillerArray, 1, 3);
+          break;
+	case 213:
+    	  fillerArray[0] = [];
+          fillerArray[1] = []; fillerArray[1][0] = "MPH";
+          fillerArray[2] = []; fillerArray[1][1] = "KPH";
+          ht.populateFromArray(0,0, fillerArray, 1, 2);
+          break;
+	case 214:
+    	  fillerArray[0] = [];
+          fillerArray[1] = []; fillerArray[1][0] = "Celsius";
+          fillerArray[2] = []; fillerArray[1][1] = "Fahrenheit";
+          ht.populateFromArray(0,0, fillerArray, 1, 2);
+          break;
+	case 215:
+    	  fillerArray[0] = [];
+          fillerArray[1] = []; fillerArray[1][0] = "Radius (feet)";
+          fillerArray[2] = []; fillerArray[1][1] = "Seconds per Rotation";
+          ht.populateFromArray(0,0, fillerArray, 1, 2);
+          break;
+	case 216:
+    	  fillerArray[0] = [];
+          fillerArray[1] = []; fillerArray[1][0] = "Launch Attempt";
+          fillerArray[2] = []; fillerArray[1][1] = "Success";
+		  fillerArray[2] = []; fillerArray[1][2] = "Failure";
+          ht.populateFromArray(0,0, fillerArray, 1, 3);
           break;
       default:
         if(reload)
