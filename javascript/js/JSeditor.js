@@ -167,7 +167,38 @@ function JSEditor(divID, chapterName, exerciseNum) {
 	editor.loadEditor('figcontainer-exer' + exerciseNum + 'Editor', divID, true);
 	
 	var engine = new Engine(divID, chapterName, exerciseNum, editor);
-	
+	switch(exerciseNum)
+	  {
+	  case 9:
+	  console.log("case 9");
+	  editor.addRow(0, [{ text: "//&nbsp;"+"Variables", type: "comment" }]);
+	  //addComment(0, "Variables");
+		addVariable(1, "numberOfGrades", "NUMERIC", 0);
+		addVariable(2, "total", "NUMERIC", 0);
+		addVariable(3, "i", "NUMERIC", 0);
+		addVariable(4, "grade", "NUMERIC", 0);
+		addVariable(5, "average", "NUMERIC", 0);
+		addBlankLine(6);
+		//addComment(7, "Main Program");
+		editor.addRow(7, [{ text: "//&nbsp;"+"Main Program, type: "comment" }]);
+		addNumericPrompt(8, "numberOfGrades", '"Enter the number of grades."', "0", 0);
+		addAssignment(9, "total", "0", 0);
+		addFor(10, "i", "1", "<=", "numberOfGrades", "++", 0);
+		addNumericPrompt(12, "grade", '"Enter a grade."', "0", 2);
+		addWrite(13, [ '"Grade "' ], 2);
+		addWrite(14, [ 'i' ], 2);
+		addWrite(15, [ '": "' ], 2);
+		addWriteln(16, [ 'grade' ], 2);
+		addAssignment(17, "total", "total", "+", "grade", 2);
+		addWrite(19, [ '"The average of the grades is "' ], 0);
+		addIfElse(20, "numberOfGrades", ">", "0", 0);
+		addAssignment(22, "average", "total", "/", "numberOfGrades", 2);
+		addWrite(23, [ 'average' ], 2);
+		addWriteln(27, [ '"undefined"' ], 2);
+	  break;
+	  default:
+	  break;
+	  }
 	var variableCount = 0;									// keeps count of the amount of variables
 	var funcCount = 0;										// keeps count of number of functions
 	var programStart = 0;									// the line the main program starts
@@ -1251,7 +1282,267 @@ function JSEditor(divID, chapterName, exerciseNum) {
 		programCount++;
 		//toggleEvents();									// toggle events to refresh them
 		//refreshLineCount();								// and also refresh line count
+	
+	
+	//;;;;;;;;;;;;; Editor Add Functions ;;;;;;;;;;;;;;;;;;;;;
+	
+	/*
+	 * The level parameter corresponds to the level of indention. I do it manually here.
+	 * This can be done automatically. Feel free to throw that in here. Other than that,
+	 * this section should be self explanatory using the Watson Editor API.
+	 */
+	 
+	function addBlankLine(index) {
+		editor.addRow(index, [ { text: " " } ]); 
 	}
+	
+	function addVariable(index, name, type, level) {
+		var indent = getIndent(level);
+		
+		editor.addRow(index, [ { text: indent }, { text: "var", type: "keyword" }, { text: "&nbsp" }, { text: name }, { text: ";" }, { text: "&nbsp" }, { text: "/*" + type + "*/", type: "datatype" } ]);
+	}
+	
+	function addStringPrompt(index, varName, prompt, defaultValue) {
+		editor.addRow(index, [ { text: varName }, { text: "&nbsp=&nbsp" }, { text: "prompt", type: "keyword" }, { text: "(", type: "openParen" },
+								{ text: prompt, type: "literal" }, { text: ",&nbsp;" }, { text: defaultValue, type: "literal" },
+								{ text: ")", type: "closeParen" }, { text: ";" } ]);
+	}
+	
+	function addNumericPrompt(index, varName, prompt, defaultValue, level) {
+		var indent = getIndent(level);
+		editor.addRow(index, [ {text: indent }, { text: varName }, { text: "&nbsp=&nbsp" }, { text: "parseFloat", type: "keyword" }, { text: "(", type: "openParen" },
+								{ text: "prompt", type: "keyword" }, { text: "(", type: "openParen" }, { text: prompt, type: "literal" },
+								{ text: ",&nbsp;" }, { text: defaultValue, type: "literal" }, { text: ")", type: "closeParen" },
+								{ text: ")", type: "closeParen" }, { text: ";" } ]);
+	}
+	
+	// The write function can potentially have multiple things to write concatenated by a plus sign.
+	// I didn't add the functionality, but I kind of set up the framework for that.
+	function addWrite(index, str, level) {
+		var indent = getIndent(level);
+		
+		if (str.length == 1) {
+			if (str[0].charAt(0) == '"') {
+				editor.addRow(index, [ { text: indent }, { text: "document.write", type: "keyword" }, { text: "(", type: "openParen" }, { text: str[0], type: "literal" },
+									{ text: ")", type: "closeParen" }, { text: ";" } ]);
+			}
+			else {
+				editor.addRow(index, [ { text: indent }, { text: "document.write", type: "keyword" }, { text: "(", type: "openParen" }, { text: str[0] },
+									{ text: ")", type: "closeParen" }, { text: ";" } ]);
+			}
+		}
+	}
+	
+	function addWriteln(index, str, level) {
+		var indent = getIndent(level);
+		if (str.length == 1) {
+			if (str[0].charAt(0) == '"') {
+				editor.addRow(index, [ { text: indent }, { text: "document.writeln", type: "keyword" }, { text: "(", type: "openParen" }, { text: str[0], type: "literal" },
+									{ text: ")", type: "closeParen" }, { text: ";" } ]);
+			}
+			else {
+				editor.addRow(index, [ { text: indent }, { text: "document.writeln", type: "keyword" }, { text: "(", type: "openParen" }, { text: str },
+									{ text: ")", type: "closeParen" }, { text: ";" } ]);
+			}
+		}
+	}
+	
+	function addAssignExpr(index, leftSide, params, level) {
+		var indent = getIndent(level);
+		var arr = [];
+
+		arr.push({text: indent});
+		arr.push({text: leftSide});
+		arr.push({text: "&nbsp;=&nbsp;"});
+		for (var i = 0; i < params.length; i++) {
+			if (i == params.length - 1)
+				arr.push({text: params[i]+";"});
+			else
+				arr.push({ text: params[i]+"&nbsp;" });
+		}
+		
+		editor.addRow(index, arr);
+	}
+	
+	function addAssignment(index, leftSide, operand1, operator, operand2, level) {
+		var indent = getIndent(level);
+		
+		if (!operator || (operator == "" && operand2 == "")) {
+			editor.addRow(index, [ { text: indent }, { text: leftSide }, { text: "&nbsp;=&nbsp;" }, { text: operand1 }, { text: ";" } ]);
+		} else 
+		editor.addRow(index, [ { text: indent }, { text: leftSide }, { text: "&nbsp;=&nbsp;" }, { text: operand1 }, { text: "&nbsp;" + operator + "&nbsp;" }, {text: operand2 }, { text: ";" } ]);
+	}
+	
+	function addAssignFunction(index, leftside, funcName, values, level) {
+		var indent = getIndent(level);
+		var arr = [];
+
+		for (var i = 0; i < values.length; i++) {
+			arr.push( { text: values[i].param } );
+			if (i != values.length - 1)
+				arr.push( { text: "," }, { text: "&nbsp;" } );
+		}
+		
+		var arr2 = [];
+		arr2.push({text: indent});
+		arr2.push({text: leftside});
+		arr2.push({text: "&nbsp;=&nbsp;"});
+		arr2.push({text: funcName});
+		arr2.push( { text: "(", type: "openParen" } );
+		for (var i = 0; i < arr.length; i++) {
+			arr2.push(arr[i]);
+		}
+		arr2.push( { text: ")", type: "closeParen" } );
+		arr2.push( { text: ";" } );
+		
+		editor.addRow(index, arr2);
+	}
+	
+	function addFunctionCall(index, funcName, values, level) {
+		var arr = [];
+		var indent = getIndent(level);
+		
+		// variable amount of parameters must be taken into consideration
+		for (var i = 0; i < values.length; i++) {
+			arr.push( { text: values[i].param } );
+			if (i != values.length - 1)
+				arr.push( { text: "," }, { text: "&nbsp;" } );
+		}
+		
+		var arr2 = [];
+		arr2.push( { text: indent } );
+		arr2.push( { text: funcName } );
+		arr2.push( { text: "(", type: "openParen" } );
+		for (var i = 0; i < arr.length; i++) { arr2.push(arr[i]); }
+		arr2.push( { text: ")", type: "closeParen" } );
+		arr2.push( { text: ";" } );
+		
+		editor.addRow(index, arr2);
+	}
+	
+	function addIfThen(index, leftSide, boolSym, rightSide, level) {
+		var indent = getIndent(level);
+		
+		editor.addRow(index, [ { text: indent }, { text: "if ", type: "keyword" }, { text: "(", type: "openParen" }, { text: leftSide }, { text: "&nbsp;" + boolSym + "&nbsp;" },
+								{ text: rightSide }, { text: ")", type: "keyword" }, { text: " " } ]);
+		editor.addRow(index + 1, [ { text: indent }, { text: "{", type: "openBrack" } ]);
+		editor.addRow(index + 2, [ { text: indent }, { text: "}", type: "closeBrack" } ]);
+	}
+	
+	function addIfElse(index, leftSide, boolSym, rightSide, level) {
+		var indent = getIndent(level);
+		
+		editor.addRow(index, [ { text: indent }, { text: "if ", type: "keyword" }, { text: "(", type: "openParen" }, { text: leftSide }, { text: "&nbsp;" + boolSym + "&nbsp;" },
+								{ text: rightSide }, { text: ")", type: "keyword" }, { text: " " } ]);
+		editor.addRow(index + 1, [ { text: indent }, { text: "{", type: "openBrack" } ]);
+		editor.addRow(index + 2, [ { text: indent }, { text: "}", type: "closeBrack" } ]);
+		editor.addRow(index + 3, [ { text: indent }, { text: "else ", type: "keyword" } ]);
+		editor.addRow(index + 4, [ { text: indent }, { text: "{", type: "openBrack" } ]);
+		editor.addRow(index + 5, [ { text: indent }, { text: "}", type: "closeBrack" } ]);
+	}
+	
+	function addFor(index, var1, operand1, operator1, operand2, operator2, level) {
+		var indent = getIndent(level);
+		
+		editor.addRow(index,
+			[{text: indent},
+			 {text: "for", type: "keyword"},
+			 {text: "(", type: "openParen"},
+			 {text: var1},
+			 {text: "&nbsp;=&nbsp;"},
+			 {text: operand1+";"},
+			 {text: "&nbsp;"+var1+"&nbsp;"},
+			 {text: operator1},
+			 {text: "&nbsp;"+operand2+";&nbsp;"},
+			 {text: var1+operator2},
+			 {text: ")", type: "closeParen"}]);
+		
+		editor.addRow(index + 1, [ { text: indent }, { text: "{", type: "openBrack" } ]);
+		editor.addRow(index + 2, [ { text: indent }, { text: "}", type: "closeBrack" } ]);
+	}
+	
+	function addWhile(index, param1, param2, param3, level) {
+		var indent = getIndent(level);
+		
+		editor.addRow(index,
+			[{text: indent+"while", type: "keyword"},
+			 {text: "(", type: "openParen"},
+			 {text: param1},
+			 {text: "&nbsp;"+param2+"&nbsp;"},
+			 {text: param3},
+			 {text: ")", type: "closeParen"}]);
+		
+		editor.addRow(index + 1, [ { text: indent }, { text: "{", type: "openBrack" } ]);
+		editor.addRow(index + 2, [ { text: indent }, { text: "}", type: "closeBrack" } ]);
+	}
+	
+	function addArray(index, left, num, type, level) {
+		var indent = getIndent(level);
+		
+		editor.addRow(index,
+			[{ text: indent },
+			 { text: "var", type: "keyword"},
+			 { text: "&nbsp" },
+			 { text: left },
+			 { text: "&nbsp;=&nbsp;"},
+			 { text: "new", type: "keyword"},
+			 { text: "&nbsp;Array("},
+			 { text: num },
+			 { text: ");&nbsp;"},
+			 { text: "/*" + type + "*/", type: "datatype" } ]);
+	}
+	
+	function addReturn(index, value, level) {
+		var indent = getIndent(level);
+		
+		editor.addRow(index,
+			[{text: indent},
+			 {text: "return", type: "keyword"},
+			 {text: "&nbsp;"+value},
+			 {text: ";"}]);
+	}
+	
+	function addFunction(index, funcName, values, commentType) {
+		var arr = [];
+		
+		// variable amount of parameters must be taken into consideration
+		for (var i = 0; i < values.length; i++) {
+			arr.push( { text: values[i].name } );
+			arr.push( { text: "&nbsp;" } );
+			arr.push( { text: "/*" + values[i].type + "*/", type: "keyword" } );
+			if (i != values.length - 1) arr.push( { text: "," }, { text: "&nbsp;" } );
+		}
+		
+		var arr2 = [];
+		arr2.push( { text: "function", type: "keyword" } );
+		arr2.push( { text: "&nbsp;" } );
+		arr2.push( { text: funcName } );
+		arr2.push( { text: "(", type: "openParen" } );
+		for (var i = 0; i < arr.length; i++) { arr2.push(arr[i]); }
+		arr2.push( { text: ")", type: "closeParen" } );
+		arr2.push({text: "&nbsp;"+"/*", type: "keyword"});
+		arr2.push({text: commentType, type: "keyword"});
+		arr2.push({text: "*/", type: "keyword"});
+		
+		editor.addRow(index, arr2);
+		editor.addRow(index + 1, [ { text: "{", type: "openBrack" } ]);
+		editor.addRow(index + 2, [ { text: "}", type: "closeBrack" } ]);
+	}
+	
+	function getIndent(level) {
+		var indent = "";
+		for (var i = 0; i < level; i++) indent += "&nbsp;";
+		return indent;
+	}
+	
+	function addComment(row, param) {
+		editor.addRow(row, [{ text: "//&nbsp;"+param, type: "comment" }]);
+	}
+	
+	//end editor stuff-------------------------------------
+	
+	
+	}//end of function JSEditor
 
 
 	// addIfThen() is responsible for adding an If/Then control structure
