@@ -237,14 +237,13 @@ function Figure(figID, uniqueFigID, chapterName, exerciseNum) {
 		addComment(6, "Main Program");
 		addNumericPrompt(7, "n", '"How many numbers are to be added together?"', "0", 0);
 		addAssignment(8, "total", "0", "", "", 0);
-		addAssignment(9, "counter", "1", "", "", 0);
-		addFor(10, "counter", "1", "<=", "n", "++", 0);
-		addWrite(12, [ '"The total so far is... "' ], 2);
-		addWriteln(13, [ 'total' ], 2);
-		addNumericPrompt(14, "newvalue", '"Enter a number to add to the total."', "0", 2);
-		addAssignment(15, "total", "total", "+", "newvalue", 2);
-		addWrite(17, [ '"The final total is... "' ], 0);
-		addWriteln(18, [ 'total' ], 0);
+		addFor(9, "counter", "1", "<=", "n", "++", 0);
+		addWrite(11, [ '"The total so far is... "' ], 2);
+		addWriteln(12, [ 'total' ], 2);
+		addNumericPrompt(13, "newvalue", '"Enter a number to add to the total."', "0", 2);
+		addAssignment(14, "total", "total", "+", "newvalue", 2);
+		addWrite(16, [ '"The final total is... "' ], 0);
+		addWriteln(17, [ 'total' ], 0);
 		showScope = true;
 	}
 	else if (figID == "22") {
