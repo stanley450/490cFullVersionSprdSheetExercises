@@ -182,25 +182,74 @@ function JSEditor(divID, chapterName, exerciseNum) {
 		editor.addRow(3, [ { text: " " }, { text: "var", type: "keyword" }, { text: "&nbsp" }, { text: "i" }, { text: ";" }, { text: "&nbsp" }, { text: "/*" + "NUMERIC" + "*/", type: "datatype" } ]);
 		//addVariable(4, "grade", "NUMERIC", 0);
 		editor.addRow(4, [ { text: " " }, { text: "var", type: "keyword" }, { text: "&nbsp" }, { text: "grade" }, { text: ";" }, { text: "&nbsp" }, { text: "/*" + "NUMERIC" + "*/", type: "datatype" } ]);
-		addVariable(5, "average", "NUMERIC", 0);
+		//addVariable(5, "average", "NUMERIC", 0);
 		editor.addRow(5, [ { text: " " }, { text: "var", type: "keyword" }, { text: "&nbsp" }, { text: "average" }, { text: ";" }, { text: "&nbsp" }, { text: "/*" + "NUMERIC" + "*/", type: "datatype" } ]);
-		addBlankLine(6);
+		//addBlankLine(6);
+		editor.addRow(6, [ { text: " " } ]); 
 		//addComment(7, "Main Program");
 		editor.addRow(7, [{ text: "//&nbsp;"+"Main Program", type: "comment" }]);
-		addNumericPrompt(8, "numberOfGrades", '"Enter the number of grades."', "0", 0);
-		addAssignment(9, "total", "0", 0);
-		addFor(10, "i", "1", "<=", "numberOfGrades", "++", 0);
-		addNumericPrompt(12, "grade", '"Enter a grade."', "0", 2);
-		addWrite(13, [ '"Grade "' ], 2);
-		addWrite(14, [ 'i' ], 2);
-		addWrite(15, [ '": "' ], 2);
-		addWriteln(16, [ 'grade' ], 2);
-		addAssignment(17, "total", "total", "+", "grade", 2);
-		addWrite(19, [ '"The average of the grades is "' ], 0);
-		addIfElse(20, "numberOfGrades", ">", "0", 0);
-		addAssignment(22, "average", "total", "/", "numberOfGrades", 2);
-		addWrite(23, [ 'average' ], 2);
-		addWriteln(27, [ '"undefined"' ], 2);
+		//addNumericPrompt(8, "numberOfGrades", '"Enter the number of grades."', "0", 0);
+		editor.addRow(8, [ {text: "" }, { text: "numberOfGrades" }, { text: "&nbsp=&nbsp" }, { text: "parseFloat", type: "keyword" }, { text: "(", type: "openParen" },
+								{ text: "prompt", type: "keyword" }, { text: "(", type: "openParen" }, { text: '"Enter the number of grades."', type: "literal" },
+								{ text: ",&nbsp;" }, { text: "0", type: "literal" }, { text: ")", type: "closeParen" },
+								{ text: ")", type: "closeParen" }, { text: ";" } ]);
+		//addAssignment(9, "total", "0", 0);
+		editor.addRow(9, [ { text: "" }, { text: "total" }, { text: "&nbsp;=&nbsp;" }, { text: "0" }, { text: ";" } ]);
+		//addFor(10, "i", "1", "<=", "numberOfGrades", "++", 0);
+		editor.addRow(10,
+			[{text: ""},
+			 {text: "for", type: "keyword"},
+			 {text: "(", type: "openParen"},
+			 {text: "i"},
+			 {text: "&nbsp;=&nbsp;"},
+			 {text: "1"+";"},
+			 {text: "&nbsp;"+"i"+"&nbsp;"},
+			 {text: "<="},
+			 {text: "&nbsp;"+"numberOfGrades"+";&nbsp;"},
+			 {text: "i"+"++"},
+			 {text: ")", type: "closeParen"}]);
+		
+		editor.addRow(10 + 1, [ { text: "" }, { text: "{", type: "openBrack" } ]);
+		editor.addRow(10 + 2, [ { text: "" }, { text: "}", type: "closeBrack" } ]);
+		//addNumericPrompt(12, "grade", '"Enter a grade."', "0", 2);
+		editor.addRow(12, [ {text: "  " }, { text: "grade" }, { text: "&nbsp=&nbsp" }, { text: "parseFloat", type: "keyword" }, { text: "(", type: "openParen" },
+								{ text: "prompt", type: "keyword" }, { text: "(", type: "openParen" }, { text: '"Enter a grade."', type: "literal" },
+								{ text: ",&nbsp;" }, { text: "0", type: "literal" }, { text: ")", type: "closeParen" },
+								{ text: ")", type: "closeParen" }, { text: ";" } ]);
+		//addWrite(13, [ '"Grade "' ], 2);
+		editor.addRow(13, [ { text: "  " }, { text: "document.write", type: "keyword" }, { text: "(", type: "openParen" }, { text: "Grade " },
+									{ text: ")", type: "closeParen" }, { text: ";" } ]);
+		//addWrite(14, [ 'i' ], 2);
+		editor.addRow(14, [ { text: "  " }, { text: "document.write", type: "keyword" }, { text: "(", type: "openParen" }, { text: "i " },
+									{ text: ")", type: "closeParen" }, { text: ";" } ]);
+		//addWrite(15, [ '": "' ], 2);
+		editor.addRow(15, [ { text: "  " }, { text: "document.write", type: "keyword" }, { text: "(", type: "openParen" }, { text: ": "  },
+									{ text: ")", type: "closeParen" }, { text: ";" } ]);
+		//addWriteln(16, [ 'grade' ], 2);
+		editor.addRow(16, [ { text: "  " }, { text: "document.write", type: "keyword" }, { text: "(", type: "openParen" }, { text: "grade " },
+									{ text: ")", type: "closeParen" }, { text: ";" } ]);
+		//addAssignment(17, "total", "total", "+", "grade", 2);
+		editor.addRow(17, [ { text: "  " }, { text: "total" }, { text: "&nbsp;=&nbsp;" }, { text: "total" }, { text: "&nbsp;" + "+" + "&nbsp;" }, {text: "grade" }, { text: ";" } ]);
+		//addWrite(19, [ '"The average of the grades is "' ], 0);
+		editor.addRow(19, [ { text: "  " }, { text: "document.write", type: "keyword" }, { text: "(", type: "openParen" }, { text:  '"The average of the grades is "'  },
+									{ text: ")", type: "closeParen" }, { text: ";" } ]);
+		//addIfElse(20, "numberOfGrades", ">", "0", 0);
+		editor.addRow(20, [ { text: "" }, { text: "if ", type: "keyword" }, { text: "(", type: "openParen" }, { text: "numberOfGrades" }, { text: "&nbsp;" + ">" + "&nbsp;" },
+								{ text: "0" }, { text: ")", type: "keyword" }, { text: " " } ]);
+		editor.addRow(20 + 1, [ { text: "" }, { text: "{", type: "openBrack" } ]);
+		editor.addRow(20 + 2, [ { text: "" }, { text: "}", type: "closeBrack" } ]);
+		editor.addRow(20 + 3, [ { text: "" }, { text: "else ", type: "keyword" } ]);
+		editor.addRow(20 + 4, [ { text: "" }, { text: "{", type: "openBrack" } ]);
+		editor.addRow(20 + 5, [ { text: "" }, { text: "}", type: "closeBrack" } ]);
+		//addAssignment(22, "average", "total", "/", "numberOfGrades", 2);
+		editor.addRow(22, [ { text: "  " }, { text: "average" }, { text: "&nbsp;=&nbsp;" }, { text: "total" }, { text: "&nbsp;" + "/" + "&nbsp;" }, {text: "numberOfGrades" }, { text: ";" } ]);
+		//addWrite(23, [ 'average' ], 2);
+		editor.addRow(23, [ { text: "  " }, { text: "document.write", type: "keyword" }, { text: "(", type: "openParen" }, { text: "average " },
+									{ text: ")", type: "closeParen" }, { text: ";" } ]);
+		//addWriteln(27, [ '"undefined"' ], 2);
+		editor.addRow(27, [ { text: "  " }, { text: "document.writeln", type: "keyword" }, { text: "(", type: "openParen" }, { text: '"undefined"' },
+									{ text: ")", type: "closeParen" }, { text: ";" } ]);
+			
 	  break;
 	  default:
 	  break;
