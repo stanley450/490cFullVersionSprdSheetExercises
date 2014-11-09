@@ -300,7 +300,7 @@ function CellFunctions(figNum) {
   //Handles the paste operation
   this.paste = function() {
   	var selected = ht.getSelected();
-  	if(tempCopy!== undefined)
+  	if(tempCopy !== undefined)
   	{
         var fillerArray = generateFillerArray(tempSelected, selected);
         ht.populateFromArray(selected[0],selected[1], fillerArray, selected[0]+fillerArray.length-1, selected[1]+fillerArray[0].length-1);

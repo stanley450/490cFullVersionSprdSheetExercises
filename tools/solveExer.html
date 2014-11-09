@@ -72,13 +72,11 @@
 			
 			lab = new DataStore();
 			
-			
 		})
 		
 		
 		function saveExercise() {
 			
-			alert("thegame");
 			var exerNum = parseFloat(localStorage.getItem("currExerNum"));
 			var blarp = document.getElementById("sheetholder").innerHTML;
 			localStorage.setItem('container-exer' + exerNum, $("container" + exerNum).html.serialize());

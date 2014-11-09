@@ -433,6 +433,20 @@
 		$("#" + AE.averageButton.id).click(function() { CF.average(); });
 		$("#" + AE.formatButton.id).click(function() { CF.format(); });
 		
+		$(document).bind('copy', function(e){
+			  e.preventDefault();
+			  CF.copy();
+		});
+		$(document).bind('paste', function(e){
+			  e.preventDefault();
+			  CF.paste();
+			  alert(e.isDefaultPrevented());
+		});
+		$(document).bind('cut', function(e){
+			  e.preventDefault();
+			  CF.cut();
+		});
+		
 		//Listen for any changes to cells.
 		$("#" + AE.tableDiv.id).handsontable({
 			afterChange: function(changes, source) {
@@ -862,11 +876,12 @@
 	
 	this.getObjects = function(cellFunctions, addElements, functionParse)
 	{
-    if(ht===undefined)
-      ht = cellFunctions.ht;
+    if(ht===undefined){
+      ht = cellFunctions.ht;}
     CF = cellFunctions;
     AE = addElements;
     FP = functionParse;
+    
 	}
 	
 	$(window).on("beforeunload", function()
