@@ -761,7 +761,7 @@ function CellFunctions(figNum) {
             if(T.updateTable[cellRow*ht.countRows()+cellCol]===false)
             {
                   T.updateTable[cellRow*ht.countRows()+cellCol] = null;
-                  T.updateTable[i*ht.countRows()+k] = null;
+//                  T.updateTable[i*ht.countRows()+k] = null;
                   var value = {};
                   value.row = i;
                   value.prop = k;

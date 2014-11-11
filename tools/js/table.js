@@ -433,18 +433,22 @@
 		$("#" + AE.averageButton.id).click(function() { CF.average(); });
 		$("#" + AE.formatButton.id).click(function() { CF.format(); });
 		
-		$(document).bind('copy', function(e){
-			  e.preventDefault();
-			  CF.copy();
-		});
-		$(document).bind('paste', function(e){
-			  e.preventDefault();
-			  CF.paste();
-			  alert(e.isDefaultPrevented());
-		});
-		$(document).bind('cut', function(e){
-			  e.preventDefault();
-			  CF.cut();
+		$(document).keydown(function(e){
+			if(e.which == 67){
+				if(e.ctrlKey == true){
+					CF.copy();
+				}
+			}
+			if(e.which == 86){
+				if(e.ctrlKey == true){
+					CF.paste();
+				}
+			}
+			if(e.which == 88){
+				if(e.ctrlKey == true){
+					CF.cut();
+				}
+			}
 		});
 		
 		//Listen for any changes to cells.

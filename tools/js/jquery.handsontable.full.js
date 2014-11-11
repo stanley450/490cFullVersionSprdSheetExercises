@@ -6372,20 +6372,20 @@ CopyPasteClass.prototype.init = function () {
      * 86 = v
      * 88 = x
      */
-    if (isCtrlDown && (event.keyCode === 67 || event.keyCode === 86 || event.keyCode === 88)) {
-      // that.selectNodeText(that.elTextarea);
-
-      if (event.keyCode === 88) { //works in all browsers, incl. Opera < 12.12
-        setTimeout(function () {
-          that.triggerCut(event);
-        }, 0);
-      }
-      else if (event.keyCode === 86) {
-        setTimeout(function () {
-          that.triggerPaste(event);
-        }, 0);
-      }
-    }
+//    if (isCtrlDown && (event.keyCode === 67 || event.keyCode === 86 || event.keyCode === 88)) {
+//      // that.selectNodeText(that.elTextarea);
+//
+//      if (event.keyCode === 88) { //works in all browsers, incl. Opera < 12.12
+//        setTimeout(function () {
+//          that.triggerCut(event);
+//        }, 0);
+//      }
+//      else if (event.keyCode === 86) {
+//        setTimeout(function () {
+//          that.triggerPaste(event);
+//        }, 0);
+//      }
+//    }
   }
 
   this._bindEvent(this.listenerElement, 'keydown', this.keydownListener);
