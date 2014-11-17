@@ -1,4 +1,10 @@
-# Watson Reboot 2 - Electric Boogaloo: Spreadsheets Edition
+# Watson Clean up: Fall 2014
 
-This version of the Watson Reboot concerns the spreadsheet chapter and adding the exercises.
+490c Watson Cleanup project
 
+major concerns
+-Spreadsheets
+-Javascript
+
+minor concerns
+-Graphics
